@@ -71,7 +71,7 @@ const ProductList = ({
             <div className="product-price">
               <span>
                 {`R$ ${productData.price}`}
-                <label>/Month</label>
+                {/* <label>/Month</label> */}
               </span>
             </div>
           </div>

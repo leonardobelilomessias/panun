@@ -87,8 +87,8 @@ function AboutUs() {
           data={featureDataSorted}
           titleSectionData={{
             sectionClasses: "text-center",
-            subTitle: "Our Services",
-            title: "Our Main Focus",
+            subTitle: "Nossos Serviços",
+            title: "Especialistas em investimento imobiliário",
           }}
         />
 
@@ -103,8 +103,8 @@ function AboutUs() {
                   sectionClasses="text-center"
                   headingClasses="section-subtitle-2"
                   titleSectionData={{
-                    subTitle: "Team",
-                    title: "Property Agents",
+                    subTitle: "Nossa Equipe",
+                    title: "Corretores Especialistas",
                   }}
                 />
               </Col>
@@ -139,8 +139,8 @@ function AboutUs() {
                   sectionClasses="text-center"
                   headingClasses="section-subtitle-2"
                   titleSectionData={{
-                    subTitle: "Our Testimonial",
-                    title: "Clients Feedback",
+                    subTitle: "Depoimentos",
+                    title: " Feedback de Clientes",
                   }}
                 />
               </Col>
@@ -169,8 +169,8 @@ function AboutUs() {
                   sectionClasses="text-center"
                   headingClasses="section-subtitle-2"
                   titleSectionData={{
-                    subTitle: "News & Blogs",
-                    title: "Leatest News Feeds",
+                    subTitle: "Notícias e Blog",
+                    title: "Últimas Notícias",
                   }}
                 />
               </Col>

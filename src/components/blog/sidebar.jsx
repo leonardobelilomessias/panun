@@ -111,7 +111,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
             <input
               type="text"
               name="search"
-              placeholder="Search your keyword..."
+              placeholder="Faça uma busca..."
             />
             <button type="submit">
               <FaSearch />

@@ -126,9 +126,9 @@ function ShopRightSideBar() {
                             getFilterSortParams("filterSort", e.target.value)
                           }
                         >
-                          <option value="default">Default</option>
-                          <option value="priceHighToLow">Price - High to Low</option>
-                          <option value="priceLowToHigh">Price - Low to High</option>
+                          <option value="default">Padrão</option>
+                          <option value="priceHighToLow">Preço - Mais Baixo</option>
+                          <option value="priceLowToHigh">Preço - Mais Alto</option>
                         </Form.Select>
                       </div>
                     </li>

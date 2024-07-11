@@ -9,21 +9,26 @@ const MenuList = ({ addListing }) => {
         </Link>
       </li>
       <li className="menu-icon">
-        <Link href="/about">
-          Sobre Nós <FaPlus />
+        <Link href="/shop">
+          Imóveis <FaPlus />
+        </Link>
+      </li>
+
+      <li className="menu-icon">
+        <Link href="/shop/grid">
+          Destaques <FaPlus />
         </Link>
       </li>
       <li className="menu-icon">
-        <Link href="/shop">
+        <Link href="/shop/list">
           Lançamentos <FaPlus />
         </Link>
       </li>
       <li className="menu-icon">
-        <Link href="/shop">
-          Destaques <FaPlus />
+        <Link href="/about">
+          Sobre Nós <FaPlus />
         </Link>
       </li>
-
       <li>
         <Link href="/contact">Contato</Link>
       </li>

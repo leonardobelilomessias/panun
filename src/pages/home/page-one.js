@@ -587,8 +587,8 @@ function HomePage(props) {
                                     sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
-                                        subTitle: "News & Blogs",
-                                        title: "Leatest News Feeds",
+                                        subTitle: "Notícias e Blog",
+                                        title: "Últimas Notícias",
                                     }}
                                 />
                             </Col>

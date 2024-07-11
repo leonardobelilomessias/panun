@@ -81,7 +81,32 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
           <div className="ltn__utilize-menu">
             <ul>
               <li>
-                <Link href="#">Inicio</Link>
+                <Link href="/">Inicio</Link>
+                <span
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
+              </li>
+              <li>
+                <Link href="/shop">Imóveis</Link>
+                <span
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
+              </li>
+             
+              <li>
+                <Link href="/shop/list">Lançamentos</Link>
+                <span
+                  className="menu-expand"
+                  onClick={onClickHandler}
+                  aria-hidden="true"
+                ></span>
+              </li>
+              <li>
+                <Link href="/shop/grid">Destaques</Link>
                 <span
                   className="menu-expand"
                   onClick={onClickHandler}
@@ -90,22 +115,6 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
               </li>
               <li>
                 <Link href="#">Sobre Nós</Link>
-                <span
-                  className="menu-expand"
-                  onClick={onClickHandler}
-                  aria-hidden="true"
-                ></span>
-              </li>
-              <li>
-                <Link href="#">Lançamentos</Link>
-                <span
-                  className="menu-expand"
-                  onClick={onClickHandler}
-                  aria-hidden="true"
-                ></span>
-              </li>
-              <li>
-                <Link href="#">Destaques</Link>
                 <span
                   className="menu-expand"
                   onClick={onClickHandler}

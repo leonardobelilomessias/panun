@@ -2,8 +2,8 @@
   {
     "id": "1",
     "image": "4.jpg",
-    "name": "Rosalina D. William",
-    "designation": "PROPERTY SELLER",
+    "name": "Alan Nunes",
+    "designation": "Corretor Especialista",
     "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -45,8 +45,8 @@
   {
     "id": "2",
     "image": "2.jpg",
-    "name": "Kelian Anderson",
-    "designation": "selling Agents",
+    "name": "Gizelle Nunes",
+    "designation": "Corretor Especialista",
     "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -85,8 +85,8 @@
   {
     "id": "3",
     "image": "3.jpg",
-    "name": "Miranda H. Halim",
-    "designation": "Property Seller",
+    "name": "Eliane Medeiros",
+    "designation": "Corretor Especialista",
     "category": ["buying", "women"],
     "featured": true,
     "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",

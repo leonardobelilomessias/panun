@@ -1167,7 +1167,7 @@ function ProductDetails({ product }) {
                       <input
                         type="text"
                         name="search"
-                        placeholder="Search your keyword..."
+                        placeholder="Faça uma busca..."
                       />
                       <button type="submit">
                         <FaSearch />
@@ -1334,7 +1334,7 @@ function ProductDetails({ product }) {
                               <div className="product-price">
                                 <span>
                                   ${product.price}
-                                  <label>/Month</label>
+                                  {/* <label>/Month</label> */}
                                 </span>
                               </div>
                               <h2 className="product-title">
@@ -1441,7 +1441,7 @@ function ProductDetails({ product }) {
               <div className="col-lg-12">
                 <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative text-center---">
                   <div className="coll-to-info text-color-white">
-                    <h1>Procurando pela casa ideal?</h1>
+                    <h1>Procurando pela imóvel ideal?</h1>
                     <p>Nós podemos te ajudar na jornada de compra da sua nova casa!</p>
                   </div>
                   <div className="btn-wrapper">

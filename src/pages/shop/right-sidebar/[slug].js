@@ -1169,7 +1169,7 @@ function ProductDetails({ product }) {
                       <input
                         type="text"
                         name="search"
-                        placeholder="Search your keyword..."
+                        placeholder="Faça uma busca..."
                       />
                       <button type="submit">
                         <FaSearch />
@@ -1336,7 +1336,7 @@ function ProductDetails({ product }) {
                               <div className="product-price">
                                 <span>
                                   ${product.price}
-                                  <label>/Month</label>
+                                  {/* <label>/Month</label> */}
                                 </span>
                               </div>
                               <h2 className="product-title">

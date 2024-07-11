@@ -553,8 +553,8 @@ function HomePageFive(props) {
                                     sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
-                                        subTitle: "Our Testimonial",
-                                        title: "Clients Feedback",
+                                        subTitle: "Depoimentos",
+                                        title: "Feedback de Clientes",
                                     }}
                                 />
                             </Col>
@@ -581,8 +581,8 @@ function HomePageFive(props) {
                                     sectionClasses="text-center"
                                     headingClasses="section-subtitle-2"
                                     titleSectionData={{
-                                        subTitle: "News & Blogs",
-                                        title: "Leatest News Feeds",
+                                        subTitle: "Notícias e Blog",
+                                        title: "Últimas Notícias",
                                     }}
                                 />
                             </Col>

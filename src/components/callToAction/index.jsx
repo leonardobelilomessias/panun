@@ -5,7 +5,7 @@ const CallToAction = () => {
     <>
       <div className="call-to-action-inner call-to-action-inner-6 ltn__secondary-bg position-relative">
         <div className="coll-to-info text-color-white">
-          <h1>Procurando pela casa ideal?</h1>
+          <h1>Procurando pela imóvel ideal?</h1>
           <p>Nós podemos te ajudar na jornada de compra da sua nova casa!</p>
         </div>
         <div className="btn-wrapper">

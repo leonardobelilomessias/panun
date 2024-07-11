@@ -42,36 +42,34 @@ function AboutUsStyleOne({ sectionSpace }) {
                     About Us
                   </h6>
                   <h1 className="section-title">
-                    The Leading Real Estate Rental Marketplace<span>.</span>
+                    Liderando e Inovando Soluçoes Para o Mercado Imobiliário<span>.</span>
                   </h1>
                   <p>
-                    Over 39,000 people work for us in more than 70 countries all
-                    over the This breadth of global coverage, combined with
-                    specialist services
+                    Trabalho com ética e dedicação para oferecer as melhores soluções para o crescente mercado imobiliário. Lideramos inovações e acreditamos que a excelência e fundamental para negociações bem sucedidas. 
                   </p>
                 </div>
                 <ul className="ltn__list-item-half clearfix">
                   <li>
                     <i className="flaticon-home-2"></i>
-                    Smart Home Design
+                    Atendimento Personalizado
                   </li>
                   <li>
                     <i className="flaticon-mountain"></i>
-                    Beautiful Scene Around
+                    Constante Inovação
                   </li>
                   <li>
                     <i className="flaticon-heart"></i>
-                    Exceptional Lifestyle
+                    Relacionamentos de Qualidade
                   </li>
                   <li>
                     <i className="flaticon-secure"></i>
-                    Complete 24/7 Security
+                    Estratégias de Mercado
                   </li>
                 </ul>
                 <div className="ltn__callout bg-overlay-theme-05  mt-30">
                   <p>
-                    Enimad minim veniam quis nostrud exercitation <br />
-                    llamco laboris. Lorem ipsum dolor sit amet
+                    A melhor maneira de  prever o futuro <br />
+                    é  trabalhar para que ele se torne realidade.
                   </p>
                 </div>
                 <div className="btn-wrapper animated">
@@ -79,7 +77,7 @@ function AboutUsStyleOne({ sectionSpace }) {
                     href="/service"
                     className="theme-btn-1 btn btn-effect-1"
                   >
-                    OUR SERVICES
+                    Nossos Empreendimentos
                   </Link>
                 </div>
               </div>

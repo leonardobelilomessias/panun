@@ -6,7 +6,7 @@ const ShopBreadCrumb = ({ title, currentSlug, sectionPace }) => {
   return (
     <>
       <div
-        className={`ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image ${sectionPace}`}
+        className={`pt-50 pb-50 text-left bg-overlay-white-30 bg-image ${sectionPace}`}
         style={{ backgroundImage: `url("../img/bg/14.jpg")` }}
       >
         <Container>

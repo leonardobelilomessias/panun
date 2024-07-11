@@ -1129,8 +1129,8 @@ function HomeVersionTwo(props) {
                 sectionClasses="text-center"
                 headingClasses=""
                 titleSectionData={{
-                  subTitle: "News & Blogs",
-                  title: "Leatest News Feeds",
+                  subTitle: "Notícias e Blog",
+                  title: "Últimas Notícias",
                 }}
               />
             </Col>

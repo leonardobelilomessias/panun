@@ -94,9 +94,9 @@ function ShopGrid() {
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb
-        title="Property Grid"
+        title="Destaques"
         sectionPace=""
-        currentSlug="Property Grid"
+        currentSlug="Destaques"
       />
       {/* <!-- BREADCRUMB AREA END -->
     
@@ -130,12 +130,12 @@ function ShopGrid() {
                             getFilterSortParams("filterSort", e.target.value)
                           }
                         >
-                          <option value="default">Default</option>
+                          <option value="default">Padrão</option>
                           <option value="priceHighToLow">
-                            Price - High to Low
+                            Preço - Mais alto 
                           </option>
                           <option value="priceLowToHigh">
-                            Price - Low to High
+                            Price - Mais Baixo
                           </option>
                         </Form.Select>
                       </div>
@@ -143,9 +143,9 @@ function ShopGrid() {
                     <li>
                       <div className="showing-product-number text-right">
                         <span>
-                          {`Showing ${offset + pageLimit} of ${
+                          {`Mostrando ${offset + pageLimit} of ${
                             sortedProducts.length
-                          } results`}
+                          } resultados`}
                         </span>
                       </div>
                     </li>

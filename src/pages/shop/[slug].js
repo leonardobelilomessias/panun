@@ -22,7 +22,7 @@ import {
 } from "react-icons/fa";
 import BreadCrumb from "@/components/breadCrumbs";
 
-import { LayoutOne } from "@/layouts";
+import { LayoutOne, LayoutTwo } from "@/layouts";
 import { useSelector } from "react-redux";
 import { getProducts, productSlug, getDiscountPrice } from "@/lib/product";
 import products from "@/data/products.json";
@@ -1162,7 +1162,7 @@ function ProductDetails({ product }) {
                       <input
                         type="text"
                         name="search"
-                        placeholder="Search your keyword..."
+                        placeholder="Faça uma busca..."
                       />
                       <button type="submit">
                         <FaSearch />
@@ -1329,7 +1329,7 @@ function ProductDetails({ product }) {
                               <div className="product-price">
                                 <span>
                                   ${product.price}
-                                  <label>/Month</label>
+                                  {/* <label>/Month</label> */}
                                 </span>
                               </div>
                               <h2 className="product-title">

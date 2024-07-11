@@ -17,9 +17,9 @@ const SideBar = ({ products, getSortParams }) => {
   return (
     <>
       <aside className="sidebar ltn__shop-sidebar ltn__right-sidebar">
-        <h3 className="mb-10">Advance Information</h3>
+        <h3 className="mb-10">Filtros</h3>
         <label className="mb-30">
-          <small>About 9,620 results (0.62 seconds) </small>
+          <small>Busca 9,620 resultados (0.62 secondos) </small>
         </label>
         {/* <!-- Advance Information widget --> */}
         <div className="widget ltn__menu-widget">

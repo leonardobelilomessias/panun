@@ -130,8 +130,8 @@ function Portfolio() {
                 <TitleSection
                   sectionClasses="text-center"
                   titleSectionData={{
-                    subTitle: "News & Blogs",
-                    title: "Leatest News Feeds",
+                    subTitle: "Notícias e Blog",
+                    title: "Últimas Notícias",
                   }}
                 />
               </Col>

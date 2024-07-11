@@ -94,7 +94,7 @@ const Footer = function () {
               </Col>
               <Col xs={12} sm={6} xl={2}>
                 <div className="footer-widget footer-menu-widget clearfix">
-                  <h4 className="footer-title">Company</h4>
+                  <h4 className="footer-title">Nossa Empresa</h4>
                   <div className="footer-menu">
                     <ul>
                       <li>

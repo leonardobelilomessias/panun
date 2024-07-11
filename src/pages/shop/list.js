@@ -93,9 +93,9 @@ function ShopList() {
       {/* <!-- BREADCRUMB AREA START --> */}
 
       <ShopBreadCrumb
-        title="Property List"
+        title="Lançamentos"
         sectionPace=""
-        currentSlug="Property List"
+        currentSlug="Lançamentos"
       />
       {/* <!-- BREADCRUMB AREA END -->
     
@@ -129,12 +129,12 @@ function ShopList() {
                             getFilterSortParams("filterSort", e.target.value)
                           }
                         >
-                          <option value="default">Default</option>
+                          <option value="default">Padrão</option>
                           <option value="priceHighToLow">
-                            Price - High to Low
+                          Preço - Mais Baixo
                           </option>
                           <option value="priceLowToHigh">
-                            Price - Low to High
+                          Preço - Mais Alto
                           </option>
                         </Form.Select>
                       </div>
@@ -142,9 +142,9 @@ function ShopList() {
                     <li>
                       <div className="showing-product-number text-right">
                         <span>
-                          {`Showing ${offset + pageLimit} of ${
+                          {`Mostrando ${offset + pageLimit} of ${
                             sortedProducts.length
-                          } results`}
+                          } resultados`}
                         </span>
                       </div>
                     </li>

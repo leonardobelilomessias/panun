@@ -27,10 +27,10 @@ const Contact = () => {
                 <div className="ltn__contact-address-icon">
                   <img src="/img/icons/10.png" alt="Icon Image" />
                 </div>
-                <h3>Email Address</h3>
+                <h3>Nosso Email</h3>
                 <p>
-                  info@webmail.com <br />
-                  jobs@webexample.com
+                  contato@panum.com.br <br />
+                  comercial@panum.com.br 
                 </p>
               </div>
             </div>
@@ -39,9 +39,9 @@ const Contact = () => {
                 <div className="ltn__contact-address-icon">
                   <img src="/img/icons/11.png" alt="Icon Image" />
                 </div>
-                <h3>Phone Number</h3>
+                <h3>Telefone Whatapp</h3>
                 <p>
-                  {`(31)98264-2773`} <br /> +987-6543210
+                {`(31)98264-2773`} <br /> {`(31)98264-2773`}
                 </p>
               </div>
             </div>
@@ -50,10 +50,10 @@ const Contact = () => {
                 <div className="ltn__contact-address-icon">
                   <img src="/img/icons/12.png" alt="Icon Image" />
                 </div>
-                <h3>Office Address</h3>
+                <h3>Nosso Endereço</h3>
                 <p>
-                  18/A, New Born Town Hall <br />
-                  New York, US
+                  Belo Horizonte, Minas Gerais <br />
+                  Brasil
                 </p>
               </div>
             </div>
@@ -68,7 +68,7 @@ const Contact = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="ltn__form-box contact-form-box box-shadow white-bg">
-                <h4 className="title-2">Get A Quote</h4>
+                <h4 className="title-2">Entre em contato</h4>
                 <form id="contact-form" action="#" method="post">
                   <div className="row">
                     <div className="col-md-6">
@@ -76,7 +76,7 @@ const Contact = () => {
                         <input
                           type="text"
                           name="name"
-                          placeholder="Enter your name"
+                          placeholder="Seu nome"
                         />
                         <span className="inline-icon">
                           <FaUserAlt />
@@ -88,7 +88,7 @@ const Contact = () => {
                         <input
                           type="email"
                           name="email"
-                          placeholder="Enter email address"
+                          placeholder="Email"
                         />
                         <span className="inline-icon">
                           <FaEnvelope />
@@ -98,13 +98,12 @@ const Contact = () => {
                     <div className="col-md-6">
                       <div className="input-item input-item input-item-email ltn__custom-icon">
                         <Form.Select className="nice-select">
-                          <option>Select Service Type</option>
-                          <option>Property Management </option>
-                          <option>Mortgage Service </option>
-                          <option>Consulting Service</option>
-                          <option>Home Buying</option>
-                          <option>Home selling</option>
-                          <option>Escrow Services</option>
+                          <option>Quero vender meu imovél</option>
+                          <option>Quero comprar um imóvel </option>
+                          <option>Quero uma consultoria</option>
+                          <option>Quero ser um corretor</option>
+                          <option>Outros</option>
+
                         </Form.Select>
                         <span className="inline-icon">
                           <FaArrowDown />
@@ -116,7 +115,7 @@ const Contact = () => {
                         <input
                           type="text"
                           name="phone"
-                          placeholder="Enter phone number"
+                          placeholder="Telefone"
                         />
                         <span className="inline-icon">
                           <FaPhoneAlt />
@@ -127,25 +126,19 @@ const Contact = () => {
                   <div className="input-item input-item-textarea ltn__custom-icon">
                     <textarea
                       name="message"
-                      placeholder="Enter message"
+                      placeholder="Mensagem"
                     ></textarea>
                     <span className="inline-icon">
                       <FaPencilAlt />
                     </span>
                   </div>
-                  <p>
-                    <label className="input-info-save mb-0">
-                      <input type="checkbox" name="agree" /> Save my name,
-                      email, and website in this browser for the next time I
-                      comment.
-                    </label>
-                  </p>
+  
                   <div className="btn-wrapper mt-0">
                     <button
                       className="btn theme-btn-1 btn-effect-1 text-uppercase"
                       type="submit"
                     >
-                      get a free service
+                      Enviar mensagem
                     </button>
                   </div>
                   <p className="form-messege mb-0 mt-20"></p>
@@ -159,11 +152,13 @@ const Contact = () => {
 
       {/* <!-- GOOGLE MAP AREA START --> */}
       <div className="google-map mb-120">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
-          width="100%"
-          height="100%"
-        ></iframe>
+      <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7502.227452786913!2d-43.94480895438416!3d-19.91961183889366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e4e119a387%3A0xd00dc0b14abf3fc4!2sCentro%2C%20Belo%20Horizonte%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1720665315257!5m2!1spt-BR!2sbr"
+  width="100%"
+  height="100%"
+></iframe>
+
+
       </div>
       {/* <!-- GOOGLE MAP AREA END --> */}
     </>
