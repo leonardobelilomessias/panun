@@ -260,7 +260,7 @@ function HomeVersionTen(props) {
                     <Nav.Link eventKey="first">Studio</Nav.Link>
                     <Nav.Link eventKey="second">Deluxe Portion</Nav.Link>
                     <Nav.Link eventKey="third">Penthouse</Nav.Link>
-                    <Nav.Link eventKey="fourth">Top Garden</Nav.Link>
+                    <Nav.Link eventKey="fourth">Top Jardim</Nav.Link>
                     <Nav.Link eventKey="five"> Double Height</Nav.Link>
                   </Nav>
                 </div>
@@ -285,11 +285,11 @@ function HomeVersionTen(props) {
                                   <span>2800 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bedroom</label>
+                                  <label>Quartos</label>
                                   <span>150 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bathroom</label>
+                                  <label>Banheiros</label>
                                   <span>45 Sq. Ft</span>
                                 </li>
                                 <li>
@@ -332,11 +332,11 @@ function HomeVersionTen(props) {
                                   <span>2800 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bedroom</label>
+                                  <label>Quartos</label>
                                   <span>150 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bathroom</label>
+                                  <label>Banheiros</label>
                                   <span>45 Sq. Ft</span>
                                 </li>
                                 <li>
@@ -379,11 +379,11 @@ function HomeVersionTen(props) {
                                   <span>2800 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bedroom</label>
+                                  <label>Quartos</label>
                                   <span>150 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bathroom</label>
+                                  <label>Banheiros</label>
                                   <span>45 Sq. Ft</span>
                                 </li>
                                 <li>
@@ -411,7 +411,7 @@ function HomeVersionTen(props) {
                       <Row>
                         <Col xs={12} lg={6}>
                           <div className="apartments-plan-info section-bg-1">
-                            <h2>Top Garden</h2>
+                            <h2>Top Jardim</h2>
                             <p>
                               Enimad minim veniam quis nostrud exercitation
                               ullamco laboris. Lorem ipsum dolor sit amet cons
@@ -426,11 +426,11 @@ function HomeVersionTen(props) {
                                   <span>2800 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bedroom</label>
+                                  <label>Quartos</label>
                                   <span>150 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bathroom</label>
+                                  <label>Banheiros</label>
                                   <span>45 Sq. Ft</span>
                                 </li>
                                 <li>
@@ -473,11 +473,11 @@ function HomeVersionTen(props) {
                                   <span>2800 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bedroom</label>
+                                  <label>Quartos</label>
                                   <span>150 Sq. Ft</span>
                                 </li>
                                 <li>
-                                  <label>Bathroom</label>
+                                  <label>Banheiros</label>
                                   <span>45 Sq. Ft</span>
                                 </li>
                                 <li>
@@ -576,7 +576,7 @@ function HomeVersionTen(props) {
                   <ul className="ltn__select-availability-table-head">
                     <li>Residence</li>
                     <li>Quartos</li>
-                    <li>Bathroom</li>
+                    <li>Banheiros</li>
                     <li>SQ.FT </li>
                     <li>Rent Price</li>
                     <li>Details</li>
@@ -672,7 +672,7 @@ function HomeVersionTen(props) {
                       <span>Quartos</span> <span>3</span>
                     </li>
                     <li>
-                      <span>Bathroom</span> <span>3</span>
+                      <span>Banheiros</span> <span>3</span>
                     </li>
                     <li>
                       <span>SQ.FT</span> <span>1,200</span>
@@ -696,7 +696,7 @@ function HomeVersionTen(props) {
                       <span>Quartos</span> <span>3</span>
                     </li>
                     <li>
-                      <span>Bathroom</span> <span>3</span>
+                      <span>Banheiros</span> <span>3</span>
                     </li>
                     <li>
                       <span>SQ.FT</span> <span>1,200</span>
@@ -720,7 +720,7 @@ function HomeVersionTen(props) {
                       <span>Quartos</span> <span>3</span>
                     </li>
                     <li>
-                      <span>Bathroom</span> <span>3</span>
+                      <span>Banheiros</span> <span>3</span>
                     </li>
                     <li>
                       <span>SQ.FT</span> <span>1,200</span>

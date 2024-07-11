@@ -261,7 +261,7 @@ function ProductDetails({ product }) {
                   <p>{product.description.fullDescription}</p>
                   <p>{product.description.shortDescription}</p>
 
-                  <h4 className="title-2">Property Detail</h4>
+                  <h4 className="title-2">Detalhes do Imóvel</h4>
                   <div className="property-detail-info-list section-bg-1 clearfix mb-60">
                     <ul>
                       <li>
@@ -308,14 +308,14 @@ function ProductDetails({ product }) {
                     </ul>
                   </div>
 
-                  <h4 className="title-2">Facts and Features</h4>
+                  <h4 className="title-2">Mais detalhes</h4>
                   <div className="property-detail-feature-list clearfix mb-45">
                     <ul>
                       <li>
                         <div className="property-detail-feature-list-item">
                           <i className="flaticon-double-bed"></i>
                           <div>
-                            <h6>Living Room</h6>
+                            <h6>Sala de Estar</h6>
                             <small>{product.factsAndFeatures.livingRoom}</small>
                           </div>
                         </div>
@@ -324,7 +324,7 @@ function ProductDetails({ product }) {
                         <div className="property-detail-feature-list-item">
                           <i className="flaticon-double-bed"></i>
                           <div>
-                            <h6>Garage</h6>
+                            <h6>Garagem</h6>
                             <small>{product.factsAndFeatures.garage}</small>
                           </div>
                         </div>
@@ -342,7 +342,7 @@ function ProductDetails({ product }) {
                         <div className="property-detail-feature-list-item">
                           <i className="flaticon-double-bed"></i>
                           <div>
-                            <h6>Bedroom</h6>
+                            <h6>Quartos</h6>
                             <small>{product.factsAndFeatures.bedroom}</small>
                           </div>
                         </div>
@@ -351,7 +351,7 @@ function ProductDetails({ product }) {
                         <div className="property-detail-feature-list-item">
                           <i className="flaticon-double-bed"></i>
                           <div>
-                            <h6>Bathroom</h6>
+                            <h6>Banheiros</h6>
                             <small>{product.factsAndFeatures.bathroom}</small>
                           </div>
                         </div>
@@ -360,7 +360,7 @@ function ProductDetails({ product }) {
                         <div className="property-detail-feature-list-item">
                           <i className="flaticon-double-bed"></i>
                           <div>
-                            <h6>Gym Area</h6>
+                            <h6>Area Fitness</h6>
                             <small>{product.factsAndFeatures.gymArea}</small>
                           </div>
                         </div>
@@ -369,7 +369,7 @@ function ProductDetails({ product }) {
                         <div className="property-detail-feature-list-item">
                           <i className="flaticon-double-bed"></i>
                           <div>
-                            <h6>Garden</h6>
+                            <h6>Jardim</h6>
                             <small>{product.factsAndFeatures.garden}</small>
                           </div>
                         </div>
@@ -426,7 +426,7 @@ function ProductDetails({ product }) {
                     </div>
                   </div>
 
-                  <h4 className="title-2 mb-10">Amenities</h4>
+                  <h4 className="title-2 mb-10">Comodidades</h4>
 
                   <div className="property-details-amenities mb-60">
                     <div className="row">
@@ -493,7 +493,7 @@ function ProductDetails({ product }) {
                     </div>
                   </div>
 
-                  <h4 className="title-2">Location</h4>
+                  <h4 className="title-2">Localização</h4>
                   <div className="property-details-google-map mb-60">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd"
@@ -511,10 +511,10 @@ function ProductDetails({ product }) {
                     <Tab.Container defaultActiveKey="first">
                       <div className="ltn__tab-menu ltn__tab-menu-3">
                         <Nav className="nav">
-                          <Nav.Link eventKey="first">First Floor</Nav.Link>
+                          <Nav.Link eventKey="first">Primeiro Piso</Nav.Link>
                           <Nav.Link eventKey="second">Second Floor</Nav.Link>
                           <Nav.Link eventKey="third">Third Floor</Nav.Link>
-                          <Nav.Link eventKey="fourth">Top Garden</Nav.Link>
+                          <Nav.Link eventKey="fourth">Top Jardim</Nav.Link>
                         </Nav>
                       </div>
                       <Tab.Content>
@@ -528,7 +528,7 @@ function ProductDetails({ product }) {
                               </div>
                               <div className="col-lg-5">
                                 <div className="apartments-plan-info">
-                                  <h2>First Floor</h2>
+                                  <h2>Primeiro Piso</h2>
                                   <p>
                                     Enimad minim veniam quis nostrud
                                     exercitation ullamco laboris. Lorem ipsum
@@ -549,7 +549,7 @@ function ProductDetails({ product }) {
                                             <span>2800 Sq. Ft</span>
                                           </li>
                                           <li>
-                                            <label>Bedroom</label>{" "}
+                                            <label>Quartos</label>{" "}
                                             <span>150 Sq. Ft</span>
                                           </li>
                                         </ul>
@@ -606,7 +606,7 @@ function ProductDetails({ product }) {
                                             <span>2800 Sq. Ft</span>
                                           </li>
                                           <li>
-                                            <label>Bedroom</label>{" "}
+                                            <label>Quartos</label>{" "}
                                             <span>150 Sq. Ft</span>
                                           </li>
                                         </ul>
@@ -663,7 +663,7 @@ function ProductDetails({ product }) {
                                             <span>2800 Sq. Ft</span>
                                           </li>
                                           <li>
-                                            <label>Bedroom</label>{" "}
+                                            <label>Quartos</label>{" "}
                                             <span>150 Sq. Ft</span>
                                           </li>
                                         </ul>
@@ -699,7 +699,7 @@ function ProductDetails({ product }) {
                               </div>
                               <div className="col-lg-5">
                                 <div className="apartments-plan-info">
-                                  <h2>Top Garden</h2>
+                                  <h2>Top Jardim</h2>
                                   <p>
                                     Enimad minim veniam quis nostrud
                                     exercitation ullamco laboris. Lorem ipsum
@@ -720,7 +720,7 @@ function ProductDetails({ product }) {
                                             <span>2800 Sq. Ft</span>
                                           </li>
                                           <li>
-                                            <label>Bedroom</label>{" "}
+                                            <label>Quartos</label>{" "}
                                             <span>150 Sq. Ft</span>
                                           </li>
                                         </ul>

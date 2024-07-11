@@ -259,7 +259,7 @@ function HomePageFive(props) {
                                             <Nav.Link eventKey="first">Studio</Nav.Link>
                                             <Nav.Link eventKey="second">Deluxe Portion</Nav.Link>
                                             <Nav.Link eventKey="third">Penthouse</Nav.Link>
-                                            <Nav.Link eventKey="fourth">Top Garden</Nav.Link>
+                                            <Nav.Link eventKey="fourth">Top Jardim</Nav.Link>
                                             <Nav.Link eventKey="five"> Double Height</Nav.Link>
                                         </Nav>
                                     </div>
@@ -284,11 +284,11 @@ function HomePageFive(props) {
                                                                         <span>2800 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
+                                                                        <label>Quartos</label>
                                                                         <span>150 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
+                                                                        <label>Banheiros</label>
                                                                         <span>45 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
@@ -331,11 +331,11 @@ function HomePageFive(props) {
                                                                         <span>2800 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
+                                                                        <label>Quartos</label>
                                                                         <span>150 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
+                                                                        <label>Banheiros</label>
                                                                         <span>45 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
@@ -378,11 +378,11 @@ function HomePageFive(props) {
                                                                         <span>2800 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
+                                                                        <label>Quartos</label>
                                                                         <span>150 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
+                                                                        <label>Banheiros</label>
                                                                         <span>45 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
@@ -410,7 +410,7 @@ function HomePageFive(props) {
                                                 <Row>
                                                     <Col xs={12} lg={6}>
                                                         <div className="apartments-plan-info ltn__secondary-bg text-color-white">
-                                                            <h2>Top Garden</h2>
+                                                            <h2>Top Jardim</h2>
                                                             <p>
                                                                 Enimad minim veniam quis nostrud exercitation
                                                                 ullamco laboris. Lorem ipsum dolor sit amet cons
@@ -425,11 +425,11 @@ function HomePageFive(props) {
                                                                         <span>2800 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
+                                                                        <label>Quartos</label>
                                                                         <span>150 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
+                                                                        <label>Banheiros</label>
                                                                         <span>45 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
@@ -472,11 +472,11 @@ function HomePageFive(props) {
                                                                         <span>2800 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
+                                                                        <label>Quartos</label>
                                                                         <span>150 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
+                                                                        <label>Banheiros</label>
                                                                         <span>45 Sq. Ft</span>
                                                                     </li>
                                                                     <li>

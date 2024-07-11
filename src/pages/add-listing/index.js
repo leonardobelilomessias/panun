@@ -24,7 +24,7 @@ function AddListingPage() {
                       <Nav className="nav justify-content-center">
                         <Nav.Link eventKey="first">1. Description</Nav.Link>
                         <Nav.Link eventKey="second">2. Media</Nav.Link>
-                        <Nav.Link eventKey="third">3. Location</Nav.Link>
+                        <Nav.Link eventKey="third">3. Localização</Nav.Link>
                         <Nav.Link eventKey="fourth">4. Details</Nav.Link>
                         <Nav.Link eventKey="five">5. Amenities</Nav.Link>
                       </Nav>
@@ -236,7 +236,7 @@ function AddListingPage() {
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
                         <div className="ltn__product-tab-content-inner">
-                          <h6>Listing Location</h6>
+                          <h6>Listing Localização</h6>
                           <Row>
                             <Col xs={12} md={6}>
                               <div className="input-item input-item-textarea ltn__custom-icon">
@@ -458,7 +458,7 @@ function AddListingPage() {
                                 <input
                                   type="text"
                                   name="ltn__name"
-                                  placeholder="Garages (*text)"
+                                  placeholder="Garagems (*text)"
                                 />
                                 <span className="inline-icon">
                                   <FaPencilAlt />
@@ -482,7 +482,7 @@ function AddListingPage() {
                                 <input
                                   type="text"
                                   name="ltn__name"
-                                  placeholder="Garage Size (*text)"
+                                  placeholder="Garagem Size (*text)"
                                 />
                                 <span className="inline-icon">
                                   <FaPencilAlt />
@@ -688,7 +688,7 @@ function AddListingPage() {
                             </Col>
                             <Col xs={12} md={6} lg={4}>
                               <label className="checkbox-item">
-                                Garage Attached
+                                Garagem Attached
                                 <input type="checkbox" />
                                 <span className="checkmark"></span>
                               </label>

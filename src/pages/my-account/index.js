@@ -1144,7 +1144,7 @@ function MyAccount() {
                                   <FaPencilAlt />
                                 </span>
                               </div>
-                              <h6>Listing Location</h6>
+                              <h6>Listing Localização</h6>
                               <Row>
                                 <Col xs={12} md={6}>
                                   <div className="input-item input-item-textarea ltn__custom-icon">
@@ -1350,7 +1350,7 @@ function MyAccount() {
                                     <input
                                       type="text"
                                       name="ltn__name"
-                                      placeholder="Garages (*text)"
+                                      placeholder="Garagems (*text)"
                                     />
                                     <span className="inline-icon">
                                       <FaPencilAlt />
@@ -1374,7 +1374,7 @@ function MyAccount() {
                                     <input
                                       type="text"
                                       name="ltn__name"
-                                      placeholder="Garage Size (*text)"
+                                      placeholder="Garagem Size (*text)"
                                     />
                                     <span className="inline-icon">
                                       <FaPencilAlt />
@@ -1574,7 +1574,7 @@ function MyAccount() {
                                 </Col>
                                 <Col xs={12} md={6} lg={4}>
                                   <label className="checkbox-item">
-                                    Garage Attached
+                                    Garagem Attached
                                     <input type="checkbox" />
                                     <span className="checkmark"></span>
                                   </label>

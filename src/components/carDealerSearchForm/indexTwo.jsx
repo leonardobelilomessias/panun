@@ -150,7 +150,7 @@ function CarDealerSearchFormTwo() {
                               <FaCarAlt />
                             </span>
                             <Form.Select className="nice-select">
-                              <option>Location</option>
+                              <option>Localização</option>
                               <option>chicago</option>
                               <option>London</option>
                               <option>Los Angeles</option>
@@ -168,7 +168,7 @@ function CarDealerSearchFormTwo() {
                               <FaCookie />
                             </span>
                             <Form.Select className="nice-select">
-  <option>Sub Location</option>
+  <option>Sub Localização</option>
   <option>Centro</option>
   <option>Savassi</option>
   <option>Pampulha</option>

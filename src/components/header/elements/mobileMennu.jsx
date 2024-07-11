@@ -114,7 +114,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                 ></span>
               </li>
               <li>
-                <Link href="#">Sobre Nós</Link>
+                <Link href="/about">Sobre Nós</Link>
                 <span
                   className="menu-expand"
                   onClick={onClickHandler}

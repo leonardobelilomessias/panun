@@ -445,11 +445,11 @@ function HomePageSix(props) {
                                                                         <span>2800 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bedroom</label>
+                                                                        <label>Quartos</label>
                                                                         <span>150 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
-                                                                        <label>Bathroom</label>
+                                                                        <label>Banheiros</label>
                                                                         <span>45 Sq. Ft</span>
                                                                     </li>
                                                                     <li>
