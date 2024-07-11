@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "João Silva",
+    "type": "Engenheiro Civil",
+    "img": "1.jpg",
+    "description": "A compra do meu imóvel foi um sucesso graças à ajuda do João. Ele é muito atencioso e prestativo. Recomendo! - Maria Oliveira"
+  },
+  {
+    "id": "2",
+    "name": "Ana Pereira",
+    "type": "Advogada",
+    "img": "2.jpg",
+    "description": "A Ana foi essencial para a venda do meu apartamento. Sempre disponível para tirar dúvidas e muito profissional. - Pedro Souza"
+  },
+  {
+    "id": "3",
+    "name": "Carlos Fernandes",
+    "type": "Médico",
+    "img": "3.jpg",
+    "description": "Carlos me ajudou a encontrar o imóvel perfeito. Todo o processo foi muito tranquilo e rápido. - Fernanda Costa"
+  },
+  {
+    "id": "4",
+    "name": "Lucas Lima",
+    "type": "Empresário",
+    "img": "4.jpg",
+    "description": "Vendi minha casa com a ajuda do Lucas e estou muito satisfeito com o resultado. Excelente trabalho! - Ricardo Santos"
+  }
+]

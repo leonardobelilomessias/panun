@@ -1,0 +1,1047 @@
+[
+  {
+    "id": "1",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Residencial Lenland",
+    "productImg": "1.jpg",
+    "price": 290000,
+    "priceRange": ["Low Budget"],
+    "discount": 5,
+    "country": true,
+    "district": "Vale do Sereno",
+    "properties": 2,
+    "featured": true,
+    "new": true,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 3,
+    "saleCount": 5,
+    "category": ["buying", "renting"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Vale do Sereno - Nova Lima",
+    "description": {
+      "title": "Description",
+      "fullDescription": "Massa tempor nec feugiat nisl pretium. Egestas fringilla phasellus faucibus scelerisque eleifend donec Porta nibh venenatis cras sed felis eget velit aliquet. Neque volutpat ac tincidunt vitae semper quis lectus. Turpis in eu mi bibendum neque egestas congue quisque. Sed elementum tempus egestas sed sed risus pretium quam. Dignissim sodales ut eu sem. Nibh mauris cursus mattis molestee iaculis at erat pellentesque. Id interdum velit laoreet id donec ultrices tincidunt.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à única sala de café da manhã em família, que possui paredes e portas de vidro para o jardim e acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 metros",
+      "garage": "20 x 16 metros",
+      "diningArea": "20 x 16 metros",
+      "bedroom": "20 x 16 metros",
+      "bathroom": "20 x 16 metros",
+      "gymArea": "20 x 16 metros",
+      "garden": "20 x 16 metros",
+      "parking": "20 x 16 metros"
+    },
+    "amenities1": [
+      "Ar Condicionado",
+      "Academia",
+      "Piscina",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Churrasqueira",
+      "Recreação",
+      "Microondas",
+      "Quadra de Basquete",
+      "Lareira"
+    ],
+    "amenities3": [
+      "Segurança 24x7",
+      "Jogos Internos"
+    ],
+    "AmenitiesList": [],
+    "agent": {
+      "firstName": "Leonardo",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["House", "Office Villa", "Luxary Home"]
+  },
+  {
+    "id": "2",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Condominio Alta Vila",
+    "productImg": "2.jpg",
+    "price": 2590000,
+    "priceRange": ["Medium"],
+    "discount": 5,
+    "country": true,
+    "district": "Mangabeiras",
+    "properties": 2,
+    "featured": false,
+    "new": false,
+    "rent": true,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 3,
+    "rating": 4,
+    "saleCount": 10,
+    "category": ["buying"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "variation": [
+      {
+        "color": "brown",
+        "colorCode": "#87554b",
+        "image": "1.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 3
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 5
+          }
+        ]
+      },
+      {
+        "color": "black",
+        "colorCode": "#333333",
+        "image": "2.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 4
+          },
+          {
+            "name": "m",
+            "stock": 7
+          },
+          {
+            "name": "xl",
+            "stock": 9
+          },
+          {
+            "name": "xxl",
+            "stock": 1
+          }
+        ]
+      },
+      {
+        "color": "red",
+        "colorCode": "#da323f",
+        "image": "3.jpg",
+        "size": [
+          {
+            "name": "x",
+            "stock": 1
+          },
+          {
+            "name": "m",
+            "stock": 2
+          },
+          {
+            "name": "xl",
+            "stock": 4
+          },
+          {
+            "name": "xxl",
+            "stock": 0
+          }
+        ]
+      }
+    ],
+    "date": "21 de Junho de  2024",
+    "comments": 35,
+    "locantion": "Condomínio Alta Vila",
+    "description": {
+      "title": "Descição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 metros",
+      "garage": "20 x 16 metros",
+      "diningArea": "20 x 16 metros",
+      "bedroom": "20 x 16 metros",
+      "bathroom": "20 x 16 metros",
+      "gymArea": "20 x 16 metros",
+      "garden": "20 x 16 metros",
+      "parking": "20 x 16 metros"
+    },
+
+    "amenities1": [
+      "Academia",
+      "Piscina"
+    ],
+    "amenities2": [
+      "Churrasqueira",
+      "Recreação"
+    ],
+    "amenities3": [
+      "Segurança 24x7",
+      "Jogos Internos"
+    ],
+    "AmenitiesList": [],
+    "agent": {
+      "firstName": "Leonardo ",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["Apartment", "Office Villa", "Luxary Home", "Studio"]
+  },
+  {
+    "id": "3",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Edificio Papiro",
+    "productImg": "3.jpg",
+    "price": 4900000,
+    "priceRange": ["High Budget"],
+    "discount": 15,
+    "country": false,
+    "district": "Lourdes",
+    "properties": 3,
+    "featured": false,
+    "new": true,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 2,
+    "rating": 3,
+    "saleCount": 15,
+    "category": ["buying", "selling"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Lourdes",
+    "description": {
+      "title": "Descrição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à única sala de café da manhã em família, que possui paredes e portas de vidro para o jardim e acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 metros",
+      "garage": "20 x 16 metros",
+      "diningArea": "20 x 16 metros",
+      "bedroom": "20 x 16 metros",
+      "bathroom": "20 x 16 metros",
+      "gymArea": "20 x 16 metros",
+      "garden": "20 x 16 metros",
+      "parking": "20 x 16 metros"
+    },
+
+    "amenities1": [
+      "Ar Condicionado",
+      "Academia",
+      "Piscina",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Churrasqueira",
+      "Recreação",
+      "Quadra de Basquete"
+    ],
+    "amenities3": [
+      "Segurança 24x7",
+      "Jogos Internos"
+    ],
+    "AmenitiesList": [],
+    "agent": {
+      "firstName": "Leonardo ",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["House", "Single Family", "Luxary Home", "Studio"]
+  },
+  {
+    "id": "4",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Savassi Square",
+    "productImg": "4.jpg",
+    "price": 900000,
+    "priceRange": ["Medium"],
+    "discount": 10,
+    "country": false,
+    "district": "Savassi",
+    "properties": 1,
+    "featured": true,
+    "new": false,
+    "rent": true,
+    "photo": ["buying", "women", "men"],
+    "video": ["buying", "women", "children"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 20,
+    "category": ["buying", "renting"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Savassi",
+    "description": {
+      "title": "Descrição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada."
+    },    
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 metros",
+      "garage": "20 x 16 metros",
+      "diningArea": "20 x 16 metros",
+      "bedroom": "20 x 16 metros",
+      "bathroom": "20 x 16 metros",
+      "gymArea": "20 x 16 metros",
+      "garden": "20 x 16 metros",
+      "parking": "20 x 16 metros"
+    },
+    "amenities1": [
+      "Ar Condicionado",
+      "Academia",
+      "Microondas",
+      "Piscina",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Churrasqueira",
+      "Recreação",
+      "Microondas",
+      "Quadra de Basquete",
+      "Lareira"
+    ],
+    "amenities3": [
+      "Geladeira",
+      "Cortinas",
+      "Lavadora",
+      "Segurança 24x7",
+      "Jogos Internos"
+    ],
+    "AmenitiesList": [],
+    "agent": {
+      "firstName": "Leonardo",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": [
+      "House",
+      "Single Family",
+      "Apartment",
+      "Luxary Home",
+      "Studio"
+    ]
+  },
+  {
+    "id": "5",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Vivensso Escolari",
+    "productImg": "5.jpg",
+    "price": 1490000,
+    "priceRange": ["Low Budget"],
+    "discount": 5,
+    "country": true,
+    "district": "São Pedro",
+    "properties": 2,
+    "featured": true,
+    "new": true,
+    "rent": true,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 90,
+    "category": ["buying", "renting"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "São Pedro",
+    "description": {
+      "title": "Descrição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à única sala de café da manhã em família, que possui paredes e portas de vidro para o jardim e acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+    "livingRoom": "20 x 16 metros",
+    "garage": "20 x 16 metros",
+    "diningArea": "20 x 16 metros",
+    "bedroom": "20 x 16 metros",
+    "bathroom": "20 x 16 metros",
+    "gymArea": "20 x 16 metros",
+    "garden": "20 x 16 metros",
+    "parking": "20 x 16 metros"
+  },
+  "amenities1": [
+    "Ar Condicionado",
+    "Academia",
+    "Microondas",
+    "Piscina",
+    "WiFi"
+  ],
+  "amenities2": [
+    "Churrasqueira",
+    "Recreação",
+    "Microondas",
+    "Quadra de Basquete",
+    "Lareira"
+  ],
+  "amenities3": [
+    "Geladeira",
+    "Cortinas",
+    "Lavadora",
+    "Segurança 24x7",
+    "Jogos Internos"
+  ],
+    "AmenitiesList": [],
+    "agent": {
+      "firstName": "Leonardo",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["House", "Single Family", "Apartment", "Office Villa"]
+  },
+  {
+    "id": "6",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Condominio Catas Altas",
+    "productImg": "6.jpg",
+    "price": 215,
+    "priceRange": ["Low"],
+    "discount": 5,
+    "country": true,
+    "district": "Funcionarios",
+    "properties": 2,
+    "featured": true,
+    "new": false,
+    "rent": true,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 2,
+    "rating": 3,
+    "saleCount": 25,
+    "category": ["buying", "selling", "renting"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "21 de Junho de  2024",
+    "comments": 35,
+    "locantion": "Funcionários",
+    "description": {
+      "title": "Descrição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à única sala de café da manhã em família, que possui paredes e portas de vidro para o jardim e acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+   "factsAndFeatures": {
+    "livingRoom": "20 x 16 metros",
+    "garage": "20 x 16 metros",
+    "diningArea": "20 x 16 metros",
+    "bedroom": "20 x 16 metros",
+    "bathroom": "20 x 16 metros",
+    "gymArea": "20 x 16 metros",
+    "garden": "20 x 16 metros",
+    "parking": "20 x 16 metros"
+  },
+  "amenities1": [
+    "Ar Condicionado",
+    "Academia",
+    "Microondas",
+    "Piscina",
+    "WiFi"
+  ],
+  "amenities2": [
+    "Churrasqueira",
+    "Recreação",
+    "Microondas",
+    "Quadra de Basquete",
+    "Lareira"
+  ],
+  "amenities3": [
+    "Geladeira",
+    "Cortinas",
+    "Lavadora",
+    "Segurança 24x7",
+    "Jogos Internos"
+  ],
+    "AmenitiesList": [],
+    "agent": {
+      "firstName": "Leonardo",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["House", "Single Family", "Apartment", "Office Villa"]
+  },
+  {
+    "id": "7",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Bom Vivanti",
+    "productImg": "1.jpg",
+    "price": 720000,
+    "priceRange": ["Low Budget", "Medium"],
+    "discount": 5,
+    "country": false,
+    "district": "Cidade Nova",
+    "properties": 2,
+    "featured": true,
+    "new": true,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 30,
+    "category": ["buying", "renting", "selling"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Cidade Nova",
+    "description": {
+      "title": "Descrição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+   "factsAndFeatures": {
+    "livingRoom": "20 x 16 metros",
+    "garage": "20 x 16 metros",
+    "diningArea": "20 x 16 metros",
+    "bedroom": "20 x 16 metros",
+    "bathroom": "20 x 16 metros",
+    "gymArea": "20 x 16 metros",
+    "garden": "20 x 16 metros",
+    "parking": "20 x 16 metros"
+  },
+  "amenities1": [
+    "Ar Condicionado",
+    "Academia",
+    "Microondas",
+    "Piscina",
+    "WiFi"
+  ],
+  "amenities2": [
+    "Churrasqueira",
+    "Recreação",
+    "Microondas",
+    "Quadra de Basquete",
+    "Lareira"
+  ],
+  "amenities3": [
+    "Geladeira",
+    "Cortinas",
+    "Lavadora",
+    "Segurança 24x7",
+    "Jogos Internos"
+  ],
+    "AmenitiesList": ["Supermarket"],
+   "agent": {
+      "firstName": "Leonardo",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["Office Villa"]
+  },
+  {
+    "id": "8",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Brigada do Sol",
+    "productImg": "2.jpg",
+    "price": 500000,
+    "priceRange": ["Low Budget", "Medium"],
+    "discount": 5,
+    "country": false,
+    "district": "Serra",
+    "properties": 2,
+    "featured": false,
+    "new": true,
+    "rent": true,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 35,
+    "category": ["buying", "renting", "selling"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "21 de Junho de  2024",
+    "comments": 35,
+    "locantion": "Chicago",
+    "description": {
+      "title": "Descrição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à única sala de café da manhã em família, que possui paredes e portas de vidro para o jardim e acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },"factsAndFeatures": {
+    "livingRoom": "20 x 16 metros",
+    "garage": "20 x 16 metros",
+    "diningArea": "20 x 16 metros",
+    "bedroom": "20 x 16 metros",
+    "bathroom": "20 x 16 metros",
+    "gymArea": "20 x 16 metros",
+    "garden": "20 x 16 metros",
+    "parking": "20 x 16 metros"
+  },
+  "amenities1": [
+    "Ar Condicionado",
+    "Academia",
+    "Microondas",
+    "Piscina",
+    "WiFi"
+  ],
+  "amenities2": [
+    "Churrasqueira",
+    "Recreação",
+    "Microondas",
+    "Quadra de Basquete",
+    "Lareira"
+  ],
+  "amenities3": [
+    "Geladeira",
+    "Cortinas",
+    "Lavadora",
+    "Segurança 24x7",
+    "Jogos Internos"
+  ],
+    "AmenitiesList": ["Supermarket"],
+    "agent": {
+      "firstName": "Leonardo",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["Single Family"]
+  },
+  {
+    "id": "9",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "title": "Gianninne Viola",
+    "productImg": "4.jpg",
+    "price": 470000,
+    "priceRange": ["Low Budget"],
+    "discount": 5,
+    "country": true,
+    "district": "Santa Efigênia",
+    "properties": 2,
+    "featured": false,
+    "new": true,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 5,
+    "saleCount": 90,
+    "category": ["buying", "selling"],
+    "tag": [
+      "Popular",
+      "desgin",
+      "ux",
+      "usability",
+      "develop",
+      "icon",
+      "Car",
+      "Service",
+      "Repairs",
+      "Auto Parts",
+      "Oil",
+      "Dealer",
+      "Oil Change",
+      "Body Color"
+    ],
+    "date": "May 19, 2021",
+    "comments": 35,
+    "locantion": "Santa Efigênia",
+    "description": {
+      "title": "Descrição",
+      "fullDescription": "À esquerda está a cozinha moderna com ilha central, levando à exclusiva sala de café da manhã em família, que possui paredes de vidro e portas que dão para o jardim, além de acesso à sala de utilidades separada.",
+      "shortDescription": "À esquerda está a cozinha moderna com ilha central, levando à única sala de café da manhã em família, que possui paredes e portas de vidro para o jardim e acesso à sala de utilidades separada."
+    },
+    "propertyDetails": {
+      "propertyId": "HZ29",
+      "area": 3450,
+      "propertyStatus": "For Sale",
+      "rooms": 7,
+      "bedrooms": 3,
+      "baths": 2,
+      "createdYear": 1992
+    },
+    "factsAndFeatures": {
+      "livingRoom": "20 x 16 metros",
+      "garage": "20 x 16 metros",
+      "diningArea": "20 x 16 metros",
+      "bedroom": "20 x 16 metros",
+      "bathroom": "20 x 16 metros",
+      "gymArea": "20 x 16 metros",
+      "garden": "20 x 16 metros",
+      "parking": "20 x 16 metros"
+    },
+    "amenities1": [
+      "Ar Condicionado",
+      "Academia",
+      "Microondas",
+      "Piscina",
+      "WiFi"
+    ],
+    "amenities2": [
+      "Churrasqueira",
+      "Recreação",
+      "Microondas",
+      "Quadra de Basquete",
+      "Lareira"
+    ],
+    "amenities3": [
+      "Geladeira",
+      "Cortinas",
+      "Lavadora",
+      "Segurança 24x7",
+      "Jogos Internos"
+    ],
+    "AmenitiesList": [],
+    "agent": {
+      "firstName": "Leonardo",
+      "lastName": "Belilo",
+      "fullName": "Leonardo Belilo",
+      "type": "Property Seller",
+      "img": "author.jpg",
+      "designation": "Corretor",
+      "raiting": 3,
+      "description": "Corretor especializado em imóveis de alt padrão",
+      "social": ["FaPlay", "FaHome", "FaArrowRight", "FaArrowLeft"]
+    },
+
+
+    "gallery": {
+      "img1": "14.jpg",
+      "img2": "15.jpg",
+      "img3": "16.jpg"
+    },
+    "propertyTypes": ["House", "Single Family"]
+  }
+]

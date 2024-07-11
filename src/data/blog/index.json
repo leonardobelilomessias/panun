@@ -1,0 +1,751 @@
+[
+  {
+    "settings": {
+      "thumbNail": true,
+      "video": false,
+      "audio": false,
+      "gallery": false,
+      "backgroundImage": false,
+      "backgroundNoImage": false,
+      "blockquote": false,
+      "description": true,
+      "categories": true,
+      "author": true
+    },
+    "id": "1",
+    "admin": "Administração",
+    "title": "Renovando a Sala de Estar? Especialistas Compartilham Seus Segredos",
+    "type": "IMÓVEIS",
+    "featured": true,
+    "new": true,
+    "rent": true,
+    "category": ["compra"],
+    "tag": ["Popular", "design", "UX"],
+    "thumbImg": "1.jpg",
+    "backgroundImage": "3.jpg",
+    "galleryImageList": [
+      { "img": "1.jpg" },
+      { "img": "1.jpg" },
+      { "img": "1.jpg" },
+      { "img": "1.jpg" }
+    ],
+    "views": 232,
+    "comments": 35,
+    "date": "24 de Junho de 2023",
+    "fullDescription": "Ao renovar sua sala de estar, é essencial considerar diversos aspectos para criar um ambiente acolhedor e funcional. Neste artigo, vamos explorar dicas e segredos compartilhados por especialistas para transformar sua sala de estar em um espaço ainda mais confortável e convidativo.",
+    "shortDescription": "Descubra as melhores dicas para renovar sua sala de estar e transformar seu espaço.",
+    "extraInformation": [
+      {
+        "title": "Um banho quente relaxante",
+        "description": "Nada como um banho quente para relaxar após um dia agitado. Especialistas recomendam incluir este hábito na sua rotina para aliviar o estresse e promover o bem-estar.",
+        "hr": true
+      },
+      {
+        "title": "Crie um ambiente agradável com incensos",
+        "description": "Os incensos são ótimos para criar um ambiente tranquilo e perfumado. Experimente aromas que combinem com sua decoração e ajudem a relaxar.",
+        "hr": true
+      }
+    ],
+    "extraInformationList": [
+      { "name": "Descubra dicas exclusivas para renovar sua sala de estar" },
+      { "name": "Ideias criativas para transformar seu espaço" },
+      { "name": "Como escolher os melhores móveis para sua sala de estar" },
+      { "name": "Dicas práticas para uma decoração harmoniosa" },
+      { "name": "Inspire-se com as últimas tendências em design de interiores" }
+    ],
+    "blockquote": {
+      "quoteTitle": "Sonhar com um mundo melhor é o primeiro passo para torná-lo realidade.",
+      "name": "Ethan"
+    },
+    "extraContent": {
+      "title": "A importância de uma sala de estar bem planejada",
+      "description1": "Uma sala de estar bem planejada não apenas proporciona conforto, mas também reflete o estilo pessoal de seus moradores. Descubra como transformar seu espaço em um ambiente acolhedor e funcional.",
+      "description2": "Desde a escolha dos móveis até a iluminação adequada, cada detalhe faz diferença na criação de uma sala de estar perfeita. Explore ideias e inspirações para renovar seu espaço com estilo e praticidade.",
+      "description3": "Investir na renovação da sua sala de estar é investir no conforto e na qualidade de vida. Descubra como pequenas mudanças podem transformar seu ambiente e torná-lo mais agradável para toda a família.",
+      "description4": "A escolha dos móveis e a disposição dos elementos na sala de estar são fundamentais para criar um espaço funcional e esteticamente agradável. Encontre dicas práticas para planejar e decorar sua sala de estar com sucesso.",
+      "caption": {
+        "img1": "31.jpg",
+        "img2": "32.jpg",
+        "imageCaption": "Legenda da Imagem Aqui",
+        "imageCaptionDetails": "Explore ideias e inspirações para renovar sua sala de estar com estilo."
+      }
+    },
+    "author": {
+      "name": "Ethan",
+      "img": "author.jpg",
+      "description": "Ethan é apaixonado por design de interiores e compartilha suas experiências e conhecimentos através de artigos inspiradores sobre decoração de ambientes."
+    }
+  },
+  
+  {
+    "settings": {
+      "thumbNail": false,
+      "video": true,
+      "audio": false,
+      "gallery": false,
+      "backgroundImage": false,
+      "backgroundNoImage": false,
+      "blockquote": false,
+      "description": true,
+      "categories": true,
+      "author": true
+    },
+    "id": "2",
+    "admin": "Administração",
+    "title": "7 tendências de decoração que vão transformar sua casa em 2021",
+    "type": "IMÓVEIS",
+    "featured": true,
+    "new": true,
+    "rent": true,
+    "category": ["compra", "venda"],
+    "tag": ["Popular", "design", "UX"],
+    "thumbImg": "2.jpg",
+    "backgroundImage": "3.jpg",
+    "galleryImageList": [
+      {
+        "img": "1.jpg"
+      },
+      {
+        "img": "1.jpg"
+      },
+      {
+        "img": "1.jpg"
+      },
+      {
+        "img": "1.jpg"
+      }
+    ],
+    "views": 232,
+    "comments": 35,
+    "date": "24 de junho de 2023",
+    "fullDescription": "Confira as tendências de decoração que vão fazer a diferença na sua casa em 2021. Descubra como transformar seu ambiente com dicas de especialistas e ideias criativas para todos os estilos. Se inspire para deixar sua casa mais bonita e funcional!",
+    "shortDescription": "Descubra as principais tendências de decoração que estão moldando o mercado de imóveis neste ano.",
+    "extraInformation": [
+      {
+        "title": "Um banho relaxante",
+        "description": "Aproveite para relaxar com um banho quente e revitalizante. É o momento perfeito para recarregar as energias e aproveitar o conforto da sua casa.",
+        "hr": true
+      },
+      {
+        "title": "Criando um ambiente acolhedor",
+        "description": "Transforme seu espaço com aromas agradáveis e uma atmosfera que convida ao relaxamento. Descubra como pequenos detalhes podem fazer toda a diferença!",
+        "hr": true
+      }
+    ],
+    "extraInformationList": [
+      {
+        "name": "Descubra como transformar seu espaço com ideias criativas e funcionais."
+      },
+      {
+        "name": "Explore novas formas de decorar e renovar sua casa de acordo com as tendências atuais."
+      },
+      {
+        "name": "Confira dicas práticas para deixar sua casa mais aconchegante e moderna."
+      },
+      {
+        "name": "Inspire-se com ideias de decoração que combinam estilo e funcionalidade."
+      },
+      {
+        "name": "Saiba como aplicar as últimas tendências de decoração na sua própria casa."
+      }
+    ],
+    "blockquote": {
+      "quoteTitle": "A beleza de sua casa reflete o seu estilo de vida. Invista em um ambiente que te inspire e te faça feliz.",
+      "name": "Ethan"
+    },
+    "extraContent": {
+      "title": "Descubra as últimas tendências de decoração para sua casa",
+      "description1": "Explore ideias de decoração que combinam estilo e funcionalidade. Saiba como criar ambientes acolhedores e modernos com dicas práticas para todos os cômodos da casa.",
+      "description2": "Inspire-se com as principais tendências de decoração que estão transformando espaços residenciais em 2021. Descubra como pequenas mudanças podem fazer uma grande diferença na sua casa.",
+      "description3": "Transforme sua casa em um verdadeiro lar com ideias de decoração que refletem seu estilo pessoal. Aproveite para renovar seu ambiente e criar espaços que inspiram e acolhem.",
+      "description4": "A decoração é um reflexo do seu estilo de vida. Invista em um ambiente que te traga conforto e bem-estar, combinando estética e funcionalidade.",
+      "caption": {
+        "img1": "31.jpg",
+        "img2": "32.jpg",
+        "imageCaption": "Legenda da Imagem Aqui",
+        "imageCaptionDetails": "Descubra como pequenos detalhes podem transformar sua casa em um espaço único e especial."
+      }
+    },
+    "author": {
+      "name": "Ethan",
+      "img": "author.jpg",
+      "description": "Redator de conteúdo apaixonado por decoração e design de interiores. Compartilho ideias criativas para transformar espaços e tornar cada casa um lugar único e acolhedor."
+    }
+  }, 
+{
+  "settings": {
+    "thumbNail": false,
+    "video": false,
+    "audio": false,
+    "gallery": true,
+    "backgroundImage": false,
+    "backgroundNoImage": false,
+    "blockquote": false,
+    "description": true,
+    "categories": true,
+    "author": true
+  },
+  "id": "3",
+  "admin": "Admin",
+  "title": "10 Formas Brilhantes de Decorar Sua Casa",
+  "type": "NEGÓCIOS",
+  "featured": true,
+  "new": true,
+  "rent": true,
+  "category": ["compra"],
+  "tag": ["Popular", "design", "ux"],
+  "thumbImg": "3.jpg",
+  "backgroundImage": "3.jpg",
+  "galleryImageList": [
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    }
+  ],
+  "views": 232,
+  "comments": 35,
+  "date": "24 de junho de 2023",
+  "fullDescription": "Descubra 10 maneiras brilhantes de decorar sua casa. Desde dicas práticas até inspirações de design, este artigo oferece ideias valiosas para transformar seu espaço em um lar acolhedor e estiloso.",
+  "shortDescription": "Descubra 10 maneiras brilhantes de decorar sua casa.",
+  "extraInformation": [
+    {
+      "title": "Um banho relaxante",
+      "description": "Desfrute de um banho quente e relaxante para renovar suas energias. Descubra como criar um ambiente de spa em sua própria casa.",
+      "hr": true
+    },
+    {
+      "title": "Criando o ambiente com incensos",
+      "description": "Aprenda a utilizar incensos aromáticos para criar uma atmosfera relaxante e perfumada em sua casa. Dicas simples para transformar seu espaço.",
+      "hr": true
+    }
+  ],
+  "extraInformationList": [
+    {
+      "name": "Dicas de decoração prática"
+    },
+    {
+      "name": "Ideias criativas para espaços pequenos"
+    },
+    {
+      "name": "Tendências de design de interiores"
+    },
+    {
+      "name": "Soluções inteligentes para otimização de espaço"
+    },
+    {
+      "name": "Conselhos para uma decoração econômica e eficaz"
+    }
+  ],
+  "blockquote": {
+    "quoteTitle": "Dreamcatcher viral, teclado keytar, aest hetic offal umami. Polaroid estético, pug pitchfork post-ironic.",
+    "name": "HETMAYAR"
+  },
+  "extraContent": {
+    "title": "Explore novas possibilidades para sua casa",
+    "description1": "Descubra como pequenas mudanças podem fazer uma grande diferença na atmosfera da sua casa. Desde a escolha das cores até a disposição dos móveis, cada detalhe conta.",
+    "description2": "Conheça as últimas tecnologias e tendências em design de interiores que estão transformando espaços ao redor do mundo. Inspire-se para criar um ambiente que reflita seu estilo e personalidade.",
+    "description3": "Saiba como integrar elementos sustentáveis ​​e eco-friendly na decoração da sua casa. Dicas para uma vida mais consciente e um lar mais sustentável.",
+    "description4": "Explore ideias de decoração que combinam estilo e funcionalidade. Soluções criativas para otimizar cada canto da sua casa.",
+    "caption": {
+      "img1": "31.jpg",
+      "img2": "32.jpg",
+      "imageCaption": "Legenda da Imagem Aqui",
+      "imageCaptionDetails": "Descubra novas tendências em design de interiores para criar um ambiente acolhedor e moderno em sua casa."
+    }
+  },
+  "author": {
+    "name": "Ethan",
+    "img": "author.jpg",
+    "description": "Ethan é apaixonado por design de interiores e escreve sobre as últimas tendências em decoração de casa. Com uma vasta experiência no setor, ele compartilha insights valiosos para inspirar seus leitores."
+  }
+},
+{
+  "settings": {
+    "thumbNail": false,
+    "video": false,
+    "audio": true,
+    "gallery": false,
+    "backgroundImage": false,
+    "backgroundNoImage": false,
+    "blockquote": false,
+    "description": true,
+    "categories": true,
+    "author": true
+  },
+  "id": "4",
+  "admin": "Admin",
+  "title": "7 Tendências de Casa que Moldarão sua Casa em 2021",
+  "type": "NEGÓCIOS",
+  "featured": true,
+  "new": true,
+  "rent": true,
+  "category": ["compra", "venda"],
+  "tag": ["Popular", "design", "ux"],
+  "thumbImg": "5.jpg",
+  "backgroundImage": "3.jpg",
+  "galleryImageList": [
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    }
+  ],
+  "views": 232,
+  "comments": 35,
+  "date": "24 de junho de 2023",
+  "fullDescription": "Descubra as 7 principais tendências que moldarão sua casa em 2021. Desde tecnologia até design de interiores, explore como essas tendências estão transformando espaços ao redor do mundo.",
+  "shortDescription": "Descubra as 7 principais tendências que moldarão sua casa em 2021.",
+  "extraInformation": [
+    {
+      "title": "Um banho relaxante",
+      "description": "Desfrute de um banho quente e relaxante para renovar suas energias. Descubra como criar um ambiente de spa em sua própria casa.",
+      "hr": true
+    },
+    {
+      "title": "Criando o ambiente com incensos",
+      "description": "Aprenda a utilizar incensos aromáticos para criar uma atmosfera relaxante e perfumada em sua casa. Dicas simples para transformar seu espaço.",
+      "hr": true
+    }
+  ],
+  "extraInformationList": [
+    {
+      "name": "Dicas de decoração prática"
+    },
+    {
+      "name": "Ideias criativas para espaços pequenos"
+    },
+    {
+      "name": "Tendências de design de interiores"
+    },
+    {
+      "name": "Soluções inteligentes para otimização de espaço"
+    },
+    {
+      "name": "Conselhos para uma decoração econômica e eficaz"
+    }
+  ],
+  "blockquote": {
+    "quoteTitle": "Dreamcatcher viral, teclado keytar, aest hetic offal umami. Polaroid estético, pug pitchfork post-ironic.",
+    "name": "HETMAYAR"
+  },
+  "extraContent": {
+    "title": "Explore novas possibilidades para sua casa",
+    "description1": "Descubra como pequenas mudanças podem fazer uma grande diferença na atmosfera da sua casa. Desde a escolha das cores até a disposição dos móveis, cada detalhe conta.",
+    "description2": "Conheça as últimas tecnologias e tendências em design de interiores que estão transformando espaços ao redor do mundo. Inspire-se para criar um ambiente que reflita seu estilo e personalidade.",
+    "description3": "Saiba como integrar elementos sustentáveis ​​e eco-friendly na decoração da sua casa. Dicas para uma vida mais consciente e um lar mais sustentável.",
+    "description4": "Explore ideias de decoração que combinam estilo e funcionalidade. Soluções criativas para otimizar cada canto da sua casa.",
+    "caption": {
+      "img1": "31.jpg",
+      "img2": "32.jpg",
+      "imageCaption": "Legenda da Imagem Aqui",
+      "imageCaptionDetails": "Descubra novas tendências em design de interiores para criar um ambiente acolhedor e moderno em sua casa."
+    }
+  },
+  "author": {
+    "name": "Ethan",
+    "img": "author.jpg",
+    "description": "Ethan é apaixonado por design de interiores e escreve sobre as últimas tendências em decoração de casa. Com uma vasta experiência no setor, ele compartilha insights valiosos para inspirar seus leitores."
+  }
+},
+
+{
+  "settings": {
+    "thumbNail": false,
+    "video": false,
+    "audio": false,
+    "gallery": false,
+    "backgroundImage": false,
+    "backgroundNoImage": true,
+    "blockquote": false,
+    "description": true,
+    "categories": true,
+    "author": true
+  },
+  "id": "5",
+  "admin": "Admin",
+  "title": "10 Maneiras Brilhantes de Decorar Sua Casa",
+  "type": "Decoração",
+  "featured": true,
+  "new": true,
+  "rent": true,
+  "category": ["compra", "venda"],
+  "tag": ["Popular", "design", "ux"],
+  "thumbImg": "4.jpg",
+  "backgroundImage": "3.jpg",
+  "galleryImageList": [
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    }
+  ],
+  "views": 232,
+  "comments": 35,
+  "date": "24 de junho de 2023",
+  "fullDescription": "Descubra 10 maneiras brilhantes de decorar sua casa. De pequenas mudanças a grandes renovações, inspire-se para transformar seu espaço em algo extraordinário.",
+  "shortDescription": "Descubra 10 maneiras brilhantes de decorar sua casa.",
+  "extraInformation": [
+    {
+      "title": "Um banho relaxante",
+      "description": "Desfrute de um banho quente e relaxante para renovar suas energias. Descubra como criar um ambiente de spa em sua própria casa.",
+      "hr": true
+    },
+    {
+      "title": "Criando o ambiente com incensos",
+      "description": "Aprenda a utilizar incensos aromáticos para criar uma atmosfera relaxante e perfumada em sua casa. Dicas simples para transformar seu espaço.",
+      "hr": true
+    }
+  ],
+  "extraInformationList": [
+    {
+      "name": "Dicas de decoração prática"
+    },
+    {
+      "name": "Ideias criativas para espaços pequenos"
+    },
+    {
+      "name": "Tendências de design de interiores"
+    },
+    {
+      "name": "Soluções inteligentes para otimização de espaço"
+    },
+    {
+      "name": "Conselhos para uma decoração econômica e eficaz"
+    }
+  ],
+  "blockquote": {
+    "quoteTitle": "Dreamcatcher viral, teclado keytar, aest hetic offal umami. Polaroid estético, pug pitchfork post-ironic.",
+    "name": "HETMAYAR"
+  },
+  "extraContent": {
+    "title": "Explore novas possibilidades para sua casa",
+    "description1": "Descubra como pequenas mudanças podem fazer uma grande diferença na atmosfera da sua casa. Desde a escolha das cores até a disposição dos móveis, cada detalhe conta.",
+    "description2": "Conheça as últimas tecnologias e tendências em design de interiores que estão transformando espaços ao redor do mundo. Inspire-se para criar um ambiente que reflita seu estilo e personalidade.",
+    "description3": "Saiba como integrar elementos sustentáveis ​​e eco-friendly na decoração da sua casa. Dicas para uma vida mais consciente e um lar mais sustentável.",
+    "description4": "Explore ideias de decoração que combinam estilo e funcionalidade. Soluções criativas para otimizar cada canto da sua casa.",
+    "caption": {
+      "img1": "31.jpg",
+      "img2": "32.jpg",
+      "imageCaption": "Legenda da Imagem Aqui",
+      "imageCaptionDetails": "Descubra novas tendências em design de interiores para criar um ambiente acolhedor e moderno em sua casa."
+    }
+  },
+  "author": {
+    "name": "Ethan",
+    "img": "author.jpg",
+    "description": "Ethan é apaixonado por design de interiores e escreve sobre as últimas tendências em decoração de casa. Com uma vasta experiência no setor, ele compartilha insights valiosos para inspirar seus leitores."
+  }
+},
+
+{
+  "settings": {
+    "thumbNail": false,
+    "video": false,
+    "audio": false,
+    "gallery": false,
+    "backgroundImage": true,
+    "backgroundNoImage": false,
+    "blockquote": true,
+    "description": false,
+    "categories": false,
+    "author": false
+  },
+  "id": "6",
+  "admin": "Admin",
+  "title": "Excepteur sint occaecat cupida tat non proident, sunt in.",
+  "type": "NEGÓCIOS",
+  "featured": true,
+  "new": true,
+  "rent": true,
+  "category": ["compra", "venda"],
+  "tag": ["Popular", "design", "ux"],
+  "thumbImg": "5.jpg",
+  "backgroundImage": "3.jpg",
+  "galleryImageList": [
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    }
+  ],
+  "views": 232,
+  "comments": 35,
+  "date": "24 de junho de 2023",
+  "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+  "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "extraInformation": [
+    {
+      "title": "Um banho quente relaxante",
+      "description": "Desfrute de um banho quente e relaxante para renovar suas energias. Descubra como criar um ambiente de spa em sua própria casa.",
+      "hr": true
+    },
+    {
+      "title": "Criando o ambiente com incensos",
+      "description": "Aprenda a utilizar incensos aromáticos para criar uma atmosfera relaxante e perfumada em sua casa. Dicas simples para transformar seu espaço.",
+      "hr": true
+    }
+  ],
+  "extraInformationList": [
+    {
+      "name": "Dicas práticas para o dia a dia"
+    },
+    {
+      "name": "Ideias criativas para espaços corporativos"
+    },
+    {
+      "name": "Tendências de design de interiores para escritórios"
+    },
+    {
+      "name": "Soluções inteligentes para ambientes de trabalho"
+    },
+    {
+      "name": "Conselhos para otimização de espaço e conforto"
+    }
+  ],
+  "blockquote": {
+    "quoteTitle": "Dreamcatcher viral, teclado keytar, aest hetic offal umami. Polaroid estético, pug pitchfork post-ironic.",
+    "name": "HETMAYAR"
+  },
+  "extraContent": {
+    "title": "Explore novas possibilidades para o seu negócio",
+    "description1": "Descubra como pequenas mudanças podem fazer uma grande diferença na atmosfera do seu ambiente de trabalho. Desde a escolha das cores até a disposição dos móveis, cada detalhe conta.",
+    "description2": "Conheça as últimas tendências em design de interiores para escritórios que estão transformando espaços ao redor do mundo. Inspire-se para criar um ambiente que promova a produtividade e o bem-estar dos seus colaboradores.",
+    "description3": "Saiba como integrar elementos sustentáveis ​​e eco-friendly no seu local de trabalho. Dicas para um ambiente corporativo mais sustentável e responsável.",
+    "description4": "Explore ideias de decoração que combinam estilo e funcionalidade para o seu escritório. Soluções criativas para otimizar cada espaço de trabalho.",
+    "caption": {
+      "img1": "31.jpg",
+      "img2": "32.jpg",
+      "imageCaption": "Legenda da Imagem Aqui",
+      "imageCaptionDetails": "Descubra novas tendências em design de interiores para criar um ambiente corporativo acolhedor e moderno."
+    }
+  },
+  "author": {
+    "name": "Ethan",
+    "img": "author.jpg",
+    "description": "Ethan é apaixonado por design de interiores e escreve sobre as últimas tendências em decoração de escritórios. Com uma vasta experiência no setor, ele compartilha insights valiosos para inspirar seus leitores."
+  }
+}
+,
+{
+  "settings": {
+    "thumbNail": true,
+    "video": false,
+    "audio": false,
+    "gallery": false,
+    "backgroundImage": false,
+    "backgroundNoImage": false,
+    "blockquote": false,
+    "description": true,
+    "categories": true,
+    "author": true
+  },
+  "id": "1",
+  "admin": "Admin",
+  "title": "Renovating a Living Room? Experts Share Their Secrets",
+  "type": "IMÓVEIS",
+  "featured": true,
+  "new": true,
+  "rent": true,
+  "category": ["compra", "venda"],
+  "tag": ["Popular", "design", "ux"],
+  "thumbImg": "1.jpg",
+  "backgroundImage": "3.jpg",
+  "galleryImageList": [
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    }
+  ],
+  "views": 232,
+  "comments": 35,
+  "date": "24 de junho de 2023",
+  "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+  "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "extraInformation": [
+    {
+      "title": "Um banho quente relaxante",
+      "description": "Desfrute de um banho quente e relaxante para renovar suas energias. Descubra como criar um ambiente de spa em sua própria casa.",
+      "hr": true
+    },
+    {
+      "title": "Criando o ambiente com incensos",
+      "description": "Aprenda a utilizar incensos aromáticos para criar uma atmosfera relaxante e perfumada em sua casa. Dicas simples para transformar seu espaço.",
+      "hr": true
+    }
+  ],
+  "extraInformationList": [
+    {
+      "name": "Dicas práticas para o dia a dia"
+    },
+    {
+      "name": "Ideias criativas para espaços corporativos"
+    },
+    {
+      "name": "Tendências de design de interiores para escritórios"
+    },
+    {
+      "name": "Soluções inteligentes para ambientes de trabalho"
+    },
+    {
+      "name": "Conselhos para otimização de espaço e conforto"
+    }
+  ],
+  "blockquote": {
+    "quoteTitle": "Dreamcatcher viral, teclado keytar, aest hetic offal umami. Polaroid estético, pug pitchfork post-ironic.",
+    "name": "HETMAYAR"
+  },
+  "extraContent": {
+    "title": "Explore novas possibilidades para o seu negócio",
+    "description1": "Descubra como pequenas mudanças podem fazer uma grande diferença na atmosfera do seu ambiente de trabalho. Desde a escolha das cores até a disposição dos móveis, cada detalhe conta.",
+    "description2": "Conheça as últimas tendências em design de interiores para escritórios que estão transformando espaços ao redor do mundo. Inspire-se para criar um ambiente que promova a produtividade e o bem-estar dos seus colaboradores.",
+    "description3": "Saiba como integrar elementos sustentáveis ​​e eco-friendly no seu local de trabalho. Dicas para um ambiente corporativo mais sustentável e responsável.",
+    "description4": "Explore ideias de decoração que combinam estilo e funcionalidade para o seu escritório. Soluções criativas para otimizar cada espaço de trabalho.",
+    "caption": {
+      "img1": "31.jpg",
+      "img2": "32.jpg",
+      "imageCaption": "Legenda da Imagem Aqui",
+      "imageCaptionDetails": "Descubra novas tendências em design de interiores para criar um ambiente corporativo acolhedor e moderno."
+    }
+  },
+  "author": {
+    "name": "Ethan",
+    "img": "author.jpg",
+    "description": "Ethan é apaixonado por design de interiores e escreve sobre as últimas tendências em decoração de escritórios. Com uma vasta experiência no setor, ele compartilha insights valiosos para inspirar seus leitores."
+  }
+}
+,
+
+{
+  "settings": {
+    "thumbNail": false,
+    "video": true,
+    "audio": false,
+    "gallery": false,
+    "backgroundImage": false,
+    "backgroundNoImage": false,
+    "blockquote": false,
+    "description": true,
+    "categories": true,
+    "author": true
+  },
+  "id": "2",
+  "admin": "Admin",
+  "title": "7 tendências de decoração que moldarão sua casa em 2021",
+  "type": "NEGÓCIOS",
+  "featured": true,
+  "new": true,
+  "rent": true,
+  "category": ["compra", "venda"],
+  "tag": ["Popular", "design", "ux"],
+  "thumbImg": "2.jpg",
+  "backgroundImage": "3.jpg",
+  "galleryImageList": [
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    },
+    {
+      "img": "1.jpg"
+    }
+  ],
+  "views": 232,
+  "comments": 35,
+  "date": "24 de junho de 2023",
+  "fullDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+  "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "extraInformation": [
+    {
+      "title": "Um banho quente relaxante",
+      "description": "Desfrute de um banho quente e relaxante para renovar suas energias. Descubra como criar um ambiente de spa em sua própria casa.",
+      "hr": true
+    },
+    {
+      "title": "Criando o ambiente com incensos",
+      "description": "Aprenda a utilizar incensos aromáticos para criar uma atmosfera relaxante e perfumada em sua casa. Dicas simples para transformar seu espaço.",
+      "hr": true
+    }
+  ],
+  "extraInformationList": [
+    {
+      "name": "Dicas práticas para o dia a dia"
+    },
+    {
+      "name": "Ideias criativas para espaços corporativos"
+    },
+    {
+      "name": "Tendências de design de interiores para escritórios"
+    },
+    {
+      "name": "Soluções inteligentes para ambientes de trabalho"
+    },
+    {
+      "name": "Conselhos para otimização de espaço e conforto"
+    }
+  ],
+  "blockquote": {
+    "quoteTitle": "Dreamcatcher viral, teclado keytar, aest hetic offal umami. Polaroid estético, pug pitchfork post-ironic.",
+    "name": "HETMAYAR"
+  },
+  "extraContent": {
+    "title": "Explore novas possibilidades para o seu negócio",
+    "description1": "Descubra como pequenas mudanças podem fazer uma grande diferença na atmosfera do seu ambiente de trabalho. Desde a escolha das cores até a disposição dos móveis, cada detalhe conta.",
+    "description2": "Conheça as últimas tendências em design de interiores para escritórios que estão transformando espaços ao redor do mundo. Inspire-se para criar um ambiente que promova a produtividade e o bem-estar dos seus colaboradores.",
+    "description3": "Saiba como integrar elementos sustentáveis ​​e eco-friendly no seu local de trabalho. Dicas para um ambiente corporativo mais sustentável e responsável.",
+    "description4": "Explore ideias de decoração que combinam estilo e funcionalidade para o seu escritório. Soluções criativas para otimizar cada espaço de trabalho.",
+    "caption": {
+      "img1": "31.jpg",
+      "img2": "32.jpg",
+      "imageCaption": "Legenda da Imagem Aqui",
+      "imageCaptionDetails": "Descubra novas tendências em design de interiores para criar um ambiente corporativo acolhedor e moderno."
+    }
+  },
+  "author": {
+    "name": "Ethan",
+    "img": "author.jpg",
+    "description": "Ethan é apaixonado por design de interiores e escreve sobre as últimas tendências em decoração de escritórios. Com uma vasta experiência no setor, ele compartilha insights valiosos para inspirar seus leitores."
+  }
+}
+
+]

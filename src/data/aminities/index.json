@@ -1,0 +1,50 @@
+[
+  {
+    "id": "01",
+    "title": "Estacionamento",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-car"
+  },
+  {
+    "id": "02",
+    "title": "Clube",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-swimming"
+  },
+  {
+    "id": "03",
+    "title": "Segurança Privada",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-secure-shield"
+  },
+  {
+    "id": "04",
+    "title": "Centro Médico",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-stethoscope"
+  },
+  {
+    "id": "05",
+    "title": "Área de Biblioteca",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-book"
+  },
+  {
+    "id": "06",
+    "title": "Hoteis",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-bed-1"
+  },
+  {
+    "id": "07",
+    "title": "Casas Inteligentes",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-home-2"
+  },
+  {
+    "id": "08",
+    "title": "Playground",
+    "description": "Enimad minim veniam quis no exercitation ullamco lab",
+    "icon": "flaticon-slider"
+  }
+]
