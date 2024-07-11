@@ -90,7 +90,7 @@ function Shop() {
     <LayoutOne topbar={true}>
       {/* <!-- BREADCRUMB AREA START --> */}
 
-      <ShopBreadCrumb title="Property" sectionPace="" currentSlug="Property" />
+      <ShopBreadCrumb title="Imóveis" sectionPace="" currentSlug="imóveis" />
       {/* <!-- BREADCRUMB AREA END -->
     
     <!-- PRODUCT DETAILS AREA START --> */}

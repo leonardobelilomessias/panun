@@ -177,7 +177,7 @@ function ProductDetails({ product, baseUrl }) {
           channel="youtube"
           autoplay
           isOpen={isOpen}
-          videoId="X7R-q9rsrtU"
+          videoId="XVHBVqKVmzA"
           onClose={() => setOpen(false)}
         />
         {/* <!-- BREADCRUMB AREA START --> */}
@@ -392,7 +392,7 @@ function ProductDetails({ product, baseUrl }) {
                     </ul>
                   </div>
 
-                  <h4 className="title-2">From Our Gallery</h4>
+                  <h4 className="title-2">Fotos da Galeria</h4>
                   <div className="ltn__property-details-gallery mb-30">
                     <div className="row">
                       <div className="col-md-6">
@@ -510,7 +510,7 @@ function ProductDetails({ product, baseUrl }) {
                     ></iframe>
                   </div>
 
-                  <h4 className="title-2">Floor Plans</h4>
+                  <h4 className="title-2">Plantas</h4>
                   {/* <!-- Apartamentos na Planta AREA START --> */}
 
                   <div className="ltn__apartments-plan-area product-details-apartments-plan mb-60">
@@ -772,7 +772,7 @@ function ProductDetails({ product, baseUrl }) {
                   </div>
 
                   <div className="ltn__shop-details-tab-content-inner--- ltn__shop-details-tab-inner-2 ltn__product-details-review-inner mb-60">
-                    <h4 className="title-2">Customer Reviews</h4>
+                    <h4 className="title-2">Reviews de Clientes</h4>
                     <div className="product-ratting">
                       <ul>
                         <li>
@@ -963,7 +963,7 @@ function ProductDetails({ product, baseUrl }) {
                     {/* <!-- comment-reply --> */}
                     <div className="ltn__comment-reply-area ltn__form-box mb-30">
                       <form action="#">
-                        <h4>Add a Review</h4>
+                        <h4>Adicionar Avaliação</h4>
                         <div className="mb-30">
                           <div className="add-a-review">
                             <h6>Your Ratings:</h6>
@@ -1039,14 +1039,14 @@ function ProductDetails({ product, baseUrl }) {
                             className="btn theme-btn-1 btn-effect-1 text-uppercase"
                             type="submit"
                           >
-                            Submit
+                            Enviar
                           </button>
                         </div>
                       </form>
                     </div>
                   </div>
 
-                  <h4 className="title-2">Related Properties</h4>
+                  <h4 className="title-2">Veja Também</h4>
                   <Row>
                     {relatedProducts.map((data, key) => {
                       const slug = productSlug(data.title);
@@ -1162,7 +1162,7 @@ function ProductDetails({ product, baseUrl }) {
                   {/* <!-- Search Widget --> */}
                   <div className="widget ltn__search-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Search Objects
+                      Fazer Busca
                     </h4>
                     <form action="#">
                       <input
@@ -1178,7 +1178,7 @@ function ProductDetails({ product, baseUrl }) {
                   {/* <!-- Form Widget --> */}
                   <div className="widget ltn__form-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Drop Messege For Book
+                      Deixe uma menssagem
                     </h4>
                     <form action="#">
                       <input
@@ -1196,14 +1196,14 @@ function ProductDetails({ product, baseUrl }) {
                         placeholder="Write Message..."
                       ></textarea>
                       <button type="submit" className="btn theme-btn-1">
-                        Send Messege
+                        Enviar Menssagem
                       </button>
                     </form>
                   </div>
-                  {/* <!-- Top Rated Product Widget --> */}
+                  {/* <!-- Maior Avaliação Widget --> */}
                   <div className="widget ltn__top-rated-product-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Top Rated Product
+                      Maior Avaliação
                     </h4>
                     <ul>
                       {topRatedProducts.map((product, keys) => {
@@ -1267,7 +1267,7 @@ function ProductDetails({ product, baseUrl }) {
                   {/* <!-- Menu Widget (Category) --> */}
                   <div className="widget ltn__menu-widget ltn__menu-widget-2--- ltn__menu-widget-2-color-2---">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Top Categories
+                      Melhores Categorias
                     </h4>
                     <ul>
                       <li>
@@ -1300,7 +1300,7 @@ function ProductDetails({ product, baseUrl }) {
                   {/* <!-- Popular Product Widget --> */}
                   <div className="widget ltn__popular-product-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Popular Properties
+                      Mais Acessados
                     </h4>
 
                     <Slider
@@ -1376,7 +1376,7 @@ function ProductDetails({ product, baseUrl }) {
                   {/* <!-- Popular Post Widget --> */}
                   <div className="widget ltn__popular-post-widget">
                     <h4 className="ltn__widget-title ltn__widget-title-border-2">
-                      Leatest Blogs
+                      Post Blog
                     </h4>
                     <ul>
                       {latestdBlogs.map((blog, key) => {
@@ -1420,7 +1420,7 @@ function ProductDetails({ product, baseUrl }) {
                     </ul>
                   </div>
 
-                  <FollowUs title="Follow Us" />
+                  <FollowUs title="Siga-nos" />
 
                   {/* <!-- Tagcloud Widget --> */}
 

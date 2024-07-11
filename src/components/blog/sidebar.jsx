@@ -105,7 +105,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
         {/* <!-- Search Widget --> */}
         <div className="widget ltn__search-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
-            Search Objects
+            Fazer Busca
           </h4>
           <form action="#">
             <input
@@ -121,7 +121,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
         {/* <!-- Form Widget --> */}
         <div className="widget ltn__form-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
-            Drop Messege For Book
+            Deixe uma menssagem
           </h4>
           <form action="#">
             <input type="text" name="yourname" placeholder="Your Name*" />
@@ -131,14 +131,14 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
               placeholder="Write Message..."
             ></textarea>
             <button type="submit" className="btn theme-btn-1">
-              Send Messege
+              Enviar Menssagem
             </button>
           </form>
         </div>
-        {/* <!-- Top Rated Product Widget --> */}
+        {/* <!-- Maior Avaliação Widget --> */}
         <div className="widget ltn__top-rated-product-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
-            Top Rated Product
+            Maior Avaliação
           </h4>
           <ul>
             {topRatedProducts.map((product, keys) => {
@@ -202,7 +202,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
         {/* <!-- Menu Widget (Category) --> */}
         <div className="widget ltn__menu-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
-            Top Categories
+            Melhores Categorias
           </h4>
           <ul>
             <li>
@@ -235,7 +235,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
         {/* <!-- Popular Product Widget --> */}
         <div className="widget ltn__popular-product-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
-            Popular Properties
+            Mais Acessados
           </h4>
 
           <Slider
@@ -309,7 +309,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
         {/* <!-- Popular Post Widget --> */}
         <div className="widget ltn__popular-post-widget">
           <h4 className="ltn__widget-title ltn__widget-title-border-2">
-            Leatest Blogs
+            Post Blog
           </h4>
           <ul>
             {latestdBlogs.map((blog, key) => {
@@ -446,7 +446,7 @@ const BlogSideBar = ({ popularProducts, topRatedProducts, latestdBlogs }) => {
           </ul>
         </div>
 
-        <FollowUs title="Follow Us" />
+        <FollowUs title="Siga-nos" />
 
         {/* <!-- Tagcloud Widget --> */}
 

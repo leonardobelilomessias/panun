@@ -43,7 +43,7 @@ const comingSoon = () => {
                       type="submit"
                       className="btn theme-btn-1 btn-effect-1"
                     >
-                      SUBMIT
+                      Enviar
                     </button>
                   </form>
                 </div>
