@@ -20,13 +20,15 @@ import blogData from "@/data/blog";
 import featuresData from "@/data/service";
 import CarDealerSearchFormTwo from "@/components/carDealerSearchForm/indexTwo";
 import CarDealerSearchForm from "@/components/carDealerSearchForm";
+import RelatedProduct2 from "@/components/product/related-product2";
 
-function HomePageSix(props) {
+
+function HomePageSix({allproducts,names}) {
     const { products } = useSelector((state) => state.product);
     const featuredProducts = getProducts(products, "buying", "featured", 5);
     const latestListingsProducts = getProducts(products, "buying", "new", 6);
     const featureData = getProducts(featuresData, "buying", "featured", 3);
-
+  
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
         <button
             {...props}
@@ -188,36 +190,16 @@ function HomePageSix(props) {
 
 
                         <Row>
-                            {latestListingsProducts.map((product, key) => {
-                                const slug = productSlug(product.title);
+                            {allproducts.slice(0,6).map((product, key) => {
 
-                                const discountedPrice = getDiscountPrice(
-                                    product.price,
-                                    product.discount
-                                ).toFixed(2);
-                                const productPrice = product.price.toFixed(2);
-                                const cartItem = cartItems.find(
-                                    (cartItem) => cartItem.id === product.id
-                                );
-                                const wishlistItem = wishlistItems.find(
-                                    (wishlistItem) => wishlistItem.id === product.id
-                                );
-                                const compareItem = compareItems.find(
-                                    (compareItem) => compareItem.id === product.id
-                                );
 
                                 return (
-
+                                    
                                     <Col xs={12} sm={6} xl={4} key={key}>
-                                        <RelatedProduct
-                                            productData={product}
-                                            slug={slug}
-                                            baseUrl="shop"
-                                            discountedPrice={discountedPrice}
-                                            productPrice={productPrice}
-                                            cartItem={cartItem}
-                                            wishlistItem={wishlistItem}
-                                            compareItem={compareItem}
+
+                                    <p>{product.title}</p>
+                                        <RelatedProduct2
+                                        product={product}
                                         />
 
 
@@ -591,3 +573,23 @@ function HomePageSix(props) {
 
 
 export default HomePageSix;
+
+export async function getStaticProps() {
+    try {
+      // Fazendo a requisição para a API para obter a lista de produtos
+      const res = await axios.get(`${process.env.BASE_URL_DEV}/api/listproducts`);
+      const allproducts = res.data;
+    const names ={tilio:"joune"}
+    console.log(june)
+      // Retornar os dados dos produtos como props
+      return {
+        props: { allproducts},
+      };
+    } catch (error) {
+      // Lidar com erros na requisição
+      console.error(error);
+      return {
+        props: { products: [] },
+      };
+    }
+  }

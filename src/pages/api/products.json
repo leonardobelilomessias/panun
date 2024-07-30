@@ -1,0 +1,58 @@
+[
+  {
+    "id": "19",
+    "carousel": [
+      { "img": "35.jpg" },
+      { "img": "31.jpg" },
+      { "img": "32.jpg" },
+      { "img": "33.jpg" }
+    ],
+    "address":"rua zorquidia",
+    "amenities": [
+      "Ar Condicionado",
+      "Academia",
+      "Piscina",
+      "WiFi"
+    ],
+    "area": 3450,
+    "bathrooms": 2,
+    "bedrooms": 3,
+    "category": "apartamento",
+    "city":"Belo Horizonte",
+    "description": "Descrição",
+    "garages": "1",
+    "mapIframe":"",
+    "price": 290000,
+    "standart":"Minha casa minha vida",
+    "status":"na planta",
+    "title": "Sevilha  novo lar",
+    "zip":"30283-368",
+    "propertyStatus": "For Sale",
+    "rooms": 7,
+    "locantion": "Vale do Sereno - Nova Lima",
+    "neighborhood":"São Gabriel",
+    "productImg": "1.jpg",
+    "country": true,
+    "district": "Vale do Sereno",
+    "properties": 2,
+    "featured": true,
+    "new": true,
+    "rent": false,
+    "photo": ["buying", "women", "women"],
+    "video": ["buying", "women"],
+    "bedBath": ["Single", "renting", "selling"],
+    "ratingCount": 5,
+    "rating": 3,
+    "saleCount": 5,
+    "tag": [
+    ],
+    "propertyId": "HZ29",
+
+    "createdYear": 1992,
+    "date": "May 19, 2021",
+    "comments": 35
+
+
+  }
+  
+]

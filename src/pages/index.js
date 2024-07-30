@@ -26,13 +26,13 @@ import featuresData from "@/data/service";
 import CarDealerSearchFormTwo from "@/components/carDealerSearchForm/indexTwo";
 import HeroSectionStyleSix from "@/components/hero/styleSix";
 import HomePageSix from "./home/page-six";
+import axios from "axios";
 
-function HomePage(props) {
-
+function HomePage({allproducts, names}) {
 
   return (
     <>
-     <HomePageSix/>
+     <HomePageSix allproducts={allproducts}/>
     </>
   );
 }
@@ -40,12 +40,24 @@ function HomePage(props) {
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "src/data/hero/", "index.json");
   const Herodata = JSON.parse(await fs.readFile(filePath));
+  try {
+    // Fazendo a requisição para a API para obter a lista de produtos
+    const res = await axios.get(`${process.env.BASE_URL_DEV}/api/listproducts`);
+    const allproducts = res.data;
+  const names ={tilio:"joune"}
+  console.log(names)
+    // Retornar os dados dos produtos como props
+    return {
+      props: { allproducts, Herodata,names},
+    };
+  } catch (error) {
+    // Lidar com erros na requisição
+    console.error(error);
+    return {
+      props: { products: [] },
+    };
+  }
 
-  return {
-    props: {
-      Herodata,
-    },
-  };
 }
 
 export default HomePage;
