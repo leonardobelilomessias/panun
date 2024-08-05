@@ -64,7 +64,7 @@ function  AddListingPage({data, images}) {
   const handleShow = () => setShow(true);
   const [cover,setCover]=useState(data.cover)
   const [previewCover,setPreviewCover] = useState(data.cover)
-
+console.log(environment())
   const [imagesDelet,setImagesDelet] =useState([])
   const [imagesBucket,setImagesBucket] = useState(images)
   const router = useRouter();
@@ -717,9 +717,9 @@ export default AddListingPage;
 export async function getServerSideProps({params}) {
   // Simulando uma chamada de API ou consulta ao banco de dados
   const resp = await axios.get(`${environment()}/api/listproductByslug?slug=${params.slug}`)
+
   const respImages = await axios.get(`${environment()}/api/listimage?id=${resp.data.id}`)
-  
-  console.log(resp.data)
+ 
 
   // Retornando os dados como props para o componente
   return {
