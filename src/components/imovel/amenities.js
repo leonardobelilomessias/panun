@@ -73,12 +73,18 @@ function RendeAmenities({amn}){
       washing: { name: 'Lavanderia', icon: <GiWashingMachine  /> },
     };
    for (const [key, value] of Object.entries(amn)) {
-        values.push(key.toString())
+    if(value){
+      values.push(key.toString())
+    }
         console.log(key.toString())
+        console.log(value.toString())
+        
+
       }
    return(<>
 {values.map((single, key) => {
             return (
+              <>
               <div key={key} style={{padding:8, display:'flex', alignItems:"center", margin:8, justifyContent:'space-between',alignContent:"space-between"}}>
              
                   {translationMap[String(single)].icon}
@@ -89,6 +95,7 @@ function RendeAmenities({amn}){
                   
              
               </div>
+              </>
             );
           })}
    </>)

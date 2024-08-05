@@ -15,7 +15,9 @@ import { useRouter } from "next/router";
 import environment from "@/params/environment";
 import cogoToast from "@hasanm95/cogo-toast";
 import { ModalSelectImage } from "@/components/modal/modalSelectImage";
-
+import Image from "next/image";
+import { object } from "prop-types";
+import {v4 } from 'uuid'
 ///mudando contexto
 //mais m
 const schema = yup
@@ -95,9 +97,8 @@ function AddListingPage() {
         formData.append('files', file);
       }
       formCover.append('files', cover);
-      console.log(formData)
-      
-      const slug = data.title.split(" ").join('-')
+      const uuidv4 = v4().split('-')[0]
+      const slug = data.title.split(" ").join('-')+`-${uuidv4}`
       Object.assign(data,{slug:slug})
       
       const response = await axios.post('/api/createproduct', data);
@@ -123,9 +124,9 @@ function AddListingPage() {
         });
       }
 
-      // if (response.status ==200) {
-      //   router.push(`/sucesso/${slug}`);
-      // }
+      if (response.status ==200) {
+        router.push(`/sucesso/${slug}`);
+      }
 
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
@@ -133,9 +134,7 @@ function AddListingPage() {
 
   }
   const handleCoverChange = (e) => {
-
      setCover(e.target.files[0]);
-
      const newPreviewCover = URL.createObjectURL(e.target.files[0])
      console.log(cover)
      setPreviewCover(newPreviewCover);
@@ -160,6 +159,7 @@ function AddListingPage() {
     setPreviewUrls((prevUrls) => prevUrls.filter((_, i) => i !== index));
     //fileInputRef.current.value = '';
   };
+
   return (
     <>
       <LayoutOne topbar={true}>
@@ -198,7 +198,7 @@ function AddListingPage() {
                                   placeholder="*Título Do Imóvel (Obrigatório)"
                                   onChange={(e)=> setFolderName(e.target.value)}
                                 />
-                                {errors.title && <p style={{color:"red"}} >{errors.title.message}</p>}
+                                {(errors.title && !folderName)  && <p style={{color:"red"}} >{errors.title.message}</p>}
                               </div>
                               <div className="input-item input-item-textarea ltn__custom-icon">
                               <label>Descrição</label>
@@ -266,10 +266,10 @@ function AddListingPage() {
                       <Tab.Pane eventKey="second">
                         <div className="ltn__product-tab-content-inner">
                           <h4>Selecione uma capa</h4>
-                          <div style={{position:"relative", width:'100px'}}>
-           <img src={previewCover?`${previewCover}`:"/img/no-image/no_image.jpg"} alt={`Preview`} style={{ width: '100px', margin: '10px' }} />
-           <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveCover()}>{previewCover && <FaTrash/>}</button>
-          </div>
+                          <div style={{position:"relative", width:'220px', height:'150px', margin:'20px'}}>
+                          <Image src={previewCover?`${previewCover}`:"/img/no-image/no_image.jpg"} alt={`Preview`}fill/>
+                            <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveCover()}>{previewCover && <FaTrash/>}</button>
+                          </div>
                           <label style={{  display: "inline-block",
                                   padding:" 6px 12px",
                                   cursor: "pointer",
@@ -293,8 +293,20 @@ function AddListingPage() {
                           />
                           {previewCover? 'Trocar Capa':"Selecionar Capa"}
                           </label>
+      <h4 style={{marginTop:'2rem'}}>Adicione Fotos</h4>
+      <div style={{display:"flex", flexWrap:"wrap"}}>
+      { previewUrls.length<=0 &&   <div style={{position:"relative", width:'220px', height:'150px', margin:"1rem"}}>
+           <Image  src={'/img/no-image/no_image.jpg'} alt={`Preview `}  fill />
+           
+      </div>}
+        {previewUrls.map((url, index) => (
+          <div style={{position:"relative", width:'220px', height:'150px', margin:"1rem"}}>
+           <Image key={index} src={url} alt={`Preview ${index}`}  fill />
+           <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveImage(index)}><FaTrash/></button>
+          </div>
 
-                          <h6>Adicione Fotos</h6>
+        ))}
+      </div>      
                           <label style={{  display: "inline-block",
                                   padding:" 6px 12px",
                                   cursor: "pointer",
@@ -325,15 +337,6 @@ function AddListingPage() {
                             </small>
                             
                           </p>
-    <div style={{display:"flex"}}>
-        {previewUrls.map((url, index) => (
-          <div style={{position:"relative", width:'100px'}}>
-           <img key={index} src={url} alt={`Preview ${index}`} style={{ width: '100px', margin: '10px' }} />
-           <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveImage(index)}><FaTrash/></button>
-          </div>
-
-        ))}
-      </div>
                           {/* <h6>Video Option</h6>
                           <Row>
                             <Col xs={12} md={6}>

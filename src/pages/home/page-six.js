@@ -197,7 +197,7 @@ function HomePageSix({allproducts,names}) {
                                     
                                     <Col xs={12} sm={6} xl={4} key={key}>
 
-                                    <p>{product.title}</p>
+                                    
                                         <RelatedProduct2
                                         product={product}
                                         />

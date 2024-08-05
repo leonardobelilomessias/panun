@@ -22,8 +22,8 @@ export const config = {
         fileArray = [fileArray];
       }
       const {bucket} = fields
-  // console.log('fields',fields)
-  // console.log('fields',fileArray)
+   console.log('fields',fields)
+   console.log('fields',fileArray)
 
       try {
         // const uploadPromises = fileArray.map((file) => uploadImageCover(file,fields));

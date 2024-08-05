@@ -60,23 +60,24 @@ function MyAccount() {
                 <div className="ltn__product-tab-area">
                   <Tab.Container
                     id="left-tabs-example"
-                    defaultActiveKey="ltn_tab_1_1"
+                    defaultActiveKey="ltn_tab_1_5"
                   >
                     <Row>
                       <Col xs={12} lg={4}>
                         <div className="ltn__tab-menu-list mb-50">
                           <Nav variant="pills" className="flex-column">
-                            <Nav.Item>
-                              <Nav.Link eventKey="ltn_tab_1_1">
-                                Dashboard <FaHome />
-                              </Nav.Link>
-                            </Nav.Item>
+
                             <Nav.Item>
                               <Nav.Link eventKey="ltn_tab_1_5">
                                 Imoveis Cadastrados <FaList />
                               </Nav.Link>
                             </Nav.Item>
 
+                            <Nav.Item>
+                              <Nav.Link href="/add-listing">
+                                Adicionar novo imóvel <FaList />
+                              </Nav.Link>
+                            </Nav.Item>
                             <Nav.Item>
                               <Nav.Link href="/login">
                                 Sair <FaSignOutAlt />
@@ -117,9 +118,9 @@ function MyAccount() {
                                     <tr>
                                       <th scope="col">My Properties</th>
                                       <th scope="col"></th>
-                                      <th scope="col">Date Added</th>
-                                      <th scope="col">Actions</th>
-                                      <th scope="col">Delete</th>
+                                      <th scope="col">Adiconado em </th>
+                                      <th scope="col">Ação</th>
+                                      
                                     </tr>
                                   </thead>
                                   <tbody>

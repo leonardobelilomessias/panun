@@ -22,7 +22,7 @@ function deleteHouse(){
         <td className="ltn__my-properties-img">
           <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
             <img
-              src="/img/product-3/2.jpg"
+              src={house?.cover?house.cover:'/img/no-image/no_image.jpg'}
               alt="#"
             />
           </Link>
@@ -30,64 +30,25 @@ function deleteHouse(){
         <td>
           <div className="ltn__my-properties-info">
             <h6 className="mb-10">
-              <Link href="https://quarter-nextjs.netlify.app/shop/new-apartment-nice-view">
+              <Link href={`/imovel/${house?.slug}`}>
                 {house.title}
               </Link>
             </h6>
             <small>
               <i className="icon-placeholder"></i>
-              Minas Gerais -  Brasil 
+              {house?.neighborhood} -  {house.city} 
             </small>
             <div className="product-ratting">
-              <ul>
-                <li>
-                  <Link href="#">
-                    <span>
-                      <FaStar />
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <span>
-                      <FaStar />
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <span>
-                      <FaStar />
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <span>
-                      <FaRegStarHalf />
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#">
-                    <span>
-                      <FaRegStar />
-                    </span>
-                  </Link>
-                </li>
-                <li className="review-total">
-                  <Link href="#"> ( 95 Reviews )</Link>
-                </li>
-              </ul>
+            <h4>{house?.price}</h4>
             </div>
           </div>
         </td>
         <td>Feb 22, 2023</td>
         <td>
-          <Link href={`${environment()}/edit/${house.slug}`}>Edit</Link>
+          <Link href={`${environment()}/edit/${house.slug}`}>Editar</Link>
         </td>
         <td>
-          <div style={{backgroundColor:"red"}} onClick={()=>{handleShow()}}>
+          <div  onClick={()=>{handleShow()}}>
             <span>
               <FaTrashAlt />
             </span>

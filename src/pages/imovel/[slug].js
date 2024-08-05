@@ -37,6 +37,7 @@ import axios from "axios";
 import { PhotosGalery } from "../../components/imovel/photosgalery";
 import { captalize } from "../../components/imovel/captalize";
 import { Amenities } from "../../components/imovel/amenities";
+import { formatPriceToBRL } from "@/lib/formatPriceBlr";
 
 function ProductDetails({ product,images }) {
   const { products } = useSelector((state) => state.product);
@@ -112,7 +113,7 @@ console.log(product)
     infinite: true,
     centerPadding: "450px",
     slidesToShow: 1,
-    dots: false,
+    dots: true,
     speed: 500,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
@@ -234,13 +235,6 @@ console.log(product)
                         <i className="far fa-calendar-alt"></i>
                         {product.date}
                       </li>
-                      <li>
-                        <a href="#">
-                          <i className="far fa-comments"></i>
-                          {product.comments}
-                          Comments
-                        </a>
-                      </li>
                     </ul>
                   </div>
                   <h1> {captalize(product.title)}</h1>
@@ -279,7 +273,10 @@ console.log(product)
                     <ul>
   
                       <li>
-                        <label>Preço:</label> <span>{product.price}</span>
+                        <label>Preço:</label> <span>
+                          
+                          {formatPriceToBRL(product.price)}
+                          </span>
                       </li>
                       <li>
                         <label>Status:</label>{" "}
@@ -302,9 +299,9 @@ console.log(product)
 
                       <li>
                         <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
+                          <i className="flaticon-garage"></i>
                           <div>
-                            <h6>Garagem</h6>
+                            <h6> {product.garages} Garage{`${product.garages>1?"ns":'m'}`}</h6>
                             
                           </div>
                         </div>
@@ -314,31 +311,22 @@ console.log(product)
                         <div className="property-detail-feature-list-item">
                           <i className="flaticon-double-bed"></i>
                           <div>
-                            <h6>{product.badrooms} Quartos</h6>
+                            <h6>{product.bedrooms} Quarto{`${product.bedrooms>1?"s":''}`}</h6>
                       
                           </div>
                         </div>
                       </li>
                       <li>
                         <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
+                          <i className="flaticon-bathtub"></i>
                           <div>
-                            <h6>{product.bathrooms}Banheiros</h6>
+                            <h6>{product.bathrooms} Banheiro{`${product.bathrooms>1?"s":''}`}</h6>
                            
                           </div>
                         </div>
                       </li>
 
-                      <li>
-                        <div className="property-detail-feature-list-item">
-                          <i className="flaticon-double-bed"></i>
-                          <div>
-                            <h6>Area privativa</h6>
-                        
-                          </div>
-                        </div>
-                      </li>
-
+                     
                     </ul>
                   </div>
 {/* 

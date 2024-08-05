@@ -14,6 +14,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { func } from "prop-types";
 import environment from "@/params/environment";
+import { ModalSelectImage } from "@/components/modal/modalSelectImage";
+import Image from "next/image";
+import { v4 } from "uuid";
 ///mudando contexto
 //mais m
 const schema = yup
@@ -54,6 +57,14 @@ const schema = yup
 
   }).required();
 function  AddListingPage({data, images}) {
+  const [coverChange,setCoverChange]=useState(false)
+  const [messageModal,setMessageModal] = useState('')
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [cover,setCover]=useState(data.cover)
+  const [previewCover,setPreviewCover] = useState(data.cover)
+
   const [imagesDelet,setImagesDelet] =useState([])
   const [imagesBucket,setImagesBucket] = useState(images)
   const router = useRouter();
@@ -105,31 +116,50 @@ function  AddListingPage({data, images}) {
     }
   })
   async function onSubmit(data){
-    console.log(files)
+    if(files.length<=0 && imagesBucket.length<=0){
+      setMessageModal('Você precisa selecionar pelo menos uma imagem')
+      handleShow()
+      return
+    }
+    if(!cover){
+      setMessageModal('Você precisa selecionar Uma capa')
+      handleShow()
+      return
+    }
     
     const formData = new FormData();
+    const formCover = new FormData();
     try {
       for (const file of files) {
         formData.append('files', file);
-        console.log('files')
       }
-      console.log(data.id)
-       const response = await axios.post('/api/updateproduct',{docId:data.id, data});
-
-       if(imagesDelet.length>0){
-
-         await axios.post('/api/deleteimages',{productId:data.id,imageUrls:imagesDelet});
-       }
-
-       
+      const uuidv4 = v4().split('-')[0]
+      const slug = data.title.split(" ").join('-')+`-${uuidv4}`
+      Object.assign(data,{slug:slug})
+      
+      const response = await axios.post('/api/updateproduct',{docId:data.id, data});
+      const {id} = response.data
+      console.log('id aqui',id)
+      if(imagesDelet.length>0){
+        await axios.post('/api/deleteimages',{productId:data.id,imageUrls:imagesDelet});
+      }
+      formCover.append('files', cover);
+       formData.append('bucket', `${data.id}`);
+       formCover.append('bucket', `${data.id}`);
       if(files.length>0){
-
-        formData.append('bucket', `${data.id}`);
         const responseUploadImages = await axios.post('/api/image', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         });
+      }
+      if(coverChange){
+
+        const responseUploadCover= await axios.post('/api/uploadCover', formCover, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });      <h4 style={{marginTop:'2rem'}}>Adicione Fotos</h4>
       }
 
       // if (response.status ==200) {
@@ -141,12 +171,22 @@ function  AddListingPage({data, images}) {
     }
 
   }
-
+  const handleCoverChange = (e) => {
+    console.log(e.target.files[0])
+    setCover(e.target.files[0]);
+    const newPreviewCover = URL.createObjectURL(e.target.files[0])
+    console.log(cover)
+    setPreviewCover(newPreviewCover);
+    setCoverChange(true)
+ };
+ const handleRemoveCover = (index) => {
+   setCover()
+   setPreviewCover();
+   //fileInputRef.current.value = '';
+ };
   const handleFileChange =useCallback( (e) => {
-    console.log(Array.from(e.target.files))
     const selectedFiles = Array.from(e.target.files);
     setFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
-
     const newPreviewUrls = selectedFiles.map((file) =>
       URL.createObjectURL(file)
     );
@@ -168,6 +208,7 @@ function  AddListingPage({data, images}) {
   return (
     <>
       <LayoutOne topbar={true}>
+      <ModalSelectImage show={show} handleClose={handleClose} messageModal={messageModal}/>
         <ShopBreadCrumb title="Editar Imovel" sectionPace="" currentSlug="Editar imóvel" />
         {/* // <!-- APPOINTMENT AREA START --> */}
         <div className="ltn__appointment-area pb-120">
@@ -265,7 +306,55 @@ function  AddListingPage({data, images}) {
 
                       <Tab.Pane eventKey="second">
                         <div className="ltn__product-tab-content-inner">
-                          <h6>Adicione Fotos</h6>
+                        <h4>Selecione uma capa</h4>
+                        <div style={{position:"relative", width:'220px', height:'150px', margin:'20px'}}>
+                          <Image src={previewCover?`${previewCover}`:"/img/no-image/no_image.jpg"} alt={`Preview`}fill/>
+                            <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveCover()}>{previewCover && <FaTrash/>}</button>
+                          </div>
+                          <label style={{  display: "inline-block",
+                                  padding:" 6px 12px",
+                                  cursor: "pointer",
+                                  backgroundColor: "Black",
+                                  color: "white",
+
+                                  borderRadius: "4px"}}>
+      
+                          <input
+                          style={{display:"none"}}
+                            title="tetst"
+                            type="file"
+                            id="myFile"
+                            name="filename"
+                            className="btn theme-btn-3 mb-10"
+                            accept="image/*"
+                            
+                            ref={fileInputRef}
+                            // onChange={(e) => {setFiles(Array.from(e.target.files));handleFileChange(e)}}
+                            onChange={handleCoverChange}
+                          />
+                          {previewCover? 'Trocar Capa':"Selecionar Capa"}
+                          </label>
+
+
+
+                          <h4 style={{marginTop:'2rem'}}>Adicione Fotos</h4>
+    <div style={{display:"flex", flexWrap:"wrap"}}>
+        {previewUrls.map((url, index) => (
+          <div style={{position:"relative", width:'220px', height:'150px', margin:"1rem"}}>
+           <img key={index} src={url} alt={`Preview ${index}`} style={{position:"relative", width:'220px', height:'150px'}} />
+           <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveImage(index)}><FaTrash/></button>
+          </div>
+
+        ))}
+           {imagesBucket.map((url, index) => (
+          <div style={{position:"relative", width:'220px', height:'150px', margin:"1rem"}}>
+           <img key={index} src={url} alt={`Preview ${index}`} style={{position:"relative", width:'220px', height:'150px'}}/>
+           <button style={{position:"absolute", top:0, right:0}} onClick={(e) => handleRemoveImageBucket(e,url,index)}><FaTrash/></button>
+          </div>
+
+        ))}
+      </div>
+
                           <label style={{  display: "inline-block",
   padding:" 6px 12px",
   cursor: "pointer",
@@ -273,6 +362,8 @@ function  AddListingPage({data, images}) {
   color: "white",
 
   borderRadius: "4px"}}>
+
+
                           <input
                           style={{display:"none"}}
                             title="tetst"
@@ -296,23 +387,7 @@ function  AddListingPage({data, images}) {
                             </small>
                             
                           </p>
-    <div style={{display:"flex"}}>
-        {previewUrls.map((url, index) => (
-          <div style={{position:"relative", width:'100px'}}>
-           <img key={index} src={url} alt={`Preview ${index}`} style={{ width: '100px', margin: '10px' }} />
-           <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveImage(index)}><FaTrash/></button>
-          </div>
-
-        ))}
-           {imagesBucket.map((url, index) => (
-          <div style={{position:"relative", width:'100px'}}>
-           <img key={index} src={url} alt={`Preview ${index}`} style={{ width: '100px', margin: '10px' }} />
-           <button style={{position:"absolute", top:0, right:0}} onClick={(e) => handleRemoveImageBucket(e,url,index)}><FaTrash/></button>
-          </div>
-
-        ))}
-      </div>
-        {imagesDelet.length}
+                         { imagesDelet.length}
                           {/* <h6>Video Option</h6>
                           <Row>
                             <Col xs={12} md={6}>

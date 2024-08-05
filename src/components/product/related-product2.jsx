@@ -10,6 +10,7 @@ import QuickViewtModal from "@/components/modals/quickViewModal";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Image from "next/image";
+import { formatPriceToBRL } from "@/lib/formatPriceBlr";
 const RelatedProduct2 = ({product}) => {
   let badgeText = "";
 
@@ -89,7 +90,7 @@ const RelatedProduct2 = ({product}) => {
               <span className="ms-1">metros&#178;</span>
             </li>
           </ul>
-          <div className="product-hover-action">
+          {/* <div className="product-hover-action">
             <ul>
               <li>
                 <OverlayTrigger
@@ -102,41 +103,15 @@ const RelatedProduct2 = ({product}) => {
                   </button>
                 </OverlayTrigger>
               </li>
-              <li>
-                <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={wishListTooltip}
-                >
-                  <button
-                    onClick={
-                      product !== undefined
-                        ? () => dispatch(deleteFromWishlist(product.id))
-                        : () => dispatch(addToWishlist(product))
-                    }
-                  >
-                    <i className="flaticon-heart-1"></i>
-                  </button>
-                </OverlayTrigger>
-              </li>
-              <li>
-                <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={addToCartTooltip}
-                >
-                  <button onClick={() => dispatch(addToCart(product))}>
-                    <i className="flaticon-add"></i>
-                  </button>
-                </OverlayTrigger>
-              </li>
+
+
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className="product-info-bottom">
           <div className="product-price">
             <span>
-              {`R$ ${product.price}`}
+              {formatPriceToBRL(product.price)}
               {/* <label>/Month</label> */}
             </span>
           </div>
