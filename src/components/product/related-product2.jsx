@@ -43,7 +43,7 @@ const RelatedProduct2 = ({product}) => {
           <Link href={`/imovel/${product.slug}`}>
             <Image
               width={500}
-              height={300}              src={`/img/product-3/1.jpg`}
+              height={300}              src={product?.cover?product.cover:`/img/no-image/no_image.jpg`}
               alt={`${product.title}`}
             />
           </Link>

@@ -4,7 +4,7 @@ import { LayoutOne } from "@/layouts";
 import ShopBreadCrumb from "@/components/breadCrumbs/shop";
 import CallToAction from "@/components/callToAction";
 import { FaPencilAlt, FaTrash, FaTrashAlt, } from "react-icons/fa";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { steps } from "framer-motion";
 import { ButtonStep } from "../../components/addlist/first";
 import { useForm } from "react-hook-form"
@@ -12,10 +12,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import axios from "axios";
 import { useRouter } from "next/router";
+import { func } from "prop-types";
 import environment from "@/params/environment";
-import cogoToast from "@hasanm95/cogo-toast";
-import { ModalSelectImage } from "@/components/modal/modalSelectImage";
-
 ///mudando contexto
 //mais m
 const schema = yup
@@ -55,68 +53,79 @@ const schema = yup
 
 
   }).required();
-function AddListingPage() {
-  const [messageModal,setMessageModal] = useState('')
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [cover,setCover]=useState(null)
-  const [previewCover,setPreviewCover] = useState()
+function  AddListingPage({data, images}) {
+  const [imagesDelet,setImagesDelet] =useState([])
+  const [imagesBucket,setImagesBucket] = useState(images)
   const router = useRouter();
-      const  stepName = ["first",'second','third','fourth','five']
-    const [stp,setStp] = useState(0)
+  const  stepName = ["first",'second','third','fourth','five']
+  const [stp,setStp] = useState(0)
   const [files, setFiles] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
   const [folderName, setFolderName] = useState('');
   const fileInputRef = useRef(null);
+  console.log('renderizou', files.length)
   const {
     register,
     handleSubmit,
     formState: { errors },
+    
   } = useForm({
     resolver: yupResolver(schema),
-  })
-  const onSubmit = async (data) => {
-    if(files.length<=0){
-      setMessageModal('Você precisa selecionar pelo menos uma imagem')
-      handleShow()
-      return
-    }
-    if(!cover){
-      setMessageModal('Você precisa selecionar Uma capa')
-      handleShow()
-      return
-    }
-    const formData = new FormData();
-    const formCover = new FormData();
+    defaultValues:{
+      title:data.title,
+      description:data.description,
+      price:data.price,
+      address:data.address,
+      area:data.area,
+      bathrooms:data.bathrooms,
+      bedrooms:data.bedrooms,
+      city:data.city,
+      garages:data.garages,
+      neighborhood:data.neighborhood,
+      id:data.id,
+      zip:data.zip,
+      amenities:{
+        pool:data.amenities.pool,
+        porter:data.amenities.porter,
+        gym:data.amenities.gym,
+        private_area:data.amenities.private_area,
+        lift:data.amenities.lift,
+        salon_party:data.amenities.salon_party,
+        playground:data.amenities.playground,
+        sauna:data.amenities.sauna,
+        bike_rack:data.amenities.bike_rack,
+        coworking:data.amenities.coworking,
+        washing:data.amenities.washing,
+        handicapped:data.amenities.handicapped,
+        backyard:data.amenities.backyard,
+        pet_place:data.amenities.pet_place,
+        service_area:data.amenities.service_area,
 
+      }
+    }
+  })
+  async function onSubmit(data){
+    console.log(files)
+    
+    const formData = new FormData();
     try {
       for (const file of files) {
         formData.append('files', file);
+        console.log('files')
       }
-      formCover.append('files', cover);
-      console.log(formData)
-      
-      const slug = data.title.split(" ").join('-')
-      Object.assign(data,{slug:slug})
-      
-      const response = await axios.post('/api/createproduct', data);
-      
-      const {id} = response.data
-      formData.append('bucket', `${id}`);
-      formCover.append('bucket', `${id}`);
+      console.log(data.id)
+       const response = await axios.post('/api/updateproduct',{docId:data.id, data});
 
-     
+       if(imagesDelet.length>0){
+
+         await axios.post('/api/deleteimages',{productId:data.id,imageUrls:imagesDelet});
+       }
+
+       
       if(files.length>0){
+
+        formData.append('bucket', `${data.id}`);
         const responseUploadImages = await axios.post('/api/image', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-      }
-      if(files.length>0){
-
-        const responseUploadCover= await axios.post('/api/uploadCover', formCover, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -132,21 +141,9 @@ function AddListingPage() {
     }
 
   }
-  const handleCoverChange = (e) => {
 
-     setCover(e.target.files[0]);
-
-     const newPreviewCover = URL.createObjectURL(e.target.files[0])
-     console.log(cover)
-     setPreviewCover(newPreviewCover);
-  };
-  const handleRemoveCover = (index) => {
-    setCover()
-    setPreviewCover();
-    //fileInputRef.current.value = '';
-  };
-
-  const handleFileChange = (e) => {
+  const handleFileChange =useCallback( (e) => {
+    console.log(Array.from(e.target.files))
     const selectedFiles = Array.from(e.target.files);
     setFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
 
@@ -154,19 +151,25 @@ function AddListingPage() {
       URL.createObjectURL(file)
     );
     setPreviewUrls((prevUrls) => [...prevUrls, ...newPreviewUrls]);
-  };
-  const handleRemoveImage = (index) => {
+  },[])
+  const handleRemoveImage = useCallback((index) => {
     setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
     setPreviewUrls((prevUrls) => prevUrls.filter((_, i) => i !== index));
     //fileInputRef.current.value = '';
-  };
+  },[])
+  const handleRemoveImageBucket = useCallback((e,url,index) => {
+    setImagesDelet(elements=>[...elements,url])
+    e.preventDefault()
+    //setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+    console.log(url,index)
+    setImagesBucket((prevUrls) => prevUrls.filter((_, i) => i !== index));
+    //fileInputRef.current.value = '';
+  },[])
   return (
     <>
       <LayoutOne topbar={true}>
-        <ModalSelectImage show={show} handleClose={handleClose} messageModal={messageModal}/>
-        <ShopBreadCrumb title="Adicionar Imovel" sectionPace="" currentSlug="Adicionar imóvel" />
+        <ShopBreadCrumb title="Editar Imovel" sectionPace="" currentSlug="Editar imóvel" />
         {/* // <!-- APPOINTMENT AREA START --> */}
-        
         <div className="ltn__appointment-area pb-120">
           <Container>
             <Row>
@@ -191,21 +194,18 @@ function AddListingPage() {
                           <Row>
                             <div className="col-md-12">
                               <div className="input-item input-item-textarea ltn__custom-icon">
-                                <label>Titulo</label>
                                 <input
                                   type="text"
-                                  {...register("title")}
+                                  {...register("title",)}
                                   placeholder="*Título Do Imóvel (Obrigatório)"
                                   onChange={(e)=> setFolderName(e.target.value)}
                                 />
                                 {errors.title && <p style={{color:"red"}} >{errors.title.message}</p>}
                               </div>
                               <div className="input-item input-item-textarea ltn__custom-icon">
-                              <label>Descrição</label>
-
                                 <textarea
                                   {...register("description")}
-                                  placeholder="Descrição"
+                                  placeholder={"Descrição"}
                                 ></textarea>
                                 {errors.description && <p style={{color:"red"}} >{errors.description.message}</p>}
                               </div>
@@ -227,7 +227,7 @@ function AddListingPage() {
                               </div>
                             </Col>
                           </Row>
-                          <h6>Selecione as categorias</h6>
+                          <h6>Select Categories</h6>
                           <Row>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
@@ -265,43 +265,14 @@ function AddListingPage() {
 
                       <Tab.Pane eventKey="second">
                         <div className="ltn__product-tab-content-inner">
-                          <h4>Selecione uma capa</h4>
-                          <div style={{position:"relative", width:'100px'}}>
-           <img src={previewCover?`${previewCover}`:"/img/no-image/no_image.jpg"} alt={`Preview`} style={{ width: '100px', margin: '10px' }} />
-           <button style={{position:"absolute", top:0, right:0}} onClick={() => handleRemoveCover()}>{previewCover && <FaTrash/>}</button>
-          </div>
-                          <label style={{  display: "inline-block",
-                                  padding:" 6px 12px",
-                                  cursor: "pointer",
-                                  backgroundColor: "Black",
-                                  color: "white",
-
-                                  borderRadius: "4px"}}>
-      
-                          <input
-                          style={{display:"none"}}
-                            title="tetst"
-                            type="file"
-                            id="myFile"
-                            name="filename"
-                            className="btn theme-btn-3 mb-10"
-                            accept="image/*"
-                            
-                            ref={fileInputRef}
-                            // onChange={(e) => {setFiles(Array.from(e.target.files));handleFileChange(e)}}
-                            onChange={handleCoverChange}
-                          />
-                          {previewCover? 'Trocar Capa':"Selecionar Capa"}
-                          </label>
-
                           <h6>Adicione Fotos</h6>
                           <label style={{  display: "inline-block",
-                                  padding:" 6px 12px",
-                                  cursor: "pointer",
-                                  backgroundColor: "Black",
-                                  color: "white",
+  padding:" 6px 12px",
+  cursor: "pointer",
+  backgroundColor: "Black",
+  color: "white",
 
-                                  borderRadius: "4px"}}>
+  borderRadius: "4px"}}>
                           <input
                           style={{display:"none"}}
                             title="tetst"
@@ -313,7 +284,7 @@ function AddListingPage() {
                             multiple
                             ref={fileInputRef}
                             // onChange={(e) => {setFiles(Array.from(e.target.files));handleFileChange(e)}}
-                            onChange={handleFileChange}
+                            onChange={(e)=>handleFileChange(e)}
                           />
                            Selecionar Imagens
                           </label>
@@ -333,7 +304,15 @@ function AddListingPage() {
           </div>
 
         ))}
+           {imagesBucket.map((url, index) => (
+          <div style={{position:"relative", width:'100px'}}>
+           <img key={index} src={url} alt={`Preview ${index}`} style={{ width: '100px', margin: '10px' }} />
+           <button style={{position:"absolute", top:0, right:0}} onClick={(e) => handleRemoveImageBucket(e,url,index)}><FaTrash/></button>
+          </div>
+
+        ))}
       </div>
+        {imagesDelet.length}
                           {/* <h6>Video Option</h6>
                           <Row>
                             <Col xs={12} md={6}>
@@ -659,3 +638,19 @@ function AddListingPage() {
 }
 
 export default AddListingPage;
+
+export async function getServerSideProps({params}) {
+  // Simulando uma chamada de API ou consulta ao banco de dados
+  const resp = await axios.get(`${environment()}/api/listproductByslug?slug=${params.slug}`)
+  const respImages = await axios.get(`${environment()}/api/listimage?id=${resp.data.id}`)
+  
+  console.log(resp.data)
+
+  // Retornando os dados como props para o componente
+  return {
+    props: {
+      data:resp.data,
+      images:respImages.data.urls
+    }
+  };
+}

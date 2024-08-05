@@ -4,7 +4,7 @@ import { storage } from "./firebase";
 
 const uploadImage = async (file,fields) => {
     let {bucket} =  fields
-    console.log(bucket)
+   //console.log(file)
     const fileBuffer = await fs.readFile(file.filepath);
     const storageRef = ref(storage, `${bucket[0]}/${file.newFilename}`);
     const snapshot = await uploadBytes(storageRef, fileBuffer, {
@@ -13,6 +13,9 @@ const uploadImage = async (file,fields) => {
     const url = await getDownloadURL(snapshot.ref);
     return url;
   };
+
+
+
   
   export default uploadImage;
    

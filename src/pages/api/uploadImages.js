@@ -1,6 +1,7 @@
 // src/pages/api/uploadImages.js
+import uploadImage from "@/lib/uploadImage";
 import { IncomingForm } from "formidable";
-import uploadImage from "../../utils/uploadImage";
+
 import { NextApiRequest, NextApiResponse } from "next";
 
 export const config = {
@@ -18,7 +19,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: "File upload failed" });
     }
 
-    const fileArray = files.files;
+    let fileArray = files.files;
     if (!Array.isArray(fileArray)) {
       fileArray = [fileArray];
     }

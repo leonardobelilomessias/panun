@@ -6,7 +6,7 @@ import { ref, listAll, getDownloadURL, deleteObject } from 'firebase/storage';
 export default async (req, res) => {
   if (req.method === 'GET') {
     const { id } = req.query;
-console.log(id)
+    console.log(id)
     if (!id) {
       return res.status(400).json({ error: 'ID is required' });
     }

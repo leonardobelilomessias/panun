@@ -34,9 +34,9 @@ import Tags from "@/components/tags";
 import blogData from "@/data/blog";
 import CallToAction from "@/components/callToAction";
 import axios from "axios";
-import { PhotosGalery } from "./photosgalery";
-import { captalize } from "./captalize";
-import { Amenities } from "./amenities";
+import { PhotosGalery } from "../../components/imovel/photosgalery";
+import { captalize } from "../../components/imovel/captalize";
+import { Amenities } from "../../components/imovel/amenities";
 
 function ProductDetails({ product,images }) {
   const { products } = useSelector((state) => state.product);
@@ -745,13 +745,13 @@ export async function getStaticProps({ params }) {
   //   (single) => productSlug(single.title) === params.slug
   // )[0];
   console.log("Slug=>",params.slug)
-  console.log("Slug=>",`${process.env.BASE_URL_DEV}/listfakeproduct`)
+  console.log("Slug=>",`/listfakeproduct`)
   // const productsteste =await  axios.get(`${process.env.BASE_URL_DEV}/api/listproducts`)
-  const data =await  axios.get(`${process.env.BASE_URL_DEV}/api/listproductByslug?slug=${params.slug}`)
+  const data =await  axios.get(`${process.env.NEXT_PUBLIC_BASE_URL_DEV}/api/listproductByslug?slug=${params.slug.trim()}`)
   let product = data.data
   //console.log("oi",product.id)
 
-  const dataImages = await  axios.get(`${process.env.BASE_URL_DEV}/api/listimage?id=${product.id}`)
+  const dataImages = await  axios.get(`${process.env.NEXT_PUBLIC_BASE_URL_DEV}/api/listimage?id=${product.id.trim()}`)
   const images = dataImages.data
   console.log(images)
   return { props: { product, images } };
@@ -759,11 +759,11 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   // get the paths we want to pre render based on products
-  const data =await  axios.get(`${process.env.BASE_URL_DEV}/api/listproducts`)
+  const data =await  axios.get(`${process.env.NEXT_PUBLIC_BASE_URL_DEV}/api/listproducts`)
   const products = data.data
  
   const paths = products.map((product) => ({
-    params: { slug: productSlug(product.title) },
+    params: { slug: product.slug.trim() },
   }));
 
   return { paths, fallback: false };
