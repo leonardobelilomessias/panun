@@ -11,7 +11,7 @@ export function CardHouse({house, setHouses,getHouses}){
   const handleShow = () => setShow(true);
 function deleteHouse(){
   console.log(house.id)
-  axios.delete(`${environment('dev')}/api/deleteproduct?id=${house.id}`)
+  axios.delete(`${environment()}/api/deleteproduct?id=${house.id}`)
   getHouses()
   handleClose()
  // setHouses([])

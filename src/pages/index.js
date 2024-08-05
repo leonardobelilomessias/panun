@@ -27,6 +27,7 @@ import CarDealerSearchFormTwo from "@/components/carDealerSearchForm/indexTwo";
 import HeroSectionStyleSix from "@/components/hero/styleSix";
 import HomePageSix from "./home/page-six";
 import axios from "axios";
+import environment from "@/params/environment";
 
 function HomePage({allproducts, names}) {
 
@@ -42,7 +43,7 @@ export async function getStaticProps() {
   const Herodata = JSON.parse(await fs.readFile(filePath));
   try {
     // Fazendo a requisição para a API para obter a lista de produtos
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL_DEV}/api/listproducts`);
+    const res = await axios.get(`${environment()}/api/listproducts`);
     const allproducts = res.data;
   const names ={tilio:"joune"}
   console.log(names)

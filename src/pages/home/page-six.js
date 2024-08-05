@@ -21,6 +21,7 @@ import featuresData from "@/data/service";
 import CarDealerSearchFormTwo from "@/components/carDealerSearchForm/indexTwo";
 import CarDealerSearchForm from "@/components/carDealerSearchForm";
 import RelatedProduct2 from "@/components/product/related-product2";
+import environment from "@/params/environment";
 
 
 function HomePageSix({allproducts,names}) {
@@ -577,7 +578,7 @@ export default HomePageSix;
 export async function getStaticProps() {
     try {
       // Fazendo a requisição para a API para obter a lista de produtos
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL_DEV}/api/listproducts`);
+      const res = await axios.get(`${environment()}/api/listproducts`);
       const allproducts = res.data;
     const names ={tilio:"joune"}
     console.log(june)
