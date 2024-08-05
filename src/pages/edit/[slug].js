@@ -716,9 +716,9 @@ export default AddListingPage;
 
 export async function getServerSideProps({params}) {
   // Simulando uma chamada de API ou consulta ao banco de dados
-  const resp = await axios.get(`${environment()}/api/listproductByslug?slug=${params.slug}`)
+  const resp = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproductByslug?slug=${params.slug}`)
 
-  const respImages = await axios.get(`${environment()}/api/listimage?id=${resp.data.id}`)
+  const respImages = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listimage?id=${resp.data.id}`)
  
 
   // Retornando os dados como props para o componente

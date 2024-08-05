@@ -43,7 +43,7 @@ export async function getStaticProps() {
   const Herodata = JSON.parse(await fs.readFile(filePath));
   try {
     // Fazendo a requisição para a API para obter a lista de produtos
-    const res = await axios.get(`${environment()}/api/listproducts`);
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproducts`);
     const allproducts = res.data;
   const names ={tilio:"joune"}
   console.log(names)

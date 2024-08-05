@@ -736,11 +736,11 @@ export async function getStaticProps({ params }) {
   console.log("Slug=>",params.slug)
   console.log("Slug=>",`/listfakeproduct`)
   // const productsteste =await  axios.get(`${process.env.BASE_URL_DEV}/api/listproducts`)
-  const data =await  axios.get(`${environment()}/api/listproductByslug?slug=${params.slug.trim()}`)
+  const data =await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproductByslug?slug=${params.slug.trim()}`)
   let product = data.data
   //console.log("oi",product.id)
 
-  const dataImages = await  axios.get(`${environment()}/api/listimage?id=${product.id.trim()}`)
+  const dataImages = await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listimage?id=${product.id.trim()}`)
   const images = dataImages.data
   console.log(images)
   return { props: { product, images } };
@@ -748,7 +748,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   // get the paths we want to pre render based on products
-  const data =await  axios.get(`${environment()}/api/listproducts`)
+  const data =await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproducts`)
   const products = data.data
  
   const paths = products.map((product) => ({
