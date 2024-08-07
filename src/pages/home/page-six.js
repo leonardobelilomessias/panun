@@ -24,7 +24,7 @@ import RelatedProduct2 from "@/components/product/related-product2";
 import environment from "@/params/environment";
 
 
-function HomePageSix({allproducts,names}) {
+function HomePageSix({allproducts}) {
     const { products } = useSelector((state) => state.product);
     const featuredProducts = getProducts(products, "buying", "featured", 5);
     const latestListingsProducts = getProducts(products, "buying", "new", 6);
@@ -574,23 +574,3 @@ function HomePageSix({allproducts,names}) {
 
 
 export default HomePageSix;
-
-export async function getStaticProps() {
-    try {
-      // Fazendo a requisição para a API para obter a lista de produtos
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproducts`);
-      const allproducts = res.data;
-    const names ={tilio:"joune"}
-    console.log(june)
-      // Retornar os dados dos produtos como props
-      return {
-        props: { allproducts},
-      };
-    } catch (error) {
-      // Lidar com erros na requisição
-      console.error(error);
-      return {
-        props: { products: [] },
-      };
-    }
-  }

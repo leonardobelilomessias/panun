@@ -159,7 +159,22 @@ function AddListingPage() {
     setPreviewUrls((prevUrls) => prevUrls.filter((_, i) => i !== index));
     //fileInputRef.current.value = '';
   };
+const [neighborhoods,setNeighBorhood]= useState([])
+const [locations,setLocations] = useState([])
+async function getLocations(){
+  const resultLocations = await axios.get("/api/listLocations")
+  setLocations(resultLocations.data)
+  setNeighBorhood(resultLocations.data[0].neighborhood)
 
+}
+function getNeighBorhood(location){
+  console.log(location.neighborhood)
+  setNeighBorhood(location.neighborhood)
+}
+useEffect(()=>{
+  getLocations()
+
+},[])
   return (
     <>
       <LayoutOne topbar={true}>
@@ -383,6 +398,7 @@ function AddListingPage() {
                           <Row>
                             <Col xs={12} md={6}>
                               <div className="input-item input-item-textarea ltn__custom-icon">
+                              <label>Endereço</label>
                                 <input
                                 {...register("address")}
                                   type="text"
@@ -394,32 +410,37 @@ function AddListingPage() {
                                 </span>
                               </div>
                             </Col>
+                            <Col xs={12} md={6} lg={4}>
+                              <div className="input-item ltn__custom-icon">
+                              <label>Cidade</label>
 
-                            <Col xs={12} md={6}>
-                              <div className="input-item input-item-textarea ltn__custom-icon">
-                                <input
-                                  type="text"
-                                  {...register("city")}
-                                  placeholder="Cidade"
-                                /> {errors.city && <p style={{color:"red"}}>{errors.city.message}</p>}
-                                <span className="inline-icon">
-                                  <FaPencilAlt />
-                                </span>
+                                <Form.Select className="nice-select" {...register("city")} >
+                                  <option>Cidade</option>
+                                  {
+                                    locations.map((location)=>(
+                                      <option onClick={()=>{getNeighBorhood(location)}} value={location.cityName}>{location.cityName}</option>
+                                    ))
+                                  }
+                                </Form.Select>
+                                {errors.city && <p style={{color:"red"}}>{errors.city.message}</p>}
                               </div>
                             </Col>
-                            <Col xs={12} md={6}>
-                            <div className="input-item input-item-textarea ltn__custom-icon">
-                                <input
-                                  type="text"
-                                  {...register("neighborhood")}
-                                  placeholder="Bairro"
-                                />
+
+                            <Col xs={12} md={6} lg={4}>
+                              <div className="input-item ltn__custom-icon">
+                              <label>Bairro</label>
+                                <Form.Select className="nice-select" {...register("neighborhood")} >
+                                  <option>Bairro</option>
+                                  {
+                                    neighborhoods.map((neighborhood)=>(
+                                      <option  value={neighborhood}>{neighborhood}</option>
+                                    ))
+                                  }
+                                </Form.Select>
                                 {errors.neighborhood && <p style={{color:"red"}}>{errors.neighborhood.message}</p>}
-                                <span className="inline-icon">
-                                  <FaPencilAlt />
-                                </span>
                               </div>
                             </Col>
+
                             <Col xs={12} md={6}>
                               <div className="input-item input-item-textarea ltn__custom-icon">
                                 <input type="text" {...register("zip")} placeholder="Cep" />
@@ -474,7 +495,7 @@ function AddListingPage() {
                                 <input
                                   type="text"
                                   {...register("bedrooms")}
-                                  placeholder="Quarstos"
+                                  placeholder="Quartos"
                                 />
                                 {errors.bedrooms && <p style={{color:"red"}}>{errors.bedrooms.message}</p>}
                                 <span className="inline-icon">

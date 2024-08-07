@@ -1,5 +1,5 @@
 import { firestore } from "@/lib/firebase";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, serverTimestamp, updateDoc } from "firebase/firestore";
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
@@ -13,6 +13,7 @@ export default async function handler(req, res) {
   
         // Atualiza o documento no Firestore
         const docRef = doc(firestore, 'products', docId);
+        Object.assign(data,{updatedAt:serverTimestamp()})
         await updateDoc(docRef, data);
   
         // Responde com sucesso

@@ -89,7 +89,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                 ></span>
               </li>
               <li>
-                <Link href="/shop">Imóveis</Link>
+                <Link href="/imoveis">Imóveis</Link>
                 <span
                   className="menu-expand"
                   onClick={onClickHandler}
@@ -97,7 +97,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                 ></span>
               </li>
              
-              <li>
+              {/* <li>
                 <Link href="/shop/list">Lançamentos</Link>
                 <span
                   className="menu-expand"
@@ -112,7 +112,7 @@ const MobileMenu = function ({ offCanVastoggleBtn, closeSideBar }) {
                   onClick={onClickHandler}
                   aria-hidden="true"
                 ></span>
-              </li>
+              </li> */}
               <li>
                 <Link href="/about">Sobre Nós</Link>
                 <span

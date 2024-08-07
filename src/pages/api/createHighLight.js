@@ -1,13 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { firestore } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
         try {
           const product = req.body;
-          Object.assign(product,{createdAt:serverTimestamp(), updatedAt:serverTimestamp()})
-          const docId = await addProduct(product);
+          const docId = await addHighLights(product);
           res.status(200).json({ id: docId });
         } catch (error) {
           res.status(500).json({ error: 'Failed to add product' });
@@ -18,9 +17,9 @@ export default async function handler(req, res) {
   }
 
 
-  const addProduct = async (product) => {
+  const addHighLights  = async (product) => {
     try {
-      const docRef = await addDoc(collection(firestore, "products"), product);
+      const docRef = await addDoc(collection(firestore, "highlights"), product);
       console.log("Document written with ID: ", docRef.id);
       return docRef.id;
     } catch (e) {

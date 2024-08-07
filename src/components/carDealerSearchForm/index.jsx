@@ -1,8 +1,31 @@
 import { Container, Row, Col, Nav, Tab, Form } from "react-bootstrap";
 import { FaCarAlt, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function CarDealerSearchForm({ navMenuClass, customClasses }) {
+  const [neighborhoods,setNeighBorhood]= useState([])
+  const [locations,setLocations] = useState([])
+  const [searchCity,setSearchCity] = useState('all')
+  const[searchNeighborhood,setSearchNeighborhood] = useState('all')
+  const [searchType,setSearchType] = useState('all')
+  async function getLocations(){
+    const resultLocations = await axios.get("/api/listLocations")
+    setLocations(resultLocations.data)
+    setNeighBorhood(resultLocations.data[0].neighborhood)
+  
+  }
+  function getNeighBorhood(location){
+    setSearchCity(location.cityName)
+    console.log(location.neighborhood)
+    setNeighBorhood(location.neighborhood)
+  }
+  useEffect(()=>{
+    getLocations()
+  
+  },[])
   return (
     <>
       <div
@@ -44,12 +67,12 @@ function CarDealerSearchForm({ navMenuClass, customClasses }) {
                               className="ltn__car-dealer-form-item"
                             >
                               <Form.Select className="nice-select">
-                                <option>Cidade</option>
-                                <option value="1">Belo Horizonte</option>
-                                <option value="2">Venda Nova</option>
-                                <option value="3">Nova Lima</option>
-                                <option value="4">Betim</option>
-                                <option value="5">Contagem</option>
+                                <option value="all">Todas Cidades</option>
+                                {
+                                    locations.map((location)=>(
+                                      <option onClick={()=>{getNeighBorhood(location)}} value={location.cityName}>{location.cityName}</option>
+                                    ))
+                                  }
                               </Form.Select>
                             </Col>
                             <Col
@@ -59,11 +82,12 @@ function CarDealerSearchForm({ navMenuClass, customClasses }) {
                               className="ltn__car-dealer-form-item"
                             >
                               <Form.Select className="nice-select">
-                                <option>Bairro</option>
-                                <option value="1">Cidade nova</option>
-                                <option value="2">Pampulha</option>
-                                <option value="3">Buritis</option>
-                                <option value="4">Santa Efigenia</option>
+                                <option value="all">Todos Bairros</option>
+                                {
+                                    neighborhoods.map((neighborhood)=>(
+                                      <option onClick={()=>setSearchNeighborhood(neighborhood)} value={neighborhood}>{neighborhood}</option>
+                                    ))
+                                  }
                               </Form.Select>
                             </Col>
                             <Col
@@ -73,9 +97,11 @@ function CarDealerSearchForm({ navMenuClass, customClasses }) {
                               className="ltn__car-dealer-form-item"
                             >
                               <Form.Select className="nice-select">
-                                <option>Tipo</option>
-                                <option value="1">Casa</option>
-                                <option value="2">Apartamento</option>
+                                <option  value="all">Todos Tipos</option>
+                                <option onClick={()=>setSearchType('apartamento')} value="apartamento">Apartamento</option>
+                                <option onClick={()=>setSearchType('casa')} value="casa">Casa</option>
+                                <option  onClick={()=>setSearchType('lote')} value="lote">Lote</option>
+
                               </Form.Select>
                             </Col>
                             <Col
@@ -86,7 +112,7 @@ function CarDealerSearchForm({ navMenuClass, customClasses }) {
                             >
                               <div className="btn-wrapper text-center mt-0">
                                 <Link
-                                  href="/shop/right-sidebar"
+                                  href={`/imoveis?cidade=${searchCity}?bairro=${searchNeighborhood}?tipo=${searchType}`}
                                   className="btn theme-btn-1 btn-effect-1 text-uppercase"
                                 >
                                   Search

@@ -39,8 +39,14 @@ import { captalize } from "../../components/imovel/captalize";
 import { Amenities } from "../../components/imovel/amenities";
 import { formatPriceToBRL } from "@/lib/formatPriceBlr";
 import environment from "@/params/environment";
+import { ListProductsFirebase } from "@/lib/listProductsFireBase";
+import { ListProductsFirebaseBySlug } from "@/lib/listProductsFireBaseBySlug";
+import { ListImagesFireStorage } from "@/lib/listImagesFireStorage";
+import BreakLineText from "@/components/common/BreakLineText";
+import { useRouter } from "next/router";
 
 function ProductDetails({ product,images }) {
+
   const { products } = useSelector((state) => state.product);
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
@@ -246,8 +252,8 @@ console.log(product)
                     {captalize(product.neighborhood)} - {captalize(product.city)}
                   </label>
                   <h4 className="title-2"> Descrição</h4>
-                  <p>{product.description} </p>
-
+                  
+                  <BreakLineText text={product.description}/>
 
                   <h4 className="title-2">Detalhes do Imóvel</h4>
                   <div className="property-detail-info-list section-bg-1 clearfix mb-60">
@@ -727,29 +733,29 @@ console.log(product)
 export default ProductDetails;
 
 export async function getStaticProps({ params }) {
-  // get product data based on slug
-  // const data2 =await  axios.get(`${process.env.BASE_URL_DEV}/api/listproducts`)
-  // const products = data2.data
-  // let  product = products.filter(
-  //   (single) => productSlug(single.title) === params.slug
-  // )[0];
-  console.log("Slug=>",params.slug)
-  console.log("Slug=>",`/listfakeproduct`)
-  // const productsteste =await  axios.get(`${process.env.BASE_URL_DEV}/api/listproducts`)
-  const data =await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproductByslug?slug=${params.slug.trim()}`)
-  let product = data.data
+  const listProductsByslug = new ListProductsFirebaseBySlug()
+  const listImagesFireStorage = new ListImagesFireStorage()
+  const result  = await listProductsByslug.list(params.slug.trim())
+  const {id} = result
+
+  // console.log("Slug=>",params.slug)
+  // console.log("Slu fire=>",result)
+
+  let product = result
   //console.log("oi",product.id)
 
-  const dataImages = await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listimage?id=${product.id.trim()}`)
-  const images = dataImages.data
+  // const dataImages = await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listimage?id=${product.id.trim()}`)
+  const imagesProduct = await listImagesFireStorage.list(id)
+
+  const images =imagesProduct
   console.log(images)
   return { props: { product, images } };
 }
 
 export async function getStaticPaths() {
   // get the paths we want to pre render based on products
-  const data =await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproducts`)
-  const products = data.data
+  const list = new ListProductsFirebase()
+  const products = await list.list()
  
   const paths = products.map((product) => ({
     params: { slug: product.slug.trim() },

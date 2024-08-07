@@ -162,9 +162,9 @@ console.log(environment())
         });      <h4 style={{marginTop:'2rem'}}>Adicione Fotos</h4>
       }
 
-      // if (response.status ==200) {
-      //   router.push(`/sucesso/${slug}`);
-      // }
+      if (response.status ==200) {
+        router.push(`/sucesso/${slug}`);
+      }
 
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
@@ -205,6 +205,22 @@ console.log(environment())
     setImagesBucket((prevUrls) => prevUrls.filter((_, i) => i !== index));
     //fileInputRef.current.value = '';
   },[])
+  const [neighborhoods,setNeighBorhood]= useState([])
+const [locations,setLocations] = useState([])
+async function getLocations(){
+  const resultLocations = await axios.get("/api/listLocations")
+  setLocations(resultLocations.data)
+  setNeighBorhood(resultLocations.data[0].neighborhood)
+
+}
+function getNeighBorhood(location){
+  console.log(location.neighborhood)
+  setNeighBorhood(location.neighborhood)
+}
+useEffect(()=>{
+  getLocations()
+
+},[])
   return (
     <>
       <LayoutOne topbar={true}>
@@ -445,30 +461,34 @@ console.log(environment())
                                 </span>
                               </div>
                             </Col>
+                            <Col xs={12} md={6} lg={4}>
+                              <div className="input-item ltn__custom-icon">
+                              <label>Cidade</label>
 
-                            <Col xs={12} md={6}>
-                              <div className="input-item input-item-textarea ltn__custom-icon">
-                                <input
-                                  type="text"
-                                  {...register("city")}
-                                  placeholder="Cidade"
-                                /> {errors.city && <p style={{color:"red"}}>{errors.city.message}</p>}
-                                <span className="inline-icon">
-                                  <FaPencilAlt />
-                                </span>
+                                <Form.Select className="nice-select" {...register("city")} >
+                                  <option value={data.city}>{data.city}</option>
+                                  {
+                                    locations.map((location)=>(
+                                      <option onClick={()=>{getNeighBorhood(location)}} value={location.cityName}>{location.cityName}</option>
+                                    ))
+                                  }
+                                </Form.Select>
+                                {errors.city && <p style={{color:"red"}}>{errors.city.message}</p>}
                               </div>
                             </Col>
-                            <Col xs={12} md={6}>
-                            <div className="input-item input-item-textarea ltn__custom-icon">
-                                <input
-                                  type="text"
-                                  {...register("neighborhood")}
-                                  placeholder="Bairro"
-                                />
+
+                            <Col xs={12} md={6} lg={4}>
+                              <div className="input-item ltn__custom-icon">
+                              <label>Bairro</label>
+                                <Form.Select className="nice-select" {...register("neighborhood")} >
+                                  <option  value={data.neighborhood}>{data.neighborhood}</option>
+                                  {
+                                    neighborhoods.map((neighborhood)=>(
+                                      <option  value={neighborhood}>{neighborhood}</option>
+                                    ))
+                                  }
+                                </Form.Select>
                                 {errors.neighborhood && <p style={{color:"red"}}>{errors.neighborhood.message}</p>}
-                                <span className="inline-icon">
-                                  <FaPencilAlt />
-                                </span>
                               </div>
                             </Col>
                             <Col xs={12} md={6}>

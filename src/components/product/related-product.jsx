@@ -96,49 +96,7 @@ const RelatedProduct = ({
               <span className="ms-1">metros&#178;</span>
             </li>
           </ul>
-          <div className="product-hover-action">
-            <ul>
-              <li>
-                <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={quickViewTooltip}
-                >
-                  <button onClick={() => setModalShow(true)}>
-                    <i className="flaticon-expand"></i>
-                  </button>
-                </OverlayTrigger>
-              </li>
-              <li>
-                <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={wishListTooltip}
-                >
-                  <button
-                    onClick={
-                      wishlistItem !== undefined
-                        ? () => dispatch(deleteFromWishlist(productData.id))
-                        : () => dispatch(addToWishlist(productData))
-                    }
-                  >
-                    <i className="flaticon-heart-1"></i>
-                  </button>
-                </OverlayTrigger>
-              </li>
-              <li>
-                <OverlayTrigger
-                  placement="right"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={addToCartTooltip}
-                >
-                  <button onClick={() => dispatch(addToCart(productData))}>
-                    <i className="flaticon-add"></i>
-                  </button>
-                </OverlayTrigger>
-              </li>
-            </ul>
-          </div>
+
         </div>
         <div className="product-info-bottom">
           <div className="product-price">
@@ -150,17 +108,7 @@ const RelatedProduct = ({
         </div>
       </div>
 
-      <QuickViewtModal
-        productData={productData}
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        slug={slug}
-        discountedprice={discountedPrice}
-        productprice={productPrice}
-        cartitem={cartItem}
-        wishlistitem={wishlistItem}
-        compareitem={compareItem}
-      />
+
     </>
   );
 };

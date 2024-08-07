@@ -4,6 +4,7 @@ import { FaRegStar, FaRegStarHalf, FaStar, FaTrashAlt } from "react-icons/fa";
 import { ModalDelete } from "../modal/modalDelete";
 import { useState } from "react";
 import axios from "axios";
+import { formatPriceToBRL } from "@/lib/formatPriceBlr";
 
 export function CardHouse({house, setHouses,getHouses}){
   const [show, setShow] = useState(false);
@@ -39,7 +40,7 @@ function deleteHouse(){
               {house?.neighborhood} -  {house.city} 
             </small>
             <div className="product-ratting">
-            <h4>{house?.price}</h4>
+            <h4>{ formatPriceToBRL(house?.price)}</h4>
             </div>
           </div>
         </td>
