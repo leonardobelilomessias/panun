@@ -229,7 +229,7 @@ function HomePageSix({allproducts}) {
                 />
                 {/* PRODUCT SLIDER AREA START */}
                 <div className="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7">
-                    <Container fluid>
+                    {/* <Container fluid>
                         <Row>
                             <Col lg={12}>
                                 <TitleSection
@@ -286,7 +286,7 @@ function HomePageSix({allproducts}) {
                                 ) : null}
                             </Col>
                         </Row>
-                    </Container>
+                    </Container> */}
                 </div>
                 {/* PRODUCT SLIDER AREA END */}
 

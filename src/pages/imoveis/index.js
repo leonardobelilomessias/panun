@@ -18,6 +18,7 @@ import CallToAction from "@/components/callToAction";
 import RelatedProduct2 from "@/components/product/related-product2";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Loading from "@/components/common/Loading";
 
 function ShopGrid() {
   const router = useRouter()
@@ -214,6 +215,7 @@ const handlePageClick = ({ selected }) => {
                 <Tab.Content>
                   <Tab.Pane eventKey="first">
                     <div className="ltn__product-tab-content-inner ltn__product-grid-view">
+                 {loading&& <Loading/>}
                       <Row>
                         {houses.map((product, key) => {
                           const slug = productSlug(product.title);

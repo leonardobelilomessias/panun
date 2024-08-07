@@ -18,6 +18,7 @@ import { ModalSelectImage } from "@/components/modal/modalSelectImage";
 import Image from "next/image";
 import { object } from "prop-types";
 import {v4 } from 'uuid'
+import Loading from "@/components/common/Loading";
 ///mudando contexto
 //mais m
 const schema = yup
@@ -58,6 +59,7 @@ const schema = yup
 
   }).required();
 function AddListingPage() {
+  const [loading,setLoading] = useState()
   const [messageModal,setMessageModal] = useState('')
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -93,6 +95,7 @@ function AddListingPage() {
     const formCover = new FormData();
 
     try {
+      setLoading(true)
       for (const file of files) {
         formData.append('files', file);
       }
@@ -130,6 +133,9 @@ function AddListingPage() {
 
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
+    }
+    finally{
+      setLoading(false)
     }
 
   }
@@ -182,7 +188,11 @@ useEffect(()=>{
         <ShopBreadCrumb title="Adicionar Imovel" sectionPace="" currentSlug="Adicionar imóvel" />
         {/* // <!-- APPOINTMENT AREA START --> */}
         
-        <div className="ltn__appointment-area pb-120">
+        {loading &&<Loading/>}
+        {
+
+        }
+{!loading&&        <div className="ltn__appointment-area pb-120">
           <Container>
             <Row>
               <Col xs={12}>
@@ -397,8 +407,8 @@ useEffect(()=>{
                           <h6>Defina a Localização</h6>
                           <Row>
                             <Col xs={12} md={6}>
+                            
                               <div className="input-item input-item-textarea ltn__custom-icon">
-                              <label>Endereço</label>
                                 <input
                                 {...register("address")}
                                   type="text"
@@ -412,7 +422,7 @@ useEffect(()=>{
                             </Col>
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                              <label>Cidade</label>
+                              
 
                                 <Form.Select className="nice-select" {...register("city")} >
                                   <option>Cidade</option>
@@ -426,9 +436,9 @@ useEffect(()=>{
                               </div>
                             </Col>
 
+                            
                             <Col xs={12} md={6} lg={4}>
                               <div className="input-item ltn__custom-icon">
-                              <label>Bairro</label>
                                 <Form.Select className="nice-select" {...register("neighborhood")} >
                                   <option>Bairro</option>
                                   {
@@ -665,7 +675,7 @@ useEffect(()=>{
               </Col>
             </Row>
           </Container>
-        </div>
+        </div>}
         {/* // <!-- APPOINTMENT AREA END --> */}
         <div className="ltn__call-to-action-area call-to-action-6 before-bg-bottom">
           <Container>

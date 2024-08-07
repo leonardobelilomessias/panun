@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import { FaAngleDoubleLeft, FaAngleDoubleRight, FaRegPlusSquare } from "react-icons/fa";
 import ReactPaginate from "react-paginate";
+import Loading from "../common/Loading";
 
 
 export function TabPaneAllItens(){
@@ -54,6 +55,7 @@ const handlePageClick = ({ selected }) => {
                             </div> 
                             <div className="ltn__myaccount-tab-content-inner">
                               <div className="ltn__my-properties-table table-responsive">
+                                   {loading&& <Loading/>}
                                 <table className="table">
                                   <thead>
                                     <tr>
