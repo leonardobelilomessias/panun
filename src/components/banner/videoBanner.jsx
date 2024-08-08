@@ -6,7 +6,10 @@ const VideoBanner = () => {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
+    
       <ModalVideo
+        allowFullScreen
+        classNames={screenX}
         channel="youtube"
         autoplay
         isOpen={isOpen}

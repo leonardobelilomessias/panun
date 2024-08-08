@@ -48,10 +48,10 @@ const handlePageClick = ({ selected }) => {
 
 <Tab.Pane eventKey="ltn_tab_1_5">
                             <div style={{display:"flex",justifyContent:"flex-end"}}>
-                              <button variant="danger" style={{backgroundColor:'black', padding:8, color:'white', borderRadius:12, margin:8 }}>
+                              <Link href={`/add`} variant="danger" style={{backgroundColor:'black', padding:8, color:'white', borderRadius:12, margin:8 }}>
                             
-                           <p style={{padding:0, margin:0, color:'white', fontWeight:"bold"}}>Adiconar novo <FaRegPlusSquare color="white" size={24}/> </p> 
-                              </button>
+                           <p style={{padding:0, margin:0, color:'white', fontWeight:"bold"}}>Adicionar novo <FaRegPlusSquare color="white" size={24}/> </p> 
+                              </Link>
                             </div> 
                             <div className="ltn__myaccount-tab-content-inner">
                               <div className="ltn__my-properties-table table-responsive">

@@ -464,7 +464,7 @@ function HomePageSix({allproducts}) {
 
 
                 {/* <!-- VIDEO AREA START --> */}
-                <div className="ltn__video-popup-area">
+                <div  className="ltn__video-popup-area" >
                     <VideoBanner />
                 </div>
                 {/* <!-- VIDEO AREA END --> */}

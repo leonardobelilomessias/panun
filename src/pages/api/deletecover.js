@@ -9,11 +9,11 @@ export default async function handler(req, res) {
 
     try {
       // Deletar documento no Firestore
-      await deleteProductDocument(id);
+      //await deleteProductDocument(id);
 
       // Deletar bucket no Firebase Storage
-      await deleteProductBucket(id);
-
+      //await deleteProductBucket(id); 
+      console.log(id)
       await deleteCover(id)
 
       res.status(200).json({ message: "Produto e bucket deletados com sucesso." });
