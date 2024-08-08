@@ -741,6 +741,8 @@ useEffect(()=>{
 export default AddListingPage;
 
 export async function getServerSideProps({params}) {
+
+  
   // Simulando uma chamada de API ou consulta ao banco de dados
   const resp = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproductByslug?slug=${params.slug}`)
 
