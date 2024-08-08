@@ -738,14 +738,7 @@ export async function getServerSideProps({ params }) {
   const listImagesFireStorage = new ListImagesFireStorage()
   const result  = await listProductsByslug.list(params.slug.trim())
   const {id} = result
-
-  // console.log("Slug=>",params.slug)
-  // console.log("Slu fire=>",result)
-
   let product = result
-  //console.log("oi",product.id)
-
-  // const dataImages = await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listimage?id=${product.id.trim()}`)
   let imagesProduct= []
   if(!id){
     return {
@@ -757,7 +750,6 @@ export async function getServerSideProps({ params }) {
   }
 
   const images =imagesProduct
-  console.log(images)
   return { props: { product, images } };
 }
 

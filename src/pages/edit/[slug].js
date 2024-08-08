@@ -18,6 +18,8 @@ import { ModalSelectImage } from "@/components/modal/modalSelectImage";
 import Image from "next/image";
 import { v4 } from "uuid";
 import Loading from "@/components/common/Loading";
+import { ListProductsFirebaseBySlug } from "@/lib/listProductsFireBaseBySlug";
+import { ListImagesFireStorage } from "@/lib/listImagesFireStorage";
 ///mudando contexto
 //mais m
 const schema = yup
@@ -742,18 +744,27 @@ export default AddListingPage;
 
 export async function getServerSideProps({params}) {
 
-  
-  // Simulando uma chamada de API ou consulta ao banco de dados
-  const resp = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listproductByslug?slug=${params.slug}`)
+  const listProductsByslug = new ListProductsFirebaseBySlug()
+  const listImagesFireStorage = new ListImagesFireStorage()
+  const result  = await listProductsByslug.list(params.slug.trim())
+  const {id} = result
+  let product = result
+  let imagesProduct= []
+  if(!id){
+    return {
+      notFound: true,
+    };
+  }
+  if(id){
+    imagesProduct = await listImagesFireStorage.list(id)
+  }
+  console.log(imagesProduct)
 
-  const respImages = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listimage?id=${resp.data.id}`)
- 
-
-  // Retornando os dados como props para o componente
+  const images =imagesProduct.urls
   return {
     props: {
-      data:resp.data,
-      images:respImages.data.urls
+      data:product,
+      images:imagesProduct.urls
     }
   };
 }
