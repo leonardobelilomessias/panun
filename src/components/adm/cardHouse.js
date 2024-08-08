@@ -12,7 +12,7 @@ export function CardHouse({house, setHouses,getHouses}){
   const handleShow = () => setShow(true);
 function deleteHouse(){
   console.log(house.id)
-  axios.delete(`${environment()}/api/deleteproduct?id=${house.id}`)
+  axios.delete(`/api/deleteproduct?id=${house.id}`)
   getHouses()
   handleClose()
  // setHouses([])
@@ -46,7 +46,7 @@ function deleteHouse(){
         </td>
         <td>Feb 22, 2023</td>
         <td>
-          <Link href={`${environment()}/edit/${house.slug}`}>Editar</Link>
+          <Link href={`/edit/${house.slug}`}>Editar</Link>
         </td>
         <td>
           <div  onClick={()=>{handleShow()}}>
