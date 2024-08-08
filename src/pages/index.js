@@ -13,7 +13,7 @@ function HomePage({allproducts}) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const list = new ListProductsFirebase()
 
   const filePath = path.join(process.cwd(), "src/data/hero/", "index.json");

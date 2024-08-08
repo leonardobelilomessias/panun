@@ -44,6 +44,7 @@ import { ListProductsFirebaseBySlug } from "@/lib/listProductsFireBaseBySlug";
 import { ListImagesFireStorage } from "@/lib/listImagesFireStorage";
 import BreakLineText from "@/components/common/BreakLineText";
 import { useRouter } from "next/router";
+import { redirect } from "next/navigation";
 
 function ProductDetails({ product,images }) {
 
@@ -732,7 +733,7 @@ console.log(product)
 
 export default ProductDetails;
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const listProductsByslug = new ListProductsFirebaseBySlug()
   const listImagesFireStorage = new ListImagesFireStorage()
   const result  = await listProductsByslug.list(params.slug.trim())
@@ -745,21 +746,29 @@ export async function getStaticProps({ params }) {
   //console.log("oi",product.id)
 
   // const dataImages = await  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/listimage?id=${product.id.trim()}`)
-  const imagesProduct = await listImagesFireStorage.list(id)
+  let imagesProduct= []
+  if(!id){
+    return {
+      notFound: true,
+    };
+  }
+  if(id){
+    imagesProduct = await listImagesFireStorage.list(id)
+  }
 
   const images =imagesProduct
   console.log(images)
   return { props: { product, images } };
 }
 
-export async function getStaticPaths() {
-  // get the paths we want to pre render based on products
-  const list = new ListProductsFirebase()
-  const products = await list.list()
+// export async function getStaticPaths() {
+//   // get the paths we want to pre render based on products
+//   const list = new ListProductsFirebase()
+//   const products = await list.list()
  
-  const paths = products.map((product) => ({
-    params: { slug: product.slug.trim() },
-  }));
+//   const paths = products.map((product) => ({
+//     params: { slug: product.slug.trim() },
+//   }));
 
-  return { paths, fallback: false };
-}
+//   return { paths, fallback: false };
+// }
