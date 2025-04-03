@@ -1,5 +1,5 @@
 
-import { IQuestion } from '@/app/types/TypesDB';
+import { IQuestion } from '@/types/TypesDB';
 import { supabaseClient } from '../client';
 
 // export const getQuestions = async (): Promise<IQuestion[]> => {

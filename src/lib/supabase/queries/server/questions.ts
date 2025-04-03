@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { PostgrestSingleResponse } from '@supabase/supabase-js'
 import { createClient } from '@/utils/supabase/server'
-import { ListItemGenericFull, Tip } from '@/app/types/TypesDB';
+import { ListItemGenericFull, Tip } from '@/types/TypesDB';
 export const insertQuestion = async (data:any): Promise<PostgrestSingleResponse<any| Tip>> => {
   const supabase = await createClient()
   const resp = await supabase 

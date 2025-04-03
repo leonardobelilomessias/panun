@@ -1,4 +1,4 @@
-import { ProfileScreen } from "@/app/ui/Screens/ProfileScreen";
+import { ProfileScreen } from "@/ui/Screens/ProfileScreen";
 import { createClient } from "@/utils/supabase/server";
 
 interface IParams {

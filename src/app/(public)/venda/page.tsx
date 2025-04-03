@@ -1,5 +1,5 @@
-import { propertiesData } from "@/app/common/mocks/datamocks";
-import { SalePropertiesScreen } from "@/app/ui/Screens/SalePropertiesScreen";
+import { propertiesData } from "@/common/mocks/datamocks";
+import { SalePropertiesScreen } from "@/ui/Screens/SalePropertiesScreen";
 
 export default function venda(){
     return(

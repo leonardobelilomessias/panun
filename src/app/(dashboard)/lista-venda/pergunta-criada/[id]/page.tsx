@@ -1,4 +1,4 @@
-import { CreatedQuestionScreen } from "@/app/ui/Screens/Questions/CreatedQuestionScreen";
+import { CreatedQuestionScreen } from "@/ui/Screens/Questions/CreatedQuestionScreen";
 
 export default async function dicas({params}:{params:{id:string}}){
 

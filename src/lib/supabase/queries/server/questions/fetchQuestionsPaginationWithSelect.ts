@@ -1,5 +1,5 @@
 'use server'
-import { ListItemGenericFull, TipsFull } from "@/app/types/TypesDB";
+import { ListItemGenericFull, TipsFull } from "@/types/TypesDB";
 import { createClient } from "@/utils/supabase/server";
 
 export const fetchQuestionsPaginationWithSelect = async (

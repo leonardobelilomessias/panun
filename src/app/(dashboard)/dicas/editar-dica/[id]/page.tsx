@@ -1,5 +1,5 @@
-import { CreateTipScreen } from "@/app/ui/Screens/Tips/CreateTipScreen";
-import { EditTipScreen } from "@/app/ui/Screens/Tips/EditTipScreen";
+import { CreateTipScreen } from "@/ui/Screens/Tips/CreateTipScreen";
+import { EditTipScreen } from "@/ui/Screens/Tips/EditTipScreen";
 import { getTipById } from "@/lib/supabase/queries/tipsClient";
 import { createClient } from "@/utils/supabase/server";
 interface EditTipPageProps {

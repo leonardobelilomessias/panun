@@ -1,4 +1,4 @@
-import { SkeletonHome } from "../../ui/components/Skeletons/SkeletonHome";
+import { SkeletonHome } from "../../../ui/components/Skeletons/SkeletonHome";
 
 export default function Loading() {
     return(<SkeletonHome/>)

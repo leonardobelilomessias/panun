@@ -1,4 +1,4 @@
-import { CreateTipScreen } from "@/app/ui/Screens/Tips/CreateTipScreen";
+import { CreateTipScreen } from "@/ui/Screens/Tips/CreateTipScreen";
 import { createClient } from "@/utils/supabase/server";
 
 export default async function newTip(){

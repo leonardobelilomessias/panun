@@ -3,8 +3,8 @@ import { buttonVariants } from "./ui/button";
 import { HeroCards } from "./HeroCards";
 import Link from "next/link";
 import Image from "next/image";
-import TravelImage from '@/app/public/images/travel5.jpg'
-import Heroflags from '@/app/public/images/Home/house-green.png'
+import TravelImage from '@/public/images/travel5.jpg'
+import Heroflags from '@/public/images/Home/house-green.png'
 // import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export const Hero = () => {

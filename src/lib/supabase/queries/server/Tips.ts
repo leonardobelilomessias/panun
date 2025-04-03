@@ -1,5 +1,5 @@
 'use server'
-import { Tip, TipsFull } from "@/app/types/TypesDB";
+import { Tip, TipsFull } from "@/types/TypesDB";
 import { createClient } from "@/utils/supabase/server";
 import { revalidatePath } from "next/cache";
 

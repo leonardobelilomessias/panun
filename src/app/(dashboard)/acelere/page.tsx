@@ -1,4 +1,4 @@
-import { SpeedUpScreen } from "@/app/ui/Screens/SpeedUpScren";
+import { SpeedUpScreen } from "@/ui/Screens/SpeedUpScren";
 
 export default function acelere(){ 
     return (<SpeedUpScreen/>)

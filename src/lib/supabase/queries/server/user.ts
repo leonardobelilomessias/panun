@@ -1,6 +1,6 @@
 'use server'
 import { createClient } from "@/utils/supabase/server";
-import { IProfile, ProfileFormData } from "@/app/types/TypesDB";
+import { IProfile, ProfileFormData } from "@/types/TypesDB";
 import { revalidatePath } from "next/cache";
 
 export const updateUserById = async (userData:IProfile) => {

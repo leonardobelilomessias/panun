@@ -1,6 +1,6 @@
 
-import { agentsData, propertiesData } from "@/app/common/mocks/datamocks";
-import { singin } from "@/app/module/auth/auth-actions";
+import { agentsData, propertiesData } from "@/common/mocks/datamocks";
+import { singin } from "@/module/auth/auth-actions";
 import { supabaseClient } from "@/lib/supabase/client";
 import { supabase } from "@/lib/supabase/supabase";
 import { NextResponse } from "next/server";

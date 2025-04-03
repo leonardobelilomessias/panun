@@ -1,4 +1,4 @@
-import { NewClienScreen } from "@/app/ui/Screens/ClientsScreens/NewClientScreen";
+import { NewClienScreen } from "@/ui/Screens/ClientsScreens/NewClientScreen";
 
 export default function newClient(){
     return(

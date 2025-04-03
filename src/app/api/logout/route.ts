@@ -1,5 +1,5 @@
 
-import { AuthService } from "@/app/module/auth/auth-services";
+import { AuthService } from "@/module/auth/auth-services";
 import { createClient } from "@/utils/supabase/server";
 
 export async function DELETE() {

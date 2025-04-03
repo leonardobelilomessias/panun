@@ -1,5 +1,5 @@
-import { PropertiesScreen } from "@/app/ui/Screens/PropertiesScreen";
-import { PropertyScreen } from "@/app/ui/Screens/PropertyScreen";
+import { PropertiesScreen } from "@/ui/Screens/PropertiesScreen";
+import { PropertyScreen } from "@/ui/Screens/PropertyScreen";
 
 export default function Property({params}:{params:{id:string}}){
     // const title  = params.id.split('#')[0]

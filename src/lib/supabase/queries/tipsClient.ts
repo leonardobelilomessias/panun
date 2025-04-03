@@ -1,4 +1,4 @@
-import { ITip } from '@/app/types/TypesDB';
+import { ITip } from '@/types/TypesDB';
 import { supabase } from '@/lib/supabase/supabase';
 
 

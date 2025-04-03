@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/Navbar"
 
-import "../globals.css";
+import "../../globals.css";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu"
-import { NavbarDashboard } from "../ui/Screens/DashboarScreen/NavbarDashboard/NavbarDashboard";
+import { NavbarDashboard } from "../../ui/Screens/DashboarScreen/NavbarDashboard/NavbarDashboard";
 import { Footer } from "@/components/Footer";
-import { AsideDashBoard } from "../ui/components/AsideDashboard";
+import { AsideDashBoard } from "../../ui/components/AsideDashboard";
 
 export const metadata = {
   title: 'Next.js',

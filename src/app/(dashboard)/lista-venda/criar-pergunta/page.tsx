@@ -1,4 +1,4 @@
-import { CreateQuestionScreen } from "@/app/ui/Screens/Questions/CreateQuestionScreen";
+import { CreateQuestionScreen } from "@/ui/Screens/Questions/CreateQuestionScreen";
 import { createClient } from "@/utils/supabase/server";
 
 

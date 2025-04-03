@@ -1,4 +1,4 @@
-import { TipsScreen } from "@/app/ui/Screens/Tips/TipsScreen";
+import { TipsScreen } from "@/ui/Screens/Tips/TipsScreen";
 import { Suspense } from "react";
 
 export default  function dicas(){

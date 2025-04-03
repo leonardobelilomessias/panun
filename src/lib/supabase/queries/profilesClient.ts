@@ -1,5 +1,5 @@
 import { supabase } from '@/lib/supabase/supabase';
-import { IProfile, ProfileFormData } from '@/app/types/TypesDB';
+import { IProfile, ProfileFormData } from '@/types/TypesDB';
 
 export const getProfileById = async (userId: string): Promise<IProfile | null> => {
   const { data: profile, error } = await supabase

@@ -1,10 +1,10 @@
-import { FormSingIn } from "@/app/ui/components/FormSigin";
+import { FormSingIn } from "@/ui/components/FormSigin";
 import { Button } from "./ui/button";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { Navbar } from "./Navbar";
 import Image from "next/image";
-import WorldMap from '@/app/public/images/Landing/hero-flags.png'
+import WorldMap from '@/public/images/Landing/hero-flags.png'
 export const HeroLogin = () => {
   return (
     <div className=" min-h-screen">

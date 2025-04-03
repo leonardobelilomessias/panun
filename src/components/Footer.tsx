@@ -1,6 +1,6 @@
 import { Compass, Hotel } from "lucide-react";
 import { LogoIcon } from "./Icons";
-import  ImageLogoGreen from '@/app/public/images/Home/Logo_green.svg'
+import  ImageLogoGreen from '@/public/images/Home/Logo_green.svg'
 import Image from "next/image";
 export const Footer = () => {
   return (

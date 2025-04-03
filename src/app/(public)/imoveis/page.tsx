@@ -1,4 +1,4 @@
-import { PropertiesScreen } from "@/app/ui/Screens/PropertiesScreen";
+import { PropertiesScreen } from "@/ui/Screens/PropertiesScreen";
 
 export default function imoveis(){
     return(

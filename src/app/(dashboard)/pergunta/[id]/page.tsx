@@ -1,6 +1,6 @@
-import { QuestionScreen } from "@/app/ui/Screens/Questions/QuestionScreen";
-import { QuestionsScreen } from "@/app/ui/Screens/Questions/QuestionsScreen";
-import { TipScreen } from "@/app/ui/Screens/Tips/TipScreen";
+import { QuestionScreen } from "@/ui/Screens/Questions/QuestionScreen";
+import { QuestionsScreen } from "@/ui/Screens/Questions/QuestionsScreen";
+import { TipScreen } from "@/ui/Screens/Tips/TipScreen";
 
 interface TipPageProps {
   params: {

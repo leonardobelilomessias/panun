@@ -19,8 +19,8 @@ import { ModeToggle } from "./mode-toggle";
 import { LogoIcon } from "./Icons";
 import { FaGithub, FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
-import ImageLogowhite from '@/app/public/images/Home/Logo_white.svg'
-import ImageLogoGreen from '@/app/public/images/Home/logo-simple-green.svg'
+import ImageLogowhite from '@/public/images/Home/Logo_white.svg'
+import ImageLogoGreen from '@/public/images/Home/logo-simple-green.svg'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"

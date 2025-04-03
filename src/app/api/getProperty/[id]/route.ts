@@ -1,6 +1,6 @@
 
-import { propertiesData } from "@/app/common/mocks/datamocks";
-import { singin } from "@/app/module/auth/auth-actions";
+import { propertiesData } from "@/common/mocks/datamocks";
+import { singin } from "@/module/auth/auth-actions";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request,
