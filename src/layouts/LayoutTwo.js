@@ -3,7 +3,7 @@ import { HeaderTwo } from "@/components/header";
 import Footer from "@/components/footer/footer";
 import ScrollToTop from "@/components/scroll-to-top";
 
-const LayoutTwo = ({ children, navPositionClass, topbar }) => {
+const  LayoutTwo = ({ children, navPositionClass, topbar }) => {
   const [toggleClassName, SetToggleClassName] = useState(false);
 
   function toggleClassNameInBody() {
@@ -22,7 +22,7 @@ const LayoutTwo = ({ children, navPositionClass, topbar }) => {
           topbar={topbar}
         />
         {children}
-        <Footer />
+        <Footer/>
         <ScrollToTop />
       </div>
     </Fragment>
