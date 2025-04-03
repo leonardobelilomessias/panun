@@ -51,7 +51,7 @@ export function MaintenanceMessage() {
 
       {/* Botão de contato */}
       <a
-        href="https://wa.me/seunumerodowhatsapp"
+        href="https://wa.me/31992450305"
         className="mt-6 justify-center justify-self-center self-center place-self-center m-auto  bg-primaryPalet text-white font-semibold text-lg px-6 py-3 rounded-lg shadow-md hover:bg-opacity-75 transition flex gap-2 items-center flex-grow-0 flex-shrink-0 max-w-72"
       >
         <FaWhatsapp className="text-white"/>
