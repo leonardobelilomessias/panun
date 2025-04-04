@@ -1,5 +1,5 @@
-import { ContainerScreen } from "@/ui/components/Containers/ContainerSceen";
-import { ClientsScreen } from "@/ui/Screens/ClientsScreens/ClientsScreen";
+import { ContainerScreen } from "@/components/modules/Containers/ContainerSceen";
+import { ClientsScreen } from "@/Screens/ClientsScreens/ClientsScreen";
 
 export default function clients(){
     return(

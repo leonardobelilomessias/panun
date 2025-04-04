@@ -1,4 +1,4 @@
-import { NewProductScreen } from "@/ui/Screens/NewProductScreen";
+import { NewProductScreen } from "@/Screens/NewProductScreen";
 
 export default function newProduct(){
     return(

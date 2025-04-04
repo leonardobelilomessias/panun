@@ -1,4 +1,4 @@
-import { TipScreen } from "@/ui/Screens/Tips/TipScreen";
+import { TipScreen } from "@/Screens/Tips/TipScreen";
 
 interface TipPageProps {
   params: {

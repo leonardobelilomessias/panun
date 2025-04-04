@@ -1,5 +1,5 @@
 
-import { DashboardScreen } from "@/ui/Screens/DashboarScreen";
+import { DashboardScreen } from "@/Screens/DashboarScreen";
 import { axiosApi } from "@/lib/axios/axios";
 
 export default async function HomePage({ params }: { params: { id: string } }) {

@@ -1,4 +1,4 @@
-import { FormSingIn } from "@/ui/components/FormSigin";
+import { FormSingIn } from "@/components/modules/FormSigin";
 import { Button } from "./ui/button";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";

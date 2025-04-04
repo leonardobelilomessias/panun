@@ -1,4 +1,4 @@
-import { AgentsScreen } from "@/ui/Screens/AgentsScreens/AgentssScreen";
+import { AgentsScreen } from "@/Screens/AgentsScreens/AgentssScreen";
 
 export default function corrretores(){
     return(

@@ -1,4 +1,4 @@
-import { MaintenceScreen } from "@/ui/Screens/MaintenceScreen";
+import { MaintenceScreen } from "@/Screens/MaintenceScreen";
 
 export default function manutencao(){
     return(

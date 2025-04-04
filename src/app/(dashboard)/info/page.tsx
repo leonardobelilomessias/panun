@@ -1,4 +1,4 @@
-import { InfoScreen } from "@/ui/Screens/InfoScreen";
+import { InfoScreen } from "@/Screens/InfoScreen";
 
 export default function contribua(){
     return(<InfoScreen/>)

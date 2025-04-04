@@ -1,4 +1,4 @@
-import { VideosScreen } from "@/ui/Screens/VideosScreen";
+import { VideosScreen } from "@/Screens/VideosScreen";
 
 export  default function videos(){
     return(<VideosScreen/>)

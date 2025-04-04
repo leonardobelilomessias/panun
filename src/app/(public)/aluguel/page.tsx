@@ -1,4 +1,4 @@
-import { RentPropertiesScreen } from "@/ui/Screens/RentPropertiesScreen";
+import { RentPropertiesScreen } from "@/Screens/RentPropertiesScreen";
 
 export default function venda(){
     return(

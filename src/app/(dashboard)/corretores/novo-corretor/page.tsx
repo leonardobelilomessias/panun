@@ -1,4 +1,4 @@
-import { NewAgentScreen } from "@/ui/Screens/AgentsScreens/NewAgentScreen";
+import { NewAgentScreen } from "@/Screens/AgentsScreens/NewAgentScreen";
 
 export default function newAgent(){
     return(

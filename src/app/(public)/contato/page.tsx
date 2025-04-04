@@ -1,4 +1,4 @@
-import ContactScreen from "@/ui/Screens/ContactScreen";
+import ContactScreen from "@/Screens/ContactScreen";
 
 
 export default function Property(){

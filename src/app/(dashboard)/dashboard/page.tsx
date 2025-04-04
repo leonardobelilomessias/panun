@@ -1,5 +1,5 @@
 
-import { DashboardScreen } from "@/ui/Screens/DashboarScreen";
+import { DashboardScreen } from "@/Screens/DashboarScreen";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 

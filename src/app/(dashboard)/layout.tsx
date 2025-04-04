@@ -1,12 +1,12 @@
 import { Navbar } from "@/components/Navbar"
 
 import "../../globals.css";
-import { NavbarDashboard } from "../../ui/Screens/DashboarScreen/NavbarDashboard/NavbarDashboard";
+import { NavbarDashboard } from "../../Screens/DashboarScreen/NavbarDashboard/NavbarDashboard";
 import { Footer } from "@/components/Footer";
-import { AsideDashBoard } from "../../ui/components/AsideDashboard";
+import { AsideDashBoard } from "../../components/modules/AsideDashboard";
 import { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
-import { inter } from "../../ui/fonts";
+import { inter } from "../../config/fonts";
 
 
 export const metadata: Metadata = {

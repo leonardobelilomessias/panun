@@ -1,4 +1,4 @@
-import ClientScreeen from "@/ui/Screens/ClientsScreens/ClientScreen";
+import ClientScreeen from "@/Screens/ClientsScreens/ClientScreen";
 
 export default function Clients({params:{id}}:{params:{id:string}}){
     return(
