@@ -66,7 +66,7 @@ export function AllQuestions() {
 
           isLoading ?
             <div className="flex items-center justify-center min-h-[400px]">
-              <Loader2 className="h-8 w-8 animate-spin text-primaryPalet" />
+              <Loader2 className="h-8 w-8 animate-spin text-primary-palet" />
             </div> :
             data?.questions?.map((questionFull) => (
               <CardListGeneric linkToShow={`/pergunta/${questionFull.id}`} itemFull={questionFull} linkToEdit={`/perguntas/editar-pergunta/${questionFull.id}`} onDeleteItem={()=>deleteQuestionById(questionFull.id)} onDeleteRefresh={onDeleteQuestion} currentUser={user?.id || ''} key={questionFull.id}  />

@@ -120,7 +120,7 @@ export function AvatarUpload({ userId, avatarUrl, userName }: AvatarUploadProps)
         </Avatar>
         <label
           htmlFor="avatar-upload"
-          className="absolute bottom-0 right-0 bg-primaryPalet rounded-full p-2 cursor-pointer hover:bg-blue-600 transition-colors"
+          className="absolute bottom-0 right-0 bg-primary-palet rounded-full p-2 cursor-pointer hover:bg-blue-600 transition-colors"
         >
           {isUploading ? (
             <Loader2 className="h-4 w-4 text-white animate-spin" />

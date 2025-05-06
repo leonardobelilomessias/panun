@@ -45,14 +45,14 @@ export default function RecentQuestionsSection() {
           <div key={question.id} className="border-b border-gray-100 pb-4 last:border-b-0 last:pb-0">
             <h3 className="font-medium text-gray-800 mb-1">{question.title}</h3>
             <p className="text-xs text-gray-500">
-              Criado em {question.date} às {question.time} por <span className="text-primaryPalet">{question.author}</span>
+              Criado em {question.date} às {question.time} por <span className="text-primary-palet">{question.author}</span>
             </p>
           </div>
         ))}
       </div>
       
       <div className="mt-4 flex justify-end">
-        <button className="bg-primaryPalet text-white px-4 py-2 rounded-md text-sm">
+        <button className="bg-primary-palet text-white px-4 py-2 rounded-md text-sm">
           Ver todas
         </button>
       </div>

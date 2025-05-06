@@ -10,14 +10,14 @@ export function CreatedTipsScreen({id}:{id?:string}) {
                 
                 <h1 className="text-2xl font-bold my-4">Dica criada com Sucesso!</h1>
                 <div className="bg-blue-100 rounded-full flex items-center justify-center p-4">
-                    <Check className="text-primaryPalet" size={100}/>
+                    <Check className="text-primary-palet" size={100}/>
                 </div>
                 <p className="text-xs my-4 text-gray-700">Sua dica foi adiciona com sucesso e esta visível para todos. </p>
                 <div className=' flex flex-col items-center mt-4 gap-2 justify-center'>
-                    <Link className='bg-primaryPalet text-white p-1 text-sm rounded hover:bg-blue-400 min-w-36 text-center ' href={ id?`/dica/${id}`:'/dicas'}>
+                    <Link className='bg-primary-palet text-white p-1 text-sm rounded hover:bg-blue-400 min-w-36 text-center ' href={ id?`/dica/${id}`:'/dicas'}>
                         <p>Ver dica criada</p>
                     </Link >
-                    <Link className='border border-primaryPalet p-1 hover:bg-blue-100 hover:text-blue-700 text-primaryPalet text-sm rounded min-w-36 text-center ' href={'/dicas'}>
+                    <Link className='border border-primary-palet p-1 hover:bg-blue-100 hover:text-blue-700 text-primary-palet text-sm rounded min-w-36 text-center ' href={'/dicas'}>
                         <p>Ir para Todos Dicas</p>
                     </Link>
                 </div>

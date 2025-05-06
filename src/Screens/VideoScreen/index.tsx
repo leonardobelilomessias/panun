@@ -11,7 +11,7 @@ import { useState } from "react";
 export function VideoScreen({id}:{id:string}){
     return(
         <div className="sm:container pt-10 mx-2">
-            <Link href={'/videos'} className="flex text-primaryPalet  gap-2">
+            <Link href={'/videos'} className="flex text-primary-palet  gap-2">
                 <ArrowLeft/>
             
                 voltar para videos

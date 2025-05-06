@@ -160,7 +160,7 @@ export function EditTipScreen({ userId, tip }: { userId: string | undefined , ti
               </FormItem>
             )}
           />
-            <Button className="mt-4 bg-primaryPalet flex gap-1"><Save size={16}/> Criar</Button>
+            <Button className="mt-4 bg-primary-palet flex gap-1"><Save size={16}/> Criar</Button>
         </form>
       </Form>
     </ContainerScreen>

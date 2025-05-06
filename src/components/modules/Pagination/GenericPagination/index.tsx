@@ -38,7 +38,7 @@ interface PaginationProps {
           disabled={currentPage === 1}
           className={`px-3 py-1 rounded-md ${currentPage === 1
               ? 'bg-gray-200 text-gray-700 cursor-not-allowed'
-              : 'bg-primaryPalet text-white hover:bg-blue-600'
+              : 'bg-primary-palet text-white hover:bg-blue-600'
             }`}
         >
           Anterior
@@ -51,7 +51,7 @@ interface PaginationProps {
               key={page}
               onClick={() => onPageChange(page)}
               className={`px-3 py-1 rounded-md ${currentPage === page
-                  ? 'bg-primaryPalet text-white'
+                  ? 'bg-primary-palet text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
             >
@@ -66,7 +66,7 @@ interface PaginationProps {
           disabled={currentPage === totalPages}
           className={`px-3 py-1 rounded-md ${currentPage === totalPages
               ? 'bg-gray-200 text-gray-700 cursor-not-allowed'
-              : 'bg-primaryPalet text-white hover:bg-blue-600'
+              : 'bg-primary-palet text-white hover:bg-blue-600'
             }`}
         >
           Próximo

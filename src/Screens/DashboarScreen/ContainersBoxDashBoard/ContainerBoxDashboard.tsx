@@ -14,7 +14,7 @@ export function ContainerBoxDashboard({children, title, linkUrl}:{title:string,l
         </ReactQueryClientProviders>
         </div>
         <Link href={linkUrl} className="flex justify-self-end">
-            <button className="bg-primaryPalet text-white font-semibold p-2 px-6 rounded flex">ver todos</button>
+            <button className="bg-primary-palet text-white font-semibold p-2 px-6 rounded flex">ver todos</button>
         </Link>
     </div>
 )

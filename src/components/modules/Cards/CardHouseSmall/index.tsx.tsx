@@ -19,9 +19,9 @@ type CardHouseProps={
 }
 export function CardHouseSmall({area,bathrooms,bedrooms,description,garage,price,title,neighborhood, city, propurse,id}:CardHouseProps) {
     return (
-        <Link href={'/imovel/1'} className="min-w-72 max-w-[24rem] h-[28rem]  md:h-[28rem] md:pb-4 flex flex-col bg-white  border-primaryPalet  rounded-lg   shadow-primaryPalet drop-shadow-xl">
+        <Link href={'/imovel/1'} className="min-w-72 max-w-[24rem] h-[28rem]  md:h-[28rem] md:pb-4 flex flex-col bg-white  border-primary-palet  rounded-lg   shadow-primary-palet drop-shadow-xl">
             <div className='object-cover relative'>
-                <p className='bg-primaryPalet p-2 rounded-xl text-white absolute top-2 right-2 text-xs font-bold px-4'>Venda</p>
+                <p className='bg-primary-palet p-2 rounded-xl text-white absolute top-2 right-2 text-xs font-bold px-4'>Venda</p>
                 <Image 
                     src={imageexample} 
                     width={300} 
@@ -32,7 +32,7 @@ export function CardHouseSmall({area,bathrooms,bedrooms,description,garage,price
             </div>
                 <div className='flex flex-col h-full justify-between p-4 '>  {/* Adicionei justify-between */}
                     <div className='flex gap-1 items-center'>
-                        <MapPin size={12} className='text-primaryPalet'/>
+                        <MapPin size={12} className='text-primary-palet'/>
                         <p className='text-sm'>{neighborhood}</p> - <p className='text-sm'>{city}</p>
                     </div>
                     <div>  {/* Agrupei o conteúdo superior */}
@@ -40,24 +40,24 @@ export function CardHouseSmall({area,bathrooms,bedrooms,description,garage,price
                             <p className="font-bold">{title}</p>
                         </div>
                         <p className='text-sm text-gray-500'>{ truncateText(description,120)}</p>
-                        <p className='text-lg font-bold text-primaryPalet'>R${price}</p>
+                        <p className='text-lg font-bold text-primary-palet'>R${price}</p>
                     </div>
                     <div className='flex  mt-auto gap-2 justify-around content-around'>  {/* Adicionei mt-auto */}
                         <div className='flex flex-col items-center'>
-                            <Bed size={24} className='text-primaryPalet'/>
+                            <Bed size={24} className='text-primary-palet'/>
                             <p className='text-gray-500 font-bold text-sm'>{bedrooms}</p>
                         </div>
                         <div className='flex flex-col items-center'>
-                            <Bath size={24} className='text-primaryPalet'/>
+                            <Bath size={24} className='text-primary-palet'/>
                             <p className='text-gray-500 font-bold text-sm'>{bathrooms}</p>
                         </div>
                         <div className='flex flex-col items-center'>
-                            <Car size={24} className='text-primaryPalet'/>
+                            <Car size={24} className='text-primary-palet'/>
                             <p className='text-gray-500 font-bold text-sm'>{garage}</p>
     
                         </div>
                         <div className='flex flex-col items-center'>
-                            <Ruler size={24} className='text-primaryPalet'/>
+                            <Ruler size={24} className='text-primary-palet'/>
                             <p className='text-gray-500 font-bold text-sm'>{area}M²</p>
     
                         </div>

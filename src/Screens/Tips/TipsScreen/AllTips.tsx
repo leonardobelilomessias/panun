@@ -50,7 +50,7 @@ export function  AllTips (){
         {(!data?.tips?.length && !isLoading) && <EmptyTips />}
         {isLoading ?
             <div className="flex items-center justify-center min-h-[400px]">
-              <Loader2 className="h-8 w-8 animate-spin text-primaryPalet" />
+              <Loader2 className="h-8 w-8 animate-spin text-primary-palet" />
             </div> :
             data?.tips?.map((tipFull) => (
               <CardListGeneric linkToEdit={`/editar-dica/${tipFull.id}`} linkToShow={`/dica/${tipFull.id}`} onDeleteRefresh={onDeleteTip} onDeleteItem={()=> deleteTip(tipFull.id)} currentUser={userStored?.id || ''} key={tipFull.id} itemFull={tipFull} />

@@ -29,8 +29,8 @@ export function QuestionHeader({ userName, createdAt, countryName, avatarUrl }: 
           </div>
         </div>
       </div>
-      <div className="rounded border border-primaryPalet px-3 py-1">
-        <span className="text-primaryPalet text-sm">{countryName}</span>
+      <div className="rounded border border-primary-palet px-3 py-1">
+        <span className="text-primary-palet text-sm">{countryName}</span>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import Image from "next/image";
 export const NavbarDashboard = () => {
 
   return (
-    <header className="sticky border-b-[1px] top-0 z-40 w-full bg-primaryPalet text-white border border-primaryPalet dark:bg-background">
+    <header className="sticky border-b-[1px] top-0 z-40 w-full bg-primary-palet text-white border border-primary-palet dark:bg-background">
       <NavigationMenu className="flex   ">
         <NavigationMenuList className=" h-14 px-4 min-w-[100vw] md:min-w-[95vw] flex justify-between ">
           <NavigationMenuItem className="font-bold flex">

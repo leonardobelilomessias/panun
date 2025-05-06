@@ -89,7 +89,7 @@ export const FormProfile: FC<FormProfileProps> = ({ userId, initialData }) => {
     <>
       <div className="flex justify-between">
         <p className="font-bold text-xl mb-3">Dados Pessoais</p>
-        <Button className="bg-primaryPalet" onClick={() => setIsEditing(true)}>
+        <Button className="bg-primary-palet" onClick={() => setIsEditing(true)}>
           <Pencil size={16} className="mx-1" /> Editar Perfil
         </Button>
       </div>
@@ -177,7 +177,7 @@ export const FormProfile: FC<FormProfileProps> = ({ userId, initialData }) => {
           <div className="py-4">
             <Button 
               disabled={!isEditing || isSubmitting} 
-              className="flex bg-primaryPalet hover:bg-blue-600" 
+              className="flex bg-primary-palet hover:bg-blue-600" 
               type="submit"
             >
               <Save className="mr-2" /> Salvar

@@ -19,7 +19,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg text-primaryPalet">Siga-nos</h3>
+          <h3 className="font-bold text-lg text-primary-palet">Siga-nos</h3>
           <div>
             <a
               rel="noreferrer noopener"
@@ -52,7 +52,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg text-primaryPalet">Links</h3>
+          <h3 className="font-bold text-lg text-primary-palet">Links</h3>
           <div>
             <a
               rel="noreferrer noopener"
@@ -85,7 +85,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg text-primaryPalet">Sobre</h3>
+          <h3 className="font-bold text-lg text-primary-palet">Sobre</h3>
           <div>
             <a
               rel="noreferrer noopener"
@@ -118,7 +118,7 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg text-primaryPalet">Plataforma</h3>
+          <h3 className="font-bold text-lg text-primary-palet">Plataforma</h3>
           <div>
             <a
               rel="noreferrer noopener"

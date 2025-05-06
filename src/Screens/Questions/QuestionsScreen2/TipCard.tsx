@@ -67,7 +67,7 @@
 //               {tip.country.name}
 //             </Badge>
 //           </div>
-//           <div className="flex items-center text-primaryPalet">
+//           <div className="flex items-center text-primary-palet">
 //             <ThumbsUp className="h-4 w-4 mr-1" />
 //             <span className="text-sm">{tip.likes_count}</span>
 //           </div>

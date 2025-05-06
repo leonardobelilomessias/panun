@@ -19,7 +19,7 @@
 //           </h2>
 //         </div>
 //         <Link href={'/dicas/criar-dica'} >
-//         <Button variant="default" className='bg-primaryPalet' size="sm">
+//         <Button variant="default" className='bg-primary-palet' size="sm">
 //           Ver Mais
 //           <SquarePlus className="ml-2 h-4 w-4" />
 //         </Button>

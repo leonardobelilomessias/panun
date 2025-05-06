@@ -10,8 +10,8 @@ import { ForwardRefExoticComponent, RefAttributes } from "react"
 interface ItemsPros { link: string, title: string, icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>, status?: string }
 
 export function ButtonAsideNavigation({ items }: { items: ItemsPros[] }) {
-  const selectedStyle = 'flex h-[40px] items-center grow gap-2 md:mx-1 rounded-md align-center  text-sm font-bold bg-blue-100 text-primaryPalet md:flex-none md:justify-start md:p-1  md:px-3'
-  const unSelectedStyle = 'bg-transparent flex h-[40px] items-center grow gap-2 md:mx-1 rounded-md align-center  text-sm font-medium hover:bg-blue-50 hover:text-primaryPalet md:flex-none md:justify-start md:p-1  md:px-3 text-gray-700'
+  const selectedStyle = 'flex h-[40px] items-center grow gap-2 md:mx-1 rounded-md align-center  text-sm font-bold bg-blue-100 text-primary-palet md:flex-none md:justify-start md:p-1  md:px-3'
+  const unSelectedStyle = 'bg-transparent flex h-[40px] items-center grow gap-2 md:mx-1 rounded-md align-center  text-sm font-medium hover:bg-blue-50 hover:text-primary-palet md:flex-none md:justify-start md:p-1  md:px-3 text-gray-700'
   const {userStored} =useStoreUser()
   const pathname = usePathname()
   const pahtDashboard = userStored?.id? `/${userStored?.id}`:`/visitante`

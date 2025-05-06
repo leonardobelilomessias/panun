@@ -23,9 +23,9 @@ export async function HomeScreen(){
       <>
       {/* <Navbar /> */}
       <HeroSearch/>
-      <HousesBlock properties={data}/>
+      <HousesBlock properties={data} title="Propiedades a Venda" description="Nossa coletania de casas a venda"/>
       <Hero />
-      <HousesBlock properties={data}/>
+      <HousesBlock properties={data} title="Propiedades para aluguel" description="nossa coletania de casa para aluguel"/>
       <Cta />
       <HowItWorks />
       <ScrollToTop /> 

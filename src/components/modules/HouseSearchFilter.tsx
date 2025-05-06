@@ -114,7 +114,7 @@ export function HouseSearchFilter() {
           <SelectFormHero  array={neighborhoods} name="neighborhood" form={form} placeholderField={"Qual Bairro"} />
           {/* <SelectFormHero  array={metropolitanCities} name="bedrooms" form={form} placeholderField={"meuplaceholder"} />
           <SelectFormHero  array={metropolitanCities} name="parkingSpaces" form={form} placeholderField={"meuplaceholder"} /> */}
-            <Button type="submit" className="bg-primaryPalet md:self-end md:justify-self-end">
+            <Button type="submit" className="bg-primary-palet md:self-end md:justify-self-end">
               Buscar Imóvel
             </Button>
 

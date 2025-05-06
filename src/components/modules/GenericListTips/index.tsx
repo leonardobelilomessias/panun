@@ -69,7 +69,7 @@ export default function GenericTipList() {
             </CardTipsContainer>
             <div className="">
                 <Link href="/dicas">
-                    <button className="bg-primaryPalet text-white px-3 py-1 md:px-4 md:py-2 rounded-md text-sm md:text-sm hover:bg-blue-600 transition duration-200 mt-4">
+                    <button className="bg-primary-palet text-white px-3 py-1 md:px-4 md:py-2 rounded-md text-sm md:text-sm hover:bg-blue-600 transition duration-200 mt-4">
                         Ver todas
                     </button>
                 </Link>

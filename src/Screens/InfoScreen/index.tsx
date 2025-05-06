@@ -37,8 +37,8 @@ function CardSpeedUp(){
         <Progress  indicatorColor="bg-gray-500" color="blue" value={33} />
         <p className="text-gray-500 text-xs font-medium">30% concluido</p>
         </div>
-        <Button className="bg-primaryPalet justify-self-end font-semibold hover:bg-blue-800">Contibuir</Button>
-        <Link href={''} className="text-primaryPalet  text-center mt-2 text-sm">Ver contribuintes</Link>
+        <Button className="bg-primary-palet justify-self-end font-semibold hover:bg-blue-800">Contibuir</Button>
+        <Link href={''} className="text-primary-palet  text-center mt-2 text-sm">Ver contribuintes</Link>
         </div>
     )
 }

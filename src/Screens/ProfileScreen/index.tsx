@@ -7,7 +7,7 @@ import { fetchTipsPagination } from '@/lib/supabase/queries/server/fetchTipsPagi
 
 
 export const ProfileScreen = async ({user}:{user:any}) => {
-  const {tips} =  await fetchTipsPagination(1, 5);
+  
   return (
     <ContainerScreen>
         <ProfileHeader user={user} />

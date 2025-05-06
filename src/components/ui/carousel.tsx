@@ -206,17 +206,17 @@ const CarouselPrevious = React.forwardRef<
       variant={"secondary"}
       size={size}
       className={cn(
-        "absolute  h-40 w-10 rounded  hover:text-primaryPalet active:bg-blue-70",
+        "absolute  h-40 w-10 rounded  hover:text-primary-palet active:bg-blue-70",
         orientation === "horizontal"
-          ? "-left-2  md:left-6 top-1/2 -translate-y-1/2 bg-opacity-5 hover:text-primaryPalet"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90 bg-opacity-5 hover:text-primaryPalet",
-        className, " bg-opacity-10 bg-white active:bg-blue-70 hover:text-primaryPalet"
+          ? "-left-2  md:left-6 top-1/2 -translate-y-1/2 bg-opacity-5 hover:text-primary-palet"
+          : "-top-12 left-1/2 -translate-x-1/2 rotate-90 bg-opacity-5 hover:text-primary-palet",
+        className, " bg-opacity-10 bg-white active:bg-blue-70 hover:text-primary-palet"
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h- w-5 md:w-20 text-white hover:text-primaryPalet" />
+      <ArrowLeft className="h- w-5 md:w-20 text-white hover:text-primary-palet" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -235,11 +235,11 @@ const CarouselNext = React.forwardRef<
       variant={"secondary"}
       size={size}
       className={cn(
-        "absolute h-40 w-10 rounded  hover:text-primaryPalet active:bg-blue-70",
+        "absolute h-40 w-10 rounded  hover:text-primary-palet active:bg-blue-70",
         orientation === "horizontal"
           ? "-right-2 md:right-6 top-1/2 -translate-y-1/2 bg-opacity-5 "
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90 bg-opacity-5",
-        className,"bg-opacity-10 bg-white active:bg-blue-70 hover:text-primaryPalet"
+        className,"bg-opacity-10 bg-white active:bg-blue-70 hover:text-primary-palet"
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}

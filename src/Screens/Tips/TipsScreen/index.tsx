@@ -17,7 +17,7 @@ export  function TipsScreen() {
             <p className='text-sm text-gray-500 '>Encontre e  crie dicas sobre paises que você imigrou ou pretende imigrar.</p>
         </div>
         <Link href={'dicas/criar-dica'} className='flex align-bottom gap-2 self-start md:self-end'>
-          <Button size={'sm'} className='bg-primaryPalet max-w-xs'><Plus size={14}/><p className='text-xs'>Criar dicar</p></Button>
+          <Button size={'sm'} className='bg-primary-palet max-w-xs'><Plus size={14}/><p className='text-xs'>Criar dicar</p></Button>
         </Link>
       </div>
       <Separator className='h-2'/>

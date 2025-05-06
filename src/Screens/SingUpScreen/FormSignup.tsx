@@ -196,7 +196,7 @@ export function FormSignup(){
         />
         {
         !load&&
-        <Button className="w-full mt-3 border-primaryPalet text-white bg-primaryPalet"  type="submit">Cadastrar</Button>
+        <Button className="w-full mt-3 border-primary-palet text-white bg-primary-palet"  type="submit">Cadastrar</Button>
 
         
         }

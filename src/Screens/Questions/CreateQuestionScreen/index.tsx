@@ -125,7 +125,7 @@ export function CreateQuestionScreen({ userId }: { userId: string | undefined })
           />
 
           <div className="flex gap-4">
-            <Button type="submit" className="bg-primaryPalet">
+            <Button type="submit" className="bg-primary-palet">
               Publicar Pergunta
             </Button>
           </div>

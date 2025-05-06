@@ -15,7 +15,7 @@ export const Studies = () => {
       <div className="text-center lg:text-start space-y-6">
         <main className="text-4xl md:text-6xl font-bold">
           {/* <h3 className="text-gray-400 text-sm">Faça parte!</h3> */}
-          <h1 className="inline text-primaryPalet">
+          <h1 className="inline text-primary-palet">
           Cursos de Idiomas e Profissionalizantes
           </h1>
         </main>

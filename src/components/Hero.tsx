@@ -18,7 +18,7 @@ export const Hero = () => {
       <div className="text-center lg:text-start space-y-6">
         <main className="text-4xl md:text-6xl font-bold">
           {/* <h3 className="text-gray-400 text-sm">Faça parte!</h3> */}
-          <h1 className="inline text-primaryPalet">
+          <h1 className="inline text-primary-palet">
           Expecialistas em Financiamento Imobiliario
           </h1>
         </main>
@@ -28,9 +28,9 @@ export const Hero = () => {
         </p>
 
         <div className=" flex gap-4 flex-col md:flex-row ">
-        <Link  className="w-full   text-center border-[1px] p-2 rounded-lg bg-primaryPalet text-white " href={'/entrar'}   >Saber Mais</Link>
+        <Link  className="w-full   text-center border-[1px] p-2 rounded-lg bg-primary-palet text-white " href={'/entrar'}   >Saber Mais</Link>
 
-        <Link  className="w-full   text-center border-[1px] p-2 rounded-lg border-primaryPalet  text-primaryPalet  " href={'/cadastro'}   >
+        <Link  className="w-full   text-center border-[1px] p-2 rounded-lg border-primary-palet  text-primary-palet  " href={'/cadastro'}   >
             Entrar em contato
             {/* <GitHubLogoIcon className="ml-2 w-5 h-5" /> */}
           </Link>

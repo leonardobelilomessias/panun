@@ -44,8 +44,8 @@ function OptionBottonStyckMobile() {
     return (
         <div className=" sticky bottom-0 bg-red-400 md:hidden">
             <div className="flex bg-white border-t-2 p-4 gap-2">
-                <Button className=" border-primaryPalet text-primaryPalet flex-1 gap-1" variant={"outline"}>Fazer simulação</Button>
-                <Button className="bg-primaryPalet flex flex-1"  > <FaWhatsapp size={24} className="text-white" /> <p>Chamar no whatsapp</p> </Button>
+                <Button className=" border-primary-palet text-primary-palet flex-1 gap-1" variant={"outline"}>Fazer simulação</Button>
+                <Button className="bg-primary-palet flex flex-1"  > <FaWhatsapp size={24} className="text-white" /> <p>Chamar no whatsapp</p> </Button>
             </div>
         </div>
     )
@@ -72,11 +72,11 @@ function HeaderContentPropety({title,area,bathrooms,bedrooms,city, description,g
             <div className=" mt-6 flex flex-col flex-1 gap-8">
                 <div>
 
-                    <p className="bg-primaryPalet text-white text-xs font-semibold p-1 rounded-xl max-w-16 text-center">{purpose}</p>
+                    <p className="bg-primary-palet text-white text-xs font-semibold p-1 rounded-xl max-w-16 text-center">{purpose}</p>
                     <p className=" text-xl md:text-2xl font-bold">{title}</p>
                     <div className="text-sm font-medium text-gray-500 flex items-center gap-1 flex-wrap"><MapPin size={16} /> <p>{street} , {neighborhood}</p> - <p>{city}</p></div>
                     <div className="flex flex-col my-2 ">
-                        <p className=" text-2xl md:text-4xl text-primaryPalet font-bold">R$ {price}</p>
+                        <p className=" text-2xl md:text-4xl text-primary-palet font-bold">R$ {price}</p>
                     </div>
                     <ElementsPropiety area={area} bathrooms={bathrooms} bedrooms={bedrooms} garage={garage}  />
                 </div>
@@ -88,7 +88,7 @@ function HeaderContentPropety({title,area,bathrooms,bedrooms,city, description,g
 
                 </div>
             </div>
-            <div className=" border-2 p-6 rounded-xl border-primaryPalet flex-2  w-[28rem] max-h-[28rem] hidden sm:flex flex-col ml-2">
+            <div className=" border-2 p-6 rounded-xl border-primary-palet flex-2  w-[28rem] max-h-[28rem] hidden sm:flex flex-col ml-2">
                 <p className="text-2xl font-bold"> Entre em contato e garanta Agora</p>
                 <p className="text-gray-500">Entre em contato com nossa equipe para te auxiliar na aquisição do seu imovel</p>
                 <div className="flex flex-col gap-2 p-2">
@@ -106,12 +106,12 @@ function HeaderContentPropety({title,area,bathrooms,bedrooms,city, description,g
 
                         <Input placeholder="Email" />
                     </div>
-                    <Button className="bg-primaryPalet">Enviar</Button>
+                    <Button className="bg-primary-palet">Enviar</Button>
                 </div>
 
                 <p className="text-center" >ou</p>
                 <Separator className="my-2" />
-                <Button className=" border-primaryPalet text-primaryPalet flex gap-1" variant={"outline"} > <FaWhatsapp size={24} className="text-primaryPalet" /> <p>Chamar no whatsapp</p> </Button>
+                <Button className=" border-primary-palet text-primary-palet flex gap-1" variant={"outline"} > <FaWhatsapp size={24} className="text-primary-palet" /> <p>Chamar no whatsapp</p> </Button>
 
             </div>
 
@@ -145,20 +145,20 @@ function ElementsPropiety({bathrooms,bedrooms,area,garage}:{bathrooms:number,bed
     return (
         <div className='flex  mt-auto gap-10'>  {/* Adicionei mt-auto */}
             <div className='flex flex-col items-center'>
-                <Bed size={24} className='text-primaryPalet' />
+                <Bed size={24} className='text-primary-palet' />
                 <p className='text-gray-500 font-bold text-sm'>{bedrooms}</p>
             </div>
             <div className='flex flex-col items-center'>
-                <Bath size={24} className='text-primaryPalet' />
+                <Bath size={24} className='text-primary-palet' />
                 <p className='text-gray-500 font-bold text-sm'>{bathrooms}</p>
             </div>
             <div className='flex flex-col items-center'>
-                <Car size={24} className='text-primaryPalet' />
+                <Car size={24} className='text-primary-palet' />
                 <p className='text-gray-500 font-bold text-sm'>{garage}</p>
 
             </div>
             <div className='flex flex-col items-center'>
-                <Ruler size={24} className='text-primaryPalet' />
+                <Ruler size={24} className='text-primary-palet' />
                 <p className='text-gray-500 font-bold text-sm'>{area}M²</p>
 
             </div>

@@ -25,7 +25,7 @@ export async function PropertiesSalesScreens({properties}:{properties:any}) {
             <p className='text-sm text-gray-500 '>Ultimos imoveis a venda adicionado</p>
         </div>
         <Link href={'/adicionar-imovel'} className='flex align-bottom gap-2 self-start md:self-end'>
-          <Button size={'sm'} className='bg-primaryPalet max-w-xs hover:bg-blue-800'><Plus size={14}/><p className='text-xs'>Adicionar Imóvel</p></Button>
+          <Button size={'sm'} className='bg-primary-palet max-w-xs hover:bg-blue-800'><Plus size={14}/><p className='text-xs'>Adicionar Imóvel</p></Button>
         </Link>
       </div>
       

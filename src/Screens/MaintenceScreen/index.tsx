@@ -14,7 +14,7 @@ export function MaintenceScreen() {
           <div className="absolute inset-0 bg-black/55"></div>
   
           {/* Conteúdo que fica acima da imagem */}
-          <div className="relative bg-primaryPalet/65 text-white p-6  flex items-center gap-3 shadow-lg">
+          <div className="relative bg-primary-palet/65 text-white p-6  flex items-center gap-3 shadow-lg">
             <Wrench size={32} />
             <h1 className="text-3xl font-semibold">Em Manutenção</h1>
           </div>
@@ -31,7 +31,7 @@ export function MaintenanceMessage() {
   return (
     <div className="bg-gray-50 text-gray-900 py-12 px-6 sm:px-12 lg:px-24 flex flex-col items-center bg-opacity-30">
     <div className="max-w-3xl text-center">
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-primaryPalet">
+      <h1 className="text-3xl sm:text-4xl font-extrabold text-primary-palet">
         Carta Aberta aos Nossos Clientes e Parceiros
       </h1>
 
@@ -52,17 +52,17 @@ export function MaintenanceMessage() {
       {/* Botão de contato */}
       <a
         href="https://wa.me/31992450305"
-        className="mt-6 justify-center justify-self-center self-center place-self-center m-auto  bg-primaryPalet text-white font-semibold text-lg px-6 py-3 rounded-lg shadow-md hover:bg-opacity-75 transition flex gap-2 items-center flex-grow-0 flex-shrink-0 max-w-72"
+        className="mt-6 justify-center justify-self-center self-center place-self-center m-auto  bg-primary-palet text-white font-semibold text-lg px-6 py-3 rounded-lg shadow-md hover:bg-opacity-75 transition flex gap-2 items-center flex-grow-0 flex-shrink-0 max-w-72"
       >
         <FaWhatsapp className="text-white"/>
         Click e Fale Conosco
       </a>
 
-        <p className="mt-6 text-primaryPalet font-semibold">Email: contato@panun.com.br</p>
+        <p className="mt-6 text-primary-palet font-semibold">Email: contato@panun.com.br</p>
       <p className="mt-6 text-gray-600 font-medium">  
         <strong>Até breve,</strong>  
         <br />
-        <span className="text-primaryPalet font-semibold">Equipe Panun</span>
+        <span className="text-primary-palet font-semibold">Equipe Panun</span>
       </p>
     </div>
   </div>

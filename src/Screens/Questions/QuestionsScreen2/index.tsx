@@ -24,7 +24,7 @@ export async function QuestionsScreen2() {
             <p className='text-sm text-gray-500 '>Encontre e  crie perguntas sobre paises que você imigrou ou pretende imigrar.</p>
         </div>
         <Link href={'/perguntas/criar-pergunta'} className='flex align-bottom gap-2 self-start md:self-end'>
-          <Button size={'sm'} className='bg-primaryPalet max-w-xs hover:bg-blue-800'><Plus size={14}/><p className='text-xs'>Criar Pergunta</p></Button>
+          <Button size={'sm'} className='bg-primary-palet max-w-xs hover:bg-blue-800'><Plus size={14}/><p className='text-xs'>Criar Pergunta</p></Button>
         </Link>
       </div>
       

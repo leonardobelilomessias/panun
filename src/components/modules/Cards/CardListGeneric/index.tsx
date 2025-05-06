@@ -33,12 +33,12 @@ export function CardQuestionList({ itemFull, currentUser, onDeleteRefresh }: { i
                         <span>    Criado em {formatDate(itemFull.created_at).extendTime}</span>
                     </p>
                     <p className="text-xs text-gray-500">
-                        por <span className="text-primaryPalet font-medium">@{truncateText(itemFull.profile?.user_name || "", 8).toLowerCase()}</span>
+                        por <span className="text-primary-palet font-medium">@{truncateText(itemFull.profile?.user_name || "", 8).toLowerCase()}</span>
                     </p>
                     <p className="text-xs text-gray-500">{itemFull.likes_count} Likes</p>
                     <p className="text-xs text-gray-500">{itemFull.comments.length} Comentários</p>
-                    <p className='text-primaryPalet font-semibold text-xs'>Pais: {itemFull.country.name}</p>
-                    <p className='text-primaryPalet font-semibold text-xs'>Tema: {itemFull.theme.name}</p>
+                    <p className='text-primary-palet font-semibold text-xs'>Pais: {itemFull.country.name}</p>
+                    <p className='text-primary-palet font-semibold text-xs'>Tema: {itemFull.theme.name}</p>
 
                 </div>
                 </Link>

@@ -31,7 +31,7 @@ const config = {
     extend: {
       
       colors: {
-        primaryPalet:"#008099",
+        "primary-palet":"#008099",
         secondPaled:"",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

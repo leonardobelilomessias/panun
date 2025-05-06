@@ -8,9 +8,9 @@ export const Cta = () => {
     >
       <div className="container lg:grid lg:grid-cols-2 place-items-center">
         <div className="lg:col-start-1">
-          <h2 className="text-3xl md:text-4xl font-bold text-primaryPalet ">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-palet ">
             Tudo Que Você Precisa
-            <span className="bg-primaryPalet text-white">
+            <span className="bg-primary-palet text-white">
               {" "}
               e Totalmente Online{" "}
             </span>
@@ -22,7 +22,7 @@ export const Cta = () => {
         </div>
 
         <div className="space-y-4 lg:col-start-2">
-          <Button className="w-full md:mr-4 md:w-auto bg-primaryPalet text-white">Quero participar</Button>
+          <Button className="w-full md:mr-4 md:w-auto bg-primary-palet text-white">Quero participar</Button>
           <Button
             variant="outline"
             className="w-full md:w-auto"

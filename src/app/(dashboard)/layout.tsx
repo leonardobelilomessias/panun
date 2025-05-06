@@ -11,8 +11,8 @@ import { inter } from "../../config/fonts";
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Brazlian Network',
-    default: 'Brasilian Network',
+    template: '%s | Panun',
+    default: 'Panun',
   },
   description: "Comunidade Brazileiro no exterior",
   metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),

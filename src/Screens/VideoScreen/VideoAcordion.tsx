@@ -29,8 +29,8 @@ import Link from "next/link"
             elemts.map((elemt)=>{
 
                 if(elemt.category ==='fin') return <Link key={elemt.title} href={elemt.link} className="min-h-10 bg-red-200">
-            <AccordionContent className="flex gap-3 text-primaryPalet ">
-            <Youtube className="text-primaryPalet"/>
+            <AccordionContent className="flex gap-3 text-primary-palet ">
+            <Youtube className="text-primary-palet"/>
             {elemt.title}
           </AccordionContent>
           <Separator/>
@@ -45,8 +45,8 @@ import Link from "next/link"
             elemts.map((elemt)=>{
 
                 if(elemt.category ==='con') return <Link key={elemt.title} href={elemt.link} className="min-h-10 bg-red-200">
-            <AccordionContent className="flex gap-3 text-primaryPalet ">
-            <Youtube className="text-primaryPalet"/>
+            <AccordionContent className="flex gap-3 text-primary-palet ">
+            <Youtube className="text-primary-palet"/>
             {elemt.title}
           </AccordionContent>
           <Separator/>
@@ -60,8 +60,8 @@ import Link from "next/link"
             elemts.map((elemt)=>{
 
                 if(elemt.category ==='rai') return <Link key={elemt.title} href={elemt.link} className="min-h-10 bg-red-200">
-            <AccordionContent className="flex gap-3 text-primaryPalet ">
-            <Youtube className="text-primaryPalet"/>
+            <AccordionContent className="flex gap-3 text-primary-palet ">
+            <Youtube className="text-primary-palet"/>
             {elemt.title}
           </AccordionContent>
           <Separator/>
@@ -75,8 +75,8 @@ import Link from "next/link"
             elemts.map((elemt)=>{
 
                 if(elemt.category ==='dic') return <Link key={elemt.title} href={elemt.link} className="min-h-10 bg-red-200">
-            <AccordionContent className="flex gap-3 text-primaryPalet ">
-            <Youtube className="text-primaryPalet"/>
+            <AccordionContent className="flex gap-3 text-primary-palet ">
+            <Youtube className="text-primary-palet"/>
             {elemt.title}
           </AccordionContent>
           <Separator/>

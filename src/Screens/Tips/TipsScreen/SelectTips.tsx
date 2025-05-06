@@ -50,7 +50,7 @@ function SelectGroupTipsMemo() {
             <div className="flex gap-2 align-bottom items-end  flex-wrap mt-1">
                 <SelectTheme title="Tema"/>
                 <SelectCountry title="Pais" />
-                <Button onClick={()=>cleanFilters()}  size={'sm'} className="  text-sm border-primaryPalet bg-white border flex gap-1 hover:bg-blue-700 hover:text-blue-50 hover:border-white text-primaryPalet "><X size={16}/><p>Limpar filtros</p> </Button>
+                <Button onClick={()=>cleanFilters()}  size={'sm'} className="  text-sm border-primary-palet bg-white border flex gap-1 hover:bg-blue-700 hover:text-blue-50 hover:border-white text-primary-palet "><X size={16}/><p>Limpar filtros</p> </Button>
               
             </div>
         </div>

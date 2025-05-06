@@ -69,8 +69,8 @@ useEffect(()=>{
   return (
     <div className="flex items-center gap-4">
       <Button onClick={()=>addLike()} variant="ghost" className={`flex items-center gap-2 ${isLiked&& 'bg-blue-50'}`}>
-        <ThumbsUp  className={`h-4 w-4 ${isLiked&&'text-primaryPalet'}`} />
-        <span className={` ${isLiked&&'text-primaryPalet'}`}>{ammountLikes}</span>
+        <ThumbsUp  className={`h-4 w-4 ${isLiked&&'text-primary-palet'}`} />
+        <span className={` ${isLiked&&'text-primary-palet'}`}>{ammountLikes}</span>
       </Button>
     </div>
   );

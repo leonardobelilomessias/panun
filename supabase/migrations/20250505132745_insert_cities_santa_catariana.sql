@@ -1,0 +1,20 @@
+-- Migration: Inserção das principais cidades de Santa Catarina, incluindo Pomerode
+INSERT INTO public.cities (id, name, estate_id) VALUES
+(uuid_generate_v4(), 'Florianópolis', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Joinville', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Blumenau', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Chapecó', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Criciúma', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'São José', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Balneário Camboriú', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Itajaí', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Lages', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Tubarão', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Caçador', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Rio do Sul', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Indaial', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Videira', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Concórdia', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Palhoça', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Araranguá', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina')),
+(uuid_generate_v4(), 'Pomerode', (SELECT id FROM public.estates WHERE uf = 'SC' AND name = 'Santa Catarina'));

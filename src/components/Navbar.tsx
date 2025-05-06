@@ -57,7 +57,7 @@ const routeList: RouteProps[] = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <header className="sticky  bg-primaryPalet top-0 z-40 w-full dark:border-b-slate-700 dark:bg-background">
+    <header className="sticky  bg-primary-palet top-0 z-40 w-full dark:border-b-slate-700 dark:bg-background">
       <NavigationMenu className="mx-auto">
         <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
           <NavigationMenuItem className="font-bold flex">
@@ -156,8 +156,8 @@ export const Navbar = () => {
 
               className={`border ${buttonVariants({ variant: "secondary" })} text-blue flex gap-1`}
             >
-              <FaWhatsapp size={20} className="text-primaryPalet" />
-              <p className="text-primaryPalet">Whatsapp</p>
+              <FaWhatsapp size={20} className="text-primary-palet" />
+              <p className="text-primary-palet">Whatsapp</p>
             </Link>
 
 
@@ -182,10 +182,10 @@ export function PopoverDemo() {
         <Button variant="outline" className="text-white border border-white bg-transparent">Login</Button>
       </PopoverTrigger>
       <PopoverContent className=" flex flex-col gap-1">
-      <Link rel="noreferrer noopener" href="/entrar" className=' text-primaryPalet flex  items-center text-sm hover:bg-primaryPalet hover:text-white rounded-md flex-1 p-2 '>
+      <Link rel="noreferrer noopener" href="/entrar" className=' text-primary-palet flex  items-center text-sm hover:bg-primary-palet hover:text-white rounded-md flex-1 p-2 '>
               <p className="">Login como Parceiro</p>
       </Link>
-      <Link rel="noreferrer noopener" href="/entrar" className=' text-primaryPalet flex  items-center text-sm hover:bg-primaryPalet hover:text-white rounded-md flex-1 p-2 '>
+      <Link rel="noreferrer noopener" href="/entrar" className=' text-primary-palet flex  items-center text-sm hover:bg-primary-palet hover:text-white rounded-md flex-1 p-2 '>
               <p className="">Login como Cliente</p>
       </Link>
       </PopoverContent>

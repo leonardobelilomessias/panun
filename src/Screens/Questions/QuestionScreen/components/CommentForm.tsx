@@ -59,7 +59,7 @@ export function CommentForm({ questionId,currentUserId }: CommentFormProps) {
           </p>
         )}
       </div>
-      <Button disabled={ !currentUserId} type="submit" className="bg-primaryPalet">
+      <Button disabled={ !currentUserId} type="submit" className="bg-primary-palet">
         Enviar Comentário
       </Button>
     </form>

@@ -27,7 +27,7 @@ export const QuestionsSection: FC<QuestionsSectionProps> = ({ questions, isLoadi
           <h2 className="text-2xl font-bold">Perguntas da Comunidade</h2>
         </div>
         <Link href="/perguntas/criar-pergunta">
-          <Button variant="default" className="bg-primaryPalet hover:bg-blue-600">
+          <Button variant="default" className="bg-primary-palet hover:bg-blue-600">
             Fazer Pergunta
             <SquarePlus className="ml-2 h-4 w-4" />
           </Button>

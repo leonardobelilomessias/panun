@@ -491,7 +491,7 @@ render={({ field }) => (
                                   )} */}
 
                             
-                            <span className="max-w-60 text-center mb-2 p-2 bg-primaryPalet text-white rounded"> 
+                            <span className="max-w-60 text-center mb-2 p-2 bg-primary-palet text-white rounded"> 
                                   <label className="text-center flex justify-center rounded font-bold">
                                     <p>{!previewCover?"Selecione Capa":"Trocar Capa"}</p>
                                     <input type="file" accept="image/*" ref={fileInputRef} onChange={handleCoverChange} style={{ display: 'none' }}/>
@@ -504,7 +504,7 @@ render={({ field }) => (
                             <p className="text-lg font-bold mt-8">Adiconar imagens a galeria</p>
 
                               <PreviewImageGallery handleRemoveImage={handleRemoveImage} urls={previewUrls} />
-                              <span className="max-w-60 text-center mb-2 p-2 bg-primaryPalet text-white rounded "> 
+                              <span className="max-w-60 text-center mb-2 p-2 bg-primary-palet text-white rounded "> 
                                   <label className="text-center flex justify-center rounded font-bold">Selecione Imagens
                                     <input type="file" accept="image/*" multiple ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }} />
                                   </label>
@@ -523,7 +523,7 @@ render={({ field }) => (
                             </div>
 {/*  fim do upload de imagens */}
     
-        <Button className="flex bg-primaryPalet text-white" type="submit"> <Save className="mr-2"/> Salvar</Button>
+        <Button className="flex bg-primary-palet text-white" type="submit"> <Save className="mr-2"/> Salvar</Button>
       </form>
     </Form>
         </>

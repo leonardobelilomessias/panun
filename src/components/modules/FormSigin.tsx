@@ -82,15 +82,15 @@ export function FormSingIn(){
     return(
         <>
         <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="">
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel className="text-xs">Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" {...field} />
+                <Input placeholder="Digite seu email" {...field} />
               </FormControl>
 
               <FormMessage />
@@ -102,9 +102,9 @@ export function FormSingIn(){
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Senha</FormLabel>
+              <FormLabel  className="text-xs">Senha</FormLabel>
               <FormControl>
-                <Input placeholder="Senha" {...field} />
+                <Input placeholder="Digite sua Senha" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -112,7 +112,7 @@ export function FormSingIn(){
         />
         {
         !load&&
-        <Button className="w-full mt-3 bg-primaryPalet text-white"  type="submit">Entrar</Button>
+        <Button className="w-full mt-3 bg-primary-palet text-white"  type="submit">Entrar</Button>
         
 
         
@@ -125,7 +125,6 @@ load&&
 
       </Button>
     }
-        <Link  className="w-full mt-6  text-center border-[1px] p-2 rounded border-primaryPalet text-primaryPalet bg-white" href={'/cadastro'}   >Criar conta</Link>
 
         </>
     )

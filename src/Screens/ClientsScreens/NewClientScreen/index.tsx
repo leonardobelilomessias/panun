@@ -38,7 +38,7 @@ export function NewClienScreen() {
 
 
                     </form>
-                        <Button onClick={()=>openModal()} className="bg-primaryPalet text-white w-44"><Save size={20} /> Salvar cliente</Button>
+                        <Button onClick={()=>openModal()} className="bg-primary-palet text-white w-44"><Save size={20} /> Salvar cliente</Button>
                 </div>
             <Modal
                 isOpen={modalIsOpen}
@@ -51,9 +51,9 @@ export function NewClienScreen() {
 
                 <h1 className="text-2xl font-bold">Cliente Criado com suceso</h1>
                 <div className="flex gap-2">
-                <Button onClick={()=>closeModal()} className="bg-primaryPalet text-white w-44"> Fechar</Button>
+                <Button onClick={()=>closeModal()} className="bg-primary-palet text-white w-44"> Fechar</Button>
                 <Link href={'/clientes/cliente-exemplo'}>
-                <Button  className="bg-white border  border-primaryPalet  text-primaryPalet w-44">Ver cliente</Button>
+                <Button  className="bg-white border  border-primary-palet  text-primary-palet w-44">Ver cliente</Button>
                 </Link>
                 </div>
 

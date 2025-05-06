@@ -40,9 +40,9 @@ export const HowItWorks = () => {
       id="howItWorks"
       className="container text-center py-24 sm:py-32"
     >
-      <h2 className="text-3xl text-primaryPalet md:text-4xl font-bold ">
+      <h2 className="text-3xl text-primary-palet md:text-4xl font-bold ">
       Facilitamos{" "}
-        <span className="text-primaryPalet">
+        <span className="text-primary-palet">
         sua{" "}
         </span>
       jornada de imigração
@@ -61,7 +61,7 @@ export const HowItWorks = () => {
             <CardHeader>
               <CardTitle className="grid gap-4 place-items-center">
                 {icon}
-                <p className="text-primaryPalet">{title}</p>
+                <p className="text-primary-palet">{title}</p>
               </CardTitle>
             </CardHeader>
             <CardContent>{description}</CardContent>

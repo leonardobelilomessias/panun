@@ -21,13 +21,13 @@ export function ProfileHeader({ user }:{user:IProfile})  {
         />
       </Avatar>
       <div className="text-center md:text-left flex-grow">
-        <h1 className="text-lg md:text-xl font-bold text-primaryPalet">{user.full_name}</h1>
+        <h1 className="text-lg md:text-xl font-bold text-primary-palet">{user.full_name}</h1>
         <p className="text-gray-600 text-sm">Origem: {user.origem || 'Não informado'}</p>
         <p className="text-gray-600 text-sm">Atualmente em: {user.current_in || 'Não informado'}</p>
         <p className="text-sm text-gray-500">{user.bio || 'Nenhuma biografia disponível'}</p>
       </div>
       <Link href={`/editar-perfil/${user.id}`} className="absolute top-1 right-1 md:top-4 md:right-4 text-blue-600 hover:underline">
-        <Button size={'sm'}  className="text-primaryPalet hover:bg-blue-50 bg-white border border-primaryPalet">
+        <Button size={'sm'}  className="text-primary-palet hover:bg-blue-50 bg-white border border-primary-palet">
             <EditIcon size={16} className="inline-block mr-1" /> Editar Perfil
         </Button>
       </Link>

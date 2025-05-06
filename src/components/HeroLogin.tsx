@@ -38,7 +38,7 @@ src="https://www.youtube.com/embed/OhagXaxl72k?si=uoYsOfHG1GuVS2NL&amp;controls=
         {/* Descrição e Botões */}
         <div className=" px-2 flex flex-col flex-1  max-w-lg m-auto ">
 
-          <p className="flex text-center text-primaryPalet text-2xl font-bold mb-10">
+          <p className="flex text-center text-primary-palet text-2xl font-bold mb-10">
             Faça seu login e tenha acesso a dicas e suporte para brazileiros imigrantes.
           </p>
           <FormSingIn/>
