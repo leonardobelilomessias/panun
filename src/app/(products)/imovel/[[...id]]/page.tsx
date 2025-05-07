@@ -1,4 +1,4 @@
-import { PropertiesScreen } from "@/Screens/PropertiesScreen";
+import { PropertiesScreen } from "@/Screens/PropertiesScreens/PropertiesScreen";
 import { PropertyScreen } from "@/Screens/PropertyScreen";
 
 export default function Property({params}:{params:{id:string}}){

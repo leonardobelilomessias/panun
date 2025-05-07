@@ -90,9 +90,9 @@ export function NewOwner() {
   return (
     <ContainerScreen>
         <QueryClientProvider client={queryClient}>
-      <h1 className="text-2xl font-bold mb-6">Fazer uma Nova Pergunta</h1>
+      <h1 className="text-2xl font-bold mb-6">Cadastrar novo Propietario</h1>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1 container">
         <FormField
   control={form.control}
   name="name"
@@ -251,8 +251,8 @@ export function NewOwner() {
 
 
           <div className="flex gap-4">
-            <Button type="submit" className="bg-primary-palet">
-              Publicar Pergunta
+            <Button type="submit" className="bg-primary-palet mt-4">
+              Salvar Proprietário
             </Button>
           </div>
         </form>

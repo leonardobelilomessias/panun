@@ -8,7 +8,7 @@ export const navigationElements = [{
     { title: 'Imoveis Venda', link: "/lista-venda", icon: Boxes , status:"Novo" },
     { title: 'Imoveis Locação', link: "/lista-aluguel", icon: Shapes , status:"Novo" },
     { title: 'Clientes', link: "/clientes", icon: Handshake , status:"Novo" },
-    { title: 'Propietarios', link: "/propietarios", icon: Contact , status:"Novo" },
+    { title: 'Propietarios', link: "/proprietarios", icon: Contact , status:"Novo" },
     { title: 'Construtoras', link: "/construtoras", icon: Building2 , status:"Novo" },
 
 

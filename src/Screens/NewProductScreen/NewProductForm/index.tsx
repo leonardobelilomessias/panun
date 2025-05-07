@@ -75,9 +75,6 @@ const amenitiesFields = [
 ];
 
 
-
-
-
 const validationSchema = z.object({
   construction_company:z.string(),
   title: z.string(),

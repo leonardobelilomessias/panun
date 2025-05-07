@@ -6,8 +6,8 @@ import { Separator } from '@radix-ui/react-dropdown-menu';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ContainerScreen } from '@/components/modules/Containers/ContainerSceen';
-import { ContainerCardsHouse } from '../../components/modules/Containers/ContainerCardsHouse/ContainerCardsHouse';
-import { CardHouse } from '../../components/modules/Cards/CardHouse';
+import { ContainerCardsHouse } from '../../../components/modules/Containers/ContainerCardsHouse/ContainerCardsHouse';
+import { CardHouse } from '../../../components/modules/Cards/CardHouse';
 
 export async function PropertiesSalesScreens({properties}:{properties:any}) {
   const supabase = await createClient()

@@ -1,9 +1,9 @@
 'use client'
 
 import { useSearchParams } from "next/navigation"
-import { HousesBlock } from "../../components/modules/Sections/HousesBlock"
-import { HeroSearch } from "../../components/modules/Hero/HeroSearch"
-import { HouseResultSearch } from "../../components/modules/Sections/HouseResultSearch"
+import { HousesBlock } from "../../../components/modules/Sections/HousesBlock"
+import { HeroSearch } from "../../../components/modules/Hero/HeroSearch"
+import { HouseResultSearch } from "../../../components/modules/Sections/HouseResultSearch"
 
 export function PropertiesScreen(){
     // const params = useSearchParams()

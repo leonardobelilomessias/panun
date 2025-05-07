@@ -1,6 +1,6 @@
 
 import { propertiesData } from "@/common/mocks/datamocks";
-import { PropertiesSalesScreens } from "@/Screens/PropertieSalesScreen";
+import { PropertiesSalesScreens } from "@/Screens/PropertiesScreens/PropertieSalesScreen";
 import { QuestionsScreen2 } from "@/Screens/Questions/QuestionsScreen2";
 
 export default function perguntas(){

@@ -1,21 +1,25 @@
+'use client';
+import { listOwners } from "@/lib/supabase/queries/client/Owners/listOwners";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function ListOwnersScreen() {
-    const owners = Array(10).fill(0).map((_, i) => {
-        return {
-            id: i,
-            name: `Proprietário ${i + 1}`,
-            email: `proprietario${i +  1}`,
-            phone: `123456789${i}`,
-            address: `Endereço ${i + 1}`,
-            city: `Cidade ${i + 1}`,
-            state: `Estado ${i + 1}`,
-            zipCode: `12345-678${i}`,
-            country: `País ${i + 1}`,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-        };
-    });
+  const [owners,setOwners] = useState<any[]>()
+  useEffect(() => {
+    const fetchOwners = async () => {
+      try {
+        const response = await listOwners();
+        setOwners(response);
+      } catch (error) {
+        console.error("Error fetching owners:", error);
+      }
+    };
+    fetchOwners();
+  }, []);
+  if (!owners) {
+    return <div>Loading...</div>;
+  }
+    
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-bold">Lista de Proprietários</h1>
@@ -37,12 +41,9 @@ export function ListOwnersScreen() {
           <h2 className="text-xl font-bold">{owner.name}</h2>
           <p>Email: {owner.email}</p>
           <p>Telefone: {owner.phone}</p>
-          <p>Endereço: {owner.address}</p>
-          <p>Cidade: {owner.city}</p>
           <p>Estado: {owner.state}</p>
-          <p>CEP: {owner.zipCode}</p>
-          <p>País: {owner.country}</p>
-          <p>Criado em: {owner.createdAt.toLocaleDateString()}</p>
+          <p>Cidade: {owner.city}</p>
+          <p>Bairro: {owner.neighborhood}</p>
         </div>
       ))}
       {/* Aqui você pode adicionar a lógica para listar os proprietários */}
