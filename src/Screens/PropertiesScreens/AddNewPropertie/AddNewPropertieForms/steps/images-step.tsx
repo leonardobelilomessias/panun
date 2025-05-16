@@ -9,36 +9,43 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Upload, X, Home } from "lucide-react"
+import { usePropertieContext } from "@/context/ContextAddPropertie"
 
 export function ImagesStep() {
+  const {setCover,setFiles} = usePropertieContext()
   const form = useFormContext()
-  const [fotoPrincipalPreview, setFotoPrincipalPreview] = useState<string | null>(null)
-  const [fotosPreview, setFotosPreview] = useState<string[]>([])
+  const [mainImagePreview, setMainImagePreview] = useState<string | null>(null)
+  const [imagesPreview, setImagesPreview] = useState<string[]>([])
 
-  const handleFotoPrincipalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0]
-      form.setValue("fotoPrincipal", file, { shouldValidate: true })
-
+  const handleMainImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if ( e.target.files && e.target.files[0]) {
+      console.log("Mudando imagem principal", e.target.files[0])    
+      const file = e.target.files[0].name
+      form.setValue("mainImage", file, { shouldValidate: true })
+      setCover(e.target.files[0])
       // Criar preview da imagem
       const reader = new FileReader()
       reader.onload = (event) => {
         if (event.target?.result) {
-          setFotoPrincipalPreview(event.target.result as string)
+          setMainImagePreview(event.target.result as string)
         }
       }
-      reader.readAsDataURL(file)
+      reader.readAsDataURL(e.target.files[0])
     }
   }
 
-  const handleFotosChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImagesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      const novasFotos = Array.from(e.target.files)
-      const todasFotos = [...(form.getValues("fotos") || []), ...novasFotos]
-      form.setValue("fotos", todasFotos, { shouldValidate: true })
+      
+      const novasImagens = Array.from(e.target.files)
+      setFiles(novasImagens)
+      const novasImagensnames = Array.from(e.target.files).map((imagesPreview:any )=> imagesPreview.name)
+
+      const todasImagens = [...(form.getValues("images") || []), ...novasImagensnames]
+      form.setValue("images", todasImagens, { shouldValidate: true })
 
       // Criar previews das imagens
-      const novosPreviewsPromises = novasFotos.map((file) => {
+      const novosPreviewsPromises = novasImagens.map((file) => {
         return new Promise<string>((resolve) => {
           const reader = new FileReader()
           reader.onload = (event) => {
@@ -51,38 +58,39 @@ export function ImagesStep() {
       })
 
       Promise.all(novosPreviewsPromises).then((novosPreviewsArray) => {
-        setFotosPreview((prev) => [...prev, ...novosPreviewsArray])
+        setImagesPreview((prev) => [...prev, ...novosPreviewsArray])
       })
     }
   }
 
-  const removerFoto = (index: number) => {
-    const novasFotos = [...form.getValues("fotos")]
-    novasFotos.splice(index, 1)
-    form.setValue("fotos", novasFotos, { shouldValidate: true })
-
-    const novosPreview = [...fotosPreview]
+  const removerImagem = (index: number) => {
+    console.log("Removendo imagem", index)
+    const novasImagens = [...form.getValues("images")]
+    novasImagens.splice(index, 1)
+    form.setValue("images", novasImagens, { shouldValidate: true })
+    setFiles(novasImagens)
+    const novosPreview = [...imagesPreview]
     novosPreview.splice(index, 1)
-    setFotosPreview(novosPreview)
+    setImagesPreview(novosPreview)
   }
 
   return (
     <div className="space-y-6">
       <FormField
         control={form.control}
-        name="fotoPrincipal"
+        name="mainImage"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Foto Principal (Capa do anúncio)</FormLabel>
+            <FormLabel>Foto Principal</FormLabel>
             <FormControl>
               <div
                 className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-4 w-full flex flex-col items-center justify-center cursor-pointer hover:bg-muted/50 transition-colors"
-                onClick={() => document.getElementById("fotoPrincipal")?.click()}
+                onClick={() => document.getElementById("mainImage")?.click()}
               >
-                {fotoPrincipalPreview ? (
+                {mainImagePreview ? (
                   <div className="relative w-full h-48">
                     <img
-                      src={fotoPrincipalPreview || "/placeholder.svg"}
+                      src={mainImagePreview || "/placeholder.svg"}
                       alt="Foto principal"
                       className="w-full h-full object-cover rounded-lg"
                     />
@@ -98,11 +106,11 @@ export function ImagesStep() {
                   </div>
                 )}
                 <Input
-                  id="fotoPrincipal"
+                  id="mainImage"
                   type="file"
                   accept="image/*"
                   className="hidden"
-                  onChange={handleFotoPrincipalChange}
+                  onChange={handleMainImageChange}
                   ref={field.ref}
                 />
               </div>
@@ -114,14 +122,14 @@ export function ImagesStep() {
 
       <FormField
         control={form.control}
-        name="fotos"
+        name="images"
         render={({ field }) => (
           <FormItem>
             <FormLabel>Fotos Adicionais</FormLabel>
             <FormControl>
               <div
                 className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-4 w-full flex flex-col items-center justify-center cursor-pointer hover:bg-muted/50 transition-colors"
-                onClick={() => document.getElementById("fotos")?.click()}
+                onClick={() => document.getElementById("images")?.click()}
               >
                 <div className="flex flex-col items-center py-4">
                   <Upload className="h-8 w-8 text-muted-foreground mb-2" />
@@ -129,13 +137,13 @@ export function ImagesStep() {
                   <p className="text-xs text-muted-foreground">Clique para fazer upload (máximo 10 fotos)</p>
                 </div>
                 <Input
-                  id="fotos"
+                  id="images"
                   type="file"
                   accept="image/*"
                   multiple
                   className="hidden"
-                  onChange={handleFotosChange}
-                  disabled={form.getValues("fotos")?.length >= 10}
+                  onChange={handleImagesChange}
+                  disabled={form.getValues("images")?.length >= 10}
                   ref={field.ref}
                 />
               </div>
@@ -145,11 +153,11 @@ export function ImagesStep() {
         )}
       />
 
-      {fotosPreview.length > 0 && (
+      {imagesPreview.length > 0 && (
         <div className="space-y-2">
-          <Label>Fotos Adicionadas ({fotosPreview.length}/10)</Label>
+          <Label>Fotos Adicionadas ({imagesPreview.length}/10)</Label>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {fotosPreview.map((preview, index) => (
+            {imagesPreview.map((preview, index) => (
               <div key={index} className="relative group">
                 <img
                   src={preview || "/placeholder.svg"}
@@ -161,7 +169,7 @@ export function ImagesStep() {
                   variant="destructive"
                   size="icon"
                   className="absolute top-1 right-1 h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity"
-                  onClick={() => removerFoto(index)}
+                  onClick={() => removerImagem(index)}
                 >
                   <X className="h-3 w-3" />
                 </Button>

@@ -15,6 +15,15 @@ CREATE TABLE public.properties (
     street TEXT,
     house_number TEXT,
     zipcode TEXT,
+    purpose TEXT NOT NULL DEFAULT 'Venda' CHECK (
+        purpose IN ('Aluguel', 'Venda')
+    ),
+    documentation_status TEXT NOT NULL DEFAULT 'Regular' CHECK (
+        documentation_status IN ('Regular', 'Irregular')
+    ),
+    type_property TEXT NOT NULL DEFAULT 'Casa' CHECK (
+        type_property IN ('Casa', 'Apartamento', 'Lote', 'Loja')
+    ),
     status TEXT NOT NULL DEFAULT 'Disponível' CHECK (
         status IN ('Disponível', 'Reservado', 'Vendido', 'Alugado', 'Indisponível')
     ),
@@ -35,6 +44,7 @@ CREATE TRIGGER update_properties_updated_at
 CREATE TABLE public.details (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     propertie_id UUID NOT NULL REFERENCES public.properties(id) ON DELETE CASCADE,
+    title TEXT,
     full_description TEXT,
     shot_description TEXT,
     garage INTEGER,

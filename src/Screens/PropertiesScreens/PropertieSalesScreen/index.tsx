@@ -8,11 +8,14 @@ import Link from 'next/link';
 import { ContainerScreen } from '@/components/modules/Containers/ContainerSceen';
 import { ContainerCardsHouse } from '../../../components/modules/Containers/ContainerCardsHouse/ContainerCardsHouse';
 import { CardHouse } from '../../../components/modules/Cards/CardHouse';
+import { listSalesProperties } from '@/lib/supabase/queries/client/properties/listSalesProperties';
+import { CardHouseDashboard } from '@/components/modules/Cards/DashboardCards/CardHouseDashboard';
 
 export async function PropertiesSalesScreens({properties}:{properties:any}) {
   const supabase = await createClient()
   // const respTips = await getQuestions()
-
+  const dataSales = await listSalesProperties()
+  console.log('dataSales', dataSales)
   const {data:{user}}= await supabase.auth.getUser()
 
   // const questions = respTips as TipsFull[]
@@ -32,18 +35,26 @@ export async function PropertiesSalesScreens({properties}:{properties:any}) {
       <Separator className='h-2'/>
         <div className='flex gap-4 flex-wrap'>
 
+                    {(dataSales==null && dataSales==undefined || dataSales?.length===0) &&
+                        <div className='flex flex-col items-center justify-center w-full h-full'>
+                            <Sparkles size={100} className='text-primary-palet'/>
+                            <p className='text-2xl font-bold'>Nenhum imóvel encontrado</p>
+                            <p className='text-sm text-gray-500'>Adicione um imóvel para começar</p>
+                        </div>
+                    }
                     {
-                                properties.map((property:any)=>(
-                                <CardHouse area={property.displayInfo.totalArea} 
+                      (dataSales!==null && dataSales!==undefined && dataSales?.length>0) &&
+                                dataSales.map((property)=>(
+                                <CardHouseDashboard area={property.details[0].total_area} 
                                 id={property.id}
-                                propurse={property.displayInfo.propurse}
-                                bathrooms={property.displayInfo.bathrooms}
-                                 bedrooms={property.displayInfo.bedrooms} 
-                                 city={property.location.city} description={property.displayInfo.description}
-                                neighborhood={property.location.neighborhood}
-                                garage={property.displayInfo.garageSpaces} 
-                                price={property.financial.salePrice} 
-                                title={property.displayInfo.title}
+                                propurse={'Venda'}
+                                bathrooms={property.details[0].bathroom}
+                                 bedrooms={property.details[0].bedroom} 
+                                 city={property.cities.name} description={property.details[0].shot_description}
+                                neighborhood={property.neighborhoods.name}
+                                garage={property.details[0].garage} 
+                                price={String(property.financeiro[0]?.price || '10')} 
+                                title={property.details[0].title|| "sem titulo"}
                                 key={property.id} />))
                             }
         </div>

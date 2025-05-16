@@ -95,9 +95,9 @@ export function NewProductForm(){
   const [messageModal,setMessageModal] = useState('')
   const [show, setShow] = useState(false);
   const [cover, setCover] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [previewCover, setPreviewCover] = useState<string | undefined>();
 
-  const [files, setFiles] = useState<File[]>([]);
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
   const [folderName, setFolderName] = useState('');
   const fileInputRef = useRef<HTMLInputElement | null>(null);

@@ -17,9 +17,9 @@ type CardHouseProps={
     neighborhood:string,
     propurse:string
 }
-export function CardHouse({area,bathrooms,bedrooms,description,garage,price,title,neighborhood, city, propurse,id}:CardHouseProps) {
+export function CardHouseDashboard({area,bathrooms,bedrooms,description,garage,price,title,neighborhood, city, propurse,id}:CardHouseProps) {
     return (
-        <Link href={`/imovel/${title?.split(" ").join('-')}/${id}`} className="min-w-72 max-w-[24rem] h-[28rem]  md:h-[28rem] md:pb-4 flex flex-col bg-white  border-primary-palet  rounded-lg   shadow-primary-palet drop-shadow-xl">
+        <Link href={`/ficha-imovel/${id}`} className="min-w-72 max-w-[24rem] h-[28rem]  md:h-[28rem] md:pb-4 flex flex-col bg-white  border-primary-palet  rounded-lg   shadow-primary-palet drop-shadow-xl">
             <div className='object-cover relative'>
                 <p className='bg-primary-palet p-2 rounded-xl text-white absolute top-2 right-2 text-xs font-bold px-4'>{propurse}</p>
                 <Image 
