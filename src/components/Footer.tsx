@@ -2,9 +2,10 @@ import { Compass, Hotel } from "lucide-react";
 import { LogoIcon } from "./Icons";
 import  ImageLogoGreen from '@/public/images/Home/Logo_green.svg'
 import Image from "next/image";
-export const Footer = () => {
+export const Footer = ({isMobile}:{isMobile?:boolean}) => {
+  const isVisibe = isMobile?"hidden":""
   return (
-    <footer id="footer">
+    <footer id="footer" className={isVisibe}>
       <hr className="w-11/12 mx-auto" />
 
       <section className="container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">

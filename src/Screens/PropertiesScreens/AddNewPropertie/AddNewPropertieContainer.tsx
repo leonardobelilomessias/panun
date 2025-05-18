@@ -8,19 +8,19 @@ import { AddNewPropertieForm } from "./AddNewPropertieForms";
 export function AddNewPropertieContainer() {
     return (
         <div className="md:p-10">
-            <Card className="mb-10 p-4">
+
                 <CardHeader>
                     <CardTitle className="flex" >
-                        Novo Produto</CardTitle>
+                        Novo imóvel</CardTitle>
                     <CardDescription>
-                        Aqui estão a lista de todos os produtos
+                        Prencha o formulário para adicionar um novo imóvel.
                     </CardDescription>
                 </CardHeader>
-                <div className="flex flex-col flex-wrap gap-3 m-auto">
+                <div className="flex flex-col flex-wrap gap-3 m-auto bg-gray-50">
                     <AddNewPropertieForm />
                 </div>
 
-            </Card>
+
         </div>
     )
 }

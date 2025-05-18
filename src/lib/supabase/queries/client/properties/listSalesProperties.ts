@@ -1,11 +1,11 @@
 'use server'
-import { Property } from "@/types/typesPropeties";
-import { createClient } from "@/utils/supabase/server";
+import { Property, PropertySingle } from "@/types/typesPropeties";
+import { createClient } from "@/utils/supabase/client";
 
 export async function listSalesProperties() {
     const supabase = await createClient();
 
-    const { data, error }: { data: Property[] | null, error: any } = await supabase
+    const { data, error }: { data: PropertySingle[] | null|undefined|any, error: any }= await supabase
     .from('properties')
     .select(`
       id,
@@ -15,11 +15,20 @@ export async function listSalesProperties() {
       status,
       created_at,
       updated_at,
+      purpose,
       owners(id, name, email),
       agents(id, name, email),
       cities(id, name),
       neighborhoods(id, name),
       estates(id, name),
+      property_covers(
+        id,
+        property_id,
+        url,
+        path,
+        created_at,
+        updated_at
+      ),
       details(
         id,
         title,
@@ -48,7 +57,7 @@ export async function listSalesProperties() {
         created_at,
         updated_at
       )
-    `);
+    `).eq("purpose","Venda");
   if (error) {
     console.error('Erro ao buscar os dados:', error);
   } else {

@@ -5,7 +5,7 @@ import { ButtonAsideNavigation } from "./ButtonAsideNavigation";
 export function AsideButtons(){
     return(
         <>
-                <nav className="flex flex-col  gap-1 p-2 ">
+                <nav className="flex flex-col  gap-2 p-2 ">
                 <Separator />
                   {navigationElements.map((element) => (
                     <div key={element.title} className="flex flex-col">

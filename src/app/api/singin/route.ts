@@ -6,7 +6,8 @@ export async function POST(request: Request) {
     try{
         const {email, password} = await request.json() 
         const response = await singin({email,password})
-        if(response?.id) NextResponse.redirect('/dashboard')
+        console.log("em singin",response.id)
+        // if(response?.id) NextResponse.redirect('/dashboard')
         return NextResponse.json(response)
     }
     catch(error:any){

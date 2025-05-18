@@ -1,45 +1,85 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
 import { ContainerCardsHouse } from '../Containers/ContainerCardsHouse/ContainerCardsHouse';
-import { CardHouse } from '../Cards/CardHouse';
-import imagescrol from '@/public/images/Home/scroll.gif'
 import Image from 'next/image';
 import { CardHouseSmall } from '../Cards/CardHouseSmall/index.tsx';
-import { propertiesData } from '@/common/mocks/datamocks';
+import imagescrol from '@/public/images/Home/scroll.gif';
+import { listRentProperties } from '@/lib/supabase/queries/client/properties/listRentProperties';
+import { PropertySingle } from '@/types/typesPropeties';
+import { listSalesProperties } from '@/lib/supabase/queries/client/properties/listSalesProperties';
+
 export function RelationedHousesBlock() {
-    return (
-        <div className='bg-gray-100 flex flex-col py-8 '>
+  const [properties, setProperties] = useState<PropertySingle[] | null>(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    async function fetchProperty() {
+      try {
+        setLoading(true);
+        const response = await listSalesProperties()
+        setProperties(response);
+      } catch (error) {
+        console.error("Erro ao carregar propriedade:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProperty();
+  }, []);
 
-            <ContainerCardsHouse>
-                <div className='mb-4'>
-
-                <h1 className='text-2xl font-extrabold'>Produtos em Relacionados</h1>
-                <p className='text-lg text-gray-600'>Selecionamos alguns produtos  rellacionados que você pode gostar.</p>
-                </div>
-                <div className=" pl-60 sm:pl-0 flex gap-4 md:gap-8 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory w-full hide-scrollbar md:flex-wrap items-center justify-around">
-
-                                        {
-                                            propertiesData.slice(0,4).map((property)=>(
-                                            <CardHouseSmall area={property.displayInfo.totalArea} 
-                                            id={property.id}
-                                            bathrooms={property.displayInfo.bathrooms}
-                                             bedrooms={property.displayInfo.bedrooms} 
-                                             city={property.location.city} description={property.displayInfo.description}
-                                            neighborhood={property.location.neighborhood}
-                                            garage={property.displayInfo.garageSpaces} 
-                                            price={property.financial.salePrice} 
-                                            title={property.displayInfo.title}
-                                            propurse={property.displayInfo.purpose}
-                                            key={property.id} />))
-                                        }
-    
-                </div>
-                <div>
-                    <div className='md:hidden'>
-                        <Image src={imagescrol} alt="scrool secitosn" width={50} height={50} />
-                    </div>
-                </div>
-            </ContainerCardsHouse>
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center">Carregando informações do imóvel...</div>;
+  }
+  
+  if (!properties) {
+    return <div className="min-h-screen flex items-center justify-center">Imóvel não encontrado</div>;
+  }
+  
+  return (
+    <div className='bg-gray-100 flex flex-col py-8'>
+      <ContainerCardsHouse>
+        <div className='mb-6'>
+          <h1 className='text-2xl font-extrabold'>Produtos Relacionados</h1>
+          <p className='text-lg text-gray-600'>Selecionamos alguns produtos relacionados que você pode gostar.</p>
         </div>
-    );
+        
+        {/* Container dos cards com rolagem horizontal no mobile */}
+        <div className="relative w-full">
+          <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory w-full hide-scrollbar ">
+            {properties.slice(0, 4).map((property) => (
+              <div key={property.id} className="w-72  flex-shrink-0 snap-start">
+                <CardHouseSmall
+                  cover={property.property_covers[0].url}
+                  full_description={property.details[0].full_description}
+                  area={property.details[0].total_area}
+                  bathrooms={property.details[0].bathroom}
+                  bedrooms={property.details[0].bedroom}
+                  city={property.cities.name}
+                  shot_description={property.details[0].shot_description}
+                  garage={property.details[0].garage}
+                  id={property.id}
+                  neighborhood={property.neighborhoods.name}
+                  price={String(property.financeiro[0].price)}
+                  purpose={property.purpose}
+                  street={property.street}
+                  title={property.details[0].title}
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Indicador de rolagem no mobile */}
+          <div className='md:hidden flex mt-2'>
+            <Image 
+              src={imagescrol} 
+              alt="Deslize para ver mais" 
+              width={40} 
+              height={40} 
+              className="opacity-60"
+            />
+          </div>
+        </div>
+      </ContainerCardsHouse>
+    </div>
+  );
 }
-

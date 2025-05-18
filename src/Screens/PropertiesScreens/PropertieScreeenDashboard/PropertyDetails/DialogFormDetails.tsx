@@ -1,4 +1,4 @@
-import { Copy, Save } from "lucide-react"
+import { Copy, Edit, Save } from "lucide-react"
 import Modal from 'react-modal';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -134,8 +134,8 @@ export function DialogCloseButton({
     
     return (
         <div>
-            <Button onClick={() => openModal()} className="bg-primary-palet text-white w-44">
-                <Save size={20} /> Editar
+            <Button onClick={() => openModal()} className="bg-primary-palet text-white ">
+                <Edit size={20} /> Editar
             </Button>
             
             <Modal

@@ -37,22 +37,22 @@ export function PropertyDetails({
   return (
     <div className="space-y-4">
       <Card>
-        <CardContent className="pt-6 space-y-8">
+        <CardContent className="pt-6 space-y-6">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Detalhes</h1>
+            <h1 className="text-2xl font-bold">Detalhes do Imóvel</h1>
             <DialogFormDetails idProperty={idProperty} floor={floor} mobility={mobility} shortDescription={shortDescription} suites={suites} description={description} bedrooms={bedrooms} bathrooms={bathrooms} totalArea={totalArea} usefulArea={usefulArea} garage={garage} reloadEdit={reloadEdit } />
           </div>
           
           {shortDescription && (
             <div>
-              <h2 className="text-lg font-semibold">Descrição curta</h2>
+              <h2 className="text-lg font-semibold">Descrição curta:</h2>
               <p className="text-gray-500">{shortDescription}</p>
             </div>
           )}
           
           <div>
-            <h2 className="text-lg font-semibold">Descrição Completa</h2>
-            <p className="text-gray-500">{description || 'Sem descrição disponível'}</p>
+            <h2 className="text-lg font-semibold">Descrição Completa:</h2>
+            <p className="text-gray-500 whitespace-pre-wrap">{description || 'Sem descrição disponível'}</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

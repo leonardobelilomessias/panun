@@ -1,6 +1,7 @@
 'use server';
 
 import { createClient } from "@/utils/supabase/server";
+import { randomUUID } from "crypto";
 import { revalidatePath } from "next/cache";
 
 export async function updatePropertyHeader(propertyId: string, updates: Partial<any>) {
@@ -62,11 +63,12 @@ async function updateReferencePiont({propertyId,reference_point}:{reference_poin
 }
 
 export async function updatePropertyDetails(propertyId: string, updates: Partial<any>) {
+  const normalizedText = updates.full_description.replace(/\r\n/g, '\n');
   const supabase = await createClient();
   console.log("dados para atualizar",updates, propertyId)
   const { data, error } = await supabase
     .from('details')
-    .update(updates)
+    .update({full_description:normalizedText,...updates})
     .eq('propertie_id', propertyId)
     .select(); // opcional: retorna os dados atualizados
 
@@ -300,7 +302,8 @@ export async function insertNewPropertyImages(propertyId: string, formData: Form
     const cover = formData.get('cover') as File | null;
     if (cover && cover instanceof File && cover.name) {
       // 1. Processar a imagem principal
-      const mainImagePath = `properties/${propertyId}/cover/${cover.name}`;
+      const uuidCover = randomUUID()
+      const mainImagePath = `properties/${propertyId}/cover/${uuidCover}`;
       const { error: mainImageUploadError } = await supabase.storage
         .from("property-images")
         .upload(mainImagePath, cover);
@@ -329,8 +332,8 @@ export async function insertNewPropertyImages(propertyId: string, formData: Form
           console.warn("Imagem sem nome detectada, ignorando...");
           return null;
         }
-        
-        const imagePath = `properties/${propertyId}/images/${image.name}`;
+        const uuidImage = randomUUID()
+        const imagePath = `properties/${propertyId}/images/${uuidImage}`;
         const { error: imageUploadError } = await supabase.storage
           .from("property-images")
           .upload(imagePath, image);

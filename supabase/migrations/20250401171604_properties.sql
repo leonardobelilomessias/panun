@@ -15,6 +15,9 @@ CREATE TABLE public.properties (
     street TEXT,
     house_number TEXT,
     zipcode TEXT,
+    featured TEXT NOT NULL DEFAULT 'Normal' CHECK (
+        featured IN ('Financiamento Facilitado', 'Lançamento','Normal','Destaque','Condições Especiais')
+    ),
     purpose TEXT NOT NULL DEFAULT 'Venda' CHECK (
         purpose IN ('Aluguel', 'Venda')
     ),

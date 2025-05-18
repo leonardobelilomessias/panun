@@ -88,7 +88,7 @@ export async function getPropertyById(propertyId: string) {
 
   // Transforma amenities_details de: [{ amenities: { id, name } }, ...] para: [{ id, name }, ...]
   const transformedAmenities = Array.isArray(data?.amenities_details)
-    ? data.amenities_details.map((item: {amenities:{id:string,name:string}}) => item.amenities)
+    ? data.amenities_details
     : [];
   
   // Retorna os dados com amenities transformados

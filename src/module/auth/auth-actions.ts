@@ -14,7 +14,7 @@ export async function singin(data:{email:string, password:string}) {
           
         }
         if(user?.id){
-         console.log(userCredential.data)
+        
           await AuthService.createSessionToken({user_id:user.id,token_supabase:userCredential.data.session.access_token}) 
         }
         return user

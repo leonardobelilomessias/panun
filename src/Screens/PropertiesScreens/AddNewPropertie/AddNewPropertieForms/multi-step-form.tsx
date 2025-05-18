@@ -282,7 +282,6 @@ const steps = [
 
   return (
     <FormProvider {...methods}>
-
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <Card className="max-w-3xl mx-auto">
           <CardHeader>

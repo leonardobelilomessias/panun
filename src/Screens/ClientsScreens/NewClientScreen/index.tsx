@@ -1,77 +1,373 @@
-'use client'
-import { ContainerScreen } from "@/components/modules/Containers/ContainerSceen";
-import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Save } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
-import Modal from 'react-modal';
-export function NewClienScreen() {
-    let subtitle;
-    const [modalIsOpen, setIsOpen] = useState(false);
+"use client"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import { Button } from "@/components/ui/button"
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { useToast } from "@/components/ui/use-toast"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { insertClient } from "@/lib/supabase/queries/client/Clients/insertClient"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-    function openModal() {
-        setIsOpen(true);
-    }
+import { ArrowLeft, Building2, CalendarIcon, Home, Mail, MapPin, Phone, Save, UserIcon } from "lucide-react"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { SelectLocationFields } from "@/Screens/OwnersScreens/NewOwnerScreen/SelecLocations"
+import { SelectAgentField } from "./agentSelect"
 
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        // subtitle.style.color = '#f00';
-    }
+const clientSchema = z.object({
+  name: z.string().min(3, "Nome é obrigatório"),
+  phone: z.string().min(10, "Telefone é obrigatório"),
+  email: z.string().email("Email inválido").optional().or(z.literal("")),
+  birth_date: z.string().optional().or(z.literal("")),
+  cpf: z.string().length(11, "CPF inválido").optional().or(z.literal("")),
+  city_id: z.string().uuid().optional().or(z.literal("")),
+  estate_id: z.string().uuid().optional().or(z.literal("")),
+  neighborhood_id: z.string().uuid().optional().or(z.literal("")),
+  zipcode: z.string().optional().or(z.literal("")),
+  street: z.string().optional().or(z.literal("")),
+  house_number: z.string().optional().or(z.literal("")),
+  status: z.enum(["active", "inactive"]).default("active"),
+  type: z.enum(["Pessoa Física", "Pessoa Jurídica"]),
+  agent_id: z.string().uuid("Selecione um agente válido").min(1, "Agente responsável é obrigatório"),
+})
 
-    function closeModal() {
-        setIsOpen(false);
-    }
-    return (
-        <ContainerScreen>
-            <div >
-                <h1 className="text-2xl font-bold">Criar novo  Cliente</h1>
-                <div>
-                    <form className="flex flex-col gap-2">
-                        <Input placeholder="Nome" />
-                        <Input placeholder="Email" />
-                        <Input placeholder="Telefone" />
-                        <Input placeholder="Renda" />
-                        <Input placeholder="Estado civil" />
+export function NewClient() {
+  const [queryClient] = useState(() => new QueryClient())
+  const { toast } = useToast()
+  const router = useRouter()
+  const [isSaving, setIsSaving] = useState(false)
 
-
-
-                    </form>
-                        <Button onClick={()=>openModal()} className="bg-primary-palet text-white w-44"><Save size={20} /> Salvar cliente</Button>
-                </div>
-            <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
-            >
-                <div className="flex flex-col p-16">
-
-                <h1 className="text-2xl font-bold">Cliente Criado com suceso</h1>
-                <div className="flex gap-2">
-                <Button onClick={()=>closeModal()} className="bg-primary-palet text-white w-44"> Fechar</Button>
-                <Link href={'/clientes/cliente-exemplo'}>
-                <Button  className="bg-white border  border-primary-palet  text-primary-palet w-44">Ver cliente</Button>
-                </Link>
-                </div>
-
-                </div>
-            </Modal>
-            </div>
-        </ContainerScreen>
-    )
-}
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
+  const form = useForm<z.infer<typeof clientSchema>>({
+    mode: "onTouched",
+    resolver: zodResolver(clientSchema),
+    defaultValues: {
+      name: "",
+      phone: "",
+      email: "",
+      birth_date: "",
+      cpf: "",
+      city_id: "",
+      estate_id: "",
+      neighborhood_id: "",
+      zipcode: "",
+      street: "",
+      house_number: "",
+      status: "active",
+      type: "Pessoa Física",
+      agent_id: "",
     },
-};
+  })
 
+  async function onSubmit(data: z.infer<typeof clientSchema>) {
+    setIsSaving(true)
+    try {
+      const resp = await insertClient(data)
+
+      if (resp.error) {
+        toast({
+          title: "Erro!",
+          description: `Erro ao adicionar cliente: ${resp.error.message}`,
+          variant: "destructive",
+        })
+        return
+      }
+
+      toast({
+        title: "Sucesso!",
+        description: "Cliente cadastrado com sucesso.",
+      })
+
+      router.push("/clientes")
+    } catch (error) {
+      toast({
+        title: "Erro!",
+        description: "Erro inesperado ao salvar cliente.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSaving(false)
+    }
+  }
+
+  return (
+    <div className="container max-w-5xl py-10">
+      <QueryClientProvider client={queryClient}>
+        <div className="flex items-center gap-2 mb-6">
+          <Button variant="ghost" size="icon" onClick={() => router.push("/clientes")}>
+            <ArrowLeft className="h-4 w-4" />
+          </Button>
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight">Novo Cliente</h1>
+            <p className="text-muted-foreground">Cadastre um novo cliente no sistema</p>
+          </div>
+        </div>
+
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
+            <Tabs defaultValue="info" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-6">
+                <TabsTrigger value="info">
+                  <UserIcon className="h-4 w-4 mr-2" />
+                  Informações Pessoais
+                </TabsTrigger>
+                <TabsTrigger value="address">
+                  <MapPin className="h-4 w-4 mr-2" />
+                  Endereço
+                </TabsTrigger>
+              </TabsList>
+
+              <Card>
+                <TabsContent value="info" className="mt-0">
+                  <CardHeader>
+                    <CardTitle>Dados do Cliente</CardTitle>
+                    <CardDescription>Preencha as informações básicas do cliente</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Nome</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <UserIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                                <Input className="pl-10" placeholder="Nome completo" {...field} />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Telefone</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                                <Input className="pl-10" placeholder="(XX) XXXXX-XXXX" {...field} />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                                <Input className="pl-10" placeholder="email@exemplo.com" {...field} />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="cpf"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>CPF</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Apenas números" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="birth_date"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Data de Nascimento</FormLabel>
+                            <FormControl>
+                              <div className="relative">
+                                <CalendarIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                                <Input className="pl-10" type="date" {...field} />
+                              </div>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="type"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Tipo</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <div className="relative">
+                                  <Building2 className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                                  <SelectTrigger className="pl-10">
+                                    <SelectValue placeholder="Selecione o tipo" />
+                                  </SelectTrigger>
+                                </div>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="Pessoa Física">Pessoa Física</SelectItem>
+                                <SelectItem value="Pessoa Jurídica">Pessoa Jurídica</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="status"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Status</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Selecione o status" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="active">Ativo</SelectItem>
+                                <SelectItem value="inactive">Inativo</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <SelectAgentField form={form} />
+                    </div>
+                  </CardContent>
+                </TabsContent>
+
+                <TabsContent value="address" className="mt-0">
+                  <CardHeader>
+                    <CardTitle>Endereço</CardTitle>
+                    <CardDescription>Informações de localização do cliente</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-6">
+                      {/* Componente de seleção de localização */}
+                      <SelectLocationFields  />
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <FormField
+                          control={form.control}
+                          name="zipcode"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>CEP</FormLabel>
+                              <FormControl>
+                                <Input placeholder="XXXXX-XXX" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="street"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Rua</FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Home className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                                  <Input className="pl-10" placeholder="Nome da rua" {...field} />
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="house_number"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Número</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Número" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
+                  </CardContent>
+                </TabsContent>
+
+                <CardFooter className="flex justify-between border-t p-6">
+                  <Button type="button" variant="outline" onClick={() => router.push("/clientes")}>
+                    Cancelar
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="bg-primary-palet hover:bg-primary-palet/90 text-white"
+                    disabled={isSaving}
+                  >
+                    {isSaving ? (
+                      <>
+                        <svg
+                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Salvando...
+                      </>
+                    ) : (
+                      <>
+                        <Save className="mr-2" size={18} />
+                        Salvar Cliente
+                      </>
+                    )}
+                  </Button>
+                </CardFooter>
+              </Card>
+            </Tabs>
+          </form>
+        </Form>
+      </QueryClientProvider>
+    </div>
+  )
+}

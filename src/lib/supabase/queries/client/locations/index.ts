@@ -12,15 +12,21 @@ export async function fetchEstates() {
   return data;
 }
 
-export async function fetchCities(estateId: string) {
-  const { data, error } = await supabaseClient()
-    .from("cities")
-    .select("id, name")
-    .eq("estate_id", estateId)
-    .order("name", { ascending: true });
+export async function fetchCities(estateId?: string) {
+  let query = supabaseClient().from("cities").select("id, name, estate_id")
 
-  if (error) throw new Error(error.message);
-  return data;
+  // Se um estateId for fornecido, filtrar por esse estado
+  if (estateId) {
+    query = query.eq("estate_id", estateId)
+  }
+
+  // Ordenar por nome
+  query = query.order("name", { ascending: true })
+
+  const { data, error } = await query
+
+  if (error) throw new Error(error.message)
+  return data
 }
 
 export async function fetchNeighborhoods(cityId: string) {

@@ -30,8 +30,10 @@ export function PropertyFinancial({
   return (
     <Card>
       <CardContent className="pt-6">
-        <h2 className="text-lg font-semibold mb-4">Financeiro</h2>
+        <div className="flex justify-between">
+        <h2 className="text-2xl font-semibold mb-4">Financeiro</h2>
         <DialogFormFinancial idProperty={idProperty} price={price} reloadEdit={reloadEdit} commission={commission} condominium={condominium} iptu={iptu}/>
+        </div>
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-3">
             <PropertyField label="Preço" value={price} />

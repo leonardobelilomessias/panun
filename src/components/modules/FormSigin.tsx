@@ -33,15 +33,16 @@ export function FormSingIn(){
       setLoad(true)
         try{
           const user =   await axios.post("/api/singin",{email:values.email, password:values.password})
-          if(user.data?.uid){
+          console.log("user data id",user)
+          if(!!user?.data?.id){
       
-            router.replace('/dashboard')
+             router.replace('/dashboard')
           }
         
           }catch(error){
 
             if (error instanceof AxiosError){
-            console.log(error.response?.data)
+            console.log("Erro no axios",error.response?.data)
               if(error.response?.status  ===402 && error.response?.data.message ==="invalid_credentials" ){
                 toast({
                   variant: "destructive",
@@ -75,9 +76,9 @@ export function FormSingIn(){
           }finally{
             setLoad(false)
           }
-        console.log(values)
+        
 
-        router.push('/dashboard')
+        // router.push('/dashboard')
       }
     return(
         <>

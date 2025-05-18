@@ -21,11 +21,13 @@ export type PropertyOwnerProps = {
 export function PropertyOwner({ owner , reloadEdit, idProperty}: PropertyOwnerProps) {
   return (
     <Card>
-      <CardHeader>
+      <CardHeader  >
+        <div className="flex justify-between">
         <CardTitle>Proprietário</CardTitle>
+        <DialogFormOwner idProperty={idProperty}  id_owner={owner.id} name={owner.name} reloadEdit={reloadEdit}/>
+        </div>
       </CardHeader>
       <CardContent className="space-y-4">
-      <DialogFormOwner idProperty={idProperty}  id_owner={owner.id} name={owner.name} reloadEdit={reloadEdit}/>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <PropertyField label="Nome" value={owner.name} />

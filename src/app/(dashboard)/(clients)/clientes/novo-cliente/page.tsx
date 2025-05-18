@@ -1,7 +1,9 @@
-import { NewClienScreen } from "@/Screens/ClientsScreens/NewClientScreen";
+import { NewClient
+
+ } from "@/Screens/ClientsScreens/NewClientScreen";
 
 export default function newClient(){
     return(
-        <NewClienScreen/>
+        <NewClient/>
     )
 }

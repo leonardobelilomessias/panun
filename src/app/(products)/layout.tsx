@@ -28,6 +28,7 @@ export default function RootLayout({
         <main>{children}</main>
         {/* <Footer/> */}
       <Toaster />
+      <Footer isMobile={true} />
         </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 
 import { createClient } from "@/utils/supabase/server"
+import { randomUUID } from "crypto";
 import { revalidatePath } from "next/cache"
 
 export async function createProperty(formData: any) {
@@ -27,6 +28,7 @@ export async function createProperty(formData: any) {
         city_id: formData.city_id,
         neighborhood_id: formData.neighborhood_id,
         estate_id: formData.estate_id,
+        purpose:formData.purpose
       })
       .select()
       .single()
@@ -100,7 +102,8 @@ export async function uploadPropertyImages(propertyId: string, formData: FormDat
 
     // 1. Processar a imagem principal
     const cover = formData.get('cover') as File;
-    const mainImagePath = `properties/${propertyId}/cover/${cover.name}`;
+    const hashNameCover = randomUUID()
+    const mainImagePath = `properties/${propertyId}/cover/${hashNameCover}`;
     const { error: mainImageUploadError } = await supabase.storage
       .from("property-images")
       .upload(mainImagePath, cover);
@@ -120,7 +123,8 @@ export async function uploadPropertyImages(propertyId: string, formData: FormDat
     // 2. Processar as imagens adicionais
     const images = formData.getAll('images') as File[];
     const imagePromises = images.map(async (image, index) => {
-      const imagePath = `properties/${propertyId}/images/${image.name}`;
+      const hashNameImage= randomUUID()
+      const imagePath = `properties/${propertyId}/images/${hashNameImage}`;
       const { error: imageUploadError } = await supabase.storage
         .from("property-images")
         .upload(imagePath, image);

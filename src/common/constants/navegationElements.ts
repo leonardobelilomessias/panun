@@ -1,35 +1,34 @@
-import { BadgeDollarSign, Bell, BookText, Boxes, BriefcaseBusiness, Building2, CalendarDays, CircleDollarSign, CircleHelp, Contact, DollarSignIcon, Flag, Folder, HandHelping, Handshake, Heart, Hotel, House, HousePlus, Info, Lightbulb, List, ListCollapse, MessageCircleQuestion, MessageSquareQuoteIcon, PlusSquare, Quote, QuoteIcon, Radar, Rocket, RocketIcon, Settings, Shapes, Store, TvMinimalPlay, User, User2, Users } from "lucide-react";
+import { 
+  User,
+  Home,
+  Building,
+  CalendarCheck2,
+  Users,
+  Handshake,
+  Landmark,
+  CircleDashed,
+  PlusCircle,
+  LayoutDashboard,
+  DollarSign,
+  ClipboardList
+} from "lucide-react";
 
 export const navigationElements = [{
   title: 'Dashboard',
   items: [
-    { title: 'Home', link: '/dashboard', icon: House , status:"Novo" },
-    { title: 'Meu Perfil', link: "/perfil", icon: User2, status:"Novo" },   
-    { title: 'Imoveis Venda', link: "/lista-venda", icon: Boxes , status:"Novo" },
-    { title: 'Imoveis Locação', link: "/lista-aluguel", icon: Shapes , status:"Novo" },
-    { title: 'Clientes', link: "/clientes", icon: Handshake , status:"Novo" },
-    { title: 'Propietarios', link: "/proprietarios", icon: Contact , status:"Novo" },
-    { title: 'Construtoras', link: "/construtoras", icon: Building2 , status:"Novo" },
-
-
-
-    { title: 'Adicionar imovel', link: "/adicionar-imovel", icon: HousePlus, status:"Novo" },
+    { title: 'Dashboard', link: '/dashboard', icon: LayoutDashboard, status: "Novo" },
+    { title: 'Meu Perfil', link: "/perfil", icon: User, status: "Novo" },   
     
-    // { title: 'Dicas', link: "/dicas", icon: Lightbulb, status:"Novo" },
-    // { title: 'Perguntas', link: "/perguntas", icon: CircleHelp, status:"Novo" },
-    // { title: 'Acelere', link: "/acelere", icon: RocketIcon, status:"Novo" },
-    // { title: 'Info', link: "/info", icon: Info, status:"Novo" },
-
-
-
-
-    // { title: 'Eventos', link: "/eventos", icon: CalendarDays , status:"Em breve"}, 
-    // { title: 'Configurações', link: "/configuracoes", icon: Settings, status:"Novo" },
-    // { title: 'lojas', link: "/lojas", icon: Store , status:"Em breve"}, 
-    // { title: 'serviços', link: "/servicos", icon: HandHelping,status:"Em breve" }, 
-    // { title: 'Vagas de Trabalho', link: "/vagas-de-trabalho", icon: BriefcaseBusiness, status:"Em breve" }, 
-    // { title: 'Grupos', link: '/grupos', icon: Users,status:"Em breve" },
-    // { title: 'Ebooks', link: "/ebooks", icon: BookText ,status:"Em breve"},
-    // { title: 'Videos', link: '/videos', icon: TvMinimalPlay,status:"Em breve" },
+    // Ícones atualizados com alternativas mais específicas
+    { title: 'Imóveis à Venda', link: "/lista-venda", icon: DollarSign, status: "Novo" },
+    { title: 'Imóveis para Locação', link: "/lista-aluguel", icon: CalendarCheck2, status: "Novo" },
+    { title: 'Corretores', link: "/corretores", icon: Users, status: "Novo" },
+    { title: 'Clientes', link: "/clientes", icon: Handshake, status: "Novo" },
+    { title: 'Proprietários', link: "/proprietarios", icon: Landmark, status: "Novo" },
+    { title: 'Leads', link: "/leads", icon: CircleDashed, status: "Novo" },
+    { title: 'Adicionar Imóvel', link: "/adicionar-imovel", icon: PlusCircle, status: "Novo" },
+    
+    // Sugestão de item adicional que poderia ser útil
+    { title: 'Listagens', link: "/listagens", icon: ClipboardList, status: "Novo" }
   ]
-}]
+}];

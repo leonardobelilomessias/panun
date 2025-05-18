@@ -35,14 +35,15 @@ export function PropertyHeader({
 
       <Card>
         <CardContent className="pt-6">
-          <h2 className="text-lg font-semibold mb-4">Informaçoes basicas</h2>
+          
         <div className="flex justify-between items-center">
-        <h1 className="text-4xl font-bold">{title}</h1>
+          <h2 className="text-2xl font-semibold mb-4">Informaçoes basicas</h2>
         <DialogFormHeader purpose={purpose} documentationStatus={documentationStatus} reloadEdit={reloadEdit} title={title} id={id} status={status} agent={capturedBy} owner={owner} type_property={type} />
       </div>
           <div className="grid grid-cols-2 gap-6">
             <div className="space-y-2">
-              <PropertyField label="Id" value={id} />
+              <PropertyField label="Id" value={id} /> 
+            <PropertyField label="Titulo" value={title} />
               <PropertyField label="Tipo" value={type} />
               <PropertyField label="Status Documentação" value={documentationStatus} />
             </div>

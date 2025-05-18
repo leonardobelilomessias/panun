@@ -1,6 +1,0 @@
-import { CreatedQuestionScreen } from "@/Screens/Questions/CreatedQuestionScreen";
-
-export default async function dicas({params}:{params:{id:string}}){
-
-    return(<CreatedQuestionScreen id={params.id} />)
-}

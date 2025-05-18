@@ -1,5 +1,6 @@
 
 import { propertiesData } from "@/common/mocks/datamocks";
+import { getPropertyById } from "@/lib/supabase/queries/client/properties/getPropertyById";
 import { singin } from "@/module/auth/auth-actions";
 import { NextResponse } from "next/server";
 
@@ -8,8 +9,8 @@ export async function GET(request: Request,
         const { id } = await params
         console.log('id vindo da pagina',id)
     try{
-        
-        return NextResponse.json(propertiesData[0])
+        const dataProperty = await getPropertyById(id)
+        return NextResponse.json(dataProperty)
     }
     catch(error:any){
         if(error==='invalid_credentials'){

@@ -1,7 +1,7 @@
-import { AgentsScreen } from "@/Screens/AgentsScreens/AgentssScreen";
+import AgentsListScreen from "@/Screens/AgentsScreens/AgentScreen";
 
 export default function corrretores(){
     return(
-        <AgentsScreen/>
+        <AgentsListScreen/>
     )
 }

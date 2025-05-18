@@ -80,6 +80,7 @@
     estates: Estate;
     details: Detail[];
     financeiro: Finance[];
+    property_covers: PropertyCover[]
   }
   export interface PropertySingle {
     id: string;
@@ -101,7 +102,7 @@
     purpose:string
     property_covers: PropertyCover[];
     property_images: PropertyImage[];
-    amenities_details:AmenitiesDetails;
+    amenities_details:AmenitiesDetails[];
      // Agora isso é um array de objetos
   }
   

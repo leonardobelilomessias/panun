@@ -1,167 +1,240 @@
-"use client";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage, FormDescription } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
-import { useParams, useRouter } from "next/navigation";
-import { SelectCountryForm, SelectThemeForm } from "@/components/modules/Forms/Selects";
-import { useState } from "react";
-import { supabaseClient } from "@/lib/supabase/client";
-import { User } from "@supabase/supabase-js";
-import { insertQuestion } from "@/lib/supabase/queries/server/questions";
-import { ContainerScreen } from "@/components/modules/Containers/ContainerSceen";
- 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { metropolitanCities, neighborhoods, propertyTypes } from "./Hero/HeroSearch/data";
-const questionSchema = z.object({
-  searchType: z.enum(["comprar", "alugar"], {
-    required_error: "Selecione o que deseja (comprar ou alugar)",
-  }),
-  code: z.string().optional(), // Código é opcional
-  propertyType: z.string({
-    required_error: "Selecione o tipo de imóvel",
-  }),
-  price: z.object({
-    min: z.number().min(0, "Valor mínimo não pode ser negativo").optional(),
-    max: z.number().min(0, "Valor máximo não pode ser negativo").optional(),
-  }).optional(),
-  city: z.string({
-    required_error: "Selecione a cidade",
-  }),
-  neighborhood: z.string().optional(), // Bairro é opcional
-  bedrooms: z.number().min(0, "Número de dormitórios não pode ser negativo").optional(),
-  parkingSpaces: z.number().min(0, "Número de vagas não pode ser negativo").optional(),
-});
+"use client"
 
-export function HouseSearchFilter() {
-  const { toast } = useToast();
-  const router = useRouter();
-  const [user, setUser] = useState<User | null>()
-  async function getuser() {
-    const { data } = await supabaseClient().auth.getUser()
-    console.log('getuser', data)
-    setUser(data.user)
+import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { fetchCities, fetchEstates, fetchNeighborhoods } from "@/lib/supabase/queries/client/locations"
+import { Search } from "lucide-react"
 
-  }
+interface HouseSearchFilterProps {
+  initialCategoria?: string
+  initialTipo?: string
+  initialCidade?: string
+  initialBairro?: string
+}
 
-  const form = useForm<z.infer<typeof questionSchema>>({
-    mode: "onTouched",
-    resolver: zodResolver(questionSchema),
-    defaultValues: {
-      searchType: undefined,
-      code: "",
-      propertyType: "",
-      price: { min: undefined, max: undefined },
-      city: "",
-      neighborhood: "",
-      bedrooms: undefined,
-      parkingSpaces: undefined,
-    },
-  });
+export function HouseSearchFilter({
+  initialCategoria = "",
+  initialTipo = "",
+  initialCidade = "",
+  initialBairro = "",
+}: HouseSearchFilterProps) {
+  const router = useRouter()
 
-  async function onSubmit(data: z.infer<typeof questionSchema>) {
-    console.log(data)
-    const mountLink =`/imoveis?categoria=${data.searchType}&tipo=${data.propertyType}&cidade=${data.city}&bairro=${data.neighborhood}` 
-    console.log(mountLink)
-    router.push(mountLink)
-    try {
+  const [categoria, setCategoria] = useState(initialCategoria || "all")
+  const [tipo, setTipo] = useState(initialTipo || "all")
+  const [cidade, setCidade] = useState(initialCidade || "all")
+  const [bairro, setBairro] = useState(initialBairro || "all")
+  const [estado, setEstado] = useState("all")
 
-    } catch (error) {
-      toast({
-        title: "Erro!",
-        description: "Não foi possível publicar sua pergunta.",
-        variant: "destructive",
-      });
+  const [estados, setEstados] = useState<any[]>([])
+  const [cidades, setCidades] = useState<any[]>([])
+  const [bairros, setBairros] = useState<any[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingCities, setIsLoadingCities] = useState(false)
+  const [isLoadingNeighborhoods, setIsLoadingNeighborhoods] = useState(false)
+
+  const tiposImoveis = ["Casa", "Apartamento", "Lote", "Loja"]
+
+  // Carregar estados ao montar o componente
+  useEffect(() => {
+    async function loadEstates() {
+      try {
+        const estatesData = await fetchEstates()
+        setEstados(estatesData)
+      } catch (error) {
+        console.error("Erro ao carregar estados:", error)
+      }
     }
+
+    loadEstates()
+  }, [])
+
+  // Carregar cidades quando o estado mudar
+  useEffect(() => {
+    async function loadCities() {
+      setIsLoadingCities(true)
+      try {
+        // Se estado for "all", buscar todas as cidades
+        // Caso contrário, buscar cidades do estado selecionado
+        const citiesData = await fetchCities(estado !== "all" ? estado : undefined)
+        setCidades(citiesData)
+      } catch (error) {
+        console.error("Erro ao carregar cidades:", error)
+      } finally {
+        setIsLoadingCities(false)
+      }
+    }
+
+    loadCities()
+  }, [estado])
+
+  // Carregar bairros quando a cidade mudar
+  useEffect(() => {
+    async function loadNeighborhoods() {
+      if (cidade === "all") {
+        setBairros([])
+        return
+      }
+
+      setIsLoadingNeighborhoods(true)
+      try {
+        const neighborhoodsData = await fetchNeighborhoods(cidade)
+        setBairros(neighborhoodsData)
+      } catch (error) {
+        console.error("Erro ao carregar bairros:", error)
+      } finally {
+        setIsLoadingNeighborhoods(false)
+      }
+    }
+
+    loadNeighborhoods()
+  }, [cidade])
+
+  // Inicializar os valores dos filtros com os parâmetros da URL
+  useEffect(() => {
+    setCategoria(initialCategoria || "all")
+    setTipo(initialTipo || "all")
+    setCidade(initialCidade || "all")
+    setBairro(initialBairro || "all")
+  }, [initialCategoria, initialTipo, initialCidade, initialBairro])
+
+  const handleSearch = () => {
+    setIsLoading(true)
+
+    // Construir a URL com os parâmetros selecionados
+    const params = new URLSearchParams()
+
+    if (categoria && categoria !== "all") params.set("categoria", categoria)
+    if (tipo && tipo !== "all") params.set("tipo", tipo)
+    if (cidade && cidade !== "all") params.set("cidade", cidade)
+    if (bairro && bairro !== "all") params.set("bairro", bairro)
+
+    // Navegar para a URL com os parâmetros
+    router.push(`/imoveis?${params.toString()}`)
+
+    setIsLoading(false)
   }
 
   return (
-    <div className="   p-4 w-full ">
-      <Form {...form} >
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1 flex flex-wrap bg-white bg-opacity-95 p-6 shadow-lg rounded-lg gap-2    min-w-[90vw] md:min-w-10   items-center justify-center ">
-          {/* <FormField
-            control={form.control}
-            name="propertyType"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Título da Pergunta</FormLabel>
-                <FormControl>
-                  <Input placeholder="Digite o título da sua pergunta" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          /> */}
-          {/* <SelectThemeForm form={form} />
-          <SelectCountryForm form={form} /> */}
-          <div className="flex flex-col md:flex-row flex-1 gap-2">
+    <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
+          <Select value={categoria} onValueChange={setCategoria}>
+            <SelectTrigger>
+              <SelectValue placeholder="Comprar ou Alugar" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos</SelectItem>
+              <SelectItem value="comprar">Comprar</SelectItem>
+              <SelectItem value="alugar">Alugar</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
 
-          <SelectFormHero  array={["comprar", "alugar"]} name="searchType" form={form} placeholderField={"Oque você deseja?"} />
-          <SelectFormHero  array={propertyTypes} name="propertyType" form={form} placeholderField={"Typo de imóvel"} />
-          <SelectFormHero array={metropolitanCities} name="city" form={form} placeholderField={"Qual cidade?"} />
-          <SelectFormHero  array={neighborhoods} name="neighborhood" form={form} placeholderField={"Qual Bairro"} />
-          {/* <SelectFormHero  array={metropolitanCities} name="bedrooms" form={form} placeholderField={"meuplaceholder"} />
-          <SelectFormHero  array={metropolitanCities} name="parkingSpaces" form={form} placeholderField={"meuplaceholder"} /> */}
-            <Button type="submit" className="bg-primary-palet md:self-end md:justify-self-end">
-              Buscar Imóvel
-            </Button>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Tipo de Imóvel</label>
+          <Select value={tipo} onValueChange={setTipo}>
+            <SelectTrigger>
+              <SelectValue placeholder="Selecione o tipo" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos</SelectItem>
+              {tiposImoveis.map((tipo) => (
+                <SelectItem key={tipo} value={tipo}>
+                  {tipo}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
 
-          </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Estado</label>
+          <Select
+            value={estado}
+            onValueChange={(value) => {
+              setEstado(value)
+              setCidade("all") // Resetar cidade quando o estado mudar
+              setBairro("all") // Resetar bairro quando o estado mudar
+            }}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Selecione o estado" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos</SelectItem>
+              {estados.map((estado) => (
+                <SelectItem key={estado.id} value={estado.id}>
+                  {estado.name} ({estado.uf})
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
 
-        </form>
-      </Form>
-    </div>
-  );
-} 
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Cidade</label>
+          <Select
+            value={cidade}
+            onValueChange={(value) => {
+              setCidade(value)
+              setBairro("all") // Resetar bairro quando a cidade mudar
+            }}
+            disabled={isLoadingCities}
+          >
+            <SelectTrigger>
+              <SelectValue
+                placeholder={
+                  isLoadingCities ? "Carregando..." : estado !== "all" ? "Selecione a cidade" : "Todas as cidades"
+                }
+              />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todas</SelectItem>
+              {cidades.map((cidade) => (
+                <SelectItem key={cidade.id} value={cidade.name}>
+                  {cidade.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
 
-
-
-export function SelectFormHero({ form, name, array , placeholderField}: { form: any,name:string, array:any[] , placeholderField:string}) {
-  return (
-    <>
-      <div className='flex'>
-
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Bairro</label>
+          <Select value={bairro} onValueChange={setBairro} disabled={cidade === "all" || isLoadingNeighborhoods}>
+            <SelectTrigger>
+              <SelectValue
+                placeholder={
+                  isLoadingNeighborhoods
+                    ? "Carregando..."
+                    : cidade !== "all"
+                      ? "Selecione o bairro"
+                      : "Selecione uma cidade primeiro"
+                }
+              />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos</SelectItem>
+              {bairros.map((bairro) => (
+                <SelectItem key={bairro.id} value={bairro.name}>
+                  {bairro.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
-      <FormField
-      
-        control={form.control}
-        name={name}
-        render={({ field }) => (
-          <FormItem className="min-w-52">
-            {/* <FormLabel>Selecione o {name}</FormLabel> */}
-            <Select onValueChange={field.onChange} >
-              <FormControl >
-                <SelectTrigger>
-                  <SelectValue placeholder={placeholderField}/>
-                </SelectTrigger>
-              </FormControl>
-              <SelectContent >
-                {array.map((city, key) => (
-                  <SelectItem className='flex flex-row ' style={{ display: "flex" }} key={key} value={city.trim() as string}>
-                    <div className='flex align-middle justify-center items-center'>
-                      <p className=''>{city}</p>
-                    </div>
-                  </SelectItem>))}
 
-              </SelectContent>
-            </Select>
-
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-    </>
+      <div className="mt-4 flex justify-end">
+        <Button onClick={handleSearch} disabled={isLoading} className="bg-primary-palet hover:bg-primary-palet/90">
+          <Search className="mr-2 h-4 w-4" />
+          Buscar Imóveis
+        </Button>
+      </div>
+    </div>
   )
 }

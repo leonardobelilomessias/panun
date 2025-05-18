@@ -3,6 +3,6 @@ import { SalePropertiesScreen } from "@/Screens/SalePropertiesScreen";
 
 export default function venda(){
     return(
-        <SalePropertiesScreen propertiesData={propertiesData}/>
+        <SalePropertiesScreen />
     )
 }
