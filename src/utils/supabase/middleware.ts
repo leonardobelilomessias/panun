@@ -32,11 +32,14 @@ export async function updateSession(request: NextRequest) {
   // issues with users being randomly logged out.
 
   // IMPORTANT: DO NOT REMOVE auth.getUser()
-  const publicRoutes = ["/",'/landing', '/cadastro', '/entrar','/dashboard','/imoveis','/contato',"/sobre", "/aluguel","/venda","/imovel"];
+
+  const publicRoutesProduction = ["/",'/landing', '/cadastro', '/entrar','/dashboard','/imoveis','/contato',"/sobre", "/aluguel","/venda","/imovel"];
+  const publicInmaintance = ['/dashboard','/acesso-em-manutencao','/em-manutencao'];
+  const publicRoutes = process.env.NEXT_PUBLIC_MAINTENANCE==="true"?publicInmaintance:publicRoutesProduction
   const {
     data: { user },
   } = await supabase.auth.getUser()
-
+  if(!user)
   if (
     !user &&
     !request.nextUrl.pathname.startsWith('/entrar') &&
@@ -49,7 +52,8 @@ export async function updateSession(request: NextRequest) {
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
-    url.pathname = '/entrar'
+    
+    url.pathname = process.env.NEXT_PUBLIC_MAINTENANCE==="true"?'/em-manutencao':"/entrar"
     return NextResponse.redirect(url)
   }
 

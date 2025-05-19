@@ -1,3 +1,4 @@
+'use client'
 import { createClient } from "@/utils/supabase/server"
 import { notFound } from "next/navigation"
 import { format } from "date-fns"
@@ -27,42 +28,49 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
+import { DialogFormAvatar } from "./AvatarAgent/DialogFormAvatar"
+import { useEffect, useState } from "react"
+import { getAgentById } from "@/lib/supabase/queries/client/Agents/getAgentById"
+import { Agent, AgentSingle } from "@/types"
 
-async function getAgentById(id: string) {
-  const supabase = await createClient()
 
-  // Fetch agent data with related entities
-  const { data: agent, error } = await supabase
-    .from("agents")
-    .select(`
-      *,
-      cities:city_id(name),
-      estates:estate_id(name),
-      neighborhoods:neighborhood_id(name)
-    `)
-    .eq("id", id)
-    .single()
 
-  if (error || !agent) {
-    return null
+
+export default  function AgentProfilePage({ id }: {  id: string  }) {
+  
+  const [agent,setAgent] = useState<AgentSingle>()
+  const [loading,setLoading] = useState(true)
+  const[reload,setReload] = useState(false)
+  async   function loadGetDataAgent(){
+  try{
+    setLoading(true)
+    const agent = await getAgentById(id)
+    setAgent(agent)
+    setLoading(false)
+
+  }catch{
+
+  }finally{
+    setLoading(false)
   }
+    
+  }
+  useEffect(()=>{
+    loadGetDataAgent()
+  },[reload])
 
-  return agent
+function reloadEdit(){
+setReload((reload)=>(!reload))
 }
 
-export default async function AgentProfilePage({ id }: {  id: string  }) {
-  const agent = await getAgentById(id)
-  if (!agent) {
-    notFound()
-  }
 
   // Format date if available
-  const formattedBirthDate = agent.birth_date
+  const formattedBirthDate = agent?.birth_date
     ? format(new Date(agent.birth_date), "dd 'de' MMMM 'de' yyyy", { locale: ptBR })
     : "Não informado"
 
   // Format created_at date
-  const formattedCreatedAt = format(new Date(agent.created_at), "dd/MM/yyyy", { locale: ptBR })
+  const formattedCreatedAt = format(new Date(), "dd/MM/yyyy", { locale: ptBR })
 
   // Get initials for avatar fallback
   const getInitials = (name: string) => {
@@ -73,7 +81,7 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
       .join("")
       .toUpperCase()
   }
-
+if(loading) return<div>Loading ...</div>
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="mb-6">
@@ -94,23 +102,27 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
               <div className="absolute left-1/2 transform -translate-x-1/2 top-12">
                 <Avatar className="h-24 w-24 border-4 border-white shadow-md">
                   <AvatarImage
-                    src={`https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(agent.name)}`}
-                    alt={agent.name}
+                    className={"object-cover"}
+                    src={agent?.avatars_agents[0].url_image}
+                    alt={agent?.name}
                   />
                   <AvatarFallback className="text-3xl bg-[#008099]/10 text-[#008099]">
-                    {getInitials(agent.name)}
+                    {getInitials(agent?.name||"")}
                   </AvatarFallback>
-                </Avatar>
+                </Avatar>{
+                  agent?.id&&
+              <DialogFormAvatar avatar={agent?.avatars_agents[0]?.url_image||""} idAvatar={agent.id} reloadEdit={reloadEdit} />
+                }
               </div>
             </div>
-            <CardHeader className="flex flex-col items-center text-center pt-16 pb-2">
-              <CardTitle className="text-xl font-bold text-[#008099]">{agent.name}</CardTitle>
+            <CardHeader className="flex flex-col items-center text-center pt-24 pb-2">
+              <CardTitle className="text-xl font-bold text-[#008099]">{agent?.name}</CardTitle>
               <div className="flex items-center mt-1 text-muted-foreground">
                 <Award className="h-4 w-4 mr-1" />
-                <span className="text-sm">{agent.role === "admin" ? "Administrador" : "Agente"}</span>
+                <span className="text-sm">{agent?.role === "admin" ? "Administrador" : "Agente"}</span>
               </div>
               <div className="flex items-center gap-2 mt-2">
-                {agent.status === "Ativo" ? (
+                {agent?.status === "Ativo" ? (
                   <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
                     <CheckCircle className="h-3 w-3 mr-1" /> Ativo
                   </Badge>
@@ -119,9 +131,9 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                     <XCircle className="h-3 w-3 mr-1" /> Inativo
                   </Badge>
                 )}
-                {agent.creci && (
+                {agent?.creci && (
                   <Badge variant="outline" className="border-[#008099]/20">
-                    CRECI: {agent.creci}
+                    CRECI: {agent?.creci}
                   </Badge>
                 )}
               </div>
@@ -132,16 +144,16 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                   <Phone className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-medium text-[#008099]">Telefone</p>
-                    <p className="text-sm">{agent.phone}</p>
+                    <p className="text-sm">{agent?.phone}</p>
                   </div>
                 </div>
 
-                {agent.email && (
+                {agent?.email && (
                   <div className="flex items-start">
                     <Mail className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-[#008099]">Email</p>
-                      <p className="text-sm break-all">{agent.email}</p>
+                      <p className="text-sm break-all">{agent?.email}</p>
                     </div>
                   </div>
                 )}
@@ -158,7 +170,7 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                   <FileText className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-medium text-[#008099]">CPF</p>
-                    <p className="text-sm">{agent.cpf || "Não informado"}</p>
+                    <p className="text-sm">{agent?.cpf || "Não informado"}</p>
                   </div>
                 </div>
 
@@ -179,13 +191,13 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                   className="w-full border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10 hover:text-[#008099]"
                   asChild
                 >
-                  <Link href={`/corretores/${agent.id}/editar`}>
+                  <Link href={`/corretores/${agent?.id}/editar`}>
                     <Pencil className="h-4 w-4 mr-2" />
                     Editar Perfil
                   </Link>
                 </Button>
                 <Button className="w-full bg-[#008099] hover:bg-[#006a80] text-white" asChild>
-                  <Link href={`/corretores/${agent.id}/imoveis`}>
+                  <Link href={`/corretores/${agent?.id}/imoveis`}>
                     <Home className="h-4 w-4 mr-2" />
                     Ver Imóveis
                   </Link>
@@ -209,27 +221,27 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-[#008099]/5 p-3 rounded-md">
                   <p className="text-sm font-medium text-[#008099]">Logradouro</p>
-                  <p className="mt-1">{agent.street || "Não informado"}</p>
+                  <p className="mt-1">{agent?.street || "Não informado"}</p>
                 </div>
                 <div className="bg-[#008099]/5 p-3 rounded-md">
                   <p className="text-sm font-medium text-[#008099]">Número</p>
-                  <p className="mt-1">{agent.house_number || "Não informado"}</p>
+                  <p className="mt-1">{agent?.house_number || "Não informado"}</p>
                 </div>
                 <div className="bg-[#008099]/5 p-3 rounded-md">
                   <p className="text-sm font-medium text-[#008099]">Bairro</p>
-                  <p className="mt-1">{agent.neighborhoods?.name || "Não informado"}</p>
+                  <p className="mt-1">{agent?.neighborhoods?.name || "Não informado"}</p>
                 </div>
                 <div className="bg-[#008099]/5 p-3 rounded-md">
                   <p className="text-sm font-medium text-[#008099]">Cidade</p>
-                  <p className="mt-1">{agent.cities?.name || "Não informado"}</p>
+                  <p className="mt-1">{agent?.cities?.name || "Não informado"}</p>
                 </div>
                 <div className="bg-[#008099]/5 p-3 rounded-md">
                   <p className="text-sm font-medium text-[#008099]">Estado</p>
-                  <p className="mt-1">{agent.estates?.name || "Não informado"}</p>
+                  <p className="mt-1">{agent?.estates?.name || "Não informado"}</p>
                 </div>
                 <div className="bg-[#008099]/5 p-3 rounded-md">
                   <p className="text-sm font-medium text-[#008099]">CEP</p>
-                  <p className="mt-1">{agent.zipcode || "Não informado"}</p>
+                  <p className="mt-1">{agent?.zipcode || "Não informado"}</p>
                 </div>
               </div>
             </CardContent>
@@ -250,7 +262,7 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                     <Shield className="h-5 w-5 mr-2 text-[#008099]" />
                     <span className="font-medium text-[#008099]">Função</span>
                   </div>
-                  <p className="pl-7">{agent.role === "admin" ? "Administrador" : "Agente Imobiliário"}</p>
+                  <p className="pl-7">{agent?.role === "admin" ? "Administrador" : "Agente Imobiliário"}</p>
                 </div>
 
                 <div className="flex flex-col gap-1">
@@ -258,19 +270,19 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                     <Award className="h-5 w-5 mr-2 text-[#008099]" />
                     <span className="font-medium text-[#008099]">CRECI</span>
                   </div>
-                  <p className="pl-7">{agent.creci || "Não informado"}</p>
+                  <p className="pl-7">{agent?.creci || "Não informado"}</p>
                 </div>
 
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center">
-                    {agent.status === "Ativo" ? (
+                    {agent?.status === "Ativo" ? (
                       <CheckCircle className="h-5 w-5 mr-2 text-green-500" />
                     ) : (
                       <XCircle className="h-5 w-5 mr-2 text-red-500" />
                     )}
                     <span className="font-medium text-[#008099]">Status</span>
                   </div>
-                  <p className="pl-7">{agent.status}</p>
+                  <p className="pl-7">{agent?.status}</p>
                 </div>
 
                 <div className="flex flex-col gap-1">
@@ -278,7 +290,7 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                     <User className="h-5 w-5 mr-2 text-[#008099]" />
                     <span className="font-medium text-[#008099]">ID do Usuário</span>
                   </div>
-                  <p className="pl-7 text-sm break-all font-mono">{agent.user_id || "Não vinculado"}</p>
+                  <p className="pl-7 text-sm break-all font-mono">{agent?.user_id || "Não vinculado"}</p>
                 </div>
               </div>
 
@@ -288,7 +300,7 @@ export default async function AgentProfilePage({ id }: {  id: string  }) {
                   className="w-full sm:w-auto border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
                   asChild
                 >
-                  <Link href={`/corretores/${agent.id}/historico`}>
+                  <Link href={`/corretores/${agent?.id}/historico`}>
                     <Clock className="mr-2 h-4 w-4" />
                     Ver Histórico de Atividades
                   </Link>

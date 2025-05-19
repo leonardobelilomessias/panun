@@ -1,10 +1,6 @@
 import { FormSingIn } from "@/components/modules/FormSigin";
-import { Button } from "./ui/button";
-import { buttonVariants } from "./ui/button";
-import Link from "next/link";
-import { Navbar } from "./Navbar";
 import Image from "next/image";
-import WorldMap from '@/public/images/Landing/hero-flags.png'
+import WorldMap from '@/public/images/Landing/singin-agent.webp'
 export const HeroLogin = () => {
   return (
     <div className=" min-h-screen">
@@ -39,7 +35,7 @@ src="https://www.youtube.com/embed/OhagXaxl72k?si=uoYsOfHG1GuVS2NL&amp;controls=
         <div className=" px-2 flex flex-col flex-1  max-w-lg m-auto ">
 
           <p className="flex text-center text-primary-palet text-2xl font-bold mb-10">
-            Faça seu login e tenha acesso a dicas e suporte para brazileiros imigrantes.
+            Faça seu login e tenha acesso a plataforma para gerenciar clientes e Leads.
           </p>
           <FormSingIn/>
           <div className="flex flex-col md:flex-row lg:flex-col gap-4 lg:gap-6 mt-6 lg:mt-10 ">

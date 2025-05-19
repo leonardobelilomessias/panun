@@ -3,6 +3,7 @@ CREATE TABLE public.avatars_agents (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(), -- ID único para o avatar
     id_agent UUID REFERENCES public.agents(id) ON DELETE CASCADE, -- Relacionamento com a tabela de agentes
     url_image TEXT NOT NULL, -- URL da imagem do avatar
+    path TEXT NOT NULL,
     description TEXT, -- Descrição opcional para o avatar
     created_at TIMESTAMPTZ DEFAULT NOW(), -- Data de criação do avatar
     updated_at TIMESTAMPTZ DEFAULT NOW() -- Data de atualização do avatar

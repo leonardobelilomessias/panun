@@ -37,19 +37,47 @@ export type Agent = {
   id: string
   name: string
   phone: string
-  email?: string
-  birth_date?: string
-  cpf?: string
-  city_id?: string
-  estate_id?: string
-  neighborhood_id?: string
-  street?: string
-  house_number?: string
+  email: string
+  birth_date: string
+  cpf: string
+  city_id: string
+  estate_id: string
+  neighborhood_id: string
+  street: string
+  house_number: string
   status: string
   role: string
-  creci?: string
-  zipcode?: string
-  user_id?: string
+  creci: string
+  zipcode: string
+  user_id: string
+  avatars_agents:AvatarAgeny[]
+}
+export type AgentSingle = {
+
+  id: string
+  name: string
+  phone: string
+  email: string
+  birth_date: string
+  cpf: string
+  city_id: string
+  estate_id: string
+  neighborhood_id: string
+  street: string
+  house_number: string
+  neighborhoods:Neighborhood
+  cities:City
+  estates:Estate
+  status: string
+  role: string
+  creci: string
+  zipcode: string
+  user_id: string
+  avatars_agents:AvatarAgeny[]
+}
+interface AvatarAgeny{
+  url_image :string
+  path: string
 }
 
 export type Amenity = {

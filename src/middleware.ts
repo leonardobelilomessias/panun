@@ -8,12 +8,16 @@ export const config = {
 const publicRoutes = ["/",'/landing', '/cadastro', '/entrar','/dashboard'];
 
 export async function middleware(req: NextRequest) {
-  
-  if(req.nextUrl.pathname ==='/em-manutencao')  return NextResponse.next()
+  return await updateSession(req)
+
+  if(req.nextUrl.pathname ==='/acesso-em-manutencao' || req.nextUrl.pathname ==="acesso-em-manutenção") {
+    return await updateSession(req)
+    
+  }
+  if(req.nextUrl.pathname ==='/em-manutencao' || req.nextUrl.pathname ==="acesso-em-manutencao")  return NextResponse.next()
 
   if(process.env.NEXT_PUBLIC_MAINTENANCE==="true") return NextResponse.redirect(new URL('/em-manutencao', req.url))
   return NextResponse.next()
-  // return await updateSession(req)
   // const res = NextResponse.next();
 
   // // const supabase =  createMiddlewareClient({ req, res });

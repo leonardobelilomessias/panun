@@ -359,7 +359,7 @@ export default function Parceiros() {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-0 shadow-md">
               <CardContent className="p-8 relative">
-                <div className="text-[#008099] text-6xl font-serif absolute top-4 left-4 opacity-20">"</div>
+                <div className="text-[#008099] text-6xl font-serif absolute top-4 left-4 opacity-20">${`"`}</div>
                 <p className="text-muted-foreground mb-6 relative z-10">
                   A parceria com a Panun Imobiliária tem sido fundamental para o crescimento da nossa construtora. A
                   sinergia entre nossas empresas resultou em projetos de sucesso e clientes satisfeitos.
@@ -383,7 +383,7 @@ export default function Parceiros() {
 
             <Card className="border-0 shadow-md">
               <CardContent className="p-8 relative">
-                <div className="text-[#008099] text-6xl font-serif absolute top-4 left-4 opacity-20">"</div>
+                <div className="text-[#008099] text-6xl font-serif absolute top-4 left-4 opacity-20">${`"`}</div>
                 <p className="text-muted-foreground mb-6 relative z-10">
                   Nossa parceria com a Panun nos permitiu oferecer soluções financeiras mais adequadas para os clientes.
                   A transparência e profissionalismo da equipe fazem toda a diferença.
@@ -407,7 +407,7 @@ export default function Parceiros() {
 
             <Card className="border-0 shadow-md">
               <CardContent className="p-8 relative">
-                <div className="text-[#008099] text-6xl font-serif absolute top-4 left-4 opacity-20">"</div>
+                <div className="text-[#008099] text-6xl font-serif absolute top-4 left-4 opacity-20">${`"`}</div>
                 <p className="text-muted-foreground mb-6 relative z-10">
                   Como empresa de tecnologia, encontramos na Panun um parceiro que valoriza a inovação e está sempre
                   aberto a implementar novas soluções para melhorar a experiência do cliente.

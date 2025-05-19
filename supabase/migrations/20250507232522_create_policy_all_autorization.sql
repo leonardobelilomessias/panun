@@ -109,3 +109,59 @@ CREATE POLICY "Public SELECT on agents"
   ON agents
   FOR SELECT
   USING (true);
+
+  -- Enable Row Level Security on both tables
+ALTER TABLE public.avatars_agents ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.avatars_owners ENABLE ROW LEVEL SECURITY;
+
+-- Policies for avatars_agents table
+-- SELECT policy: Allow public read access
+CREATE POLICY "Enable public read access for avatars_agents" 
+ON public.avatars_agents
+FOR SELECT USING (true);
+
+-- INSERT policy: Allow public insert
+CREATE POLICY "Enable public insert for avatars_agents" 
+ON public.avatars_agents
+FOR INSERT WITH CHECK (true);
+
+-- UPDATE policy: Allow public update
+CREATE POLICY "Enable public update for avatars_agents" 
+ON public.avatars_agents
+FOR UPDATE USING (true) WITH CHECK (true);
+
+-- DELETE policy: Allow public delete
+CREATE POLICY "Enable public delete for avatars_agents" 
+ON public.avatars_agents
+FOR DELETE USING (true);
+
+-- Policies for avatars_owners table
+-- SELECT policy: Allow public read access
+CREATE POLICY "Enable public read access for avatars_owners" 
+ON public.avatars_owners
+FOR SELECT USING (true);
+
+-- INSERT policy: Allow public insert
+CREATE POLICY "Enable public insert for avatars_owners" 
+ON public.avatars_owners
+FOR INSERT WITH CHECK (true);
+
+-- UPDATE policy: Allow public update
+CREATE POLICY "Enable public update for avatars_owners" 
+ON public.avatars_owners
+FOR UPDATE USING (true) WITH CHECK (true);
+
+-- DELETE policy: Allow public delete
+CREATE POLICY "Enable public delete for avatars_owners" 
+ON public.avatars_owners
+FOR DELETE USING (true);
+
+-- Habilita RLS na tabela storage.buckets (geralmente já vem habilitado)
+ALTER TABLE storage.buckets ENABLE ROW LEVEL SECURITY;
+
+-- Política para permitir acesso público ao bucket avatars-agents
+CREATE POLICY "Allow public access to avatars-agents bucket"
+ON storage.objects
+FOR ALL USING (
+  bucket_id = 'avatars-agents'
+);

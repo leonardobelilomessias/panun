@@ -29,6 +29,5 @@ export const navigationElements = [{
     { title: 'Adicionar Imóvel', link: "/adicionar-imovel", icon: PlusCircle, status: "Novo" },
     
     // Sugestão de item adicional que poderia ser útil
-    { title: 'Listagens', link: "/listagens", icon: ClipboardList, status: "Novo" }
   ]
 }];

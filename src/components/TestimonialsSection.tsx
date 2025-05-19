@@ -74,7 +74,13 @@ export const TestimonialsSection = () => {
 
               <div className="flex items-center mb-6">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-primary-palet/20">
-                  <Image src={testimonial.image || "/placeholder.svg"} alt={testimonial.name} fill className="object-cover" />
+                  <Image 
+                    src={testimonial.image || "/placeholder.svg"} 
+                    alt={testimonial.name} 
+                    width={64}
+                    height={64}
+                    className="object-cover" 
+                  />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-gray-800">{testimonial.name}</h3>
@@ -93,9 +99,9 @@ export const TestimonialsSection = () => {
               </div>
 
               <blockquote className="text-gray-600 italic relative">
-                <span className="text-primary-palet text-4xl absolute -top-2 -left-1 opacity-20">"</span>
+                <span className="text-primary-palet text-4xl absolute -top-2 -left-1 opacity-20">&ldquo;</span>
                 {testimonial.content}
-                <span className="text-primary-palet text-4xl absolute -bottom-6 -right-1 opacity-20">"</span>
+                <span className="text-primary-palet text-4xl absolute -bottom-6 -right-1 opacity-20">&rdquo;</span>
               </blockquote>
             </div>
           ))}

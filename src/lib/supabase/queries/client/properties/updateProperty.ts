@@ -413,9 +413,9 @@ export async function updateCover(propertyId: string, formData: FormData) {
         // Continuamos mesmo com erro para tentar inserir a nova capa
       }
     }
-    
+    const coverFileUuid = randomUUID()
     // 3. Fazer o upload da nova imagem de capa
-    const mainImagePath = `properties/${propertyId}/cover/${coverFile.name}`;
+    const mainImagePath = `properties/${propertyId}/cover/${coverFileUuid}`;
     const { error: uploadError } = await supabase.storage
       .from("property-images")
       .upload(mainImagePath, coverFile);

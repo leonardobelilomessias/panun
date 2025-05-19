@@ -61,7 +61,7 @@ export function RecentProperties({ title, purpose }: RecentPropertiesProps) {
             <CardTitle className="text-[#008099]">{title}</CardTitle>
             <CardDescription>Últimos imóveis para {purpose.toLowerCase()} adicionados</CardDescription>
           </div>
-          <Link href={`/imoveis/${purpose.toLowerCase()}`}>
+          <Link href={`/lista-${purpose.toLowerCase()}`}>
             <Button variant="ghost" size="sm" className="text-[#008099] hover:text-[#006a80] hover:bg-[#008099]/10">
               Ver todos
               <ArrowRight className="ml-1 h-3 w-3" />
