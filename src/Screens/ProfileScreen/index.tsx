@@ -100,10 +100,12 @@ if(loading) return<div>Loading ...</div>
           <Card className="border-[#008099]/20 overflow-hidden">
             <div className="bg-gradient-to-r from-[#008099] to-[#00a0bf] h-24 relative">
               <div className="absolute left-1/2 transform -translate-x-1/2 top-12">
+                
                 <Avatar className="h-24 w-24 border-4 border-white shadow-md">
+                  
                   <AvatarImage
                     className={"object-cover"}
-                    src={agent?.avatars_agents[0].url_image}
+                    src={!!agent?.avatars_agents[0]?.url_image?agent?.avatars_agents[0].url_image:""}
                     alt={agent?.name}
                   />
                   <AvatarFallback className="text-3xl bg-[#008099]/10 text-[#008099]">
