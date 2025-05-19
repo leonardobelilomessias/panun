@@ -1,20 +1,27 @@
-import { Plus, Save, UserIcon, Phone, Mail, Calendar, Tag, DollarSign, Home, AlertCircle } from "lucide-react"
-import Modal from 'react-modal';
+"use client"
+
+import type React from "react"
+
+import { Plus, Save, UserIcon, Phone, Mail, Calendar, DollarSign, Home } from "lucide-react"
+import Modal from "react-modal"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Card } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
-import { createLead } from "@/lib/supabase/queries/client/leads/createLead";
+import { createLead } from "@/lib/supabase/queries/client/leads/createLead"
+import { useToast } from "@/components/ui/use-toast"
 
 export interface AddLeadProps {
-  reloadData: () => void;
+  reloadData: () => void
+  children?: React.ReactNode
 }
 
-export function DialogFormAddLead({ reloadData }: AddLeadProps) {
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
+  const [modalIsOpen, setIsOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast()
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,60 +32,74 @@ export function DialogFormAddLead({ reloadData }: AddLeadProps) {
     birth_date: null,
     income: "",
     marital_status: "",
-    fgts: ""
-  });
+    fgts: "",
+  })
 
   function openModal() {
-    setIsOpen(true);
+    setIsOpen(true)
   }
 
   function closeModal() {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
-  function handleChange(e:any) {
-    const { name, value } = e.target;
-    setFormData(prev => ({
+  function handleChange(e: any) {
+    const { name, value } = e.target
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }));
+      [name]: value,
+    }))
   }
 
-  function handleSelectChange(name:string, value:string) {
-    setFormData(prev => ({
+  function handleSelectChange(name: string, value: string) {
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }));
+      [name]: value,
+    }))
   }
 
-  function handleDateChange(date:any) {
-    setFormData(prev => ({
+  function handleDateChange(date: any) {
+    setFormData((prev) => ({
       ...prev,
-      birth_date: date
-    }));
+      birth_date: date,
+    }))
   }
 
-  async function handleSubmit(e:any) {
-    e.preventDefault();
-    
+  async function handleSubmit(e: any) {
+    e.preventDefault()
+
     try {
-      setIsSubmitting(true);
-      
+      setIsSubmitting(true)
+
       // Formato do dado para o backend
       const leadData = {
         ...formData,
         // Converter valores numéricos se necessário
-        income: formData.income ? parseFloat(formData.income) : null,
-        fgts: formData.fgts ? parseFloat(formData.fgts) : null,
-      };
-      
+        income: formData.income ? Number.parseFloat(formData.income) : null,
+        fgts: formData.fgts ? Number.parseFloat(formData.fgts) : null,
+      }
+
       // Chamada para a API para criar o lead
-      const response = await  createLead(leadData)
-      
+      const response = await createLead(leadData)
+
+      if (response.error) {
+        toast({
+          title: "Erro ao criar lead",
+          description: response.error.message || "Ocorreu um erro ao criar o lead.",
+          variant: "destructive",
+        })
+        return
+      }
+
+      toast({
+        title: "Lead criado com sucesso",
+        description: "O novo lead foi adicionado ao sistema.",
+      })
+
       // Recarregar a lista após adicionar com sucesso
-      reloadData();
-      setIsOpen(false);
-      
+      reloadData()
+      setIsOpen(false)
+
       // Resetar o formulário
       setFormData({
         name: "",
@@ -90,225 +111,237 @@ export function DialogFormAddLead({ reloadData }: AddLeadProps) {
         birth_date: null,
         income: "",
         marital_status: "",
-        fgts: ""
-      });
-      
+        fgts: "",
+      })
     } catch (error) {
-      console.error("Erro ao criar lead:", error);
-      alert("Erro ao criar lead. Por favor, tente novamente.");
+      console.error("Erro ao criar lead:", error)
+      toast({
+        title: "Erro ao criar lead",
+        description: "Ocorreu um erro ao tentar criar o lead.",
+        variant: "destructive",
+      })
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
   }
 
   return (
     <div>
-      <Button 
-        onClick={openModal} 
-        className="bg-primary-palet hover:bg-primary-palet/90 text-white px-4 py-2 rounded w-full md:w-auto"
-      >
-        <Plus className="mr-2 h-4 w-4" />
-        Adicionar Lead
-      </Button>
+      {children ? (
+        <div onClick={openModal}>{children}</div>
+      ) : (
+        <Button
+          onClick={openModal}
+          className="bg-[#008099] hover:bg-[#006b80] text-white px-4 py-2 rounded w-full md:w-auto"
+        >
+          <Plus className="mr-2 h-4 w-4" />
+          Adicionar Lead
+        </Button>
+      )}
 
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Adicionar Novo Lead"
+        ariaHideApp={false}
       >
         <div className="p-6">
-          <h2 className="text-xl font-bold mb-4 flex items-center">
+          <h2 className="text-xl font-bold mb-4 flex items-center text-[#008099]">
             <UserIcon className="mr-2 h-5 w-5" />
             Adicionar Novo Lead
           </h2>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Card className="p-4">
-              <h3 className="text-lg font-semibold mb-3">Informações Básicas</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1">Nome</label>
-                  <div className="relative">
-                    <UserIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input 
-                      className="pl-10" 
-                      placeholder="Nome completo" 
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
+            <Card className="border border-gray-200">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg font-semibold text-gray-800">Informações Básicas</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Nome</label>
+                    <div className="relative">
+                      <UserIcon className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Input
+                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        placeholder="Nome completo"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Telefone</label>
+                    <div className="relative">
+                      <Phone className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Input
+                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        placeholder="(XX) XXXXX-XXXX"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Email</label>
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Input
+                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        placeholder="email@exemplo.com"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        type="email"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Data de Nascimento</label>
+                    <div className="relative">
+                      <Calendar className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Input
+                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        placeholder="DD/MM/AAAA"
+                        name="birth_date"
+                        value={formData.birth_date ? new Date(formData.birth_date).toLocaleDateString("pt-BR") : ""}
+                        onChange={handleChange}
+                        type="date"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Origem</label>
+                    <Select onValueChange={(value) => handleSelectChange("source", value)} value={formData.source}>
+                      <SelectTrigger className="border-gray-300 focus:ring-[#008099]">
+                        <SelectValue placeholder="Selecione a origem" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Site">Site</SelectItem>
+                        <SelectItem value="Redes Sociais">Redes Sociais</SelectItem>
+                        <SelectItem value="Indicação">Indicação</SelectItem>
+                        <SelectItem value="Outdoor">Outdoor</SelectItem>
+                        <SelectItem value="Outros">Outros</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Status</label>
+                    <Select onValueChange={(value) => handleSelectChange("status", value)} value={formData.status}>
+                      <SelectTrigger className="border-gray-300 focus:ring-[#008099]">
+                        <SelectValue placeholder="Selecione o status" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Novo">Novo</SelectItem>
+                        <SelectItem value="Em Negociação">Em Negociação</SelectItem>
+                        <SelectItem value="Convertido">Convertido</SelectItem>
+                        <SelectItem value="Descarte">Descarte</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Telefone</label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input 
-                      className="pl-10" 
-                      placeholder="(XX) XXXXX-XXXX" 
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Email</label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input 
-                      className="pl-10" 
-                      placeholder="email@exemplo.com" 
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      type="email"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Data de Nascimento</label>
-                  <div className="relative">
-                    <Calendar className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input 
-                      className="pl-10" 
-                      placeholder="DD/MM/AAAA" 
-                      name="birth_date"
-                      value={formData.birth_date ? new Date(formData.birth_date).toLocaleDateString('pt-BR') : ''}
-                      onChange={handleChange}
-                      type="date"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Origem</label>
-                  <Select 
-                    onValueChange={(value) => handleSelectChange("source", value)}
-                    value={formData.source}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione a origem" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Site">Site</SelectItem>
-                      <SelectItem value="Redes Sociais">Redes Sociais</SelectItem>
-                      <SelectItem value="Indicação">Indicação</SelectItem>
-                      <SelectItem value="Outdoor">Outdoor</SelectItem>
-                      <SelectItem value="Outros">Outros</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Status</label>
-                  <Select 
-                    onValueChange={(value) => handleSelectChange("status", value)}
-                    value={formData.status}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione o status" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Novo">Novo</SelectItem>
-                      <SelectItem value="Em Negociação">Em Negociação</SelectItem>
-                      <SelectItem value="Convertido">Convertido</SelectItem>
-                      <SelectItem value="Descarte">Descarte</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
+              </CardContent>
             </Card>
 
-            <Card className="p-4">
-              <h3 className="text-lg font-semibold mb-3">Informações Financeiras</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1">Renda Mensal</label>
-                  <div className="relative">
-                    <DollarSign className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input 
-                      className="pl-10" 
-                      placeholder="R$ 0,00" 
-                      name="income"
-                      value={formData.income}
-                      onChange={handleChange}
-                      type="number"
-                      step="0.01"
-                    />
+            <Card className="border border-gray-200">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg font-semibold text-gray-800">Informações Financeiras</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Renda Mensal</label>
+                    <div className="relative">
+                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Input
+                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        placeholder="R$ 0,00"
+                        name="income"
+                        value={formData.income}
+                        onChange={handleChange}
+                        type="number"
+                        step="0.01"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">FGTS Disponível</label>
+                    <div className="relative">
+                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Input
+                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        placeholder="R$ 0,00"
+                        name="fgts"
+                        value={formData.fgts}
+                        onChange={handleChange}
+                        type="number"
+                        step="0.01"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-1">Estado Civil</label>
+                    <Select
+                      onValueChange={(value) => handleSelectChange("marital_status", value)}
+                      value={formData.marital_status}
+                    >
+                      <SelectTrigger className="border-gray-300 focus:ring-[#008099]">
+                        <SelectValue placeholder="Selecione o estado civil" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Solteiro(a)">Solteiro(a)</SelectItem>
+                        <SelectItem value="Casado(a)">Casado(a)</SelectItem>
+                        <SelectItem value="Divorciado(a)">Divorciado(a)</SelectItem>
+                        <SelectItem value="Viúvo(a)">Viúvo(a)</SelectItem>
+                        <SelectItem value="União Estável">União Estável</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">FGTS Disponível</label>
-                  <div className="relative">
-                    <DollarSign className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                    <Input 
-                      className="pl-10" 
-                      placeholder="R$ 0,00" 
-                      name="fgts"
-                      value={formData.fgts}
-                      onChange={handleChange}
-                      type="number"
-                      step="0.01"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-1">Estado Civil</label>
-                  <Select 
-                    onValueChange={(value) => handleSelectChange("marital_status", value)}
-                    value={formData.marital_status}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione o estado civil" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Solteiro(a)">Solteiro(a)</SelectItem>
-                      <SelectItem value="Casado(a)">Casado(a)</SelectItem>
-                      <SelectItem value="Divorciado(a)">Divorciado(a)</SelectItem>
-                      <SelectItem value="Viúvo(a)">Viúvo(a)</SelectItem>
-                      <SelectItem value="União Estável">União Estável</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
+              </CardContent>
             </Card>
 
-            <Card className="p-4">
-              <h3 className="text-lg font-semibold mb-3">Interesse do Lead</h3>
-              <div>
-                <label className="block text-sm font-medium mb-1">Interesse</label>
-                <div className="relative">
-                  <Home className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <Textarea 
-                    className="pl-10 min-h-[80px]" 
-                    placeholder="Ex: Apartamento 3 quartos em São Paulo" 
-                    name="interest"
-                    value={formData.interest}
-                    onChange={handleChange}
-                  />
+            <Card className="border border-gray-200">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg font-semibold text-gray-800">Interesse do Lead</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div>
+                  <label className="block text-sm font-medium mb-1">Interesse</label>
+                  <div className="relative">
+                    <Home className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                    <Textarea
+                      className="pl-10 min-h-[80px] border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                      placeholder="Ex: Apartamento 3 quartos em São Paulo"
+                      name="interest"
+                      value={formData.interest}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Descreva o tipo de imóvel que o lead está procurando, localização e outras informações relevantes.
+                  </p>
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Descreva o tipo de imóvel que o lead está procurando, localização e outras informações relevantes.
-                </p>
-              </div>
+              </CardContent>
             </Card>
 
             <div className="flex justify-between mt-6">
-              <Button type="button" variant="outline" onClick={closeModal}>Cancelar</Button>
-              <Button 
-                type="submit" 
-                className="bg-primary-palet hover:bg-primary-palet/90 text-white"
-                disabled={isSubmitting}
-              >
+              <Button type="button" variant="outline" onClick={closeModal} className="border-gray-300">
+                Cancelar
+              </Button>
+              <Button type="submit" className="bg-[#008099] hover:bg-[#006b80] text-white" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
                     <svg
@@ -345,21 +378,28 @@ export function DialogFormAddLead({ reloadData }: AddLeadProps) {
         </div>
       </Modal>
     </div>
-  );
+  )
 }
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    maxWidth: '700px',
-    width: '90%',
-    maxHeight: '90%',
-    overflow: 'auto',
-    borderRadius: '8px',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    maxWidth: "700px",
+    width: "90%",
+    maxHeight: "90%",
+    overflow: "auto",
+    borderRadius: "8px",
+    padding: 0,
+    border: "1px solid #e2e8f0",
+    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
   },
-};
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    zIndex: 1000,
+  },
+}

@@ -1,105 +1,115 @@
-import { Copy, Edit, Save, Trash2 } from "lucide-react"
-import Modal from 'react-modal';
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { z } from "zod"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { deleteOwnerById } from "@/lib/supabase/queries/client/Owners/deleteOwnerByid"
+import { AlertCircle, Trash2 } from "lucide-react"
 import { useState } from "react"
-import { updatePropertyDetails, updatePropertyHeader } from "@/lib/supabase/queries/client/properties/updateProperty";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Agent, Owner } from "@/types/typesPropeties";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { deleteOwnerById } from "@/lib/supabase/queries/client/Owners/deleteOwnerByid";
+import { useToast } from "@/components/ui/use-toast"
 
-
-export function DialogToDeleteOwner({
-    idOwner,
-    reloadEdit,
-}: {idOwner:string, reloadEdit:()=>void}) {
-    return (
-        <DialogCloseButton 
-             idOwner={idOwner}
-
-            reloadEdit={reloadEdit} 
-        />
-    );
+interface DialogToDeleteOwnerProps {
+  idOwner: string
+  reloadList: () => void
 }
 
+export function DialogToDeleteOwner({ idOwner, reloadList }: DialogToDeleteOwnerProps) {
+  const [open, setOpen] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
+  const { toast } = useToast()
+
+  async function handleDelete() {
+    setIsDeleting(true)
+    try {
+      const response = await deleteOwnerById(idOwner)
 
 
 
+      toast({
+        title: "Proprietário excluído",
+        description: "O proprietário foi excluído com sucesso.",
+      })
 
-export function DialogCloseButton({
-    idOwner,
-    reloadEdit,
-}: {idOwner:string, reloadEdit:()=>void}) {
-    const [modalIsOpen, setIsOpen] = useState(false);
-    
-    function openModal() {
-        setIsOpen(true);
+      reloadList()
+      setOpen(false)
+    } catch (error) {
+      toast({
+        title: "Erro ao excluir",
+        description: "Ocorreu um erro ao tentar excluir o proprietário.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsDeleting(false)
     }
-    
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-    }
-    
-    function closeModal() {
-        setIsOpen(false);
-    }
-    async function deleteOwner(){
+  }
 
-        await deleteOwnerById(idOwner)
-        reloadEdit()
-        closeModal()
-    }
-    
-    return (
-        <div>
-            <Button onClick={() => openModal()} variant={'ghost'}>
-                <Trash2 size={20} className="text-red-500" />
-
-            </Button>
-            
-            <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Editar Detalhes da Propriedade"
-            >
-                <Card>
-                    <CardHeader>Deletar Proprietario</CardHeader>
-                    <CardContent>
-                        <p>Tem certeza que deseja deletar o proprietario? Após a confirmação a ação não poderá ser revertida</p>
-                        <div className="flex gap-2 my-4">
-                            <Button variant={'outline'} onClick={()=> closeModal()}>
-                                Cancelar
-                            </Button>
-                            <Button className="bg-red-500" onClick={()=>deleteOwner()}>
-                                Deletar Proprietario
-                            </Button>
-                        </div>
-                    </CardContent>
-                </Card>
-            </Modal>
-        </div>
-    );
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-9 w-9 p-0 hover:bg-red-50 hover:text-red-600 transition-colors"
+          title="Excluir proprietário"
+        >
+          <Trash2 size={16} className="text-red-500" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2 text-red-600">
+            <AlertCircle className="h-5 w-5" />
+            Excluir Proprietário
+          </DialogTitle>
+          <DialogDescription>
+            Tem certeza que deseja excluir este proprietário? Esta ação não pode ser desfeita.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter className="gap-2 sm:gap-0">
+          <Button
+            variant="outline"
+            onClick={() => setOpen(false)}
+            disabled={isDeleting}
+            className="border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+          >
+            Cancelar
+          </Button>
+          <Button
+            variant="destructive"
+            onClick={handleDelete}
+            disabled={isDeleting}
+            className="bg-red-600 hover:bg-red-700"
+          >
+            {isDeleting ? (
+              <>
+                <svg
+                  className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                Excluindo...
+              </>
+            ) : (
+              "Excluir Proprietário"
+            )}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
 }
-
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        maxWidth: '90%',
-        maxHeight: '90%',
-        overflow: 'auto'
-    },
-};

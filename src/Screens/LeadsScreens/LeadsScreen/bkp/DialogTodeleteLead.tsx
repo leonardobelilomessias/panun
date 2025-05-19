@@ -1,5 +1,3 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -10,10 +8,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { AlertCircle, Trash2 } from "lucide-react"
+import { Trash2 } from "lucide-react"
 import { useState } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import { deleteLeadById } from "@/lib/supabase/queries/client/leads/deleteLeadsById"
+
 
 interface DialogToDeleteLeadProps {
   idLead: string
@@ -57,35 +56,22 @@ export function DialogToDeleteLead({ idLead, reloadList }: DialogToDeleteLeadPro
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="h-9 w-9 p-0 hover:bg-red-50 hover:text-red-600 transition-colors"
-          title="Excluir Lead"
-        >
+        <Button variant="ghost" size="sm" className="h-9 w-9 p-0">
           <Trash2 size={16} className="text-red-500" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader className="space-y-2">
-          <DialogTitle className="text-red-500 flex items-center">
-            <AlertCircle className="mr-2 h-5 w-5" />
-            Excluir Lead
-          </DialogTitle>
+        <DialogHeader>
+          <DialogTitle>Excluir Lead</DialogTitle>
           <DialogDescription>
             Tem certeza que deseja excluir este lead? Esta ação não pode ser desfeita.
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="mt-4 gap-2">
-          <Button variant="outline" onClick={() => setOpen(false)} disabled={isDeleting} className="border-gray-300">
+        <DialogFooter>
+          <Button variant="outline" onClick={() => setOpen(false)} disabled={isDeleting}>
             Cancelar
           </Button>
-          <Button
-            variant="destructive"
-            onClick={handleDelete}
-            disabled={isDeleting}
-            className="bg-red-500 hover:bg-red-600"
-          >
+          <Button variant="destructive" onClick={handleDelete} disabled={isDeleting}>
             {isDeleting ? (
               <>
                 <svg

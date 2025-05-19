@@ -1,7 +1,5 @@
-"use client"
-
-import { Edit, Save, UserIcon, Phone, Mail, BadgeCheck, Building2, X } from "lucide-react"
-import Modal from "react-modal"
+import { Edit, Save, UserIcon, Phone, Mail, BadgeCheck, Building2 } from "lucide-react"
+import Modal from 'react-modal';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { z } from "zod"
@@ -11,21 +9,20 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card } from "@/components/ui/card"
-import { updateAgent } from "@/lib/supabase/queries/client/Agents/updateAgent"
-import { Badge } from "@/components/ui/badge"
+import { updateAgent } from "@/lib/supabase/queries/client/Agents/updateAgent";
 
 export interface AgentFormProps {
   agent: {
-    id: string
-    name: string
-    phone: string
-    email: string
-    cpf: string
-    status: "Ativo" | "Inativo"
-    role: "admin" | "agente"
-    creci?: string
-  }
-  reloadData: () => void
+    id: string;
+    name: string;
+    phone: string;
+    email: string;
+    cpf: string;
+    status: "Ativo" | "Inativo";
+    role: "admin" | "agente";
+    creci?: string;
+  };
+  reloadData: () => void;
 }
 
 const agentFormSchema = z.object({
@@ -39,19 +36,21 @@ const agentFormSchema = z.object({
 })
 
 export function DialogFormAgent({ agent, reloadData }: AgentFormProps) {
-  return <DialogEditAgent agent={agent} reloadData={reloadData} />
+  return (
+    <DialogEditAgent agent={agent} reloadData={reloadData} />
+  );
 }
 
 function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
-  const [modalIsOpen, setIsOpen] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   const methods = useForm<z.infer<typeof agentFormSchema>>({
@@ -66,35 +65,30 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
       role: agent.role,
       creci: agent.creci || "",
     },
-  })
+  });
 
   async function onSubmit(data: z.infer<typeof agentFormSchema>) {
     try {
-      setIsSubmitting(true)
-
-      const result = await updateAgent(agent.id, data)
-
+      setIsSubmitting(true);
+      
+      const result = await updateAgent(agent.id, data);
+      
       if (!result.success) {
-        throw new Error("Erro ao atualizar agente")
+        throw new Error("Erro ao atualizar agente");
       }
-
-      reloadData()
-      setIsOpen(false)
+      
+      reloadData();
+      setIsOpen(false);
     } catch (error) {
-      console.error("Erro ao atualizar agente:", error)
+      console.error("Erro ao atualizar agente:", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
   }
 
   return (
     <div>
-      <Button
-        onClick={openModal}
-        variant="outline"
-        className="h-9 w-9 p-0 border-[#008099]/30 text-[#008099] hover:bg-[#008099]/10 hover:border-[#008099]"
-        title="Editar Agente"
-      >
+      <Button onClick={openModal} variant="outline" className="h-8 w-8 p-0" title="Editar Agente">
         <Edit className="h-4 w-4" />
       </Button>
 
@@ -105,61 +99,25 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
         contentLabel="Editar Dados do Agente"
       >
         <div className="p-6">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold flex items-center text-[#008099]">
-              <UserIcon className="mr-2 h-5 w-5" />
-              Editar Dados do Agente
-            </h2>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-8 w-8 p-0 rounded-full hover:bg-gray-100"
-              onClick={closeModal}
-            >
-              <X className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="mb-6">
-            <div className="flex flex-wrap gap-2 mb-4">
-              <Badge
-                variant={agent.role === "admin" ? "outline" : "secondary"}
-                className={agent.role === "admin" ? "border-[#008099]/30 text-[#008099]" : ""}
-              >
-                {agent.role === "admin" ? "Administrador" : "Agente"}
-              </Badge>
-              <Badge
-                variant={agent.status === "Ativo" ? "default" : "secondary"}
-                className={agent.status === "Ativo" ? "bg-green-100 text-green-800 hover:bg-green-100" : ""}
-              >
-                {agent.status}
-              </Badge>
-              {agent.creci && (
-                <Badge variant="outline" className="bg-[#008099]/5 border-[#008099]/20">
-                  CRECI: {agent.creci}
-                </Badge>
-              )}
-            </div>
-          </div>
-
+          <h2 className="text-xl font-bold mb-4 flex items-center">
+            <UserIcon className="mr-2 h-5 w-5" />
+            Editar Dados do Agente
+          </h2>
+          
           <Form {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-4">
-              <Card className="p-4 border-[#008099]/20 shadow-sm">
+              <Card className="p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <FormField
                     control={methods.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Nome</FormLabel>
+                        <FormLabel>Nome</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <UserIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                            <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
-                              placeholder="Nome completo"
-                              {...field}
-                            />
+                            <Input className="pl-10" placeholder="Nome completo" {...field} />
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -172,15 +130,11 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Telefone</FormLabel>
+                        <FormLabel>Telefone</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                            <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
-                              placeholder="(XX) XXXXX-XXXX"
-                              {...field}
-                            />
+                            <Input className="pl-10" placeholder="(XX) XXXXX-XXXX" {...field} />
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -193,15 +147,11 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Email</FormLabel>
+                        <FormLabel>Email</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                            <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
-                              placeholder="email@exemplo.com"
-                              {...field}
-                            />
+                            <Input className="pl-10" placeholder="email@exemplo.com" {...field} />
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -214,13 +164,9 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="cpf"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">CPF</FormLabel>
+                        <FormLabel>CPF</FormLabel>
                         <FormControl>
-                          <Input
-                            placeholder="Apenas números"
-                            className="border-[#008099]/20 focus-visible:ring-[#008099]"
-                            {...field}
-                          />
+                          <Input placeholder="Apenas números" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -232,15 +178,11 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="creci"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">CRECI</FormLabel>
+                        <FormLabel>CRECI</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <BadgeCheck className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                            <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
-                              placeholder="Número do CRECI"
-                              {...field}
-                            />
+                            <Input className="pl-10" placeholder="Número do CRECI" {...field} />
                           </div>
                         </FormControl>
                         <FormMessage />
@@ -253,12 +195,12 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="role"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Função</FormLabel>
+                        <FormLabel>Função</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <div className="relative">
-                              <Building2 className="absolute left-3 top-3 h-4 w-4 text-muted-foreground z-10" />
-                              <SelectTrigger className="pl-10 border-[#008099]/20 focus:ring-[#008099]">
+                              <Building2 className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                              <SelectTrigger className="pl-10">
                                 <SelectValue placeholder="Selecione a função" />
                               </SelectTrigger>
                             </div>
@@ -278,10 +220,10 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="status"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Status</FormLabel>
+                        <FormLabel>Status</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="border-[#008099]/20 focus:ring-[#008099]">
+                            <SelectTrigger>
                               <SelectValue placeholder="Selecione o status" />
                             </SelectTrigger>
                           </FormControl>
@@ -298,15 +240,12 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
               </Card>
 
               <div className="flex justify-between mt-6">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={closeModal}
-                  className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+                <Button type="button" variant="outline" onClick={closeModal}>Cancelar</Button>
+                <Button 
+                  type="submit" 
+                  className="bg-primary-palet hover:bg-primary-palet/90 text-white"
+                  disabled={isSubmitting}
                 >
-                  Cancelar
-                </Button>
-                <Button type="submit" className="bg-[#008099] hover:bg-[#006a80] text-white" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>
                       <svg
@@ -344,28 +283,21 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
         </div>
       </Modal>
     </div>
-  )
+  );
 }
 
 const customStyles = {
   content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    maxWidth: "700px",
-    width: "90%",
-    maxHeight: "90%",
-    overflow: "auto",
-    borderRadius: "8px",
-    padding: "0",
-    border: "1px solid rgba(0, 128, 153, 0.2)",
-    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    maxWidth: '700px',
+    width: '90%',
+    maxHeight: '90%',
+    overflow: 'auto',
+    borderRadius: '8px',
   },
-  overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    zIndex: 1000,
-  },
-}
+};

@@ -15,7 +15,7 @@ import { getAgents, getOwners } from "@/actions/property-actions";
 import { strict } from "assert";
 
 
-export function DialogFormHeader({ id, documentationStatus, owner, status, agent, title, type_property, reloadEdit, purpose }: { id: string, purpose: string, documentationStatus: string, owner: Owner, status: string, agent: Agent, title: string, type_property: string, reloadEdit: () => void }) {
+export function DialogFormHeader({ id, documentationStatus, owner, status, agent={name:"sem informação",id:"sem informaçaao",email:"sem infomação"}, title, type_property, reloadEdit, purpose }: { id: string, purpose: string, documentationStatus: string, owner: Owner, status: string, agent: Agent, title: string, type_property: string, reloadEdit: () => void }) {
     return (
 
         <DialogCloseButton purpose={purpose} reloadEdit={reloadEdit} id={id} title={title} owner={owner} status={status} agent={agent} type_property={type_property} documentationStatus={documentationStatus} />
@@ -79,7 +79,7 @@ export function DialogCloseButton({ id, documentationStatus, owner, status, agen
         defaultValues: {
             id: id,
             status: status,
-            agent: agent.id,
+            agent: agent?.id||"sem informação",
             title: title,
             type_property: castTypes,
             documentation_status: documentationStatus,

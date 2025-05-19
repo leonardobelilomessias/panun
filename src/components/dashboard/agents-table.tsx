@@ -5,11 +5,20 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Search, RefreshCw, PlusCircle } from "lucide-react"
+import { Search, RefreshCw, PlusCircle, Filter, Download, MoreHorizontal, Mail, Phone } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useToast } from "@/components/ui/use-toast"
 import Link from "next/link"
 import { getAgents } from "@/lib/supabase/queries/client/dashboard/getAgents"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
 export interface Agent {
   id: string
   name: string
@@ -18,8 +27,8 @@ export interface Agent {
   creci: string
   role: string
   status: string
-  cities: {name:string,id:string}
-  estates: {name:string,id:string,uf:string}
+  cities: { name: string; id: string }
+  estates: { name: string; id: string; uf: string }
   avatar_url?: string
 }
 
@@ -30,107 +39,139 @@ export function AgentsTable() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [isSearching, setIsSearching] = useState(false)
+  const [statusFilter, setStatusFilter] = useState("all")
+  const [roleFilter, setRoleFilter] = useState("all")
   const { toast } = useToast()
 
-  const loadAgents = useCallback(async (search?: string) => {
-    setLoading(true)
-    setError(null)
+  const loadAgents = useCallback(
+    async (search?: string) => {
+      setLoading(true)
+      setError(null)
 
-    try {
-      const serverSearch = search && search.trim().length > 2 ? search : undefined
+      try {
+        const serverSearch = search && search.trim().length > 2 ? search : undefined
 
-      const result = await getAgents()
+        const result = await getAgents()
 
-      if (result.error) {
-        setError(result.error)
+        if (result.error) {
+          setError(result.error)
+          toast({
+            title: "Erro",
+            description: result.error,
+            variant: "destructive",
+          })
+          return
+        }
+
+        setAgents(result.agents)
+
+        if (search && search.trim() !== "" && !serverSearch) {
+          const searchLower = search.toLowerCase()
+          setFilteredAgents(
+            result.agents.filter(
+              (agent) =>
+                agent.name.toLowerCase().includes(searchLower) ||
+                agent.email.toLowerCase().includes(searchLower) ||
+                agent.creci.toLowerCase().includes(searchLower),
+            ),
+          )
+        } else {
+          setFilteredAgents(result.agents)
+        }
+      } catch (err) {
+        console.error("Erro ao carregar agentes:", err)
+        setError("Falha ao carregar a lista de agentes")
         toast({
           title: "Erro",
-          description: result.error,
+          description: "Não foi possível carregar os corretores",
           variant: "destructive",
         })
-        return
+      } finally {
+        setLoading(false)
+        setIsSearching(false)
       }
-
-      setAgents(result.agents)
-
-      if (search && search.trim() !== "" && !serverSearch) {
-        const searchLower = search.toLowerCase()
-        setFilteredAgents(
-          result.agents.filter(
-            (agent) =>
-              agent.name.toLowerCase().includes(searchLower) ||
-              agent.email.toLowerCase().includes(searchLower) ||
-              agent.creci.toLowerCase().includes(searchLower)
-          )
-        )
-      } else {
-        setFilteredAgents(result.agents)
-      }
-    } catch (err) {
-      console.error("Erro ao carregar agentes:", err)
-      setError("Falha ao carregar a lista de agentes")
-      toast({
-        title: "Erro",
-        description: "Não foi possível carregar os corretores",
-        variant: "destructive",
-      })
-    } finally {
-      setLoading(false)
-      setIsSearching(false)
-    }
-  }, [toast])
+    },
+    [toast],
+  )
 
   useEffect(() => {
     loadAgents()
   }, [loadAgents])
 
-  const handleSearch = useCallback(() => {
-    setIsSearching(true)
-
-    const debounceTimer = setTimeout(() => {
-      loadAgents(searchTerm)
-    }, 500)
-
-    return () => clearTimeout(debounceTimer)
-  }, [searchTerm, loadAgents])
-
   useEffect(() => {
     if (searchTerm.trim() === "") {
-      setFilteredAgents(agents)
+      let filtered = [...agents]
+
+      // Aplicar filtro de status
+      if (statusFilter !== "all") {
+        filtered = filtered.filter((agent) => agent.status === statusFilter)
+      }
+
+      // Aplicar filtro de função
+      if (roleFilter !== "all") {
+        filtered = filtered.filter((agent) => agent.role === roleFilter)
+      }
+
+      setFilteredAgents(filtered)
       return
     }
 
-    handleSearch()
-  }, [searchTerm, agents, handleSearch])
+    const delay = setTimeout(() => {
+      loadAgents(searchTerm)
+    }, 500)
+
+    return () => clearTimeout(delay)
+  }, [searchTerm, agents, loadAgents, statusFilter, roleFilter])
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-2">
-        <div className="relative flex-1">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+        <div className="relative flex-1 w-full">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Buscar corretores..."
-            className="pl-8"
+            className="pl-8 border-[#008099]/20 focus-visible:ring-[#008099]"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <Button variant="outline" onClick={() => loadAgents()} disabled={loading}>
-          <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`} />
-          Atualizar
-        </Button>
-        <Link href="/agents/new">
-          <Button>
-            <PlusCircle className="h-4 w-4 mr-2" />
-            Novo Corretor
+
+        <div className="flex gap-2 w-full sm:w-auto">
+          <Select value={statusFilter} onValueChange={setStatusFilter}>
+            <SelectTrigger className="w-[140px] border-[#008099]/20 focus:ring-[#008099]">
+              <Filter className="h-4 w-4 mr-2" />
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos</SelectItem>
+              <SelectItem value="Ativo">Ativos</SelectItem>
+              <SelectItem value="Inativo">Inativos</SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Button
+            variant="outline"
+            onClick={() => loadAgents()}
+            disabled={loading}
+            className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+          >
+            <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`} />
+            Atualizar
           </Button>
-        </Link>
+
+          <Link href="/agents/new">
+            <Button className="bg-[#008099] hover:bg-[#006a80]">
+              <PlusCircle className="h-4 w-4 mr-2" />
+              Novo
+            </Button>
+          </Link>
+        </div>
       </div>
 
-      <div className="rounded-md border">
+      <div className="rounded-md border shadow-sm">
         <Table>
-          <TableHeader>
+          <TableHeader className="bg-muted/30">
             <TableRow>
               <TableHead>Corretor</TableHead>
               <TableHead className="hidden md:table-cell">Email</TableHead>
@@ -145,7 +186,10 @@ export function AgentsTable() {
               Array.from({ length: 5 }).map((_, index) => (
                 <TableRow key={`skeleton-${index}`}>
                   <TableCell>
-                    <div className="h-5 w-24 bg-muted rounded animate-pulse"></div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-full bg-muted animate-pulse"></div>
+                      <div className="h-5 w-24 bg-muted rounded animate-pulse"></div>
+                    </div>
                   </TableCell>
                   <TableCell className="hidden md:table-cell">
                     <div className="h-5 w-32 bg-muted rounded animate-pulse"></div>
@@ -168,40 +212,65 @@ export function AgentsTable() {
               <TableRow>
                 <TableCell colSpan={6}>
                   <div className="flex justify-center py-4">
-                    <div className="rounded-md bg-destructive/10 px-4 py-3 text-sm text-destructive">
-                      {error}
-                    </div>
+                    <div className="rounded-md bg-destructive/10 px-4 py-3 text-sm text-destructive">{error}</div>
                   </div>
                 </TableCell>
               </TableRow>
             ) : filteredAgents.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
-                  {searchTerm ? "Nenhum corretor encontrado com este termo de busca" : "Nenhum corretor cadastrado"}
+                  {searchTerm || statusFilter !== "all" || roleFilter !== "all"
+                    ? "Nenhum corretor encontrado com estes filtros"
+                    : "Nenhum corretor cadastrado"}
                 </TableCell>
               </TableRow>
             ) : (
               filteredAgents.map((agent) => (
-                <TableRow key={agent.id}>
+                <TableRow key={agent.id} className="group hover:bg-muted/20">
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <Avatar>
-                        <AvatarImage src={agent?.avatar_url || "/placeholder.svg"} />
-                        <AvatarFallback>{agent.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+                      <Avatar className="border-2 border-[#008099]/10">
+                        <AvatarImage src={agent?.avatar_url || "/placeholder.svg?height=40&width=40"} />
+                        <AvatarFallback className="bg-[#008099]/10 text-[#008099]">
+                          {agent.name.substring(0, 2).toUpperCase()}
+                        </AvatarFallback>
                       </Avatar>
-                      <div className="font-medium">{agent.name}</div>
+                      <div>
+                        <Link href={`/agents/${agent.id}`} className="font-medium text-[#008099] hover:underline">
+                          {agent.name}
+                        </Link>
+                        <div className="text-xs text-muted-foreground md:hidden">{agent.email}</div>
+                      </div>
                     </div>
                   </TableCell>
-                  <TableCell className="hidden md:table-cell">{agent.email}</TableCell>
-                  <TableCell>{agent.phone}</TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    <div className="flex items-center">
+                      <Mail className="h-3 w-3 mr-1 text-muted-foreground" />
+                      {agent.email}
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center">
+                      <Phone className="h-3 w-3 mr-1 text-muted-foreground" />
+                      {agent.phone}
+                    </div>
+                  </TableCell>
                   <TableCell className="hidden md:table-cell">{agent.creci}</TableCell>
                   <TableCell className="hidden md:table-cell">
-                    <Badge variant={agent.role === "admin" ? "outline" : "secondary"}>
+                    <Badge
+                      variant={agent.role === "admin" ? "outline" : "secondary"}
+                      className={agent.role === "admin" ? "border-[#008099]/30 text-[#008099]" : ""}
+                    >
                       {agent.role === "admin" ? "Administrador" : "Corretor"}
                     </Badge>
                   </TableCell>
                   <TableCell>
-                    <Badge variant={agent.status === "Ativo" ? "default" : "secondary"}>{agent.status}</Badge>
+                    <Badge
+                      variant={agent.status === "Ativo" ? "default" : "secondary"}
+                      className={agent.status === "Ativo" ? "bg-green-100 text-green-800 hover:bg-green-100" : ""}
+                    >
+                      {agent.status}
+                    </Badge>
                   </TableCell>
                 </TableRow>
               ))
@@ -209,6 +278,42 @@ export function AgentsTable() {
           </TableBody>
         </Table>
       </div>
+
+      {filteredAgents.length > 0 && (
+        <div className="flex justify-between items-center text-sm text-muted-foreground">
+          <div>
+            Mostrando <span className="font-medium">{filteredAgents.length}</span> corretores
+          </div>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+            >
+              <Download className="h-3 w-3 mr-1" />
+              Exportar
+            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+                >
+                  <MoreHorizontal className="h-3 w-3 mr-1" />
+                  Mais opções
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem>Imprimir listagem</DropdownMenuItem>
+                <DropdownMenuItem>Enviar por email</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Gerenciar colunas</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
