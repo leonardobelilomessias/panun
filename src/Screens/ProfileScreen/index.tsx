@@ -32,6 +32,8 @@ import { DialogFormAvatar } from "./AvatarAgent/DialogFormAvatar"
 import { useEffect, useState } from "react"
 import { getAgentById } from "@/lib/supabase/queries/client/Agents/getAgentById"
 import { Agent, AgentSingle } from "@/types"
+import { DialogFormProfile } from "./DialogFormProfile"
+import { ReactQueryClientProviders } from "@/providers/ReactQueryClientProviders"
 
 
 
@@ -83,6 +85,7 @@ setReload((reload)=>(!reload))
   }
 if(loading) return<div>Loading ...</div>
   return (
+    <ReactQueryClientProviders>
     <div className="container mx-auto py-8 px-4">
       <div className="mb-6">
         <Link
@@ -111,8 +114,11 @@ if(loading) return<div>Loading ...</div>
                   <AvatarFallback className="text-3xl bg-[#008099]/10 text-[#008099]">
                     {getInitials(agent?.name||"")}
                   </AvatarFallback>
-                </Avatar>{
+                </Avatar>
+                {
                   agent?.id&&
+                
+
               <DialogFormAvatar avatar={agent?.avatars_agents[0]?.url_image||""} idAvatar={agent.id} reloadEdit={reloadEdit} />
                 }
               </div>
@@ -188,16 +194,12 @@ if(loading) return<div>Loading ...</div>
               <Separator className="my-6 bg-[#008099]/10" />
 
               <div className="flex flex-col gap-2">
-                <Button
-                  variant="outline"
-                  className="w-full border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10 hover:text-[#008099]"
-                  asChild
-                >
-                  <Link href={`/corretores/${agent?.id}/editar`}>
-                    <Pencil className="h-4 w-4 mr-2" />
-                    Editar Perfil
-                  </Link>
-                </Button>
+
+                  {
+                    agent &&
+                    <DialogFormProfile agent={agent} reloadData={reloadEdit}/>
+                  }
+                
                 <Button className="w-full bg-[#008099] hover:bg-[#006a80] text-white" asChild>
                   <Link href={`/corretores/${agent?.id}/imoveis`}>
                     <Home className="h-4 w-4 mr-2" />
@@ -346,5 +348,6 @@ if(loading) return<div>Loading ...</div>
         </div>
       </div>
     </div>
+    </ReactQueryClientProviders>
   )
 }

@@ -68,8 +68,8 @@ export type AgentSingle = {
   neighborhoods:Neighborhood
   cities:City
   estates:Estate
-  status: string
-  role: string
+  status: "Ativo" |'Inativo'
+  role: "admin" | "agente"
   creci: string
   zipcode: string
   user_id: string

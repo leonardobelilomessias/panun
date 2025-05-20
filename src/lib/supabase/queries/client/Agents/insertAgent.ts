@@ -1,5 +1,7 @@
 'use server'
+import { getRedirectUrl } from "@/utils/supabase/getRedirectUrl";
 import { createClient } from "@/utils/supabase/server";
+import { supabaseAdmin } from "@/utils/supabase/serverAdmin";
 
 export async function insertAgent(data: any) {
   const supabase = await createClient();
@@ -29,6 +31,7 @@ console.log
       data: {
         display_name: data.name, // Aqui adicionamos o nome de exibição no metadata
       },
+      emailRedirectTo: getRedirectUrl(),
     },
   });
   // Criar usuário no auth
@@ -36,7 +39,7 @@ console.log
   if (userSupabase.error || !userSupabase.data?.user?.id) {
     return { error: { message: userSupabase?.error || "Erro ao criar usuário no Supabase Auth." } };
   }
-
+  
   // Inserir agente com o user_id vinculado
   const { error, data: agent } = await supabase.from("agents").insert([
     {
@@ -44,6 +47,9 @@ console.log
       user_id: userSupabase.data.user.id,
     },
   ]);
+  if(error&&!!userSupabase.data?.user?.id){
+     await supabaseAdmin.auth.admin.deleteUser(userSupabase.data?.user?.id);
+  }
 
   return { error, data: agent };
 }
