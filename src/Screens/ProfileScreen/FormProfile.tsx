@@ -16,6 +16,7 @@ import { ptBR } from 'date-fns/locale';
 import { registerLocale } from 'react-datepicker';
 import { IProfile } from '@/types/TypesDB';
 import { updateUserById } from '@/lib/supabase/queries/server/user';
+import { updateAgent } from '@/lib/supabase/queries/client/Agents/updateAgent';
 registerLocale('pt-BR', ptBR);
 
 const profileFormSchema = z.object({
@@ -66,7 +67,7 @@ export const FormProfile: FC<FormProfileProps> = ({ userId, initialData }) => {
   const onSubmit = async (data: IProfile) => {
     try {
       setIsSubmitting(true);
-      await updateUserById(data);
+      await updateAgent(data.id,data);
       toast({
         title: "Sucesso",
         description: "Perfil atualizado com sucesso!",

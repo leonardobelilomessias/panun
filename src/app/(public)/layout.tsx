@@ -8,10 +8,10 @@ import { Footer } from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: {
-    template: '%s | Brazilian Network',
-    default: 'Brazilian Network | Comuniade Imigrantes',
+    template: '%s | Panun - Soluçoes Imobiliárias',
+    default: 'Panun | Soluçoes Imobiliárias',
   },
-  description: "Comunidade Imigrantes",
+  description: "Panun | Soluçoes Imobiliária",
   metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
 };
 

@@ -29,6 +29,9 @@ const agentFormSchema = z.object({
   status: z.enum(["Ativo", "Inativo"]),
   role: z.enum(["admin", "agente"]),
   creci: z.string().optional().or(z.literal("")),
+  city_id: z.string().uuid().optional().or(z.literal("")),
+  estate_id: z.string().uuid().optional().or(z.literal("")),
+  neighborhood_id: z.string().uuid().optional().or(z.literal("")),
 })
 
 export function DialogFormProfile({ agent, reloadData }: AgentFormProps) {
@@ -58,6 +61,9 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
       status: agent.status||"Ativo",
       role: agent.role||"agente",
       creci: agent.creci || "",
+      city_id: agent.city_id,
+      estate_id: agent.estate_id,
+      neighborhood_id: agent.neighborhood_id,
     },
   })
 

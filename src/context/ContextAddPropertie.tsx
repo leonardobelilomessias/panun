@@ -1,10 +1,6 @@
-import { IProfile } from "@/types/TypesDB";
-import { supabaseClient } from "@/lib/supabase/client";
+
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { useStoreUser } from "./store/storeUser";
-import { useStoreSelect } from "./store/storeSelects";
-import { loadCountriesAndThemes, saveCountriesAndThemes } from "../storage/AsyncStorageSelects";
-import { loadUser, saveUser } from "../storage/AsyncStorageUser";
+
 
 const ContextAddPropertie = createContext({} as IDataAccont);
 

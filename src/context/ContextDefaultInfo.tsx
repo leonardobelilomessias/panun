@@ -1,15 +1,17 @@
 import { IProfile } from "@/types/TypesDB";
 import { supabaseClient } from "@/lib/supabase/client";
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { useStoreUser } from "./store/storeUser";
 import { useStoreSelect } from "./store/storeSelects";
 import { loadCountriesAndThemes, saveCountriesAndThemes } from "../storage/AsyncStorageSelects";
 import { loadUser, saveUser } from "../storage/AsyncStorageUser";
+import { storeAgentLogged } from "./store/storeAgentLogged";
+import { loadAgentLogged } from "@/storage/AsyncStorageAgentLogged";
+import { Agent } from "@/types";
 
 const ContextDefaultInfo = createContext({} as IDataAccont);
 
 interface IDataAccont {
-  dataUser: IProfile | null | undefined;
+  dataUser: Agent | null | undefined;
 }
 type ICountries = {
   name: string;
@@ -25,7 +27,7 @@ type IThemes = {
 type IThemeAndCountries = [ICountries[], IThemes[]];
 
 function InfoContext({ children }: { children: ReactNode }) {
-  const { userStored, setUserStored } = useStoreUser();
+  const { setgentLogged,agentLogged } = storeAgentLogged();
   const { setCountrieThemeStored, countrieThemeStored } = useStoreSelect();
   const refId = useRef(0)
   // console.log('valor rffis', refId)
@@ -63,9 +65,9 @@ function InfoContext({ children }: { children: ReactNode }) {
   }
 
   async function  getUserAsync (){
-    const data = await loadUser()
+    const data = await loadAgentLogged()
     if(data) {
-      setUserStored(data)
+      setgentLogged(data)
       ;}
      if(data ===null && refId.current==0){
       refId.current=1
@@ -74,11 +76,11 @@ function InfoContext({ children }: { children: ReactNode }) {
       if (user) {
         // console.log("rodou Query getuser Supabase", !!user);
         const { data, error } = await supabaseClient()
-          .from('profiles')
-          .select('*')
-          .eq('id', user?.id)
+          .from('agents')
+          .select('*,  avatars_agents(url_image,path)')
+          .eq('user_id', user?.id)
           .single();
-        setUserStored(data);
+        setgentLogged(data);
         saveUser(data)
       }
       
@@ -91,7 +93,7 @@ function InfoContext({ children }: { children: ReactNode }) {
   }, [ ]);
 
   return (
-    <ContextDefaultInfo.Provider value={{ dataUser: userStored }}>
+    <ContextDefaultInfo.Provider value={{ dataUser: agentLogged }}>
       {children}
     </ContextDefaultInfo.Provider>
   );

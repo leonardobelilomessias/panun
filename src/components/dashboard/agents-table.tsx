@@ -160,7 +160,7 @@ export function AgentsTable() {
             Atualizar
           </Button>
 
-          <Link href="/agents/new">
+          <Link href="/corretores/novo-corretor">
             <Button className="bg-[#008099] hover:bg-[#006a80]">
               <PlusCircle className="h-4 w-4 mr-2" />
               Novo

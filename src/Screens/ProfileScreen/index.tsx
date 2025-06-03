@@ -200,8 +200,8 @@ if(loading) return<div>Loading ...</div>
                     <DialogFormProfile agent={agent} reloadData={reloadEdit}/>
                   }
                 
-                <Button className="w-full bg-[#008099] hover:bg-[#006a80] text-white" asChild>
-                  <Link href={`/corretores/${agent?.id}/imoveis`}>
+                <Button disabled={true} className=" cursor-not-allowed w-full bg-[#008099] hover:bg-[#006a80] text-white  " >
+                  <Link className="flex items-center  cursor-not-allowed"  href={`/corretores/${agent?.id}/imoveis`}>
                     <Home className="h-4 w-4 mr-2" />
                     Ver Imóveis
                   </Link>
@@ -300,11 +300,12 @@ if(loading) return<div>Loading ...</div>
 
               <div className="mt-6">
                 <Button
+                  disabled={true}
                   variant="outline"
                   className="w-full sm:w-auto border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
-                  asChild
+                  
                 >
-                  <Link href={`/corretores/${agent?.id}/historico`}>
+                  <Link className="flex items-center" href={`/corretores/${agent?.id}/historico`}>
                     <Clock className="mr-2 h-4 w-4" />
                     Ver Histórico de Atividades
                   </Link>
@@ -338,7 +339,7 @@ if(loading) return<div>Loading ...</div>
               </div>
 
               <div className="text-center">
-                <Button variant="outline" className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10">
+                <Button variant="outline" className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10 cursor-not-allowed">
                   <FileBarChart className="mr-2 h-4 w-4" />
                   Gerar Relatório Completo
                 </Button>

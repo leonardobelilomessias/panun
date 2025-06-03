@@ -11,10 +11,8 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "@/components/ui/accordion"
-import { useStoreUser } from "@/context/store/storeUser";
 
 export function InfoScreen(){
-  const {setUserStored,userStored} = useStoreUser()
     return(
         <ContainerScreen>
             <h1 className=" font-bold text-4xl">Info</h1>

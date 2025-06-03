@@ -104,7 +104,7 @@ export function NewAgentScreen() {
     <div className="container max-w-5xl py-10">
       <QueryClientProvider client={queryClient}>
         <div className="flex items-center gap-2 mb-6">
-          <Button variant="ghost" size="icon" onClick={() => router.push("/agentes")}>
+          <Button variant="ghost" size="icon" onClick={() => router.back()}>
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <div>
@@ -345,7 +345,7 @@ export function NewAgentScreen() {
                 </TabsContent>
 
                 <CardFooter className="flex justify-between border-t p-6">
-                  <Button type="button" variant="outline" onClick={() => router.push("/agentes")}>
+                  <Button type="button" variant="outline" onClick={() => router.push("/corretores")}>
                     Cancelar
                   </Button>
                   <Button

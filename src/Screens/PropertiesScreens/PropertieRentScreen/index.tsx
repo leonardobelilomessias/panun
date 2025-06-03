@@ -42,6 +42,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { GenericPagination } from "@/components/modules/Pagination/GenericPagination"
 import { listSalesProperties } from "@/lib/supabase/queries/client/properties/listSalesProperties"
 import { listRentProperties } from "@/lib/supabase/queries/client/properties/listRentProperties"
+import { DialogToDeletePRopertyRent } from "./DialogToDeletePRopertyRent"
 
 export function PropertieRentScreen() {
   const [properties, setProperties] = useState<any[]>([])
@@ -53,9 +54,11 @@ export function PropertieRentScreen() {
   const [statusFilter, setStatusFilter] = useState("all")
   const [sortOrder, setSortOrder] = useState("newest")
   const [activeTab, setActiveTab] = useState("todos")
-
+  const [reload,setReload] = useState(false)
   const itemsPerPage = 5
-
+  function reloadList(){
+    setReload((reload)=>!reload)
+  }
   // Fetch properties data
   useEffect(() => {
     const fetchProperties = async () => {
@@ -81,7 +84,7 @@ export function PropertieRentScreen() {
     }
 
     fetchProperties()
-  }, [])
+  }, [reload])
 
   // Filter and sort properties
   useEffect(() => {
@@ -99,18 +102,21 @@ export function PropertieRentScreen() {
 
     // Filter by status
     if (statusFilter !== "all") {
-      const isActive = statusFilter === "active"
+      const isActive = statusFilter === "Disponível"
       result = result.filter((property) => {
-        const propertyStatus = property.details?.[0]?.status?.toLowerCase() || ""
-        return isActive ? propertyStatus === "ativo" : propertyStatus === "inativo"
+        const propertyStatus = property.status || ""
+        return isActive ? propertyStatus === "Disponível" : propertyStatus === "Indisponível"
       })
     }
 
     // Filter by tab
     if (activeTab === "ativos") {
-      result = result.filter((property) => (property.details?.[0]?.status?.toLowerCase() || "") === "ativo")
+      result = result.filter((property) => (property.status || "") === "Disponível")
     } else if (activeTab === "inativos") {
-      result = result.filter((property) => (property.details?.[0]?.status?.toLowerCase() || "") === "inativo")
+      result = result.filter((property) => (property.status || "") === "Indisponível")
+    }
+    else if (activeTab === "todos") {
+      result = result
     }
 
     // Sort properties
@@ -162,16 +168,16 @@ export function PropertieRentScreen() {
   }
 
   // Count active and inactive properties
-  const activeCount = properties.filter((p) => (p.details?.[0]?.status?.toLowerCase() || "") === "ativo").length
-  const inactiveCount = properties.filter((p) => (p.details?.[0]?.status?.toLowerCase() || "") === "inativo").length
+  const activeCount = properties.filter((p) => (p.status || "") === "Disponível").length
+  const inactiveCount = properties.filter((p) => (p.status || "") === "Indisponível").length
 
   return (
     <ContainerScreen>
       <div className="bg-white p-6 rounded-lg shadow-sm border mb-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-[#008099]">Imóveis à Venda</h1>
-            <p className="text-sm text-muted-foreground">Gerenciamento de imóveis disponíveis para venda</p>
+            <h1 className="text-2xl font-bold text-[#008099]">Imóveis para Locação</h1>
+            <p className="text-sm text-muted-foreground">Gerenciamento de imóveis disponíveis para  Locação</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
             <form onSubmit={handleSearch} className="relative w-full sm:w-64">
@@ -335,7 +341,7 @@ export function PropertieRentScreen() {
                       <TableBody>
                         {currentItems.map((property: any) => {
                           const imageUrl = property?.property_covers?.[0]?.url
-                          const isActive = (property.details?.[0]?.status?.toLowerCase() || "") === "ativo"
+                          const isActive = (property.status || "") === "Disponível"
 
                           return (
                             <TableRow key={property.id} className="group hover:bg-muted/20">
@@ -437,21 +443,20 @@ export function PropertieRentScreen() {
                                   </DropdownMenuTrigger>
                                   <DropdownMenuContent align="end">
                                     <DropdownMenuItem asChild>
-                                      <Link href={`/imoveis/${property.id}`} className="flex items-center">
+                                      <Link href={`/imovel/${property.details[0].title?.split(" ").join("-")}/${property.id}`}className="flex items-center">
                                         <Eye className="mr-2 h-4 w-4" />
                                         <span>Visualizar</span>
                                       </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuItem asChild>
-                                      <Link href={`/editar-imovel/${property.id}`} className="flex items-center">
+                                      <Link href={`/ficha-imovel/${property.id}`} className="flex items-center">
                                         <Pencil className="mr-2 h-4 w-4" />
                                         <span>Editar</span>
                                       </Link>
                                     </DropdownMenuItem>
                                     <DropdownMenuSeparator />
-                                    <DropdownMenuItem className="text-destructive focus:text-destructive">
-                                      <Trash2 className="mr-2 h-4 w-4" />
-                                      <span>Excluir</span>
+                                    <DropdownMenuItem asChild>
+                                      <DialogToDeletePRopertyRent idProperty={property.id} reloadList={reloadList} />
                                     </DropdownMenuItem>
                                   </DropdownMenuContent>
                                 </DropdownMenu>

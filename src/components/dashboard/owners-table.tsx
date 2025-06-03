@@ -157,7 +157,7 @@ export function OwnersTable() {
             Atualizar
           </Button>
 
-          <Link href="/owners/new">
+          <Link href="/proprietarios/novo-proprietario">
             <Button className="bg-[#008099] hover:bg-[#006a80]">
               <PlusCircle className="h-4 w-4 mr-2" />
               Novo

@@ -1,5 +1,5 @@
 import { useUserData } from "@/context/ContextUserAccont"
-import { useStoreUser } from "@/context/store/storeUser"
+import { storeAgentLogged } from "@/context/store/storeAgentLogged"
 import clsx from "clsx"
 import { LucideProps } from "lucide-react"
 import Link from "next/link"
@@ -12,9 +12,9 @@ interface ItemsPros { link: string, title: string, icon: ForwardRefExoticCompone
 export function ButtonAsideNavigation({ items }: { items: ItemsPros[] }) {
   const selectedStyle = 'flex h-[40px] items-center grow gap-2 md:mx-1 rounded-md align-center  text-sm font-bold bg-blue-100 text-primary-palet md:flex-none md:justify-start md:p-1  md:px-3'
   const unSelectedStyle = 'bg-transparent flex h-[40px] items-center grow gap-2 md:mx-1 rounded-md align-center  text-sm font-medium hover:bg-blue-50 hover:text-primary-palet md:flex-none md:justify-start md:p-1  md:px-3 text-gray-500'
-  const {userStored} =useStoreUser()
+  const {agentLogged,setgentLogged} =storeAgentLogged()
   const pathname = usePathname()
-  const pahtDashboard = userStored?.id? `/${userStored?.id}`:`/visitante`
+  const pahtDashboard = agentLogged?.id? `/${agentLogged?.id}`:`/visitante`
   const verifyPrefetch= (title:string)=> (title.toLowerCase()==='perguntas'||title.toLowerCase()==='dicas') 
   return (
     <>

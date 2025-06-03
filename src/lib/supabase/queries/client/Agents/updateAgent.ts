@@ -2,11 +2,13 @@
 import { createClient } from "@/utils/supabase/server";
 
 export async function updateAgent(agentId: string, data: any) {
+  console.log(agentId)
+  console.log(data)
   try {
     const supabase = await createClient();
     
     const { error } = await supabase
-      .from("leads")
+      .from("agents")
       .update(data)
       .eq("id", agentId);
 
