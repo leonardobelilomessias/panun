@@ -49,7 +49,7 @@ export function RelationedHousesBlock() {
             {properties.slice(0, 4).map((property) => (
               <div key={property.id} className="w-72  flex-shrink-0 snap-start">
                 <CardHouseSmall
-                  cover={property.property_covers[0].url}
+                  cover={property.property_covers[0]?.url}
                   full_description={property.details[0].full_description}
                   area={property.details[0].total_area}
                   bathrooms={property.details[0].bathroom}
