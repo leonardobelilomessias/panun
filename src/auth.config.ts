@@ -18,10 +18,12 @@ export const authConfig = {
 
       if(isPublic) return true
       if (isPrivateRoutes) {
+        return true
         if (!isLoggedIn) return Response.redirect(new URL('/entrar', nextUrl)); // Redirect unauthenticated users to login page
         if(isLoggedIn) return true
         // return Response.redirect(new URL('/dashboard', nextUrl)); // Redirect unauthenticated users to login page
       } else if (!isLoggedIn) {
+        return true
         return false
       }
       return true;

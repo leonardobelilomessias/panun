@@ -158,7 +158,7 @@ export const Footer = ({isMobile}:{isMobile?:boolean}) => {
           <a
             rel="noreferrer noopener"
             target="_blank"
-            href="https://www.linkedin.com/in/leopoldo-miranda/"
+            href="https://www.raciocine.com/"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
            Desenvolvido por Raciocine soluçoes

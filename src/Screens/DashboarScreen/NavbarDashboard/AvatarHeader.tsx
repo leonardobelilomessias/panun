@@ -11,7 +11,7 @@ interface AvatarHeaderProps {
 
 export const AvatarHeader: React.FC =  React.memo(() => {
     const {agentLogged} = storeAgentLogged()
-    const urlavatar = !!agentLogged?.avatars_agents[0].url_image?agentLogged?.avatars_agents[0].url_image:DefaultUserImage
+    const urlavatar = !!agentLogged?.avatars_agents[0]?.url_image?agentLogged?.avatars_agents[0].url_image:DefaultUserImage
     return (
             <div>
                 {/* {JSON.stringify(agentLogged?.avatars_agents)} */}

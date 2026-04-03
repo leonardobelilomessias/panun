@@ -157,7 +157,7 @@ ON public.avatars_owners
 FOR DELETE USING (true);
 
 -- Habilita RLS na tabela storage.buckets (geralmente já vem habilitado)
-ALTER TABLE storage.buckets ENABLE ROW LEVEL SECURITY;
+
 
 -- Política para permitir acesso público ao bucket avatars-agents
 CREATE POLICY "Allow public access to avatars-agents bucket"

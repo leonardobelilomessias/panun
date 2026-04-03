@@ -35,7 +35,7 @@ VALUES (
     'agente',            -- Função do agente (admin/agente)
     '123456',            -- CRECI (se aplicável)
     '30123-456',         -- CEP
-    '0214153b-e72f-4e53-8486-cf9dac82e344', -- ID do usuário (user_id)
+    '6db0ab88-28c7-4413-9cb8-1aa22a91de5d', -- ID do usuário (user_id)
     NOW(),               -- Data de criação
     NOW()                -- Data de atualização
 );
