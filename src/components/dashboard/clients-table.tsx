@@ -136,7 +136,7 @@ export function ClientsTable() {
           <Input
             type="search"
             placeholder="Buscar clientes..."
-            className="pl-8 border-[#008099]/20 focus-visible:ring-[#008099]"
+            className="pl-8 border-[#272525]/20 focus-visible:ring-[#272525]"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -144,7 +144,7 @@ export function ClientsTable() {
 
         <div className="flex gap-2 w-full sm:w-auto">
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-[140px] border-[#008099]/20 focus:ring-[#008099]">
+            <SelectTrigger className="w-[140px] border-[#272525]/20 focus:ring-[#272525]">
               <Filter className="h-4 w-4 mr-2" />
               <SelectValue placeholder="Status" />
             </SelectTrigger>
@@ -159,14 +159,14 @@ export function ClientsTable() {
             variant="outline"
             onClick={() => loadClients()}
             disabled={loading}
-            className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+            className="border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
           >
             <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`} />
             Atualizar
           </Button>
 
           <Link href="/clientes/novo-cliente">
-            <Button className="bg-[#008099] hover:bg-[#006a80]">
+            <Button className="bg-[#272525] hover:bg-[#006a80]">
               <PlusCircle className="h-4 w-4 mr-2" />
               Novo
             </Button>
@@ -231,11 +231,11 @@ export function ClientsTable() {
               filteredClients.map((client: any) => (
                 <TableRow key={client.id} className="group hover:bg-muted/20">
                   <TableCell className="font-medium">
-                    <Link href={`/clients/${client.id}`} className="text-[#008099] hover:underline flex items-center">
+                    <Link href={`/clients/${client.id}`} className="text-[#272525] hover:underline flex items-center">
                       {client.type === "Empresa" ? (
-                        <Building className="h-4 w-4 mr-2 text-[#008099]/70" />
+                        <Building className="h-4 w-4 mr-2 text-[#272525]/70" />
                       ) : (
-                        <User className="h-4 w-4 mr-2 text-[#008099]/70" />
+                        <User className="h-4 w-4 mr-2 text-[#272525]/70" />
                       )}
                       {client.name}
                     </Link>
@@ -255,7 +255,7 @@ export function ClientsTable() {
                   <TableCell className="hidden md:table-cell">
                     <Badge
                       variant={client.type === "Empresa" ? "outline" : "secondary"}
-                      className={client.type === "Empresa" ? "border-[#008099]/30 text-[#008099]" : ""}
+                      className={client.type === "Empresa" ? "border-[#272525]/30 text-[#272525]" : ""}
                     >
                       {client.type}
                     </Badge>
@@ -290,7 +290,7 @@ export function ClientsTable() {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+              className="h-8 border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
             >
               <Download className="h-3 w-3 mr-1" />
               Exportar
@@ -300,7 +300,7 @@ export function ClientsTable() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+                  className="h-8 border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
                 >
                   <MoreHorizontal className="h-3 w-3 mr-1" />
                   Mais opções

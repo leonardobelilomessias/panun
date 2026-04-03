@@ -111,7 +111,7 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
       <Button
         onClick={openModal}
         variant="outline"
-        className="h-9 w-9 p-0 hover:border-[#008099] hover:text-[#008099]"
+        className="h-9 w-9 p-0 hover:border-[#272525] hover:text-[#272525]"
         title="Editar Lead"
       >
         <Edit className="h-4 w-4" />
@@ -125,7 +125,7 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
         ariaHideApp={false}
       >
         <div className="p-6">
-          <h2 className="text-xl font-bold mb-4 flex items-center text-[#008099]">
+          <h2 className="text-xl font-bold mb-4 flex items-center text-[#272525]">
             <User className="mr-2 h-5 w-5" />
             Editar Dados do Lead
           </h2>
@@ -142,9 +142,9 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormLabel>Nome</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <User className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                            <User className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                             <Input
-                              className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                              className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                               placeholder="Nome completo"
                               {...field}
                             />
@@ -163,9 +163,9 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormLabel>Telefone</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Phone className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                            <Phone className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                             <Input
-                              className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                              className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                               placeholder="(XX) XXXXX-XXXX"
                               {...field}
                             />
@@ -184,9 +184,9 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormLabel>Email</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Mail className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                            <Mail className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                             <Input
-                              className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                              className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                               placeholder="email@exemplo.com"
                               {...field}
                             />
@@ -205,9 +205,9 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormLabel>Origem</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Tag className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                            <Tag className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                             <Input
-                              className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                              className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                               placeholder="Ex: Facebook, Instagram, Indicação"
                               {...field}
                             />
@@ -227,7 +227,7 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormControl>
                           <Input
                             placeholder="Cidade"
-                            className="border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                            className="border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                             {...field}
                           />
                         </FormControl>
@@ -245,7 +245,7 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormControl>
                           <Input
                             placeholder="Estado"
-                            className="border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                            className="border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                             {...field}
                           />
                         </FormControl>
@@ -262,9 +262,9 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormLabel>Interesse</FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Building2 className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                            <Building2 className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                             <Input
-                              className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                              className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                               placeholder="Ex: Apartamento, Casa, Terreno"
                               {...field}
                             />
@@ -283,7 +283,7 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                         <FormLabel>Status</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="border-gray-300 focus:ring-[#008099]">
+                            <SelectTrigger className="border-gray-300 focus:ring-[#272525]">
                               <SelectValue placeholder="Selecione o status" />
                             </SelectTrigger>
                           </FormControl>
@@ -308,7 +308,7 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                       <FormLabel>Observações</FormLabel>
                       <FormControl>
                         <Textarea
-                          className="min-h-24 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                          className="min-h-24 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                           placeholder="Observações sobre o lead, histórico de conversas, etc."
                           {...field}
                         />
@@ -323,7 +323,7 @@ function DialogEditLead({ lead, reloadData }: LeadFormProps) {
                 <Button type="button" variant="outline" onClick={closeModal} className="border-gray-300">
                   Cancelar
                 </Button>
-                <Button type="submit" className="bg-[#008099] hover:bg-[#006b80] text-white" disabled={isSubmitting}>
+                <Button type="submit" className="bg-[#272525] hover:bg-[#006b80] text-white" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>
                       <svg

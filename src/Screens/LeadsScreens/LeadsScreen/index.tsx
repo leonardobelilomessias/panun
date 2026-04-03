@@ -63,7 +63,7 @@ export default function LeadsListScreen() {
               <h1 className="text-2xl font-bold">Lista de Leads</h1>
               <p className="text-muted-foreground">Carregando dados...</p>
             </div>
-            <Button disabled className="bg-[#008099] text-white px-4 py-2 rounded">
+            <Button disabled className="bg-[#272525] text-white px-4 py-2 rounded">
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Carregando
             </Button>
@@ -105,7 +105,7 @@ export default function LeadsListScreen() {
               <h1 className="text-2xl font-bold">Lista de Leads</h1>
               <p className="text-red-500">Erro ao carregar dados. Por favor, tente novamente.</p>
             </div>
-            <Button onClick={() => mutate()} className="bg-[#008099] hover:bg-[#006b80] text-white px-4 py-2 rounded">
+            <Button onClick={() => mutate()} className="bg-[#272525] hover:bg-[#006b80] text-white px-4 py-2 rounded">
               Tentar novamente
             </Button>
           </div>
@@ -125,7 +125,7 @@ export default function LeadsListScreen() {
             <p className="text-muted-foreground mt-1">
               Gerencie os leads cadastrados no sistema.
               {filteredLeads && (
-                <span className="ml-1 text-[#008099]">
+                <span className="ml-1 text-[#272525]">
                   {filteredLeads.length} {filteredLeads.length === 1 ? "lead encontrado" : "leads encontrados"}
                 </span>
               )}
@@ -196,7 +196,7 @@ export default function LeadsListScreen() {
 
           {filteredLeads?.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 text-center bg-gray-50 rounded-lg border border-dashed border-gray-300">
-              <User className="h-12 w-12 text-[#008099]/30 mb-4" />
+              <User className="h-12 w-12 text-[#272525]/30 mb-4" />
               <h3 className="text-lg font-medium">Nenhum lead encontrado</h3>
               <p className="text-muted-foreground mt-1 max-w-md">
                 {hasActiveFilters
@@ -210,7 +210,7 @@ export default function LeadsListScreen() {
                 </Button>
               ) : (
                 <DialogFormAddLead reloadData={reloadList}>
-                  <Button className="mt-4 bg-[#008099] hover:bg-[#006b80] text-white">
+                  <Button className="mt-4 bg-[#272525] hover:bg-[#006b80] text-white">
                     <Plus className="mr-2 h-4 w-4" />
                     Adicionar Lead
                   </Button>
@@ -226,7 +226,7 @@ export default function LeadsListScreen() {
                       <div className="flex items-start gap-4">
                         <Avatar className="h-16 w-16 border border-gray-200 shadow-sm">
                           <AvatarImage src={lead.url_image || "/placeholder.svg"} />
-                          <AvatarFallback className="text-lg bg-[#008099]/10 text-[#008099]">
+                          <AvatarFallback className="text-lg bg-[#272525]/10 text-[#272525]">
                             {lead.name.substring(0, 2).toUpperCase()}
                           </AvatarFallback>
                         </Avatar>
@@ -243,7 +243,7 @@ export default function LeadsListScreen() {
                               }
                               className={
                                 lead.status === "Ativo" || lead.status === "Convertido"
-                                  ? "bg-[#008099] hover:bg-[#006b80]"
+                                  ? "bg-[#272525] hover:bg-[#006b80]"
                                   : ""
                               }
                             >
@@ -254,35 +254,35 @@ export default function LeadsListScreen() {
                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 mt-3">
                             {lead.email && (
                               <div className="flex items-center gap-2 text-sm">
-                                <Mail className="h-4 w-4 text-[#008099]" />
+                                <Mail className="h-4 w-4 text-[#272525]" />
                                 <span>{lead.email}</span>
                               </div>
                             )}
 
                             {lead.phone && (
                               <div className="flex items-center gap-2 text-sm">
-                                <Phone className="h-4 w-4 text-[#008099]" />
+                                <Phone className="h-4 w-4 text-[#272525]" />
                                 <span>{lead.phone}</span>
                               </div>
                             )}
 
                             {(lead.city || lead.estate) && (
                               <div className="flex items-center gap-2 text-sm">
-                                <MapPin className="h-4 w-4 text-[#008099]" />
+                                <MapPin className="h-4 w-4 text-[#272525]" />
                                 <span>{[lead.city, lead.estate].filter(Boolean).join(", ")}</span>
                               </div>
                             )}
 
                             {lead.created_at && (
                               <div className="flex items-center gap-2 text-sm">
-                                <Calendar className="h-4 w-4 text-[#008099]" />
+                                <Calendar className="h-4 w-4 text-[#272525]" />
                                 <span>Cadastrado em: {new Date(lead.created_at).toLocaleDateString("pt-BR")}</span>
                               </div>
                             )}
 
                             {lead.last_contact && (
                               <div className="flex items-center gap-2 text-sm">
-                                <Clock className="h-4 w-4 text-[#008099]" />
+                                <Clock className="h-4 w-4 text-[#272525]" />
                                 <span>Último contato: {new Date(lead.last_contact).toLocaleDateString("pt-BR")}</span>
                               </div>
                             )}

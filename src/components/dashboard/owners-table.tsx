@@ -128,7 +128,7 @@ export function OwnersTable() {
           <Input
             type="search"
             placeholder="Buscar proprietários..."
-            className="pl-8 border-[#008099]/20 focus-visible:ring-[#008099]"
+            className="pl-8 border-[#272525]/20 focus-visible:ring-[#272525]"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -136,7 +136,7 @@ export function OwnersTable() {
 
         <div className="flex gap-2 w-full sm:w-auto">
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-[140px] border-[#008099]/20 focus:ring-[#008099]">
+            <SelectTrigger className="w-[140px] border-[#272525]/20 focus:ring-[#272525]">
               <Filter className="h-4 w-4 mr-2" />
               <SelectValue placeholder="Status" />
             </SelectTrigger>
@@ -151,14 +151,14 @@ export function OwnersTable() {
             variant="outline"
             onClick={() => loadOwners()}
             disabled={loading}
-            className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+            className="border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
           >
             <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`} />
             Atualizar
           </Button>
 
           <Link href="/proprietarios/novo-proprietario">
-            <Button className="bg-[#008099] hover:bg-[#006a80]">
+            <Button className="bg-[#272525] hover:bg-[#006a80]">
               <PlusCircle className="h-4 w-4 mr-2" />
               Novo
             </Button>
@@ -226,11 +226,11 @@ export function OwnersTable() {
               filteredOwners.map((owner) => (
                 <TableRow key={owner.id} className="group hover:bg-muted/20">
                   <TableCell className="font-medium">
-                    <Link href={`/owners/${owner.id}`} className="text-[#008099] hover:underline flex items-center">
+                    <Link href={`/owners/${owner.id}`} className="text-[#272525] hover:underline flex items-center">
                       {owner.type === "Construtora" ? (
-                        <Building className="h-4 w-4 mr-2 text-[#008099]/70" />
+                        <Building className="h-4 w-4 mr-2 text-[#272525]/70" />
                       ) : (
-                        <User className="h-4 w-4 mr-2 text-[#008099]/70" />
+                        <User className="h-4 w-4 mr-2 text-[#272525]/70" />
                       )}
                       {owner.name}
                     </Link>
@@ -250,7 +250,7 @@ export function OwnersTable() {
                   <TableCell className="hidden md:table-cell">
                     <Badge
                       variant={owner.type === "Construtora" ? "outline" : "secondary"}
-                      className={owner.type === "Construtora" ? "border-[#008099]/30 text-[#008099]" : ""}
+                      className={owner.type === "Construtora" ? "border-[#272525]/30 text-[#272525]" : ""}
                     >
                       {owner.type}
                     </Badge>
@@ -262,7 +262,7 @@ export function OwnersTable() {
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Badge variant="outline" className="bg-[#008099]/5 border-[#008099]/20">
+                    <Badge variant="outline" className="bg-[#272525]/5 border-[#272525]/20">
                       {owner.propertyCount}
                     </Badge>
                   </TableCell>
@@ -290,7 +290,7 @@ export function OwnersTable() {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+              className="h-8 border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
             >
               <Download className="h-3 w-3 mr-1" />
               Exportar
@@ -300,7 +300,7 @@ export function OwnersTable() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+                  className="h-8 border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
                 >
                   <MoreHorizontal className="h-3 w-3 mr-1" />
                   Mais opções

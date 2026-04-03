@@ -92,7 +92,7 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
       <Button
         onClick={openModal}
         variant="outline"
-        className="h-9 w-9 p-0 border-[#008099]/30 text-[#008099] hover:bg-[#008099]/10 hover:border-[#008099]"
+        className="h-9 w-9 p-0 border-[#272525]/30 text-[#272525] hover:bg-[#272525]/10 hover:border-[#272525]"
         title="Editar Agente"
       >
         <Edit className="h-4 w-4" />
@@ -106,7 +106,7 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
       >
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold flex items-center text-[#008099]">
+            <h2 className="text-xl font-bold flex items-center text-[#272525]">
               <UserIcon className="mr-2 h-5 w-5" />
               Editar Dados do Agente
             </h2>
@@ -124,7 +124,7 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
             <div className="flex flex-wrap gap-2 mb-4">
               <Badge
                 variant={agent.role === "admin" ? "outline" : "secondary"}
-                className={agent.role === "admin" ? "border-[#008099]/30 text-[#008099]" : ""}
+                className={agent.role === "admin" ? "border-[#272525]/30 text-[#272525]" : ""}
               >
                 {agent.role === "admin" ? "Administrador" : "Agente"}
               </Badge>
@@ -135,7 +135,7 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                 {agent.status}
               </Badge>
               {agent.creci && (
-                <Badge variant="outline" className="bg-[#008099]/5 border-[#008099]/20">
+                <Badge variant="outline" className="bg-[#272525]/5 border-[#272525]/20">
                   CRECI: {agent.creci}
                 </Badge>
               )}
@@ -144,19 +144,19 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
 
           <Form {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-4">
-              <Card className="p-4 border-[#008099]/20 shadow-sm">
+              <Card className="p-4 border-[#272525]/20 shadow-sm">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <FormField
                     control={methods.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Nome</FormLabel>
+                        <FormLabel className="text-[#272525]">Nome</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <UserIcon className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                             <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
+                              className="pl-10 border-[#272525]/20 focus-visible:ring-[#272525]"
                               placeholder="Nome completo"
                               {...field}
                             />
@@ -172,12 +172,12 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Telefone</FormLabel>
+                        <FormLabel className="text-[#272525]">Telefone</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                             <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
+                              className="pl-10 border-[#272525]/20 focus-visible:ring-[#272525]"
                               placeholder="(XX) XXXXX-XXXX"
                               {...field}
                             />
@@ -193,12 +193,12 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Email</FormLabel>
+                        <FormLabel className="text-[#272525]">Email</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                             <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
+                              className="pl-10 border-[#272525]/20 focus-visible:ring-[#272525]"
                               placeholder="email@exemplo.com"
                               {...field}
                             />
@@ -214,11 +214,11 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="cpf"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">CPF</FormLabel>
+                        <FormLabel className="text-[#272525]">CPF</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Apenas números"
-                            className="border-[#008099]/20 focus-visible:ring-[#008099]"
+                            className="border-[#272525]/20 focus-visible:ring-[#272525]"
                             {...field}
                           />
                         </FormControl>
@@ -232,12 +232,12 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="creci"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">CRECI</FormLabel>
+                        <FormLabel className="text-[#272525]">CRECI</FormLabel>
                         <FormControl>
                           <div className="relative">
                             <BadgeCheck className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                             <Input
-                              className="pl-10 border-[#008099]/20 focus-visible:ring-[#008099]"
+                              className="pl-10 border-[#272525]/20 focus-visible:ring-[#272525]"
                               placeholder="Número do CRECI"
                               {...field}
                             />
@@ -253,12 +253,12 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="role"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Função</FormLabel>
+                        <FormLabel className="text-[#272525]">Função</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <div className="relative">
                               <Building2 className="absolute left-3 top-3 h-4 w-4 text-muted-foreground z-10" />
-                              <SelectTrigger className="pl-10 border-[#008099]/20 focus:ring-[#008099]">
+                              <SelectTrigger className="pl-10 border-[#272525]/20 focus:ring-[#272525]">
                                 <SelectValue placeholder="Selecione a função" />
                               </SelectTrigger>
                             </div>
@@ -278,10 +278,10 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                     name="status"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-[#008099]">Status</FormLabel>
+                        <FormLabel className="text-[#272525]">Status</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="border-[#008099]/20 focus:ring-[#008099]">
+                            <SelectTrigger className="border-[#272525]/20 focus:ring-[#272525]">
                               <SelectValue placeholder="Selecione o status" />
                             </SelectTrigger>
                           </FormControl>
@@ -302,11 +302,11 @@ function DialogEditAgent({ agent, reloadData }: AgentFormProps) {
                   type="button"
                   variant="outline"
                   onClick={closeModal}
-                  className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+                  className="border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
                 >
                   Cancelar
                 </Button>
-                <Button type="submit" className="bg-[#008099] hover:bg-[#006a80] text-white" disabled={isSubmitting}>
+                <Button type="submit" className="bg-[#272525] hover:bg-[#006a80] text-white" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>
                       <svg

@@ -178,7 +178,7 @@ export function PropertiesSalesScreens() {
       <div className="bg-white p-6 rounded-lg shadow-sm border mb-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-[#008099]">Imóveis para Locação</h1>
+            <h1 className="text-2xl font-bold text-[#272525]">Imóveis para Locação</h1>
             <p className="text-sm text-muted-foreground">Gerenciamento de imóveis disponíveis para  Locação</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
@@ -186,13 +186,13 @@ export function PropertiesSalesScreens() {
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Buscar imóvel..."
-                className="pl-8 w-full border-[#008099]/20 focus-visible:ring-[#008099]"
+                className="pl-8 w-full border-[#272525]/20 focus-visible:ring-[#272525]"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </form>
             <Link href={"/adicionar-imovel"}>
-              <Button className="w-full sm:w-auto bg-[#008099] hover:bg-[#006a80]">
+              <Button className="w-full sm:w-auto bg-[#272525] hover:bg-[#006a80]">
                 <Plus className="mr-2 h-4 w-4" />
                 Adicionar Imóvel
               </Button>
@@ -203,20 +203,20 @@ export function PropertiesSalesScreens() {
         <Tabs defaultValue="todos" className="w-full" onValueChange={setActiveTab}>
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
             <TabsList className="bg-muted/50">
-              <TabsTrigger value="todos" className="data-[state=active]:bg-[#008099] data-[state=active]:text-white">
+              <TabsTrigger value="todos" className="data-[state=active]:bg-[#272525] data-[state=active]:text-white">
                 Todos
               </TabsTrigger>
-              <TabsTrigger value="ativos" className="data-[state=active]:bg-[#008099] data-[state=active]:text-white">
+              <TabsTrigger value="ativos" className="data-[state=active]:bg-[#272525] data-[state=active]:text-white">
                 Ativos
               </TabsTrigger>
-              <TabsTrigger value="inativos" className="data-[state=active]:bg-[#008099] data-[state=active]:text-white">
+              <TabsTrigger value="inativos" className="data-[state=active]:bg-[#272525] data-[state=active]:text-white">
                 Inativos
               </TabsTrigger>
             </TabsList>
 
             <div className="flex flex-wrap gap-2">
               <Select value={statusFilter} onValueChange={setStatusFilter}>
-                <SelectTrigger className="w-[180px] border-[#008099]/20 focus:ring-[#008099]">
+                <SelectTrigger className="w-[180px] border-[#272525]/20 focus:ring-[#272525]">
                   <Filter className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Filtrar por status" />
                 </SelectTrigger>
@@ -228,7 +228,7 @@ export function PropertiesSalesScreens() {
               </Select>
 
               <Select value={sortOrder} onValueChange={setSortOrder}>
-                <SelectTrigger className="w-[180px] border-[#008099]/20 focus:ring-[#008099]">
+                <SelectTrigger className="w-[180px] border-[#272525]/20 focus:ring-[#272525]">
                   <ArrowUpDown className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Ordenar por" />
                 </SelectTrigger>
@@ -242,7 +242,7 @@ export function PropertiesSalesScreens() {
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="border-[#008099]/20 text-[#008099]">
+                  <Button variant="outline" className="border-[#272525]/20 text-[#272525]">
                     <MoreHorizontal className="h-4 w-4 mr-2" />
                     Mais opções
                   </Button>
@@ -271,7 +271,7 @@ export function PropertiesSalesScreens() {
               <CardContent className="p-0">
                 {isLoading ? (
                   <div className="flex flex-col items-center justify-center py-16">
-                    <Loader2 className="h-16 w-16 animate-spin text-[#008099] mb-4" />
+                    <Loader2 className="h-16 w-16 animate-spin text-[#272525] mb-4" />
                     <p className="text-xl font-medium">Carregando imóveis</p>
                     <p className="text-sm text-muted-foreground">Aguarde enquanto buscamos os dados...</p>
                   </div>
@@ -282,14 +282,14 @@ export function PropertiesSalesScreens() {
                     </div>
                     <p className="text-xl font-medium">Erro ao carregar imóveis</p>
                     <p className="text-sm text-muted-foreground mb-6">{error}</p>
-                    <Button onClick={() => window.location.reload()} className="bg-[#008099] hover:bg-[#006a80]">
+                    <Button onClick={() => window.location.reload()} className="bg-[#272525] hover:bg-[#006a80]">
                       Tentar novamente
                     </Button>
                   </div>
                 ) : currentItems.length === 0 ? (
                   <div className="flex flex-col items-center justify-center py-16">
-                    <div className="bg-[#008099]/10 p-4 rounded-full mb-4">
-                      <Sparkles size={60} className="text-[#008099]" />
+                    <div className="bg-[#272525]/10 p-4 rounded-full mb-4">
+                      <Sparkles size={60} className="text-[#272525]" />
                     </div>
                     <p className="text-xl font-medium">Nenhum imóvel encontrado</p>
                     <p className="text-sm text-muted-foreground mb-6 max-w-md text-center">
@@ -310,7 +310,7 @@ export function PropertiesSalesScreens() {
                       </Button>
                     ) : null}
                     <Link href={"/adicionar-imovel"}>
-                      <Button className="bg-[#008099] hover:bg-[#006a80]">
+                      <Button className="bg-[#272525] hover:bg-[#006a80]">
                         <Plus className="mr-2 h-4 w-4" />
                         Adicionar Imóvel
                       </Button>
@@ -323,14 +323,14 @@ export function PropertiesSalesScreens() {
                         <TableRow className="bg-muted/30 hover:bg-muted/30">
                           <TableHead className="w-[70px]">Imagem</TableHead>
                           <TableHead className="w-[200px] min-w-[150px]">
-                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#008099]">
+                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#272525]">
                               <span>Título</span>
                               <ArrowUpDown className="h-3 w-3" />
                             </div>
                           </TableHead>
                           <TableHead className="hidden md:table-cell">Localização</TableHead>
                           <TableHead>
-                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#008099]">
+                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#272525]">
                               <span>Preço</span>
                               <ArrowUpDown className="h-3 w-3" />
                             </div>
@@ -367,7 +367,7 @@ export function PropertiesSalesScreens() {
                                 <div>
                                   <Link
                                     href={`/ficha-imovel/${property.id}`}
-                                    className="hover:underline text-[#008099] flex items-center gap-1 font-medium"
+                                    className="hover:underline text-[#272525] flex items-center gap-1 font-medium"
                                   >
                                     <span className="line-clamp-2">{property.details?.[0]?.title || "Sem título"}</span>
                                     <ExternalLink className="h-3 w-3 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -424,7 +424,7 @@ export function PropertiesSalesScreens() {
                                     <Button
                                       variant="ghost"
                                       size="icon"
-                                      className="hover:bg-[#008099]/10 hover:text-[#008099]"
+                                      className="hover:bg-[#272525]/10 hover:text-[#272525]"
                                     >
                                       <span className="sr-only">Abrir menu</span>
                                       <svg
@@ -493,7 +493,7 @@ export function PropertiesSalesScreens() {
               <CardContent className="p-0">
                 {isLoading ? (
                   <div className="flex flex-col items-center justify-center py-16">
-                    <Loader2 className="h-16 w-16 animate-spin text-[#008099] mb-4" />
+                    <Loader2 className="h-16 w-16 animate-spin text-[#272525] mb-4" />
                     <p className="text-xl font-medium">Carregando imóveis ativos</p>
                     <p className="text-sm text-muted-foreground">Aguarde enquanto buscamos os dados...</p>
                   </div>
@@ -504,21 +504,21 @@ export function PropertiesSalesScreens() {
                     </div>
                     <p className="text-xl font-medium">Erro ao carregar imóveis</p>
                     <p className="text-sm text-muted-foreground mb-6">{error}</p>
-                    <Button onClick={() => window.location.reload()} className="bg-[#008099] hover:bg-[#006a80]">
+                    <Button onClick={() => window.location.reload()} className="bg-[#272525] hover:bg-[#006a80]">
                       Tentar novamente
                     </Button>
                   </div>
                 ) : filteredProperties.length === 0 ? (
                   <div className="flex flex-col items-center justify-center py-16">
-                    <div className="bg-[#008099]/10 p-4 rounded-full mb-4">
-                      <CheckCircle2 size={60} className="text-[#008099]" />
+                    <div className="bg-[#272525]/10 p-4 rounded-full mb-4">
+                      <CheckCircle2 size={60} className="text-[#272525]" />
                     </div>
                     <p className="text-xl font-medium">Nenhum imóvel ativo encontrado</p>
                     <p className="text-sm text-muted-foreground mb-6 max-w-md text-center">
                       Não há imóveis ativos cadastrados no momento.
                     </p>
                     <Link href={"/adicionar-imovel"}>
-                      <Button className="bg-[#008099] hover:bg-[#006a80]">
+                      <Button className="bg-[#272525] hover:bg-[#006a80]">
                         <Plus className="mr-2 h-4 w-4" />
                         Adicionar Imóvel
                       </Button>
@@ -532,14 +532,14 @@ export function PropertiesSalesScreens() {
                         <TableRow className="bg-muted/30 hover:bg-muted/30">
                           <TableHead className="w-[70px]">Imagem</TableHead>
                           <TableHead className="w-[200px] min-w-[150px]">
-                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#008099]">
+                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#272525]">
                               <span>Título</span>
                               <ArrowUpDown className="h-3 w-3" />
                             </div>
                           </TableHead>
                           <TableHead className="hidden md:table-cell">Localização</TableHead>
                           <TableHead>
-                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#008099]">
+                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#272525]">
                               <span>Preço</span>
                               <ArrowUpDown className="h-3 w-3" />
                             </div>
@@ -576,7 +576,7 @@ export function PropertiesSalesScreens() {
                                 <div>
                                   <Link
                                     href={`/ficha-imovel/${property.id}`}
-                                    className="hover:underline text-[#008099] flex items-center gap-1 font-medium"
+                                    className="hover:underline text-[#272525] flex items-center gap-1 font-medium"
                                   >
                                     <span className="line-clamp-2">{property.details?.[0]?.title || "Sem título"}</span>
                                     <ExternalLink className="h-3 w-3 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -624,7 +624,7 @@ export function PropertiesSalesScreens() {
                                     <Button
                                       variant="ghost"
                                       size="icon"
-                                      className="hover:bg-[#008099]/10 hover:text-[#008099]"
+                                      className="hover:bg-[#272525]/10 hover:text-[#272525]"
                                     >
                                       <span className="sr-only">Abrir menu</span>
                                       <svg
@@ -690,7 +690,7 @@ export function PropertiesSalesScreens() {
               <CardContent className="p-0">
                 {isLoading ? (
                   <div className="flex flex-col items-center justify-center py-16">
-                    <Loader2 className="h-16 w-16 animate-spin text-[#008099] mb-4" />
+                    <Loader2 className="h-16 w-16 animate-spin text-[#272525] mb-4" />
                     <p className="text-xl font-medium">Carregando imóveis inativos</p>
                     <p className="text-sm text-muted-foreground">Aguarde enquanto buscamos os dados...</p>
                   </div>
@@ -701,7 +701,7 @@ export function PropertiesSalesScreens() {
                     </div>
                     <p className="text-xl font-medium">Erro ao carregar imóveis</p>
                     <p className="text-sm text-muted-foreground mb-6">{error}</p>
-                    <Button onClick={() => window.location.reload()} className="bg-[#008099] hover:bg-[#006a80]">
+                    <Button onClick={() => window.location.reload()} className="bg-[#272525] hover:bg-[#006a80]">
                       Tentar novamente
                     </Button>
                   </div>
@@ -717,7 +717,7 @@ export function PropertiesSalesScreens() {
                     <Button
                       onClick={() => setActiveTab("todos")}
                       variant="outline"
-                      className="border-[#008099] text-[#008099]"
+                      className="border-[#272525] text-[#272525]"
                     >
                       Ver todos os imóveis
                     </Button>
@@ -730,14 +730,14 @@ export function PropertiesSalesScreens() {
                         <TableRow className="bg-muted/30 hover:bg-muted/30">
                           <TableHead className="w-[70px]">Imagem</TableHead>
                           <TableHead className="w-[200px] min-w-[150px]">
-                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#008099]">
+                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#272525]">
                               <span>Título</span>
                               <ArrowUpDown className="h-3 w-3" />
                             </div>
                           </TableHead>
                           <TableHead className="hidden md:table-cell">Localização</TableHead>
                           <TableHead>
-                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#008099]">
+                            <div className="flex items-center space-x-1 cursor-pointer hover:text-[#272525]">
                               <span>Preço</span>
                               <ArrowUpDown className="h-3 w-3" />
                             </div>
@@ -774,7 +774,7 @@ export function PropertiesSalesScreens() {
                                 <div>
                                   <Link
                                     href={`/ficha-imovel/${property.id}`}
-                                    className="hover:underline text-[#008099] flex items-center gap-1 font-medium"
+                                    className="hover:underline text-[#272525] flex items-center gap-1 font-medium"
                                   >
                                     <span className="line-clamp-2">{property.details?.[0]?.title || "Sem título"}</span>
                                     <ExternalLink className="h-3 w-3 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -825,7 +825,7 @@ export function PropertiesSalesScreens() {
                                     <Button
                                       variant="ghost"
                                       size="icon"
-                                      className="hover:bg-[#008099]/10 hover:text-[#008099]"
+                                      className="hover:bg-[#272525]/10 hover:text-[#272525]"
                                     >
                                       <span className="sr-only">Abrir menu</span>
                                       <svg
@@ -890,15 +890,15 @@ export function PropertiesSalesScreens() {
 
       {/* Dashboard Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <Card className="border-l-4 border-l-[#008099]">
+        <Card className="border-l-4 border-l-[#272525]">
           <CardContent className="p-6">
             <div className="flex justify-between items-center">
               <div>
                 <p className="text-sm font-medium text-muted-foreground">Total de Imóveis</p>
                 <h3 className="text-2xl font-bold mt-1">{properties.length}</h3>
               </div>
-              <div className="bg-[#008099]/10 p-3 rounded-full">
-                <Building className="h-6 w-6 text-[#008099]" />
+              <div className="bg-[#272525]/10 p-3 rounded-full">
+                <Building className="h-6 w-6 text-[#272525]" />
               </div>
             </div>
             <div className="mt-4 text-xs text-muted-foreground flex items-center">
@@ -1002,14 +1002,14 @@ export function PropertiesSalesScreens() {
       {/* Quick Actions */}
       <Card className="border shadow-sm mb-6">
         <CardHeader className="pb-3">
-          <CardTitle className="text-lg font-medium text-[#008099]">Ações Rápidas</CardTitle>
+          <CardTitle className="text-lg font-medium text-[#272525]">Ações Rápidas</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/adicionar-imovel" className="w-full">
               <Button
                 variant="outline"
-                className="h-auto py-4 w-full flex flex-col items-center justify-center border-[#008099]/20 hover:bg-[#008099]/5 hover:text-[#008099] hover:border-[#008099]"
+                className="h-auto py-4 w-full flex flex-col items-center justify-center border-[#272525]/20 hover:bg-[#272525]/5 hover:text-[#272525] hover:border-[#272525]"
               >
                 <Plus className="h-5 w-5 mb-2" />
                 <span>Novo Imóvel</span>
@@ -1017,21 +1017,21 @@ export function PropertiesSalesScreens() {
             </Link>
             <Button
               variant="outline"
-              className="h-auto py-4 flex flex-col items-center justify-center border-[#008099]/20 hover:bg-[#008099]/5 hover:text-[#008099] hover:border-[#008099]"
+              className="h-auto py-4 flex flex-col items-center justify-center border-[#272525]/20 hover:bg-[#272525]/5 hover:text-[#272525] hover:border-[#272525]"
             >
               <Download className="h-5 w-5 mb-2" />
               <span>Exportar</span>
             </Button>
             <Button
               variant="outline"
-              className="h-auto py-4 flex flex-col items-center justify-center border-[#008099]/20 hover:bg-[#008099]/5 hover:text-[#008099] hover:border-[#008099]"
+              className="h-auto py-4 flex flex-col items-center justify-center border-[#272525]/20 hover:bg-[#272525]/5 hover:text-[#272525] hover:border-[#272525]"
             >
               <Building className="h-5 w-5 mb-2" />
               <span>Categorias</span>
             </Button>
             <Button
               variant="outline"
-              className="h-auto py-4 flex flex-col items-center justify-center border-[#008099]/20 hover:bg-[#008099]/5 hover:text-[#008099] hover:border-[#008099]"
+              className="h-auto py-4 flex flex-col items-center justify-center border-[#272525]/20 hover:bg-[#272525]/5 hover:text-[#272525] hover:border-[#272525]"
             >
               <Filter className="h-5 w-5 mb-2" />
               <span>Filtros</span>

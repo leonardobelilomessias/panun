@@ -74,7 +74,7 @@ export function SalePropertiesScreen() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-[#008099] to-[#00a0bf] py-16 text-white">
+      <div className="relative bg-gradient-to-r from-[#272525] to-[#00a0bf] py-16 text-white">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center" />
         <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -102,20 +102,20 @@ export function SalePropertiesScreen() {
                     placeholder="Buscar por título, cidade, bairro..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 bg-white border-[#008099]/20 focus-visible:ring-[#008099]"
+                    className="pl-10 bg-white border-[#272525]/20 focus-visible:ring-[#272525]"
                   />
                 </div>
                 <div className="flex gap-2">
                   <Button
                     type="button"
                     variant="outline"
-                    className="border-[#008099] text-[#008099] hover:bg-[#008099]/10"
+                    className="border-[#272525] text-[#272525] hover:bg-[#272525]/10"
                     onClick={() => setShowFilters(!showFilters)}
                   >
                     <SlidersHorizontal className="h-4 w-4 mr-2" />
                     Filtros
                   </Button>
-                  <Button type="submit" className="bg-[#008099] hover:bg-[#006a80]">
+                  <Button type="submit" className="bg-[#272525] hover:bg-[#006a80]">
                     <Search className="h-4 w-4 mr-2" />
                     Buscar
                   </Button>
@@ -125,7 +125,7 @@ export function SalePropertiesScreen() {
               {showFilters && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 pt-4 border-t">
                   <div>
-                    <label className="text-sm font-medium text-[#008099] mb-1 block">Tipo de Imóvel</label>
+                    <label className="text-sm font-medium text-[#272525] mb-1 block">Tipo de Imóvel</label>
                     <Select disabled>
                       <SelectTrigger>
                         <SelectValue placeholder="Todos os tipos" />
@@ -138,7 +138,7 @@ export function SalePropertiesScreen() {
                     </Select>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-[#008099] mb-1 block">Faixa de Preço</label>
+                    <label className="text-sm font-medium text-[#272525] mb-1 block">Faixa de Preço</label>
                     <Select disabled>
                       <SelectTrigger>
                         <SelectValue placeholder="Qualquer preço" />
@@ -151,7 +151,7 @@ export function SalePropertiesScreen() {
                     </Select>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-[#008099] mb-1 block">Quartos</label>
+                    <label className="text-sm font-medium text-[#272525] mb-1 block">Quartos</label>
                     <Select disabled>
                       <SelectTrigger>
                         <SelectValue placeholder="Qualquer quantidade" />
@@ -193,7 +193,7 @@ export function SalePropertiesScreen() {
                 setCurrentPage(1)
               }}
             >
-              <SelectTrigger className="w-[180px] border-[#008099]/20 focus:ring-[#008099]">
+              <SelectTrigger className="w-[180px] border-[#272525]/20 focus:ring-[#272525]">
                 <SelectValue placeholder="Ordenar por" />
               </SelectTrigger>
               <SelectContent>
@@ -212,7 +212,7 @@ export function SalePropertiesScreen() {
 
         {isLoading ? (
           <div className="flex flex-col items-center justify-center py-20 bg-white rounded-lg shadow-sm">
-            <Loader2 className="h-16 w-16 animate-spin text-[#008099] mb-6" />
+            <Loader2 className="h-16 w-16 animate-spin text-[#272525] mb-6" />
             <h3 className="text-xl font-medium mb-2">Buscando imóveis</h3>
             <p className="text-muted-foreground">Estamos encontrando as melhores opções para você...</p>
           </div>
@@ -225,14 +225,14 @@ export function SalePropertiesScreen() {
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               Ocorreu um erro ao buscar os imóveis. Por favor, tente novamente ou entre em contato com nosso suporte.
             </p>
-            <Button onClick={() => mutate()} className="bg-[#008099] hover:bg-[#006a80]">
+            <Button onClick={() => mutate()} className="bg-[#272525] hover:bg-[#006a80]">
               Tentar novamente
             </Button>
           </div>
         ) : mappedProperties?.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center bg-white rounded-lg shadow-sm">
-            <div className="bg-[#008099]/10 p-4 rounded-full mb-6">
-              <Home className="h-16 w-16 text-[#008099]" />
+            <div className="bg-[#272525]/10 p-4 rounded-full mb-6">
+              <Home className="h-16 w-16 text-[#272525]" />
             </div>
             <h3 className="text-xl font-medium mb-2">Nenhum imóvel encontrado</h3>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
@@ -244,7 +244,7 @@ export function SalePropertiesScreen() {
               <Button
                 variant="outline"
                 onClick={() => setSearchTerm("")}
-                className="border-[#008099] text-[#008099] hover:bg-[#008099]/10"
+                className="border-[#272525] text-[#272525] hover:bg-[#272525]/10"
               >
                 <X className="h-4 w-4 mr-2" />
                 Limpar busca
@@ -283,37 +283,37 @@ export function SalePropertiesScreen() {
             {/* Destaque de Serviços */}
             <div className="mt-16 mb-8">
               <div className="flex items-center justify-center mb-8">
-                <div className="h-1 w-16 bg-[#008099] mr-4"></div>
+                <div className="h-1 w-16 bg-[#272525] mr-4"></div>
                 <h2 className="text-2xl font-bold text-center">Nossos Serviços para Compradores</h2>
-                <div className="h-1 w-16 bg-[#008099] ml-4"></div>
+                <div className="h-1 w-16 bg-[#272525] ml-4"></div>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="p-6 border-t-4 border-t-[#008099] hover:shadow-lg transition-all">
-                  <div className="bg-[#008099]/10 p-3 rounded-full w-fit mb-4">
-                    <MapPin className="h-6 w-6 text-[#008099]" />
+                <Card className="p-6 border-t-4 border-t-[#272525] hover:shadow-lg transition-all">
+                  <div className="bg-[#272525]/10 p-3 rounded-full w-fit mb-4">
+                    <MapPin className="h-6 w-6 text-[#272525]" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-[#008099]">Visitas Personalizadas</h3>
+                  <h3 className="text-lg font-semibold mb-2 text-[#272525]">Visitas Personalizadas</h3>
                   <p className="text-muted-foreground">
                     Agende visitas aos imóveis de seu interesse com nossos consultores especializados.
                   </p>
                 </Card>
 
-                <Card className="p-6 border-t-4 border-t-[#008099] hover:shadow-lg transition-all">
-                  <div className="bg-[#008099]/10 p-3 rounded-full w-fit mb-4">
-                    <ArrowDownUp className="h-6 w-6 text-[#008099]" />
+                <Card className="p-6 border-t-4 border-t-[#272525] hover:shadow-lg transition-all">
+                  <div className="bg-[#272525]/10 p-3 rounded-full w-fit mb-4">
+                    <ArrowDownUp className="h-6 w-6 text-[#272525]" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-[#008099]">Assessoria em Negociação</h3>
+                  <h3 className="text-lg font-semibold mb-2 text-[#272525]">Assessoria em Negociação</h3>
                   <p className="text-muted-foreground">
                     Conte com nossa experiência para negociar as melhores condições na compra do seu imóvel.
                   </p>
                 </Card>
 
-                <Card className="p-6 border-t-4 border-t-[#008099] hover:shadow-lg transition-all">
-                  <div className="bg-[#008099]/10 p-3 rounded-full w-fit mb-4">
-                    <Building className="h-6 w-6 text-[#008099]" />
+                <Card className="p-6 border-t-4 border-t-[#272525] hover:shadow-lg transition-all">
+                  <div className="bg-[#272525]/10 p-3 rounded-full w-fit mb-4">
+                    <Building className="h-6 w-6 text-[#272525]" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-[#008099]">Suporte Jurídico</h3>
+                  <h3 className="text-lg font-semibold mb-2 text-[#272525]">Suporte Jurídico</h3>
                   <p className="text-muted-foreground">
                     Oferecemos assessoria jurídica completa para garantir segurança em toda a transação.
                   </p>
@@ -330,7 +330,7 @@ export function SalePropertiesScreen() {
         )}
 
         {/* CTA Final */}
-        <div className="mt-16 bg-[#008099] text-white rounded-xl p-8 text-center">
+        <div className="mt-16 bg-[#272525] text-white rounded-xl p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">Não encontrou o que procura?</h2>
           <p className="text-lg mb-6 max-w-2xl mx-auto">
             Entre em contato com nossa equipe e compartilhe suas necessidades. Podemos ajudar a encontrar o imóvel
@@ -340,7 +340,7 @@ export function SalePropertiesScreen() {
             <Button variant="secondary" size="lg" className="font-medium">
               Falar com um consultor
             </Button>
-            <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-[#008099]">
+            <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-[#272525]">
               Ver lançamentos
             </Button>
           </div>

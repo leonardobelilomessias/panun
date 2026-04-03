@@ -54,15 +54,15 @@ export function RecentProperties({ title, purpose }: RecentPropertiesProps) {
   }
 
   return (
-    <Card className="col-span-1 border-t-4 border-t-[#008099] hover:shadow-md transition-shadow">
+    <Card className="col-span-1 border-t-4 border-t-[#272525] hover:shadow-md transition-shadow">
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle className="text-[#008099]">{title}</CardTitle>
+            <CardTitle className="text-[#272525]">{title}</CardTitle>
             <CardDescription>Últimos imóveis para {purpose.toLowerCase()} adicionados</CardDescription>
           </div>
           <Link href={`/lista-${purpose.toLowerCase()}`}>
-            <Button variant="ghost" size="sm" className="text-[#008099] hover:text-[#006a80] hover:bg-[#008099]/10">
+            <Button variant="ghost" size="sm" className="text-[#272525] hover:text-[#006a80] hover:bg-[#272525]/10">
               Ver todos
               <ArrowRight className="ml-1 h-3 w-3" />
             </Button>
@@ -99,10 +99,10 @@ export function RecentProperties({ title, purpose }: RecentPropertiesProps) {
         ) : (
           properties.map((property) => (
             <Link href={`/ficha-imovel/${property.id}`} key={property.id}>
-              <div className="flex flex-col space-y-2 border rounded-lg p-3 hover:shadow-md transition-shadow hover:border-[#008099]/30 cursor-pointer">
+              <div className="flex flex-col space-y-2 border rounded-lg p-3 hover:shadow-md transition-shadow hover:border-[#272525]/30 cursor-pointer">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="font-medium text-[#008099]">{property.details[0].title}</h3>
+                    <h3 className="font-medium text-[#272525]">{property.details[0].title}</h3>
                     <div className="flex items-center text-sm text-muted-foreground">
                       <MapPin className="mr-1 h-3 w-3" />
                       <span>

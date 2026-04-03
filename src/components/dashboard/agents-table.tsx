@@ -131,7 +131,7 @@ export function AgentsTable() {
           <Input
             type="search"
             placeholder="Buscar corretores..."
-            className="pl-8 border-[#008099]/20 focus-visible:ring-[#008099]"
+            className="pl-8 border-[#272525]/20 focus-visible:ring-[#272525]"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -139,7 +139,7 @@ export function AgentsTable() {
 
         <div className="flex gap-2 w-full sm:w-auto">
           <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-[140px] border-[#008099]/20 focus:ring-[#008099]">
+            <SelectTrigger className="w-[140px] border-[#272525]/20 focus:ring-[#272525]">
               <Filter className="h-4 w-4 mr-2" />
               <SelectValue placeholder="Status" />
             </SelectTrigger>
@@ -154,14 +154,14 @@ export function AgentsTable() {
             variant="outline"
             onClick={() => loadAgents()}
             disabled={loading}
-            className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+            className="border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
           >
             <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin" : ""}`} />
             Atualizar
           </Button>
 
           <Link href="/corretores/novo-corretor">
-            <Button className="bg-[#008099] hover:bg-[#006a80]">
+            <Button className="bg-[#272525] hover:bg-[#006a80]">
               <PlusCircle className="h-4 w-4 mr-2" />
               Novo
             </Button>
@@ -229,14 +229,14 @@ export function AgentsTable() {
                 <TableRow key={agent.id} className="group hover:bg-muted/20">
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <Avatar className="border-2 border-[#008099]/10">
+                      <Avatar className="border-2 border-[#272525]/10">
                         <AvatarImage src={agent?.avatar_url || "/placeholder.svg?height=40&width=40"} />
-                        <AvatarFallback className="bg-[#008099]/10 text-[#008099]">
+                        <AvatarFallback className="bg-[#272525]/10 text-[#272525]">
                           {agent.name.substring(0, 2).toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <Link href={`/agents/${agent.id}`} className="font-medium text-[#008099] hover:underline">
+                        <Link href={`/agents/${agent.id}`} className="font-medium text-[#272525] hover:underline">
                           {agent.name}
                         </Link>
                         <div className="text-xs text-muted-foreground md:hidden">{agent.email}</div>
@@ -259,7 +259,7 @@ export function AgentsTable() {
                   <TableCell className="hidden md:table-cell">
                     <Badge
                       variant={agent.role === "admin" ? "outline" : "secondary"}
-                      className={agent.role === "admin" ? "border-[#008099]/30 text-[#008099]" : ""}
+                      className={agent.role === "admin" ? "border-[#272525]/30 text-[#272525]" : ""}
                     >
                       {agent.role === "admin" ? "Administrador" : "Corretor"}
                     </Badge>
@@ -288,7 +288,7 @@ export function AgentsTable() {
             <Button
               variant="outline"
               size="sm"
-              className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+              className="h-8 border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
             >
               <Download className="h-3 w-3 mr-1" />
               Exportar
@@ -298,7 +298,7 @@ export function AgentsTable() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-8 border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+                  className="h-8 border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
                 >
                   <MoreHorizontal className="h-3 w-3 mr-1" />
                   Mais opções

@@ -132,7 +132,7 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
       ) : (
         <Button
           onClick={openModal}
-          className="bg-[#008099] hover:bg-[#006b80] text-white px-4 py-2 rounded w-full md:w-auto"
+          className="bg-[#272525] hover:bg-[#006b80] text-white px-4 py-2 rounded w-full md:w-auto"
         >
           <Plus className="mr-2 h-4 w-4" />
           Adicionar Lead
@@ -147,7 +147,7 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
         ariaHideApp={false}
       >
         <div className="p-6">
-          <h2 className="text-xl font-bold mb-4 flex items-center text-[#008099]">
+          <h2 className="text-xl font-bold mb-4 flex items-center text-[#272525]">
             <UserIcon className="mr-2 h-5 w-5" />
             Adicionar Novo Lead
           </h2>
@@ -162,9 +162,9 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">Nome</label>
                     <div className="relative">
-                      <UserIcon className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <UserIcon className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                       <Input
-                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                         placeholder="Nome completo"
                         name="name"
                         value={formData.name}
@@ -177,9 +177,9 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">Telefone</label>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Phone className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                       <Input
-                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                         placeholder="(XX) XXXXX-XXXX"
                         name="phone"
                         value={formData.phone}
@@ -192,9 +192,9 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">Email</label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Mail className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                       <Input
-                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                         placeholder="email@exemplo.com"
                         name="email"
                         value={formData.email}
@@ -207,9 +207,9 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">Data de Nascimento</label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <Calendar className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                       <Input
-                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                         placeholder="DD/MM/AAAA"
                         name="birth_date"
                         value={formData.birth_date ? new Date(formData.birth_date).toLocaleDateString("pt-BR") : ""}
@@ -222,7 +222,7 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">Origem</label>
                     <Select onValueChange={(value) => handleSelectChange("source", value)} value={formData.source}>
-                      <SelectTrigger className="border-gray-300 focus:ring-[#008099]">
+                      <SelectTrigger className="border-gray-300 focus:ring-[#272525]">
                         <SelectValue placeholder="Selecione a origem" />
                       </SelectTrigger>
                       <SelectContent>
@@ -238,7 +238,7 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">Status</label>
                     <Select onValueChange={(value) => handleSelectChange("status", value)} value={formData.status}>
-                      <SelectTrigger className="border-gray-300 focus:ring-[#008099]">
+                      <SelectTrigger className="border-gray-300 focus:ring-[#272525]">
                         <SelectValue placeholder="Selecione o status" />
                       </SelectTrigger>
                       <SelectContent>
@@ -262,9 +262,9 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">Renda Mensal</label>
                     <div className="relative">
-                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                       <Input
-                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                         placeholder="R$ 0,00"
                         name="income"
                         value={formData.income}
@@ -278,9 +278,9 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                   <div>
                     <label className="block text-sm font-medium mb-1">FGTS Disponível</label>
                     <div className="relative">
-                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                      <DollarSign className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                       <Input
-                        className="pl-10 border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                        className="pl-10 border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                         placeholder="R$ 0,00"
                         name="fgts"
                         value={formData.fgts}
@@ -297,7 +297,7 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                       onValueChange={(value) => handleSelectChange("marital_status", value)}
                       value={formData.marital_status}
                     >
-                      <SelectTrigger className="border-gray-300 focus:ring-[#008099]">
+                      <SelectTrigger className="border-gray-300 focus:ring-[#272525]">
                         <SelectValue placeholder="Selecione o estado civil" />
                       </SelectTrigger>
                       <SelectContent>
@@ -321,9 +321,9 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
                 <div>
                   <label className="block text-sm font-medium mb-1">Interesse</label>
                   <div className="relative">
-                    <Home className="absolute left-3 top-3 h-4 w-4 text-[#008099]" />
+                    <Home className="absolute left-3 top-3 h-4 w-4 text-[#272525]" />
                     <Textarea
-                      className="pl-10 min-h-[80px] border-gray-300 focus:border-[#008099] focus:ring-[#008099]"
+                      className="pl-10 min-h-[80px] border-gray-300 focus:border-[#272525] focus:ring-[#272525]"
                       placeholder="Ex: Apartamento 3 quartos em São Paulo"
                       name="interest"
                       value={formData.interest}
@@ -341,7 +341,7 @@ export function DialogFormAddLead({ reloadData, children }: AddLeadProps) {
               <Button type="button" variant="outline" onClick={closeModal} className="border-gray-300">
                 Cancelar
               </Button>
-              <Button type="submit" className="bg-[#008099] hover:bg-[#006b80] text-white" disabled={isSubmitting}>
+              <Button type="submit" className="bg-[#272525] hover:bg-[#006b80] text-white" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
                     <svg

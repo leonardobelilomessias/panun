@@ -90,7 +90,7 @@ if(loading) return<div>Loading ...</div>
       <div className="mb-6">
         <Link
           href="/corretores"
-          className="inline-flex items-center text-sm text-[#008099] hover:text-[#006a80] transition-colors"
+          className="inline-flex items-center text-sm text-[#272525] hover:text-[#006a80] transition-colors"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Voltar para lista de corretores
@@ -100,8 +100,8 @@ if(loading) return<div>Loading ...</div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Left column - Profile summary */}
         <div className="md:col-span-1">
-          <Card className="border-[#008099]/20 overflow-hidden">
-            <div className="bg-gradient-to-r from-[#008099] to-[#00a0bf] h-24 relative">
+          <Card className="border-[#272525]/20 overflow-hidden">
+            <div className="bg-gradient-to-r from-[#272525] to-[#00a0bf] h-24 relative">
               <div className="absolute left-1/2 transform -translate-x-1/2 top-12">
                 
                 <Avatar className="h-24 w-24 border-4 border-white shadow-md">
@@ -111,7 +111,7 @@ if(loading) return<div>Loading ...</div>
                     src={!!agent?.avatars_agents[0]?.url_image?agent?.avatars_agents[0].url_image:""}
                     alt={agent?.name}
                   />
-                  <AvatarFallback className="text-3xl bg-[#008099]/10 text-[#008099]">
+                  <AvatarFallback className="text-3xl bg-[#272525]/10 text-[#272525]">
                     {getInitials(agent?.name||"")}
                   </AvatarFallback>
                 </Avatar>
@@ -124,7 +124,7 @@ if(loading) return<div>Loading ...</div>
               </div>
             </div>
             <CardHeader className="flex flex-col items-center text-center pt-24 pb-2">
-              <CardTitle className="text-xl font-bold text-[#008099]">{agent?.name}</CardTitle>
+              <CardTitle className="text-xl font-bold text-[#272525]">{agent?.name}</CardTitle>
               <div className="flex items-center mt-1 text-muted-foreground">
                 <Award className="h-4 w-4 mr-1" />
                 <span className="text-sm">{agent?.role === "admin" ? "Administrador" : "Agente"}</span>
@@ -140,7 +140,7 @@ if(loading) return<div>Loading ...</div>
                   </Badge>
                 )}
                 {agent?.creci && (
-                  <Badge variant="outline" className="border-[#008099]/20">
+                  <Badge variant="outline" className="border-[#272525]/20">
                     CRECI: {agent?.creci}
                   </Badge>
                 )}
@@ -149,49 +149,49 @@ if(loading) return<div>Loading ...</div>
             <CardContent>
               <div className="space-y-4 mt-2">
                 <div className="flex items-start">
-                  <Phone className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
+                  <Phone className="h-5 w-5 mr-3 text-[#272525] flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium text-[#008099]">Telefone</p>
+                    <p className="text-sm font-medium text-[#272525]">Telefone</p>
                     <p className="text-sm">{agent?.phone}</p>
                   </div>
                 </div>
 
                 {agent?.email && (
                   <div className="flex items-start">
-                    <Mail className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
+                    <Mail className="h-5 w-5 mr-3 text-[#272525] flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm font-medium text-[#008099]">Email</p>
+                      <p className="text-sm font-medium text-[#272525]">Email</p>
                       <p className="text-sm break-all">{agent?.email}</p>
                     </div>
                   </div>
                 )}
 
                 <div className="flex items-start">
-                  <Calendar className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
+                  <Calendar className="h-5 w-5 mr-3 text-[#272525] flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium text-[#008099]">Data de Nascimento</p>
+                    <p className="text-sm font-medium text-[#272525]">Data de Nascimento</p>
                     <p className="text-sm">{formattedBirthDate}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <FileText className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
+                  <FileText className="h-5 w-5 mr-3 text-[#272525] flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium text-[#008099]">CPF</p>
+                    <p className="text-sm font-medium text-[#272525]">CPF</p>
                     <p className="text-sm">{agent?.cpf || "Não informado"}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <Clock className="h-5 w-5 mr-3 text-[#008099] flex-shrink-0 mt-0.5" />
+                  <Clock className="h-5 w-5 mr-3 text-[#272525] flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-sm font-medium text-[#008099]">Cadastrado em</p>
+                    <p className="text-sm font-medium text-[#272525]">Cadastrado em</p>
                     <p className="text-sm">{formattedCreatedAt}</p>
                   </div>
                 </div>
               </div>
 
-              <Separator className="my-6 bg-[#008099]/10" />
+              <Separator className="my-6 bg-[#272525]/10" />
 
               <div className="flex flex-col gap-2">
 
@@ -200,7 +200,7 @@ if(loading) return<div>Loading ...</div>
                     <DialogFormProfile agent={agent} reloadData={reloadEdit}/>
                   }
                 
-                <Button disabled={true} className=" cursor-not-allowed w-full bg-[#008099] hover:bg-[#006a80] text-white  " >
+                <Button disabled={true} className=" cursor-not-allowed w-full bg-[#272525] hover:bg-[#006a80] text-white  " >
                   <Link className="flex items-center  cursor-not-allowed"  href={`/corretores/${agent?.id}/imoveis`}>
                     <Home className="h-4 w-4 mr-2" />
                     Ver Imóveis
@@ -214,37 +214,37 @@ if(loading) return<div>Loading ...</div>
         {/* Right column - Detailed information */}
         <div className="md:col-span-2 space-y-6">
           {/* Address Information */}
-          <Card className="border-[#008099]/20 hover:shadow-md transition-all">
+          <Card className="border-[#272525]/20 hover:shadow-md transition-all">
             <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center text-[#008099]">
+              <CardTitle className="text-lg flex items-center text-[#272525]">
                 <MapPin className="h-5 w-5 mr-2" />
                 Informações de Endereço
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-[#008099]/5 p-3 rounded-md">
-                  <p className="text-sm font-medium text-[#008099]">Logradouro</p>
+                <div className="bg-[#272525]/5 p-3 rounded-md">
+                  <p className="text-sm font-medium text-[#272525]">Logradouro</p>
                   <p className="mt-1">{agent?.street || "Não informado"}</p>
                 </div>
-                <div className="bg-[#008099]/5 p-3 rounded-md">
-                  <p className="text-sm font-medium text-[#008099]">Número</p>
+                <div className="bg-[#272525]/5 p-3 rounded-md">
+                  <p className="text-sm font-medium text-[#272525]">Número</p>
                   <p className="mt-1">{agent?.house_number || "Não informado"}</p>
                 </div>
-                <div className="bg-[#008099]/5 p-3 rounded-md">
-                  <p className="text-sm font-medium text-[#008099]">Bairro</p>
+                <div className="bg-[#272525]/5 p-3 rounded-md">
+                  <p className="text-sm font-medium text-[#272525]">Bairro</p>
                   <p className="mt-1">{agent?.neighborhoods?.name || "Não informado"}</p>
                 </div>
-                <div className="bg-[#008099]/5 p-3 rounded-md">
-                  <p className="text-sm font-medium text-[#008099]">Cidade</p>
+                <div className="bg-[#272525]/5 p-3 rounded-md">
+                  <p className="text-sm font-medium text-[#272525]">Cidade</p>
                   <p className="mt-1">{agent?.cities?.name || "Não informado"}</p>
                 </div>
-                <div className="bg-[#008099]/5 p-3 rounded-md">
-                  <p className="text-sm font-medium text-[#008099]">Estado</p>
+                <div className="bg-[#272525]/5 p-3 rounded-md">
+                  <p className="text-sm font-medium text-[#272525]">Estado</p>
                   <p className="mt-1">{agent?.estates?.name || "Não informado"}</p>
                 </div>
-                <div className="bg-[#008099]/5 p-3 rounded-md">
-                  <p className="text-sm font-medium text-[#008099]">CEP</p>
+                <div className="bg-[#272525]/5 p-3 rounded-md">
+                  <p className="text-sm font-medium text-[#272525]">CEP</p>
                   <p className="mt-1">{agent?.zipcode || "Não informado"}</p>
                 </div>
               </div>
@@ -252,9 +252,9 @@ if(loading) return<div>Loading ...</div>
           </Card>
 
           {/* Professional Information */}
-          <Card className="border-[#008099]/20 hover:shadow-md transition-all">
+          <Card className="border-[#272525]/20 hover:shadow-md transition-all">
             <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center text-[#008099]">
+              <CardTitle className="text-lg flex items-center text-[#272525]">
                 <Building2 className="h-5 w-5 mr-2" />
                 Informações Profissionais
               </CardTitle>
@@ -263,16 +263,16 @@ if(loading) return<div>Loading ...</div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center">
-                    <Shield className="h-5 w-5 mr-2 text-[#008099]" />
-                    <span className="font-medium text-[#008099]">Função</span>
+                    <Shield className="h-5 w-5 mr-2 text-[#272525]" />
+                    <span className="font-medium text-[#272525]">Função</span>
                   </div>
                   <p className="pl-7">{agent?.role === "admin" ? "Administrador" : "Agente Imobiliário"}</p>
                 </div>
 
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center">
-                    <Award className="h-5 w-5 mr-2 text-[#008099]" />
-                    <span className="font-medium text-[#008099]">CRECI</span>
+                    <Award className="h-5 w-5 mr-2 text-[#272525]" />
+                    <span className="font-medium text-[#272525]">CRECI</span>
                   </div>
                   <p className="pl-7">{agent?.creci || "Não informado"}</p>
                 </div>
@@ -284,15 +284,15 @@ if(loading) return<div>Loading ...</div>
                     ) : (
                       <XCircle className="h-5 w-5 mr-2 text-red-500" />
                     )}
-                    <span className="font-medium text-[#008099]">Status</span>
+                    <span className="font-medium text-[#272525]">Status</span>
                   </div>
                   <p className="pl-7">{agent?.status}</p>
                 </div>
 
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center">
-                    <User className="h-5 w-5 mr-2 text-[#008099]" />
-                    <span className="font-medium text-[#008099]">ID do Usuário</span>
+                    <User className="h-5 w-5 mr-2 text-[#272525]" />
+                    <span className="font-medium text-[#272525]">ID do Usuário</span>
                   </div>
                   <p className="pl-7 text-sm break-all font-mono">{agent?.user_id || "Não vinculado"}</p>
                 </div>
@@ -302,7 +302,7 @@ if(loading) return<div>Loading ...</div>
                 <Button
                   disabled={true}
                   variant="outline"
-                  className="w-full sm:w-auto border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10"
+                  className="w-full sm:w-auto border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10"
                   
                 >
                   <Link className="flex items-center" href={`/corretores/${agent?.id}/historico`}>
@@ -315,31 +315,31 @@ if(loading) return<div>Loading ...</div>
           </Card>
 
           {/* Performance Metrics */}
-          <Card className="border-[#008099]/20 hover:shadow-md transition-all">
+          <Card className="border-[#272525]/20 hover:shadow-md transition-all">
             <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center text-[#008099]">
+              <CardTitle className="text-lg flex items-center text-[#272525]">
                 <BarChart3 className="h-5 w-5 mr-2" />
                 Desempenho
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                <div className="bg-[#008099]/5 p-4 rounded-md text-center">
-                  <p className="text-3xl font-bold text-[#008099]">12</p>
+                <div className="bg-[#272525]/5 p-4 rounded-md text-center">
+                  <p className="text-3xl font-bold text-[#272525]">12</p>
                   <p className="text-sm text-muted-foreground">Imóveis Vendidos</p>
                 </div>
-                <div className="bg-[#008099]/5 p-4 rounded-md text-center">
-                  <p className="text-3xl font-bold text-[#008099]">8</p>
+                <div className="bg-[#272525]/5 p-4 rounded-md text-center">
+                  <p className="text-3xl font-bold text-[#272525]">8</p>
                   <p className="text-sm text-muted-foreground">Imóveis Alugados</p>
                 </div>
-                <div className="bg-[#008099]/5 p-4 rounded-md text-center">
-                  <p className="text-3xl font-bold text-[#008099]">R$ 1.2M</p>
+                <div className="bg-[#272525]/5 p-4 rounded-md text-center">
+                  <p className="text-3xl font-bold text-[#272525]">R$ 1.2M</p>
                   <p className="text-sm text-muted-foreground">Volume de Vendas</p>
                 </div>
               </div>
 
               <div className="text-center">
-                <Button variant="outline" className="border-[#008099]/20 text-[#008099] hover:bg-[#008099]/10 cursor-not-allowed">
+                <Button variant="outline" className="border-[#272525]/20 text-[#272525] hover:bg-[#272525]/10 cursor-not-allowed">
                   <FileBarChart className="mr-2 h-4 w-4" />
                   Gerar Relatório Completo
                 </Button>

@@ -20,13 +20,13 @@ export default async function HomePage({ params }: { params: { id: string } }) {
           </div>
           <Tabs defaultValue="clients" className="w-full">
             <TabsList className="grid w-full grid-cols-3 bg-muted/50">
-              <TabsTrigger value="clients" className="data-[state=active]:bg-[#008099] data-[state=active]:text-white">
+              <TabsTrigger value="clients" className="data-[state=active]:bg-[#272525] data-[state=active]:text-white">
                 Clientes
               </TabsTrigger>
-              <TabsTrigger value="agents" className="data-[state=active]:bg-[#008099] data-[state=active]:text-white">
+              <TabsTrigger value="agents" className="data-[state=active]:bg-[#272525] data-[state=active]:text-white">
                 Corretores
               </TabsTrigger>
-              <TabsTrigger value="owners" className="data-[state=active]:bg-[#008099] data-[state=active]:text-white">
+              <TabsTrigger value="owners" className="data-[state=active]:bg-[#272525] data-[state=active]:text-white">
                 Proprietários
               </TabsTrigger>
             </TabsList>
