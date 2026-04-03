@@ -246,7 +246,7 @@ const steps = [
         // 3. Fazer upload das imagens
         const uploadResult = await uploadPropertyImages(result.propertyId, formData)
         if (!uploadResult.success) throw new Error("Erro ao fazer upload das imagens")
-
+          console.log("Imóvel cadastrado com sucesso:", uploadResult)
         toast({
           title: "Sucesso!",
           description: "Imóvel cadastrado com sucesso.",

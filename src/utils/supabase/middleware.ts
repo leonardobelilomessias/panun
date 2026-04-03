@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function updateSession(request: NextRequest) {
+  console.log("Atualizando sessão")
   let supabaseResponse = NextResponse.next({
     request,
   })
@@ -34,12 +35,12 @@ export async function updateSession(request: NextRequest) {
   // IMPORTANT: DO NOT REMOVE auth.getUser()
 
   const publicRoutesProduction = ["/",'/landing', '/cadastro', '/entrar','/dashboard','/imoveis','/contato',"/sobre", "/aluguel","/venda","/imovel"];
-  const publicInmaintance = ['/dashboard','/acesso-em-manutencao','/em-manutencao'];
+  const publicInmaintance = ['/dashboard','/acesso-em-manutencao','/em-manutencao','/em-manutencao-vertano'];
   const publicRoutes = process.env.NEXT_PUBLIC_MAINTENANCE==="true"?publicInmaintance:publicRoutesProduction
   const {
     data: { user },
   } = await supabase.auth.getUser()
-  if(user)
+  if(!user)
   if (
     !user &&
     !request.nextUrl.pathname.startsWith('/entrar') &&
@@ -52,8 +53,8 @@ export async function updateSession(request: NextRequest) {
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
-    
-    url.pathname = process.env.NEXT_PUBLIC_MAINTENANCE==="true"?'/em-manutencao':"/entrar"
+    const swich_site = process.env.NEXT_PUBLIC_IS_VERTANO==="true"?"/em-manutencao-vertano":"/em-manutencao"
+    url.pathname = process.env.NEXT_PUBLIC_MAINTENANCE==="true"?swich_site:"/entrar"
     return NextResponse.redirect(url)
   }
 
