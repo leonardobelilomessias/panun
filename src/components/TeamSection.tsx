@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react"
-
+import AlanPhoto from "@/public/images/profile/team/alan.jpeg"
+import LeoPhoto from "@/public/images/profile/team/leo.jpeg"
+import Renataphoto from "@/public/images/profile/team/renata.jpeg"
 interface TeamMember {
   id: number
   name: string
@@ -36,13 +38,13 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: "Amanda Santos",
-    role: "Consultora Imobiliária",
+    name: "Alan Nunes",
+    role: "Consultor Imobiliário",
     bio: "Especialista em encontrar o imóvel perfeito para cada perfil de cliente. Amanda tem um olhar apurado para detalhes e conhece profundamente o mercado imobiliário da região.",
-    image: "https://i.pravatar.cc/400?img=25",
+    image: AlanPhoto.src,
     contact: {
-      email: "amanda@panun.com",
-      phone: "(31) 99999-8888",
+      email: "alan@panun.com",
+      phone: "(47) 98868-7382",
     },
     social: {
       linkedin: "https://linkedin.com/in/amanda",
@@ -52,13 +54,13 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Marcelo Costa",
-    role: "Analista Financeiro",
-    bio: "Especializado em análise de crédito e condições financeiras, Marcelo trabalha para garantir as melhores taxas e condições para cada cliente, considerando seu perfil e necessidades.",
-    image: "https://i.pravatar.cc/400?img=57",
+    name: "Leonardo Belilo",
+    role: "Marketing e Vendas",
+    bio: "Especializado em Marketing e vendas, Marcelo trabalha para garantir as melhores estratégias de vendas, considerando cada cenário e necessidades.",
+    image: LeoPhoto.src,
     contact: {
-      email: "marcelo@panun.com",
-      phone: "(31) 99999-7777",
+      email: "leonardo@panun.com",
+      phone: "(47) 98868-7382",
     },
     social: {
       linkedin: "https://linkedin.com/in/marcelo",
@@ -66,13 +68,13 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 4,
-    name: "Juliana Mendes",
-    role: "Especialista em Documentação",
-    bio: "Juliana cuida de toda a parte burocrática do processo, garantindo que a documentação esteja completa e correta para agilizar a aprovação do seu financiamento.",
-    image: "https://i.pravatar.cc/400?img=44",
+    name: "Renata Carvalho",
+    role: "Especialista em Processos Gerenciais",
+    bio: "Renata é especialista em processos gerenciais e trabalha para garantir a eficiência e qualidade em todas as etapas do processo.",
+    image: Renataphoto.src,
     contact: {
-      email: "juliana@panun.com",
-      phone: "(31) 99999-6666",
+      email: "renata@panun.com",
+      phone: "(31) 97135-8742",
     },
     social: {
       instagram: "https://instagram.com/juliana",

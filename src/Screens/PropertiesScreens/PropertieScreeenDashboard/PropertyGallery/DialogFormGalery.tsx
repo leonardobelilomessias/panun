@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { useState } from "react"
 import { PropertyGalleryProps } from ".";
-import { uploadPropertyImages } from "@/actions/property-actions";
 import { insertNewPropertyImages, updateGaleryDeleteItens } from "@/lib/supabase/queries/client/properties/updateProperty";
 
 export function DialogFormGalery({ images, idProperty, reloadEdit }: PropertyGalleryProps) {

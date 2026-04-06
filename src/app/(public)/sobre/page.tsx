@@ -4,6 +4,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin, Mail, Phone, ArrowRight, Building2, Users, Clock, Award } from "lucide-react"
+import Image from "next/image"
+import AlanPhoto from "@/public/images/profile/team/alan.jpeg"
+import LeoPhoto from "@/public/images/profile/team/leo.jpeg"
+import Renataphoto from "@/public/images/profile/team/renata.jpeg"
 
 export default function Sobre() {
   return (
@@ -199,8 +203,7 @@ export default function Sobre() {
           </div>
         </div>
       </section>
-
-      {/* Equipe */}
+{/* Equipe */}
       <section className="container mx-auto px-4">
         <div className="flex items-center justify-center mb-12">
           <div className="h-1 w-16 bg-[#272525] mr-4"></div>
@@ -210,30 +213,39 @@ export default function Sobre() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              name: "Carlos Mendes",
-              role: "Diretor Comercial",
-              desc: "Mais de 15 anos de experiência no mercado imobiliário.",
+              name: "Ricardo Oliveira",
+              role: "Especialista em Financiamento",
+              desc: "Com mais de 15 anos de experiência no mercado imobiliário, Ricardo já ajudou centenas de famílias a conquistarem o sonho da casa própria.",
+              image: "https://i.pravatar.cc/400?img=69",
             },
             {
-              name: "Ana Oliveira",
-              role: "Gerente de Vendas",
-              desc: "Especialista em imóveis de alto padrão.",
-            },
-            {
-              name: "Roberto Santos",
+              name: "Alan Nunes",
               role: "Consultor Imobiliário",
-              desc: "Foco em atendimento personalizado e resultados.",
+              desc: "Especialista em encontrar o imóvel perfeito para cada perfil de cliente, com olhar apurado para detalhes e conhecimento profundo do mercado.",
+              image: AlanPhoto.src,
             },
             {
-              name: "Juliana Costa",
-              role: "Analista Jurídica",
-              desc: "Garante a segurança jurídica em todas as transações.",
+              name: "Leonardo Belilo",
+              role: "Marketing e Vendas",
+              desc: "Especializado em Marketing e vendas, trabalha para garantir as melhores estratégias considerando cada cenário e necessidade.",
+              image: LeoPhoto.src,
+            },
+            {
+              name: "Renata Carvalho",
+              role: "Especialista em Processos Gerenciais",
+              desc: "Especialista em processos gerenciais, garante eficiência e qualidade em todas as etapas do processo.",
+              image: Renataphoto.src,
             },
           ].map((member, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-lg transition-all group">
               <CardContent className="p-0">
                 <div className="h-64 bg-slate-200 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('/placeholder.svg?height=300&width=300')] bg-cover bg-center transform transition-transform duration-500 group-hover:scale-110" />
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#272525] to-transparent h-1/2" />
                 </div>
                 <div className="p-6">
@@ -252,7 +264,6 @@ export default function Sobre() {
           </Button>
         </div>
       </section>
-
       {/* Formulário de Contato */}
       <section className="bg-slate-50 py-20">
         <div className="container mx-auto px-4">
