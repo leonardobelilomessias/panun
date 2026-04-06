@@ -11,13 +11,13 @@ import { DetailsStep } from "./steps/details-step"
 import { FinanceStep } from "./steps/finance-step"
 import { ImagesStep } from "./steps/images-step"
 import { StepIndicator } from "./step-indicator"
-import { createProperty, uploadPropertyImages } from "@/actions/property-actions"
+import { createProperty } from "@/actions/property-actions"
+import { uploadPropertyImages } from "@/hooks/use-upload-images"
 import { useToast } from "@/hooks/use-toast"
 import type { Estate, City, Neighborhood, Owner, Agent, Amenity } from "@/types"
 import { getEstates, getCities, getNeighborhoods, getOwners, getAgents, getAmenities } from "@/actions/property-actions"
 import { usePropertieContext } from "@/context/ContextAddPropertie"
 import { Toaster } from "@/components/ui/toaster"
-import { ToastAction } from "@/components/ui/toast"
 import { useRouter } from "next/navigation"
 
 // Esquema de validação para cada etapa
@@ -39,8 +39,8 @@ const basicInfoSchema = z.object({
   documentation_status: z.enum(["Regular", "Irregular"], {
     message: "Selecione o status da documentação",
   }),
-  type_property: z.enum(["Casa", "Apartamento","Lote","Loja"], {
-    message: "Selecione o status da documentação",
+  type_property: z.enum(["Casa", "Apartamento", "Lote", "Loja"], {
+    message: "Selecione o tipo do imóvel",
   }),
 })
 
@@ -71,11 +71,8 @@ const financeSchema = z.object({
 const imagesSchema = z.object({
   mainImage: z.string().min(5, { message: "A imagem principal é obrigatória" }),
   images: z.array(z.string().min(1, { message: "Adicione pelo menos uma imagem adicional" })),
-
-
 })
 
-// Esquema completo do formulário
 const formSchema = z.object({
   ...basicInfoSchema.shape,
   ...detailsSchema.shape,
@@ -83,9 +80,7 @@ const formSchema = z.object({
   ...imagesSchema.shape,
 })
 
-// Tipo inferido do esquema
 type FormValues = z.infer<typeof formSchema>
-
 
 export function MultiStepForm() {
   const router = useRouter()
@@ -99,22 +94,23 @@ export function MultiStepForm() {
   const [agents, setAgents] = useState<Agent[]>([])
   const [amenities, setAmenities] = useState<Amenity[]>([])
   const { toast } = useToast()
-  const {cover, files} = usePropertieContext()
+  const { cover, files } = usePropertieContext()
 
-  // Carregar dados iniciais
   useEffect(() => {
     const loadInitialData = async () => {
       try {
         setIsLoading(true)
         console.log("Carregando dados iniciais...")
 
-        // Carregar proprietários primeiro para verificar se estão sendo buscados corretamente
         const ownersData = await getOwners()
         console.log("Proprietários carregados:", ownersData)
         setOwners(ownersData)
 
-        // Carregar os demais dados
-        const [estatesData, agentsData, amenitiesData] = await Promise.all([getEstates(), getAgents(), getAmenities()])
+        const [estatesData, agentsData, amenitiesData] = await Promise.all([
+          getEstates(),
+          getAgents(),
+          getAmenities(),
+        ])
 
         setEstates(estatesData)
         setAgents(agentsData)
@@ -136,54 +132,50 @@ export function MultiStepForm() {
     loadInitialData()
   }, [toast])
 
-  // Configuração do React Hook Form com Zod
-const methods = useForm<FormValues>({
-  resolver: zodResolver(formSchema),
-  mode: "onChange",
-  defaultValues: {
+  const methods = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    mode: "onChange",
+    defaultValues: {
+      street: "Rua Iara",
+      house_number: "25",
+      zipcode: "30280370",
+      status: "Disponível",
+      city_id: "02bd739e-1522-4fa5-a111-1e02e9109351",
+      neighborhood_id: "272312ae-1003-4c83-93b7-b1919ac2bf02",
+      estate_id: "86bfb551-5af2-409a-96bf-b17c3b426b95",
+      title: "Titulo generico",
+      full_description: "full_descriptionfull_description shot_descriptionshot_descriptionshot_description",
+      shot_description: "shot_descriptionshot_descriptionshot_descriptionshot_description",
+      garage: "1",
+      bathroom: "1",
+      bedroom: "3",
+      total_area: "55.5",
+      usable_area: "55.8",
+      reference_point: "igreja",
+      furnished: false,
+      flor: "4",
+      address: "teste",
+      amenities: [],
+      price: "50000000",
+      iptu: "50000",
+      condominium: "5000",
+      commission: "50",
+      finance_status: "Pendente",
+      mainImage: undefined,
+      images: [],
+      purpose: "Venda",
+      documentation_status: "Regular",
+      type_property: "Casa",
+    },
+  })
 
-    street: "Rua Iara",
-    house_number: "25",
-    zipcode: "30280370",
-    status: "Disponível",
-    city_id: "02bd739e-1522-4fa5-a111-1e02e9109351",
-    neighborhood_id: "272312ae-1003-4c83-93b7-b1919ac2bf02",
-    estate_id: "86bfb551-5af2-409a-96bf-b17c3b426b95",
-    title:"Titulo generico",
-    full_description: "full_descriptionfull_description shot_descriptionshot_descriptionshot_description",
-    shot_description: "shot_descriptionshot_descriptionshot_descriptionshot_description",
-    garage: "1",
-    bathroom: "1",
-    bedroom: "3",
-    total_area: "55.5",
-    usable_area: "55.8",
-    reference_point: "igreja",
-    furnished: false,
-    flor: "4",
-    address: "teste",
-    amenities: [],
-    price: "50000000",
-    iptu: "50000",
-    condominium: "5000",
-    commission: "50",
-    finance_status: "Pendente",
-    mainImage: undefined,
-    images: [],
-    purpose:"Venda",
-    documentation_status:"Regular",
-    type_property:"Casa"
+  const steps = [
+    { id: 1, name: "Informações Básicas", component: BasicInfoStep, schema: basicInfoSchema },
+    { id: 2, name: "Detalhes", component: DetailsStep, schema: detailsSchema },
+    { id: 3, name: "Financeiro", component: FinanceStep, schema: financeSchema },
+    { id: 4, name: "Imagens", component: ImagesStep, schema: imagesSchema },
+  ]
 
-  },
-})
-
-const steps = [
-  { id: 1, name: "Informações Básicas", component: BasicInfoStep, schema: basicInfoSchema },
-  { id: 2, name: "Detalhes", component: DetailsStep, schema: detailsSchema },
-  { id: 3, name: "Financeiro", component: FinanceStep, schema: financeSchema },
-  { id: 4, name: "Imagens", component: ImagesStep, schema: imagesSchema },
-]
-
-  // Observar mudanças no estado selecionado para carregar cidades
   useEffect(() => {
     const estateId = methods.watch("estate_id")
     if (estateId) {
@@ -195,7 +187,6 @@ const steps = [
     methods.setValue("neighborhood_id", "")
   }, [methods.watch("estate_id")])
 
-  // Observar mudanças na cidade selecionada para carregar bairros
   useEffect(() => {
     const cityId = methods.watch("city_id")
     if (cityId) {
@@ -227,48 +218,43 @@ const steps = [
   }
 
   const onSubmit = async (data: FormValues) => {
-
-    if (currentStep === steps.length) {
-
-      setIsSubmitting(true)
-
-      try {
-        // 1. Criar a propriedade no banco de dados
-        const result = await createProperty(data)
-        
-        if (!result.success) throw new Error("Erro ao criar propriedade")
-
-        // 2. Criar o FormData para o envio das imagens
-        const formData = new FormData()
-        if (cover) formData.append("cover", cover)
-        files.forEach((file) => formData.append("images", file))
-
-        // 3. Fazer upload das imagens
-        const uploadResult = await uploadPropertyImages(result.propertyId, formData)
-        if (!uploadResult.success) throw new Error("Erro ao fazer upload das imagens")
-          console.log("Imóvel cadastrado com sucesso:", uploadResult)
-        toast({
-          title: "Sucesso!",
-          description: "Imóvel cadastrado com sucesso.",
-        })
-
-        // Resetar o formulário
-        methods.reset()
-        setCurrentStep(1)
-        router.push(`/imovel-adicionado/${result.propertyId}`)
-      } catch (error) {
-        console.error("Erro ao cadastrar imóvel:", error)
-        toast({
-          title: "Erro",
-          description: "Ocorreu um erro ao cadastrar o imóvel. Tente novamente.",
-          variant: "destructive",
-        })
-      
-      } finally {
-        setIsSubmitting(false)
-      }
-    } else {
+    if (currentStep !== steps.length) {
       handleNext()
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      // 1. Criar o registro da propriedade no banco
+      const result = await createProperty(data)
+      if (!result.success) throw new Error("Erro ao criar propriedade")
+
+      // 2. Validar se a imagem principal foi selecionada
+      if (!cover) throw new Error("Imagem principal é obrigatória")
+
+      // 3. Upload direto do browser para o Supabase
+      const uploadResult = await uploadPropertyImages(result.propertyId, cover, files)
+      if (!uploadResult.success) throw new Error(uploadResult.error)
+
+      toast({
+        title: "Sucesso!",
+        description: "Imóvel cadastrado com sucesso.",
+      })
+
+      methods.reset()
+      setCurrentStep(1)
+      router.push(`/imovel-adicionado/${result.propertyId}`)
+
+    } catch (error) {
+      console.error("Erro ao cadastrar imóvel:", error)
+      toast({
+        title: "Erro",
+        description: error instanceof Error ? error.message : "Erro ao cadastrar o imóvel.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -319,13 +305,11 @@ const steps = [
               <Button type="button" onClick={handleNext} disabled={isSubmitting}>
                 Próximo
               </Button>
-              
             )}
           </CardFooter>
         </Card>
       </form>
-      <Toaster/>
-
+      <Toaster />
     </FormProvider>
   )
 }

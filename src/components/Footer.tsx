@@ -15,7 +15,7 @@ export const Footer = ({isMobile}:{isMobile?:boolean}) => {
             href="/"
             className="font-bold text-xl flex"
           >
-            <Image src={ImageLogoGreen} alt="image logo greeen panum " height={600} width={600}/>
+            <Image src={ImageLogoGreen} alt="image logo greeen Panun " height={600} width={600}/>
           </a>
         </div>
 
@@ -154,7 +154,7 @@ export const Footer = ({isMobile}:{isMobile?:boolean}) => {
 
       <section className="container pb-14 text-center">
         <h3>
-          &copy; 2025 Panum - {" "}
+          &copy; 2025 Panun - {" "}
           <a
             rel="noreferrer noopener"
             target="_blank"

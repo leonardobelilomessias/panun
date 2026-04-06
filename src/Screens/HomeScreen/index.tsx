@@ -90,11 +90,11 @@ export async function HomeScreen() {
       />
       <Hero />
 
-      <HousesBlock
+      {/* <HousesBlock
         properties={changeDataRent}
         title="Propriedades para Aluguel"
         description="Nossa coletânea de casas para aluguel"
-      />
+      /> */}
       <TestimonialsSection/>
       <TeamSection/>
       <HowItWorks />

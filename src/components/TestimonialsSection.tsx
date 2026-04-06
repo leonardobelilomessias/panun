@@ -19,7 +19,7 @@ const testimonials: Testimonial[] = [
     content:
       "O processo de financiamento foi muito mais simples do que eu imaginava. A equipe me orientou em cada etapa e consegui taxas excelentes. Recomendo a todos que estão pensando em comprar um imóvel.",
     rating: 5,
-    image: "/placeholder.svg?height=100&width=100",
+    image: "https://i.pravatar.cc/100?img=11",
     property: "Apartamento - Savassi",
   },
   {
@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
     content:
       "Já tinha tentado financiamento em outros lugares, mas só aqui consegui aprovação rápida e condições que cabiam no meu orçamento. O atendimento online facilitou muito, pois pude resolver tudo sem sair de casa.",
     rating: 5,
-    image: "/placeholder.svg?height=100&width=100",
+    image: "https://i.pravatar.cc/100?img=47",
     property: "Casa - Eldorado",
   },
   {
@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     content:
       "Como empresário, precisava de um financiamento para meu novo escritório. A assessoria especializada fez toda diferença, entendendo exatamente o que eu precisava e oferecendo as melhores opções do mercado.",
     rating: 4,
-    image: "/placeholder.svg?height=100&width=100",
+    image: "https://i.pravatar.cc/100?img=52",
     property: "Sala Comercial - Centro",
   },
 ]

@@ -66,7 +66,7 @@ export const Navbar = () => {
               href="/"
               className="ml-2 font-bold text-xl flex text-white"
             >
-              <Image src={ImageLogowhite} width={150} height={100} alt="logo panum imobiliaria" />
+              <Image src={ImageLogowhite} width={150} height={100} alt="logo Panun imobiliaria" />
             </a>
           </NavigationMenuItem>
 

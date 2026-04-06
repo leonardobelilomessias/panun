@@ -24,7 +24,7 @@ const teamMembers: TeamMember[] = [
     name: "Ricardo Oliveira",
     role: "Especialista em Financiamento",
     bio: "Com mais de 15 anos de experiência no mercado imobiliário, Ricardo já ajudou centenas de famílias a conquistarem o sonho da casa própria com as melhores condições de financiamento.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://i.pravatar.cc/400?img=69",
     contact: {
       email: "ricardo@panun.com",
       phone: "(31) 99999-9999",
@@ -39,7 +39,7 @@ const teamMembers: TeamMember[] = [
     name: "Amanda Santos",
     role: "Consultora Imobiliária",
     bio: "Especialista em encontrar o imóvel perfeito para cada perfil de cliente. Amanda tem um olhar apurado para detalhes e conhece profundamente o mercado imobiliário da região.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://i.pravatar.cc/400?img=25",
     contact: {
       email: "amanda@panun.com",
       phone: "(31) 99999-8888",
@@ -55,7 +55,7 @@ const teamMembers: TeamMember[] = [
     name: "Marcelo Costa",
     role: "Analista Financeiro",
     bio: "Especializado em análise de crédito e condições financeiras, Marcelo trabalha para garantir as melhores taxas e condições para cada cliente, considerando seu perfil e necessidades.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://i.pravatar.cc/400?img=57",
     contact: {
       email: "marcelo@panun.com",
       phone: "(31) 99999-7777",
@@ -69,7 +69,7 @@ const teamMembers: TeamMember[] = [
     name: "Juliana Mendes",
     role: "Especialista em Documentação",
     bio: "Juliana cuida de toda a parte burocrática do processo, garantindo que a documentação esteja completa e correta para agilizar a aprovação do seu financiamento.",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "https://i.pravatar.cc/400?img=44",
     contact: {
       email: "juliana@panun.com",
       phone: "(31) 99999-6666",

@@ -36,14 +36,18 @@ interface RouteProps {
 }
 
 const routeList: RouteProps[] = [
+    {
+    href: "/",
+    label: "Inicio",
+  },
   {
     href: "/venda",
     label: "Venda",
   },
-  {
-    href: "/aluguel",
-    label: "Aluguel",
-  },
+  // {
+  //   href: "/aluguel",
+  //   label: "Aluguel",
+  // },
   {
     href: "/sobre",
     label: "Sobre nós",
@@ -70,7 +74,7 @@ export const Navbar = () => {
               href="/"
               className="ml-2 font-bold text-xl flex text-white"
             >
-              <Image src={ImageLogowhite} width={150} height={100} alt="logo panum imobiliaria" />
+              <Image src={ImageLogowhite} width={150} height={100} alt="logo Panun imobiliaria" />
             </a>
           </NavigationMenuItem>
 
@@ -100,7 +104,7 @@ export const Navbar = () => {
                       href="/"
                       className=" font-bold  text-xl flex text-white relative"
                     >
-                      <Image src={ImageLogoGreen} width={150} height={100} className="m-auto " alt="logo panum imobiliaria" />
+                      <Image src={ImageLogoGreen} width={150} height={100} className="m-auto " alt="logo Panun imobiliaria" />
                       
                     </a>
 

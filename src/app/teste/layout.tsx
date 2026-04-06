@@ -5,7 +5,7 @@ import "../../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: {
-    template: '%s | Panum - Soluçoes imobiliárias',
+    template: '%s | Panun - Soluçoes imobiliárias',
     default: 'Panun | Soluçoes imobiliárias ',
   },
   description: "Comunidade Imigrantes",

@@ -20,7 +20,7 @@ export const NavbarDashboard = () => {
               href="/dashboard"
               className="ml-2 font-bold text-xl flex"
             >
-              <Image src={ImageLogowhite} width={150} height={100} alt="logo panum imobiliaria" />
+              <Image src={ImageLogowhite} width={150} height={100} alt="logo Panun imobiliaria" />
             </Link>
           </NavigationMenuItem>
           <div className="flex gap-5 items-center">
