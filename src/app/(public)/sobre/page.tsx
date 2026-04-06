@@ -8,6 +8,7 @@ import Image from "next/image"
 import AlanPhoto from "@/public/images/profile/team/alan.jpeg"
 import LeoPhoto from "@/public/images/profile/team/leo.jpeg"
 import Renataphoto from "@/public/images/profile/team/renata.jpeg"
+import GizellePhoto from "@/public/images/profile/team/gizelle.jpeg"
 
 export default function Sobre() {
   return (
@@ -213,10 +214,10 @@ export default function Sobre() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              name: "Ricardo Oliveira",
-              role: "Especialista em Financiamento",
-              desc: "Com mais de 15 anos de experiência no mercado imobiliário, Ricardo já ajudou centenas de famílias a conquistarem o sonho da casa própria.",
-              image: "https://i.pravatar.cc/400?img=69",
+              name: "Gizelle de Paula",
+              role: "Diretora Executiva",
+              desc: "Gizelle é a força motriz por trás da Panun, liderando a empresa com visão estratégica e paixão pelo mercado imobiliário.",
+              image: GizellePhoto.src,
             },
             {
               name: "Alan Nunes",

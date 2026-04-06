@@ -105,7 +105,7 @@ export function FormSingIn(){
             <FormItem>
               <FormLabel  className="text-xs">Senha</FormLabel>
               <FormControl>
-                <Input placeholder="Digite sua Senha" {...field} />
+                <Input type="password" placeholder="Digite sua Senha" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

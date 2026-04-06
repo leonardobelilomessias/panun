@@ -3,6 +3,7 @@ import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react"
 import AlanPhoto from "@/public/images/profile/team/alan.jpeg"
 import LeoPhoto from "@/public/images/profile/team/leo.jpeg"
 import Renataphoto from "@/public/images/profile/team/renata.jpeg"
+import GizellePhoto from "@/public/images/profile/team/gizelle.jpeg"
 interface TeamMember {
   id: number
   name: string
@@ -23,12 +24,12 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Ricardo Oliveira",
-    role: "Especialista em Financiamento",
-    bio: "Com mais de 15 anos de experiência no mercado imobiliário, Ricardo já ajudou centenas de famílias a conquistarem o sonho da casa própria com as melhores condições de financiamento.",
-    image: "https://i.pravatar.cc/400?img=69",
+    name: "Gizelle de Paula",
+    role: "Diretora Executiva",
+    bio: " Gizelle é a força motriz por trás da Panun, liderando a empresa com visão estratégica e paixão pelo mercado imobiliário. Com uma vasta experiência no setor, ela é responsável por definir a direção da empresa e garantir que cada cliente tenha uma experiência excepcional.",
+    image: GizellePhoto.src,
     contact: {
-      email: "ricardo@panun.com",
+      email: "gizelle@panun.com",
       phone: "(31) 99999-9999",
     },
     social: {
